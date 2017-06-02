@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Page not found
+{% endblock %}
+
+{% block main %}
+<div class="container">
+
+	<div class="row">
+		<div class="col s12" style="padding-top: 150px;">
+			<h1 class="center-align" id="head"><a href="{{ url_for('index') }}"> meilix-generator</a></h1>
+		</div>
+	</div>
+
+  
+	<div class="row">
+		<div class="col s2"></div>
+	    <div class="col s8">
+		    <div class="row">
+		        <div class="col s12">
+		          <div class="card hoverable">
+		            
+		            <div class="card-content">
+		              <h3 class="center-align"> Error 404! </h3>
+		              <p class="center-align"> Page not found</p>
+		            </div>
+		            <div class="card-action center-align">
+		              Go to &nbsp;<a class="btn btn-floating cyan pulse" href="{{ url_for('index') }}"><i class="material-icons">home</i></a>
+		            </div>
+		          </div>
+		        </div>
+	      	</div>
+	    </div>
+	    <div class="col s2"></div>
+	</div>		
+</div>
+{% endblock %}
+
+
+
+

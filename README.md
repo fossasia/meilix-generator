@@ -1,16 +1,14 @@
 # meilix-generator
 ------------------------------
+https://melix-generator.herokuapp.com/
 
 
+to run it 
 
-
-
-
-
-
-
-
-
+```
+export FLASK_DEBUG=1 FLASK_APP=app.py 
+flask run
+```
 
 
 

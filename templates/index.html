@@ -1,19 +1,40 @@
-<!DOCTYPE html>
-<html >
-<head>
-  <meta charset="UTF-8">
-  <title>Meilix Generator</title>
+{% extends "layout.html" %}
 
-     <link rel="stylesheet" href="static/styles.css">
+{% block title %}
+    Home
+{% endblock %}
 
-</head>
-<body>
-<a href="#" class="build-button build-button--html build-button--color">
-  <b class="build-button__bracket">&lt;</b>
-  <span class="build-button__build">/</span>
-  <span class="build-button__text">Build</span>
-  <b class="build-button__bracket">&gt;</b>
-</a>
+{% block extras %}
+	<meta property="og:image" content="https://preview.ibb.co/gdSKtF/logo.jpg" />
+	<meta property="og:title" content="Meilix-Generator" />
+	<meta property="og:description" content="A webapp which generate iso according to user configuration." />
+	<link rel="image_src" type="image/jpeg" href="https://preview.ibb.co/gdSKtF/logo.jpg" />
+{% endblock %}
 
-</body>
-</html>
+{% block main %}
+<div class="container">
+
+	<div class="row">
+		<div class="col s12" style="padding-top: 150px;">
+			<h1 class="center-align" id="head"><a href="{{ url_for('index') }}"> Meilix-Generator</a></h1>
+		</div>
+	</div>
+
+
+	<div class="row">
+		<div class="col s2"></div>
+	      <div class="row">
+	        <div class="input-field col s12">
+                <a href="#" class="build-button build-button--html build-button--color">
+                        <b class="build-button__bracket">&lt;</b>
+                    <span class="build-button__build">/</span>
+                  <span class="build-button__text">Build</span>
+                <b class="build-button__bracket">&gt;</b>
+            </a>
+	        </div>
+	      </div>
+	    </form>
+	    <div class="col s2"></div>
+	</div>
+</div>
+{% endblock %}

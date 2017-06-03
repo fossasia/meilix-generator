@@ -9,6 +9,8 @@ to run it
 export FLASK_DEBUG=1 FLASK_APP=app.py 
 flask run
 ```
+the application will greet you on
+         http://localhost:5000/
 
 
 

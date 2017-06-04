@@ -1,10 +1,10 @@
 from flask import Flask, render_template
-
+import os
 import git
 import subprocess
 
 # cloning meilix code
-git.Git().clone("git@github.com:fossasia/meilix.git")
+os.system("git clone https://github.com/fossasia/meilix.git")
 
 app = Flask(__name__)
 

@@ -1,11 +1,21 @@
 from flask import Flask, render_template
 
+import git
+import subprocess
+
+# cloning meilix code
+git.Git().clone("git@github.com:fossasia/meilix.git")
+
 app = Flask(__name__)
 
 @app.route('/')
 def index():
 	"""Index page"""
 	return render_template("index.html")
+
+#Function to call meilix script on clicking the build button	
+def meilixCall():
+    subprocess.call(['./build.sh'])
 
 @app.route('/about')
 def about():

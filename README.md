@@ -6,6 +6,12 @@ https://melix-generator.herokuapp.com/
 to run it locally
 
 ```
+sudo pip install virtualenv
+git clone https://github.com/Meilix-Generator/meilix-generator.git
+cd meilix-generator
+virtualenv venv
+source venv/bin/activate
+sudo pip install -r requirements.txt 
 export FLASK_DEBUG=1 FLASK_APP=app.py 
 flask run
 ```

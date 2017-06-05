@@ -1,6 +1,5 @@
-from flask import Flask, render_template
-import os
-import git
+from flask import Flask, render_template, Response
+import time
 import subprocess
 
 # cloning meilix code
@@ -15,10 +14,10 @@ def index():
 
 
 @app.route('/yield')
-def meilixCall():
+def output():
 	def inner():
 		proc = subprocess.Popen(
-			['cmd'],             #call something with a lot of output so we can see it
+			['dmesg'],             #call something with a lot of output so we can see it
 			shell=True,universal_newlines=True,
 			stdout=subprocess.PIPE
 		)

@@ -1,3 +1,3 @@
 
 cd meili
-./build.sh
+sudo ./build.sh

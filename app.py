@@ -17,7 +17,7 @@ def index():
 def output():
 	def inner():
 		proc = subprocess.Popen(
-			['dmesg'],             #call something with a lot of output so we can see it
+			['./script.sh'],             #call something with a lot of output so we can see it
 			shell=True,universal_newlines=True,
 			stdout=subprocess.PIPE
 		)

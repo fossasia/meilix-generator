@@ -1,3 +1,3 @@
 
 cd meili
-sudo ./build.sh
+fakeroot -u ./build.sh

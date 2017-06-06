@@ -1,0 +1,3 @@
+[submodule "meilix"]
+	path = meilix
+	url = https://github.com/Meilix-Generator/meilix.git

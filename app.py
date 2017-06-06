@@ -1,4 +1,7 @@
 from flask import Flask, render_template
+import subprocess
+from subprocess import call
+from subprocess import Popen, PIPE
 
 app = Flask(__name__)
 
@@ -6,6 +9,17 @@ app = Flask(__name__)
 def index():
 	"""Index page"""
 	return render_template("index.html")
+
+@app.route('/build', methods=['GET', 'POST'])
+def api_build():
+    '''trigger the build script'''
+    subprocess.call(['./build.sh'])
+proc = subprocess.Popen(['path_to_tool', '-option1', 'option2'],
+                        stdout=file_out, stderr=subprocess.PIPE)
+for line in proc.stderr:
+    sys.stdout.write(line)
+    log_file.write(line)
+proc.wait()
 
 @app.route('/about')
 def about():

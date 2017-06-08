@@ -5,7 +5,7 @@ do
     user="${array[0]}"
     project="${array[1]}"
     len=${#array[@]}
-    for ((i=3; i<len; i++)); do
+    for ((i=2; i<len; i++)); do
         branch="${array[i]}"
         body="{\"request\": {\"branch\":\"${branch}\"}}"
         echo "Triggering build of ${user}'s ${project}/${branch} with token ${KEY}"

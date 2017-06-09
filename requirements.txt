@@ -1,3 +1,5 @@
 Flask
 gunicorn
 gitpython
+werkzeug
+Flask-WTF

@@ -1,34 +1,64 @@
-from flask import Flask, render_template, Response
+import os
+from flask import Flask, render_template, Response ,request ,redirect ,url_for ,send_from_directory
+
+from werkzeug import secure_filename
 import time
 import subprocess
 
-# cloning meilix code
-#os.system("git clone https://github.com/fossasia/meilix.git")
-
+# These are the extension that we are accepting to be uploaded
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
+UPLOAD_FOLDER = 'uploads/'
+# Initialize the Flask application
 app = Flask(__name__)
 
-@app.route('/')
+# This is the path to the upload directory
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
+
+def allowed_file(filename):
+	return '.' in filename and \
+			filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
+
+@app.route("/", methods=['GET', 'POST'])
 def index():
-	#Index page
-	return render_template("index.html")
+	if request.method == 'POST':
+		email = request.form['email']
+		TRAVIS_TAG = request.form['TRAVIS_TAG']
+		file = request.files['file']
+		if file and allowed_file(file.filename):
+			filename = secure_filename(file.filename)
+			file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+			os.rename(UPLOAD_FOLDER + filename, UPLOAD_FOLDER+'wallpaper')
+			filename = 'wallpaper'
+			if email != '' and TRAVIS_TAG != '':
+				os.environ["email"] = email
+				os.environ["TRAVIS_TAG"] = TRAVIS_TAG
+				return redirect(url_for('output'))
+	return render_template('index.html')
 
 
 @app.route('/yield')
 def output():
 	def inner():
 		proc = subprocess.Popen(
+
 			['./script.sh'],             #call something with a lot of output so we can see it
+
 			shell=True,universal_newlines=True,
 			stdout=subprocess.PIPE
 		)
 
 		for line in iter(proc.stdout.readline,''):
-			time.sleep(1)                           # Don't need this just shows the text streaming
+			time.sleep(1)  # Don't need this just shows the text streaming
 			yield line.rstrip() + '<br/>\n'
 
 	return Response(inner(), mimetype='text/html')  # text/html is required for most browsers to show th$
 
 #Function to call meilix script on clicking the build button
+
+@app.route('/uploads/<filename>')
+def uploaded_file(filename):
+	return send_from_directory(app.config['UPLOAD_FOLDER'],filename)
 
 @app.route('/about')
 def about():

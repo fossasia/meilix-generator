@@ -7,9 +7,17 @@ do
     len=${#array[@]}
     for ((i=2; i<len; i++)); do
         branch="${array[i]}"
-        body="{\"request\": {\"branch\":\"${branch}\"}}"
-        echo "Triggering build of ${user}'s ${project}/${branch} with token ${KEY}"
-        curl -s -X POST \
+        body="{\"request\":{
+            \"branch\":\"${branch}\",
+            \"config\":{
+                \"env\":{
+                    \"email\":\"${email}\",
+                    \"TRAVIS_TAG\":\"${TRAVIS_TAG}\"
+                }
+            }
+    }}"
+            echo "https://github.com/meets2tarun/meilix/releases/download/${TRAVIS_TAG}/meilix-zesty-`date +%Y%m%d`-i386.iso"
+            curl -s -X POST \
             -H "Content-Type: application/json" \
             -H "Accept: application/json" \
             -H "Travis-API-Version: 3" \

@@ -8,7 +8,6 @@ do
     for ((i=2; i<len; i++)); do
         branch="${array[i]}"
         body="{\"request\": {\"branch\":\"${branch}\"}}"
-        echo "Triggering build of ${user}'s ${project}/${branch} with token ${KEY}"
         curl -s -X POST \
             -H "Content-Type: application/json" \
             -H "Accept: application/json" \

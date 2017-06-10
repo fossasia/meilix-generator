@@ -1,17 +1,18 @@
 import os
-from flask import Flask, render_template, Response ,request ,redirect ,url_for
+from flask import Flask, render_template, Response ,request ,redirect ,url_for ,send_from_directory
+
 from werkzeug import secure_filename
 import time
 import subprocess
 
 # These are the extension that we are accepting to be uploaded
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
-
+UPLOAD_FOLDER = 'uploads/'
 # Initialize the Flask application
 app = Flask(__name__)
 
 # This is the path to the upload directory
-app.config['UPLOAD_FOLDER'] = 'uploads/'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 def allowed_file(filename):
 	return '.' in filename and \
@@ -21,11 +22,12 @@ def allowed_file(filename):
 def index():
 	if request.method == 'POST':
 		file = request.files['file']
-		#file.filename = "wallpaper"
 		if file and allowed_file(file.filename):
 			filename = secure_filename(file.filename)
 			file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+			os.rename(UPLOAD_FOLDER + filename, UPLOAD_FOLDER+'wallpaper')
 			return redirect(url_for('output'))
+			filename = 'wallpaper'
 	return render_template('index.html')
 
 
@@ -47,6 +49,10 @@ def output():
 	return Response(inner(), mimetype='text/html')  # text/html is required for most browsers to show th$
 
 #Function to call meilix script on clicking the build button
+
+@app.route('/uploads/<filename>')
+def uploaded_file(filename):
+	return send_from_directory(app.config['UPLOAD_FOLDER'],filename)
 
 @app.route('/about')
 def about():

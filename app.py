@@ -1,17 +1,23 @@
 from flask import Flask, render_template, Response
 import time
 import subprocess
+import sys, os
 
 # cloning meilix code
 #os.system("git clone https://github.com/fossasia/meilix.git")
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def index():
 	#Index page
 	return render_template("index.html")
 
+@app.route('/oauth')
+def dropbox():
+call(['bash', 'test.sh'])
+call(['ls','-l'])
 
 @app.route('/yield')
 def output():

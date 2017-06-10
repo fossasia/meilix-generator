@@ -1,0 +1,78 @@
+How to run the unittests
+========================
+
+*After some configuration*, you can run the tests with either py.test
+or setup.py:
+
+   py.test tests
+   python setup.py test
+
+If you want to run a subset of tests:
+
+   py.test tests/test_client.py             (run just one file's tests)
+   py.test tests -k test_set_request_token  (run just the named test)
+
+Below are the steps needed to obtain the right configuration.
+
+Common setup
+------------
+
+- Go to https://www.dropbox.com/developers/apps and click on Create
+  App.  Select "Dropbox API app".  Select "Files and datastores".
+  Select "Yes" (limited to its own, private folder).  Choose any app
+  name you like.  Click "Create app".  You will need the App key and
+  App secret from the page displayed on successful app creation.
+  (If you already have a suitable app, you can get these values from
+  the app's Options page.)
+
+- chdir into the example directory.
+
+- Edit cli_client.py to set APP_KEY and APP_SECRET to the values from
+  the previous step.
+
+OAuth2 setup
+------------
+
+Note that the access token may expire or be revoked.  You may have
+to repeat the following steps occasionally.
+
+- Still in the example directory, start the cli_client.py program as follows:
+
+  PYTHONPATH=.. python cli_client.py
+
+  This gives you a "Dropbox>" prompt.  Type "login" and follow the
+  instructions.  Then exit the program (type ^D).  You now have a file
+  token_store.txt containing the OAuth2 access token.
+
+- Chdir one level up.
+
+- Copy tests/oauth2.auth.example to tests/oauth2.auth
+
+- Edit tests/oauth2.auth as follows:
+
+  access_token: Copy the token from example/token_store.txt (dropping
+                the "oauth2:" prefix).
+
+OAuth1 setup
+------------
+
+Again, you have to repeat these steps if the token has expired.
+
+- Chdir back into the example directory.
+
+- Run the cli_client.py program again, this time typing "login_oauth1"
+  and following the (slightly different) instructions.  This writes a
+  different value to the token_store.txt file.
+
+- Chdir back up.
+
+- Copy tests/oauth1.auth.example to tests/oauth1.auth
+
+- Edit tests/oauth1.auth as follows:
+
+  app_key, app_secret: From the app creation page.
+
+  access_key, access_secret: From the example/token_store.txt file, which should
+                             have the following form: oauth1:ACCESS_KEY:ACCESS_SECRET
+
+You are now ready to run the tests.

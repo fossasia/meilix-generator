@@ -1,13 +1,23 @@
-from flask import Flask, request, session, redirect, url_for, abort, render_template_string,render_template, Response
+"""A simple tasks manager using the Dropbox Datastore API.
+
+This example requires Python 2.7 (for OrderedDict).
+
+This uses the same data model as the JavaScript tutorial example.
+
+The code is somewhat uncharacteristic for Flask apps (e.g. it doesn't
+use template files).  The advantage of this style is that the entire
+app is one file, and it's easier to follow what is going on.
+"""
+
 from collections import OrderedDict  # Requires Python 2.7.
 from threading import Lock
 from weakref import WeakValueDictionary
-import time
-import subprocess
-import sys, os
+
+from flask import Flask, request, session, redirect, url_for, abort, render_template_string
 
 from dropbox.client import DropboxClient, DropboxOAuth2Flow, ErrorResponse
 from dropbox.datastore import DatastoreManager, Date, DatastoreError
+
 
 # Fill these in!  See https://www.dropbox.com/developers/apps
 DROPBOX_APP_KEY = 'kf7a9zsqzdxw12k'
@@ -17,14 +27,15 @@ DROPBOX_APP_SECRET = 'rhafv0flrvee6l7'
 DEBUG = True
 SECRET_KEY = 'development key'
 
+# Create application object.
 app = Flask(__name__)
 app.config.from_object(__name__)
 app.config.from_envvar('TASKS_SETTINGS', silent=True)
 
+
+# Application routes and helper.
+
 @app.route('/')
-def index():
-	#Index page
-	return render_template("index.html")
 def home():
     with get_access_token_lock():
         datastore = open_datastore(refresh=True)
@@ -203,40 +214,6 @@ def get_auth_flow():
     redirect_uri = url_for('dropbox_auth_finish', _external=True)
     return DropboxOAuth2Flow(DROPBOX_APP_KEY, DROPBOX_APP_SECRET, redirect_uri,
                                        session, 'dropbox-auth-csrf-token')
-
-
-
-@app.route('/yield')
-def output():
-	def inner():
-		proc = subprocess.Popen(
-			['./script.sh'],             #call something with a lot of output so we can see it
-			shell=True,universal_newlines=True,
-			stdout=subprocess.PIPE
-		)
-
-		for line in iter(proc.stdout.readline,''):
-			time.sleep(1)                           # Don't need this just shows the text streaming
-			yield line.rstrip() + '<br/>\n'
-
-	return Response(inner(), mimetype='text/html')  # text/html is required for most browsers to show th$
-
-#Function to call meilix script on clicking the build button
-
-@app.route('/about')
-def about():
-	#About page
-	return render_template("about.html")
-
-#Return a custom 404 error.
-@app.errorhandler(404)
-def page_not_found(e):
-	return 'Sorry, unexpected error: {}'.format(e), 404
-
-@app.errorhandler(500)
-def application_error(e):
-	#Return a custom 500 error.
-	return 'Sorry, unexpected error: {}'.format(e), 500
 
 
 # Main boilerplate.

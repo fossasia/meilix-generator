@@ -1,0 +1,5 @@
+include CHANGELOG.mdown conf.py index.rst LICENSE TESTING
+recursive-include dropbox *
+recursive-include tests *
+recursive-include testfiles *
+recursive-include example *

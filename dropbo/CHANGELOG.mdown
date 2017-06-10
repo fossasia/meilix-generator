@@ -1,0 +1,103 @@
+Changes to the Python SDK
+=========================
+
+Changes in 2.2.0 (2014-09-16)
+-----------------------------
+- Support for Datastore sharing
+- `DropboxClient.get_file()`: Add support for `start`, `length` parameters.
+- Add support for the /longpoll_delta API
+- Add direct support for /chunked_upload and /commit_chunked_upload APIs
+- Fix error handling in ChunkedUploader
+- Make tests compatible with py.test
+- Various docstring updates (including OAuth 1->2 example)
+- Fix encoding issues in example/cli_client.py
+- Fix unicode handling for URL parameters
+
+Changes in 2.1.0 (2014-06-03)
+-----------------------------
+- The datastore API now includes size accessors to allow you to check the size of your data and avoid the syncing limits.
+- The datastore Date() constructor now truncates timestamps to the supported resolution, i.e. milliseconds.
+- The datastore `await*()` calls now use POST instead of GET.
+- Datastore IDs, table IDs, record IDs and field names may be 64 characters (increased from 32 characters).  Before taking advantage of the new size limits ensure your application is fully upgraded to SDKs with this support.
+- Option to `include_media_info` has been added to `DropboxClient.metadata()` and `DropboxClient.delta()`.
+
+Changes in 2.0.0 (2013-12-19)
+-----------------------------
+- Add the Datastore API.
+- Upgrade OAuth 1 tokens with `DropboxClient.create_oauth2_access_token` and `DropboxClient.disable_oauth2_access_token`.
+- `DropboxClient.thumbnail()`: Fix `size` identifiers.
+- `DropboxClient.delta()`: Add support for `path_prefix` parameter.
+- Connection reuse/pooling using urllib3.
+- Updated SSL settings.
+- Various documentation reformatting.
+
+Changes in 1.6 (2013-07-07)
+----------------
+- Added OAuth 2 support (use DropboxOAuth2Flow).  OAuth 1 still works.
+- Added a Flask-based example.
+- Fixed many minor bugs.
+
+Changes in 1.5.1 (2012-8-20)
+-----------------
+- Fixed packaging.
+- Got rid of debug prints.
+
+Changes in 1.5 (2012-8-15)
+--------------------------
+- Support for uploading large files via /chunked_upload
+
+Changes in 1.4.1 (2012-5-16)
+----------------------------
+- Increase metadata() file list limit to 25,000 (used to be 10,000).
+- Removed debug prints from search() call.  Oops.
+- Cleanup to make more compatible with Python 3.
+
+Changes in 1.4 (2012-3-26)
+--------------------------
+- Add support for the /delta API.
+- Add support for the "copy ref" API.
+
+Changes in 1.3 (2012-1-11)
+--------------------------
+- Adds a method to the SDK that returns the file metadata when downloading a
+  file or its thumbnail.
+- Validate server's SSL certificate against CAs in included certificate file.
+
+Changes in 1.2 (2011-10-17)
+---------------------------
+- Fixes for bugs found during beta period
+- Improved README to include steps to remove the v0 SDK if upgrading
+
+Changes in 1.1 (2011-8-16)
+--------------------------
+- Fixed version number
+- Updated CHANGELOG to be more detailed
+
+Changes in 1.0 (2011-7-11)
+--------------------------
+- Backwards compatibility broken
+   - Completely removed 'callback' and 'status\_in\_response' parameters
+   - Change 'sandbox' references to 'app\_folder'
+   - Refactored auth.py and renamed it session.py
+- Updated SDK to Dropbox API Version 1, supporting all calls
+   - Added 'rev' parameter to metadata and get\_file
+   - Added 'parent\_rev' parameter to put\_file
+   - Added search, share, media, revisions, and restore
+   - put\_file uses /files\_put instead of multipart POST and now takes a full path
+   - Removed methods for calls that were removed from v1 of the REST API
+- Removed 'root' input parameter for all calls
+- Changed return format for calls
+   - On error (non-200 response), an exception is raised
+   - On success, the JSON is parsed and a Python dict or list is returned
+- Updated examples
+   - Renamed 'bin' directory to 'example'
+   - Heavily tweaked the CLI example
+   - Added a web app example
+- Removed reliance on config files
+- Assorted bugfixes and improvements
+   - Buffers large file uploads better in put\_file
+   - Improved path normalization
+- All calls are now made over SSL
+- Fully documented code for Pydoc generation
+- Added a CHANGELOG
+- Changed the distribution name from 'dropbox-client' to 'dropbox-python-sdk'

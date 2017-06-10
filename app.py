@@ -1,35 +1,32 @@
-from flask import Flask, render_template, Response , request
+import os
+from flask import Flask, render_template, Response ,request ,redirect ,url_for
 from werkzeug import secure_filename
 import time
 import subprocess
+
+# These are the extension that we are accepting to be uploaded
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 
 # Initialize the Flask application
 app = Flask(__name__)
 
 # This is the path to the upload directory
-app.config['UPLOAD_FOLDER'] = 'uploads/' #move it to skel folder and use dconf to set it as wallpaper in later stages
+app.config['UPLOAD_FOLDER'] = 'uploads/'
 
-# These are the extension that we are accepting to be uploaded
-app.config['ALLOWED_EXTENSIONS'] = set(['png', 'jpg', 'jpeg'])
+def allowed_file(filename):
+	return '.' in filename and \
+			filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
-
-@app.route('/')
+@app.route("/", methods=['GET', 'POST'])
 def index():
-	#Index page
-	return render_template("index.html")
-
-# Route that will process the file upload
-@app.route('/upload', methods=['POST'])
-def upload():
-	# Get the name of the uploaded file
-	file = request.files['file']
-	# Check if the file is one of the allowed types/extensions
-	if file and allowed_file(file.filename):
-		# Make the filename safe, remove unsupported chars
-		filename = secure_filename(file.filename)
-		# Move the file form the temporal folder to
-		# the upload folder we setup
-		file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+	if request.method == 'POST':
+		file = request.files['file']
+		#file.filename = "wallpaper"
+		if file and allowed_file(file.filename):
+			filename = secure_filename(file.filename)
+			file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+			return redirect(url_for('output'))
+	return render_template('index.html')
 
 
 @app.route('/yield')

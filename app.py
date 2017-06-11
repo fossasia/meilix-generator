@@ -21,6 +21,8 @@ def allowed_file(filename):
 @app.route("/", methods=['GET', 'POST'])
 def index():
 	if request.method == 'POST':
+		email = request.form['email']
+		os.environ["email"] = email
 		file = request.files['file']
 		if file and allowed_file(file.filename):
 			filename = secure_filename(file.filename)

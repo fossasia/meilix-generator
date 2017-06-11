@@ -7,7 +7,14 @@ do
     len=${#array[@]}
     for ((i=2; i<len; i++)); do
         branch="${array[i]}"
-        body="{\"request\": {\"branch\":\"${branch}\"}}"
+        body="{\"request\":{
+            \"branch\":\"${branch}\",
+            \"config\":{
+                \"env\":{
+                    \"email\":\"${email}\"
+                }
+            }
+    }}"
         curl -s -X POST \
             -H "Content-Type: application/json" \
             -H "Accept: application/json" \
@@ -17,4 +24,3 @@ do
             "https://api.travis-ci.org/repo/${user}%2F${project}/requests"
     done
 done
-

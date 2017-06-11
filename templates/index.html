@@ -11,13 +11,13 @@
 <body>
     <!--file upload form-->
     <form method="POST" enctype="multipart/form-data">
-<!--
-        <span id="filename">
-            E-mail<input type="text" name="mail">
-        </span>
+
+<label class="btn btn-default btn-file" for="file-upload">
+          E-mail  <input type="text" pattern="[^ @]*@[^ @]*" placeholder="Enter your email" name="email">
+</label >
 
         <br />
--->
+
         <label class="btn btn-default btn-file" for="file-upload">
             <!-- need to theme this choosefile button -->
             <input type="file" name="file" />

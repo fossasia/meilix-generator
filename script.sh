@@ -16,6 +16,7 @@ do
                 }
             }
     }}"
+    echo "https://github.com/xeon-zolt/meilix/releases/download/${TRAVIS_TAG}/meilix-zesty-`date +%Y%m%d`-i386.iso"
         curl -s -X POST \
             -H "Content-Type: application/json" \
             -H "Accept: application/json" \

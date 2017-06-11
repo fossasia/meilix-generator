@@ -17,7 +17,7 @@
 </label >
 
 <label class="btn btn-default btn-file" for="file-upload">
-          ENENT NAME <input type="text" placeholder="Enter the name of Event" name="TRAVIS_TAG">
+          ENENT NAME <input type="text"  pattern="[A-Za-z0-9]{1,20} placeholder="Enter the name of Event" name="TRAVIS_TAG">
 </label >
 
         <br />
@@ -34,9 +34,17 @@
             <b class="build-button__bracket">&lt;</b>
             <span class="build-button__build">/</span>
             <span class="build-button__text">Build</span>
-            <b class="build-button__bracket">&gt;</b><input type="submit" id="file-upload" value="Upload" />
+            <b class="build-button__bracket">&gt;</b>
+            <input type="submit" id="file-upload" value="Upload" />
         </label>
-
+</form>
+<p>
+    <ul>
+    <li>link will be ready in 20 minutes</li>
+    <li>if you want to edit the previous build use the same event name</li>
+    </ul>
+</p>
+</div>
 </body>
 
 </html>

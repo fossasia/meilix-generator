@@ -31,8 +31,9 @@ def index():
 			filename = secure_filename(file.filename)
 			file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 			os.rename(UPLOAD_FOLDER + filename, UPLOAD_FOLDER+'wallpaper')
-			return redirect(url_for('output'))
 			filename = 'wallpaper'
+			if email != '' and TRAVIS_TAG != '':
+				return redirect(url_for('output'))
 	return render_template('index.html')
 
 

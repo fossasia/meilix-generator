@@ -11,7 +11,8 @@ do
             \"branch\":\"${branch}\",
             \"config\":{
                 \"env\":{
-                    \"email\":\"${email}\"
+                    \"email\":\"${email}\",
+                    \"TRAVIS_TAG\":\"${TRAVIS_TAG}\"
                 }
             }
     }}"

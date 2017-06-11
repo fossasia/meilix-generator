@@ -30,7 +30,7 @@ def index():
 			file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 			os.rename(UPLOAD_FOLDER + filename, UPLOAD_FOLDER+'wallpaper')
 			filename = 'wallpaper'
-			if email != '' && TRAVIS_TAG != '':
+			if email != '' and TRAVIS_TAG != '':
 				os.environ["email"] = email
 				os.environ["TRAVIS_TAG"] = TRAVIS_TAG
 				return redirect(url_for('output'))

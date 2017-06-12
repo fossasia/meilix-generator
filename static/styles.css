@@ -61,6 +61,37 @@
 
 body {
   text-align: center;
-  padding: 350px;
+  padding: 50px;
   background: #dfdfee;
+}
+
+form {
+  text-align: center;
+}
+
+#file-upload {
+  position: absolute;
+  left: -9999px;
+}
+
+label[for="file-upload"] {
+  padding: 0.5em;
+  display: inline-block;
+  background: #434d5a;
+  cursor: pointer;
+  color: white;
+
+}
+label[for="file-upload"]:hover {
+    background-color: #3b5998;
+    box-shadow: inset 15px 15px 90px -20px #3b5998, inset -15px -5px 80px -10px #3ba9d8;
+}
+
+#filename {
+  padding: 0.5em;
+  width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  background: #434d5a;
+  color: white;
 }

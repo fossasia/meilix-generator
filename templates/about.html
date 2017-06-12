@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    About
+{% endblock %}
+
+{% block main %}
+<div class="container">
+
+	<div class="row">
+		<div class="col s12" style="padding-top: 150px;">
+			<h1 class="center-align" id="head"><a href="{{ url_for('index') }}"> Meilix-Generator</a></h1>
+		</div>
+	</div>
+
+
+	<div class="row">
+		<div class="col s1"></div>
+		<div class="col s10">
+		    <h2 class="center-align"> About </h2>
+		    <hr>
+		    <p class="flow-text">It is a simple web application, written in flask. It uses <strong> Travis</strong> to build the iso image of operating system and <strong> Heroku</strong> to deploy the iso.</p>
+		</div>
+	    <div class="col s1"></div>
+	</div>
+</div>
+{% endblock %}

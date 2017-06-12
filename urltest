@@ -1,0 +1,27 @@
+#!/usr/bin/env python3
+import os
+import threading
+import time
+import datetime
+from urllib.request import Request, urlopen
+from urllib.error import URLError, HTTPError
+def status():
+    s = threading.Timer(60.0, status)
+    tag = os.environ["TRAVIS_TAG"]
+    date = datetime.datetime.now().strftime('%Y%m%d')
+    url = "https://github.com/xeon-zolt/meilix/releases/download/"+tag+"/meilix-zesty-"+date+"-i386.iso"
+    req = Request(url)
+    s.start()
+    try:
+        response = urlopen(req)
+    except HTTPError as e:
+        print('Building Your Iso')
+    except URLError as e:
+        print('We failed to reach the server.')
+        print('Reason: ', e.reason)
+    else:
+        print ('Build Sucessful')
+        print (url)
+        s.cancel()
+
+status()

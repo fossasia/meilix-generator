@@ -14,7 +14,6 @@ app = Flask(__name__)
 # This is the path to the upload directory
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
->>>>>>> a23e19665d4cda345a9ff1a357e466667f32ad3c
 
 def allowed_file(filename):
 	return '.' in filename and \

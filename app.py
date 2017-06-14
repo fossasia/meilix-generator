@@ -13,6 +13,7 @@ app = Flask(__name__)
 
 # This is the path to the upload directory
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
 def allowed_file(filename):
 	return '.' in filename and \
@@ -22,14 +23,17 @@ def allowed_file(filename):
 def index():
 	if request.method == 'POST':
 		email = request.form['email']
-		os.environ["email"] = email
+		TRAVIS_TAG = request.form['TRAVIS_TAG']
 		file = request.files['file']
 		if file and allowed_file(file.filename):
 			filename = secure_filename(file.filename)
 			file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 			os.rename(UPLOAD_FOLDER + filename, UPLOAD_FOLDER+'wallpaper')
-			return redirect(url_for('output'))
 			filename = 'wallpaper'
+			if email != '' and TRAVIS_TAG != '':
+				os.environ["email"] = email
+				os.environ["TRAVIS_TAG"] = TRAVIS_TAG
+				return redirect(url_for('output'))
 	return render_template('index.html')
 
 

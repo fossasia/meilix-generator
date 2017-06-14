@@ -1,38 +1,41 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="UTF-8">
     <title>Meilix Generator</title>
     <link rel="shortcut icon" href="{{ url_for('static', filename='logo.png') }}">
-    <link rel="stylesheet" href="static/styles.css">
 </head>
 
 <body>
     <!--file upload form-->
+    <table>
     <form method="POST" enctype="multipart/form-data">
-
-<label class="btn btn-default btn-file" for="file-upload">
-          E-mail  <input type="text" pattern="[^ @]*@[^ @]*" placeholder="Enter your email" name="email">
-</label >
-
-        <br />
-
-        <label class="btn btn-default btn-file" for="file-upload">
-            <!-- need to theme this choosefile button -->
-            <input type="file" name="file" />
-        </label>
-
-        <br/>
-
-        <!--image generationg button-->
-        <label class="build-button build-button--html build-button--color">
-            <b class="build-button__bracket">&lt;</b>
-            <span class="build-button__build">/</span>
-            <span class="build-button__text">Build</span>
-            <b class="build-button__bracket">&gt;</b><input type="submit" id="file-upload" value="Upload" />
-        </label>
-
+<TR>
+    <TD>
+        E-mail
+    </TD>
+    <TD>
+        <input type="text" pattern="[^ @]*@[^ @]*" placeholder="Enter your email" name="email" required>
+    </TD>
+</TR>
+<TR>
+    <TD>
+        EVENT NAME
+    </TD>
+    <TD>
+        <input type="text"  pattern="[A-Za-z0-9\s]{1,20}" placeholder="Enter the name of Event" name="TRAVIS_TAG" required>
+    </TD>
+</TR>
+</table>
+Upload wallpaper
+<input type="file" name="file" required>
+<br />
+<br />
+<input type="submit" id="file-upload" value="Build" />
+</form>
+<ul>
+    <li>link will be ready in 20 minutes</li>
+    <li>if you want to edit the previous build use the same event name</li>
+</ul>
 </body>
-
 </html>

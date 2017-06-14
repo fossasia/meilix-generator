@@ -32,7 +32,6 @@ def index():
 			filename = 'wallpaper'
 			if email != '' and TRAVIS_TAG != '':
 				os.environ["email"] = email
-				TRAVIS_TAG.replace(' ','-') #this will fix url issue
 				os.environ["TRAVIS_TAG"] = TRAVIS_TAG
 				return redirect(url_for('output'))
 	return render_template('index.html')

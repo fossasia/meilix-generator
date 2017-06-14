@@ -7,16 +7,6 @@ do
     len=${#array[@]}
     for ((i=2; i<len; i++)); do
         branch="${array[i]}"
-        body="{\"request\": {\"branch\":\"${branch}\"}}"
-        body="{\"request\":{
-            \"branch\":\"${branch}\",
-            \"config\":{
-                \"env\":{
-                    \"email\":\"${email}\"
-                }
-            }
-    }}"
-        curl -s -X POST \
         body="{\"request\":{
             \"branch\":\"${branch}\",
             \"config\":{
@@ -26,8 +16,9 @@ do
                 }
             }
     }}"
-            echo "https://github.com/fossasia/meilix/releases/download/${TRAVIS_TAG}/meilix-zesty-`date +%Y%m%d`-i386.iso"
-            curl -s -X POST \
+    echo "This Link Will be ready in aprox 20 minutes"
+    echo "https://github.com/fossasia/meilix/releases/download/${TRAVIS_TAG}/meilix-zesty-`date +%Y%m%d`-i386.iso"
+        curl -s -X POST \
             -H "Content-Type: application/json" \
             -H "Accept: application/json" \
             -H "Travis-API-Version: 3" \

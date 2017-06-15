@@ -4,7 +4,7 @@ from flask import Flask, render_template, Response ,request ,redirect ,url_for ,
 from werkzeug import secure_filename
 import time
 import subprocess
-
+import re
 # These are the extension that we are accepting to be uploaded
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 UPLOAD_FOLDER = 'uploads/'
@@ -19,6 +19,13 @@ def allowed_file(filename):
 	return '.' in filename and \
 			filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
+def urlify(s):
+     # Remove all non-word characters (everything except numbers and letters)
+     s = re.sub(r"[^\w\s]", '', s)
+     # Replace all runs of whitespace with a single dash
+     s = re.sub(r"\s+", '-', s)
+     return s
+
 @app.route("/", methods=['GET', 'POST'])
 def index():
 	if request.method == 'POST':
@@ -32,11 +39,10 @@ def index():
 			filename = 'wallpaper'
 			if email != '' and TRAVIS_TAG != '':
 				os.environ["email"] = email
-				TRAVIS_TAG.replace(' ','-') #this will fix url issue
+				TRAVIS_TAG = urlify(TRAVIS_TAG)#this will fix url issue
 				os.environ["TRAVIS_TAG"] = TRAVIS_TAG
 				return redirect(url_for('output'))
 	return render_template('index.html')
-
 
 @app.route('/yield')
 def output():

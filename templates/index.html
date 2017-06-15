@@ -15,20 +15,22 @@
         E-mail
     </TD>
     <TD>
-        <input type="text" pattern="[^ @]*@[^ @]*" placeholder="Enter your email" name="email">
+        <input type="text" pattern="[^ @]*@[^ @]*" placeholder="Enter your email" name="email" required>
     </TD>
 </TR>
 <TR>
     <TD>
-        ENENT NAME
+        EVENT NAME
     </TD>
     <TD>
         <input type="text"  pattern="[A-Za-z0-9\s]{1,20}" placeholder="Enter the name of Event" name="TRAVIS_TAG">
+        <input type="text"  pattern="[A-Za-z0-9\s]{1,20}" placeholder="Enter the name of Event" name="TRAVIS_TAG" required>
+
     </TD>
 </TR>
 </table>
 Upload wallpaper
-<input type="file" name="file" />
+<input type="file" name="file" required>
 <br />
 <br />
 <input type="submit" id="file-upload" value="Build" />

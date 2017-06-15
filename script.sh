@@ -11,10 +11,13 @@ do
             \"branch\":\"${branch}\",
             \"config\":{
                 \"env\":{
-                    \"email\":\"${email}\"
+                    \"email\":\"${email}\",
+                    \"TRAVIS_TAG\":\"${TRAVIS_TAG}\"
                 }
             }
     }}"
+    echo "This Link Will be ready in aprox 20 minutes"
+    echo "https://github.com/xeon-zolt/meilix/releases/download/${TRAVIS_TAG}/meilix-zesty-`date +%Y%m%d`-i386.iso"
         curl -s -X POST \
             -H "Content-Type: application/json" \
             -H "Accept: application/json" \

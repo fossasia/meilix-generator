@@ -3,8 +3,6 @@
 
 # Meilix Generator
 
-[![N|Solid](https://image.ibb.co/fZ5m05/powered_by_flask_s.png)](http://flask.pocoo.org/)
-
 Meilix-Generator is a webapp which generates iso using [meilix](https://github.com/fossasia/meilix) script.
 
   - [fossasia/meilix](https://github.com/fossasia/meilix) consists the script of a Linux Operating System based on Lubuntu. It uses Travis to build that script to result in a release of an iso file.

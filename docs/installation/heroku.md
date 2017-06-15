@@ -2,7 +2,7 @@
 
 Want to contribute? Great!
 
-To setup the open-event-webapp on heroku follow the following steps:
+To setup the meilix-generator on Heroku follow the following steps:
 
 
 # Manual Deploy
@@ -40,8 +40,8 @@ check if heroku's git url is added into the remote
 $ git remote -v
 heroku	https://git.heroku.com/your-heroku-app-name.git (fetch)
 heroku	https://git.heroku.com/your-heroku-app-name.git (push)
-origin	https://github.com/yourusername/open-event-webapp.git (push)
-origin	https://github.com/yourusername/open-event-webapp.git (push)
+origin	https://github.com/yourusername/meilix-generator.git (push)
+origin	https://github.com/yourusername/meilix-generaotr.git (push)
 ```
 if it is not added automatically add the link to heroku's repository by typing following command in terminal
 ```sh

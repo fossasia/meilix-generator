@@ -16,6 +16,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
 def allowed_file(filename):
+        #Check for allowed file extension
 	return '.' in filename and \
 			filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
@@ -46,6 +47,7 @@ def index():
 
 @app.route('/yield')
 def output():
+        #Output page showing the link to the build url
 	def inner():
 		proc = subprocess.Popen(
 
@@ -59,7 +61,7 @@ def output():
 			time.sleep(1)  # Don't need this just shows the text streaming
 			yield line.rstrip() + '<br/>\n'
 
-	return Response(inner(), mimetype='text/html')  # text/html is required for most browsers to show th$
+	return Response(inner())  # text/html is required for most browsers to show th$
 
 #Function to call meilix script on clicking the build button
 

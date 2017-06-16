@@ -1,13 +1,19 @@
 language: python
-python:
-  - "3.6"
+sudo: required
 
 install:
   - pip install flask
   - pip install -r requirements.txt
 
 # command to run app.py
-script: python app.py
-notifications:
-  email:
-    - meets2tarun@gmail.com
+script: nosetests app.py
+deploy:
+  provider: heroku
+  api_key:
+    secure: "rLpJmqv7jYwudaM8/KX6cd/txiRvVMpvWqKG8XZ9iziqSGTRearnfm7r4iiISG2FL44Uyx2hYjjWaGjpOaWmiAkgZ7lr9COOQ8LP75VdLjzFbPL7njnDNujUBjfFvVA6apQ0EV0p3UBMRLC956aGI1CpsVZ420Dlgu/F4c6JNkkm3DrUYnR/duRvZLeUxiE2ssq05/NBHBd1ETVHJ5dSQeLQGldZNb/t6oBSZFdqou79RNkvO4Ksq6GzxBkh+lOhbFuCljxkJCcKJrrEEanSy26Bh+by64CzWTCVYc9/JAtA3qpuMZ+6y1RsCOHY9BMc6THp+Un6+eoGsgT5vtWZT/JOrc0/Se21HOYUpYjduyHNa76tgcDtXvV5W8kgl7072PB6djH6mDsmvRiYVCbKw+GhQwwQOyqyx+ZxIP9HDngXM6/ZjoTSlVRhpLL/Lu4W+og08v9fJIgKgVFTVBRirrmkFt7wfrnNnnc4NFd/yqie8Ron4QqAIyOQU0sNxqyEkeAK2/Hso2zo/+AL90j4UEC6yPXw1PA52yH1kKRHnatrKvP/HX+kE3QF0R3I4qBtbNUdy0t+xFpUY54hlCPtE7gNTSVF0iWncph3leqafZp4RhEPHlVV9lU8T44lnGXIC5eEqdGIi/EnIV+CcbvU7bHq5vfoJjTLc9YY9SgFgKs="
+  app: meilix-generator
+  on:
+    repo: meets2tarun/meilix-generator
+    branch:
+      - master
+      - development

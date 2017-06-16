@@ -86,9 +86,11 @@ def Email():
 	except HTTPError as e:
 		msg.body = "Your ISO is currently building : " + url
 		mail.send(msg)
+		return sent
 	else:
 		msg.body = "Your ISO is ready  : " + url
 		mail.send(msg)
+		return sent
 		s.cancel()
 
 @app.route('/yield')

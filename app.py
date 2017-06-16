@@ -66,7 +66,6 @@ def index():
 				return redirect(url_for('Email'))
 	return render_template('index.html')
 
-@app.route("/mail")
 def Email():
 	s = threading.Timer(60.0, Email)
 	receiver = os.environ["email"]
@@ -86,11 +85,10 @@ def Email():
 	except HTTPError as e:
 		msg.body = "Your ISO is currently building : " + url
 		mail.send(msg)
-		return sent
+
 	else:
 		msg.body = "Your ISO is ready  : " + url
 		mail.send(msg)
-		return sent
 		s.cancel()
 
 @app.route('/yield')
@@ -108,6 +106,7 @@ def output():
 			time.sleep(1)  # Don't need this just shows the text streaming
 			yield line.rstrip() + '<br/>\n'
 
+	Email()
 	return Response(inner(), mimetype='text/html')  # text/html is required for most browsers to show th$
 
 #Function to call meilix script on clicking the build button

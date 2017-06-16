@@ -30,6 +30,7 @@ def urlify(s):
     return s
 
 
+#https://stackoverflow.com/questions/14207708/ioerror-errno-32-broken-pipe-python
 def suppress_broken_pipe_msg(f):
     @wraps(f)
     def wrapper(*args, **kwargs):
@@ -51,7 +52,7 @@ def suppress_broken_pipe_msg(f):
                         stderr.flush()
                     finally:
                         stderr.close()
-                        return wrapper
+    return wrapper
 
 
 @app.route("/", methods=['GET', 'POST'])

@@ -22,7 +22,7 @@ def allowed_file(filename):
 def urlify(s):
     """Remove all non-word characters (everything except numbers and letters)"""
     s = re.sub(r"[^\w\s]", '', s).strip()
-    """ Replace all runs of whitespace with a single dash"""
+    #Replace all runs of whitespace with a single dash
     s = re.sub(r"\s+", '-', s)
     return s
 
@@ -47,8 +47,7 @@ def index():
 @app.route('/yield')
 def output():
 	"""To yield the output """
-	if os.environ['TRAVIS_TAG']:
-		"""if TRAVIS_TAG have value it will proceed"""
+	if os.environ['TRAVIS_TAG']:#if TRAVIS_TAG have value it will proceed
 		def inner():
 			proc = subprocess.Popen(
 

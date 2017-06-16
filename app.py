@@ -53,9 +53,10 @@ def output():
 
 				['./script.sh'],             #call something with a lot of output so we can see it
 
-				shell=True,universal_newlines=True,
-				stdout=subprocess.PIPE
-			)
+			shell=True,universal_newlines=True,
+			stdout=subprocess.PIPE,
+      bufsize=1
+		)
 
 			for line in iter(proc.stdout.readline,''):
 				time.sleep(1)  # Don't need this just shows the text streaming

@@ -28,3 +28,4 @@ do
             "https://api.travis-ci.org/repo/${user}%2F${project}/requests"
     done
 done
+python3 url_test.py

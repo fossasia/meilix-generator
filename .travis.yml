@@ -16,4 +16,3 @@ deploy:
     repo: meets2tarun/meilix-generator
     branch:
       - master
-      - development

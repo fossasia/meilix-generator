@@ -27,7 +27,7 @@ app.config.update(
 	MAIL_PORT=465,
 	MAIL_USE_SSL=True,
 	MAIL_USERNAME = 'harsh14csu070@ncuindia.edu',
-	MAIL_PASSWORD = ''
+	MAIL_PASSWORD = os.environ['ncupass']
 	)
 
 # Mail init
@@ -90,10 +90,6 @@ def Email():
 		msg.body = "Your ISO is ready  : " + url
 		mail.send(msg)
 		s.cancel()
-
-	msg.body = "Your ISO is ready  : " + url
-	mail.send(msg)
-	return "Sent"
 
 @app.route('/yield')
 def output():

@@ -1,18 +1,13 @@
 language: python
 sudo: required
-
 install:
-  - pip install flask
-  - pip install -r requirements.txt
-
-# command to run app.py
+- pip install flask
+- pip install -r requirements.txt
 script: nosetests app.py
 deploy:
   provider: heroku
   api_key:
-    secure: "I4Z/x2nuWMk28x22bhxFdvIT24h7Kc8jzU2XtB2y+j9XPOxcgvN2sxYskQSYTXd/X6CZcqOvIgac5uv/f1S4mJ/IYDJ4Ef30m6xNNzOKLwcuWjc7Li0dtXazJfCzBRyFSjWl4TU0mYKFzu3SXsDedYNF6mZZTYGgoc8210jKTQAZnddHnXcYZzt+D3YtfnzQh/87MIoe7CDmnMJhxjWEnFocKD4R+22wpOpIxzzQjUkqMC3/Gm+tVhc0Va4t/XrYxZqNu2nlEtrTXtujm/iEC8tLsmoVblVgSAGlWk+Sg6a0DwI3Q1UOiSBVxt+5I5s7x06iLdqtDDxq6QoO6tDVJaGWC6qNbR+dhdiQgYP3K3PwMTA2BImxI9+LsIjzmbe1+C9bVuggkGv+/b/BBKYqlyzkda+84LZTACtLnssaecVSGhObB1DePLlgV0E1QLVsmgXC4ptrhxh28WfjNRBSDMY1kARoIveAUuvGwy9Rza2tT4ProOo0NNbGjL09yPtAd4OQtt8KX83R8f2Aky0n/oRcvxhPGZKfE3SVI1+U7xiZ7F/p3AlURjjo8IbpNpLKPxBzhPtXx3+jf2HZX8tyuym0NUtTuXZsejF1GvUGU1UYvltko/b5EnCts8W2L9tm314HVMgGLt8SEjatqyAXxIr/VqUvApP7bX8VK0AivZY="
+    secure: Usw1bIavkaMCchoFOmLC97vz4KmtMxpdNpumiZh3GTskdkznu+cDjfoLe3zfHlrZkQji4aBjtt3ZiG468cbrzBUn+fAyLu+ziC6H1d4pzHAmFaa+zJ9rY5JJ5Qd6Zk7of2uASCvcgRhykX/e0eFTZAYCERDUMKIDLYXq1EykLjbRNJ2NfUPcmaDpJn1UwyqN2y/irYrBPpA5Xurqu0GQDLQQzByZWon5NIGLNnh82iiFC3M3YfNcMhQJCA752L0J/tg+0RwZnbHvBn+jmKMZuhiXn7udvE8g4sUmwsu/4LBmHqLx/ehXsWniiQUSKIqlngB/bWJw85RXG8nzEpDIBjCfsul8lMDZxfWaxYr+02YZM4UpIu3qSHjH70JFAu8PiLr2pnsVafkrY3Lac0Xj+kwL/y8aETUuMW54m7SUbYvSv0kYCf2TfS/QdNkv2YBl5eTmq9uOxJLok9Nk4hXXFRuFORC64QTsEAkgqhbR8YVTjKGvJrl27mFPpJHPVrKiOZ1EUzho+KujhQYZr3czDv4QXkJmzGs3MExX//2HoyvXL7pj4w2dbgpiNwqEFj2io8b9WHgfHyVHzomfUHhsdiI04JZEDMjLudFD01r+/FII5YmWpWBlGeY8B2Rjd68uRDfd7DvSaRgGNg5VbbCr5gZu5DPhTqkjyX03fVrXLLw=
   app: meilix-generator
   on:
     repo: meets2tarun/meilix-generator
-    branch:
-      - master

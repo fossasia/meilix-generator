@@ -18,7 +18,7 @@ UPLOAD_FOLDER = 'uploads/'
 # Initialize the Flask application
 app = Flask(__name__)
 
-# mail config
+'''# mail config
 mail=Mail(app)
 app.config.update(
 	DEBUG=True,
@@ -31,7 +31,7 @@ app.config.update(
 	)
 
 # Mail init
-mail = Mail(app)
+mail = Mail(app)'''
 
 # This is the path to the upload directory
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -63,10 +63,10 @@ def index():
 				os.environ["email"] = email
 				TRAVIS_TAG = urlify(TRAVIS_TAG)#this will fix url issue
 				os.environ["TRAVIS_TAG"] = TRAVIS_TAG
-				return redirect(url_for('Email'))
+				return redirect(url_for('test_page'))
 	return render_template('index.html')
 
-def Email():
+'''def Email():
 	s = threading.Timer(60.0, Email)
 	receiver = os.environ["email"]
 	tag = os.environ["TRAVIS_TAG"]
@@ -89,7 +89,36 @@ def Email():
 	else:
 		msg.body = "Your ISO is ready  : " + url
 		mail.send(msg)
-		s.cancel()
+		s.cancel()'''
+
+
+def status():
+    tag = os.environ["TRAVIS_TAG"]
+    date = datetime.datetime.now().strftime('%Y%m%d')
+    url = "https://github.com/xeon-zolt/meilix/releases/download/"+tag+"/meilix-zesty-"+date+"-i386.iso"
+    #url = "https://github.com/"
+    req = Request(url)
+    try:
+        response = urlopen(req)
+    except HTTPError as e:
+        return('Building Your Iso')
+    except URLError as e:
+        return('We failed to reach the server.')
+    else:
+        return('Build Sucessful : ' + url)
+
+
+@app.route('/now')
+def time():
+	return (status())
+
+
+@app.route('/test')
+def test_page():
+	os.system('./script.sh')
+	print ('/test called')
+	return send_from_directory('static','test.html')
+
 
 @app.route('/yield')
 def output():
@@ -106,7 +135,8 @@ def output():
 			time.sleep(1)  # Don't need this just shows the text streaming
 			yield line.rstrip() + '<br/>\n'
 
-	Email()
+	#Email()
+	return redirect(url_for('test_page'))
 	return Response(inner(), mimetype='text/html')  # text/html is required for most browsers to show th$
 
 #Function to call meilix script on clicking the build button

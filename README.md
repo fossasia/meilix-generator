@@ -7,12 +7,12 @@ to run it locally
 
 ```
 sudo pip install virtualenv
-git clone https://github.com/Meilix-Generator/meilix-generator.git
+git clone https://github.com/fossasia/meilix-generator.git
 cd meilix-generator
 virtualenv venv
 source venv/bin/activate
-sudo pip install -r requirements.txt 
-export FLASK_DEBUG=1 FLASK_APP=app.py 
+sudo pip install -r requirements.txt
+export FLASK_DEBUG=1 FLASK_APP=app.py
 flask run
 ```
 the application will greet you on

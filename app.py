@@ -1,5 +1,8 @@
 import os
 from flask import Flask, render_template, Response ,request ,redirect ,url_for ,send_from_directory
+from functools import wraps
+from sys import exit, stderr, stdout
+from traceback import print_exc
 
 from werkzeug import secure_filename
 import time
@@ -26,6 +29,31 @@ def urlify(s):
     s = re.sub(r"\s+", '-', s)
     return s
 
+
+def suppress_broken_pipe_msg(f):
+    @wraps(f)
+    def wrapper(*args, **kwargs):
+        try:
+            return f(*args, **kwargs)
+        except SystemExit:
+            raise
+        except:
+            print_exc()
+            exit(1)
+        finally:
+            try:
+                stdout.flush()
+            finally:
+                try:
+                    stdout.close()
+                finally:
+                    try:
+                        stderr.flush()
+                    finally:
+                        stderr.close()
+                        return wrapper
+
+
 @app.route("/", methods=['GET', 'POST'])
 def index():
 	if request.method == 'POST':
@@ -44,6 +72,7 @@ def index():
 				return redirect(url_for('output'))
 	return render_template('index.html')
 
+@suppress_broken_pipe_msg
 @app.route('/yield')
 def output():
 	"""To yield the output """

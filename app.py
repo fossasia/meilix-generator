@@ -47,7 +47,7 @@ def index():
 @app.route('/yield')
 def output():
 	def inner():
-		if TRAVIS_TAG: #if TRAVIS_TAG have value it will proceed
+		if os.environ['TRAVIS_TAG']: #if TRAVIS_TAG have value it will proceed
 			proc = subprocess.Popen(
 
 				['./script.sh'],             #call something with a lot of output so we can see it

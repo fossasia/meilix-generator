@@ -4,9 +4,9 @@
 		</div>
 	</body>
 	<script type ="text/javascript">
-	let url ="http://127.0.0.1:5000/now"
+	let url ="meilix-generator-test.herokuapp.com/now"
 	/*
-	This page and the python script must be on the same host 
+	This page and the python script must be on the same host
 	*/
 	function getDate(url)
 	{
@@ -26,8 +26,8 @@
 			document.querySelector("div#date")
 			.innerHTML = text
 		})
-		
-		
+
+
 		window.setInterval(getDate.bind(null,url),20*1000)
 	}
 	/*setInterval(function,interval in millsecs)*/

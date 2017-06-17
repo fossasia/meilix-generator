@@ -4,6 +4,12 @@ Want to contribute? Great!
 
 To setup the meilix-generator on Heroku follow the following steps:
 
+# Automatic Deploy
+You can use the one click deployment:
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/fossasia/meilix-generator/tree/master)
+
+**The app will get deployed but need to provide [config variables](/docs/installation/my_token.md) in the app to trigger the build**.
 
 # Manual Deploy
 

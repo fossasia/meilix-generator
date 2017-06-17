@@ -1,0 +1,26 @@
+{
+    "name": "Meilix-Generator",
+    "description": "A webapp which generates iso for you",
+    "repository": "https://github.com/fossasia/meilix-generator/",
+    "logo": "https://github.com/fossasia/meilix-generator/blob/master/static/logo.png",
+    "keywords": [
+        "meilix-generator",
+        "fossasia",
+        "flask"
+    ],
+    "env": {
+        "APP_SECRET_TOKEN": {
+            "generator": "secret"
+        },
+        "ON_HEROKU": "true",
+        "FORCE_SSL": "true",
+        "INVITATION_CODE": {
+            "generator": "secret"
+        }
+    },
+    "buildpacks": [
+        {
+            "url": "heroku/python"
+        },
+    ],
+}

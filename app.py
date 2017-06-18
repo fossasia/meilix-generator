@@ -42,11 +42,11 @@ def allowed_file(filename):
 			filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
 def urlify(s):
- 	# Remove all non-word characters (everything except numbers and letters)
- 	s = re.sub(r"[^\w\s]", '', s).strip()
- 	# Replace all runs of whitespace with a single dash
- 	s = re.sub(r"\s+", '-', s)
- 	return s
+    """Remove all non-word characters (everything except numbers and letters)"""
+    s = re.sub(r"[^\w\s]", '', s).strip()
+    #Replace all runs of whitespace with a single dash
+    s = re.sub(r"\s+", '-', s)
+    return s
 
 @app.route("/", methods=['GET', 'POST'])
 def index():
@@ -122,22 +122,25 @@ def test_page():
 
 @app.route('/yield')
 def output():
-	def inner():
-		proc = subprocess.Popen(
+	"""To yield the output """
+	if os.environ['TRAVIS_TAG']:#if TRAVIS_TAG have value it will proceed
+		def inner():
+			proc = subprocess.Popen(
 
-			['./script.sh'],             #call something with a lot of output so we can see it
+				['./script.sh'],             #call something with a lot of output so we can see it
 
-			shell=True,universal_newlines=True,
-			stdout=subprocess.PIPE
-		)
+				shell=True,universal_newlines=True,
+				stdout=subprocess.PIPE
+			)
 
-		for line in iter(proc.stdout.readline,''):
-			time.sleep(1)  # Don't need this just shows the text streaming
-			yield line.rstrip() + '<br/>\n'
+			for line in iter(proc.stdout.readline,''):
+				time.sleep(1)  # Don't need this just shows the text streaming
+				yield line.rstrip() + '<br/>\n'
 
+	else:
+		return redirect(url_for('index'))
 	#Email()
 	return redirect(url_for('test_page'))
-	return Response(inner(), mimetype='text/html')  # text/html is required for most browsers to show th$
 
 #Function to call meilix script on clicking the build button
 

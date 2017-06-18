@@ -1,42 +1,48 @@
-<!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>Meilix Generator</title>
     <link rel="shortcut icon" href="{{ url_for('static', filename='logo.png') }}">
 </head>
-
-<body>
+  
     <!--file upload form-->
-    <table>
-    <form method="POST" enctype="multipart/form-data">
-<TR>
-    <TD>
-        E-mail
-    </TD>
-    <TD>
-        <input type="text" pattern="[^ @]*@[^ @]*" placeholder="Enter your email" name="email" required>
-    </TD>
-</TR>
-<TR>
-    <TD>
-        EVENT NAME
-    </TD>
-    <TD>
-        <input type="text"  pattern="[A-Za-z0-9\s]{1,20}" placeholder="Enter the name of Event" name="TRAVIS_TAG" required>
-
-    </TD>
-</TR>
-</table>
-Upload wallpaper
-<input type="file" name="file" required>
-<br />
-<br />
-<input type="submit" id="file-upload" value="Build" />
+   <form method="POST" enctype="multipart/form-data">
+     
+  <div class="container">
+    <div class="col-md-4 col-md-offset-4">
+  <h2 align="center">Meilix Generator</h2>
+  <p align="center">A webapp which can generate iso for you</p>
+  <form class="form-inline">
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" placeholder="Enter email" name="email" required>
+    </div>
+    <div class="form-group">
+      <label for="TRAVIS_TAG">Event Name:</label>
+      <input type="text" pattern="[A-Za-z0-9\s]{1,20}" class="form-control" placeholder="Enter event" name="TRAVIS_TAG" required>
+    </div>
+<div class="col-md-06">
+    <div class="form-group">
+        <label>Upload Wallpaper:</label>
+        <div class="input-group">
+            <span class="input-group-btn">
+                <span class="btn btn-default btn-file">
+                    <input type="file" name="file" class="file" data-show-preview="false" required>
+                </span>
+            </span>
+        </div>
+        <img id='file-upload'/>
+    </div>
+</div>
+  <input type="submit" class="btn btn-info center-block btn-block" id="file-upload" value="Build" required>
+  </form>
+</div>
+</div>
 </form>
-<ul>
-    <li>link will be ready in 20 minutes</li>
-    <li>if you want to edit the previous build use the same event name</li>
-</ul>
 </body>
 </html>

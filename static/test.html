@@ -1,20 +1,17 @@
 <html>
 	<body>
-		<div id="date">
+		<div id="status">
 		</div>
 	</body>
 	<script type ="text/javascript">
 	let url ="/now"
-	/*
-	This page and the python script must be on the same host
-	*/
 	function getDate(url)
 	{
 		fetch(url).then(function(response){
 			return response.text()
 		}).then(function(text){
-			console.log("date",text)
-			document.querySelector("div#date")
+			console.log("status",text)
+			document.querySelector("div#status")
 			.innerHTML = text
 		})
 		}
@@ -22,13 +19,13 @@
 		fetch(url).then(function(response){
 			return response.text()
 		}).then(function(text){
-			console.log("date",text)
-			document.querySelector("div#date")
+			console.log("status",text)
+			document.querySelector("div#status")
 			.innerHTML = text
 		})
 
 
-		window.setInterval(getDate.bind(null,url),20*1000)
+		window.setInterval(getDate.bind(null,url),30*1000)
 	}
 	/*setInterval(function,interval in millsecs)*/
 	</script>

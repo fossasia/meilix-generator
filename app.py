@@ -96,7 +96,6 @@ def status():
     tag = os.environ["TRAVIS_TAG"]
     date = datetime.datetime.now().strftime('%Y%m%d')
     url = "https://github.com/xeon-zolt/meilix/releases/download/"+tag+"/meilix-zesty-"+date+"-i386.iso"
-    #url = "https://github.com/"
     req = Request(url)
     try:
         response = urlopen(req)

@@ -90,7 +90,7 @@ def status():
 	except URLError as e:
 		return('We failed to reach the server.')
 	else:
-		email()
+		Email()
 		return('Build Sucessful : ' + url)
 
 @app.route('/now')

@@ -90,43 +90,18 @@ def status():
 	except URLError as e:
 		return('We failed to reach the server.')
 	else:
-		return('Build Sucessful : ' + url)
 		email()
-
+		return('Build Sucessful : ' + url)
 
 @app.route('/now')
 def time():
 	return (status())
-
 
 @app.route('/test')
 def test_page():
 	os.system('./script.sh')
 	print ('/test called')
 	return send_from_directory('static','test.html')
-
-
-@app.route('/yield')
-def output():
-	"""To yield the output """
-	if os.environ['TRAVIS_TAG']:#if TRAVIS_TAG have value it will proceed
-		def inner():
-			proc = subprocess.Popen(
-
-				['./script.sh'],             #call something with a lot of output so we can see it
-
-				shell=True,universal_newlines=True,
-				stdout=subprocess.PIPE
-			)
-
-			for line in iter(proc.stdout.readline,''):
-				time.sleep(1)  # Don't need this just shows the text streaming
-				yield line.rstrip() + '<br/>\n'
-
-	else:
-		return redirect(url_for('index'))
-	#Email()
-	return redirect(url_for('test_page'))
 
 #Function to call meilix script on clicking the build button
 

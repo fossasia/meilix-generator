@@ -34,5 +34,6 @@ travis token --org
 ```
 
 ###### Paste this token in config variable present in setting of the Heroku app and add KEY as `KEY`.
+**Refer [here](https://docs.google.com/document/d/1agoZ3pSKjUfwSAJ3Yu0m-P08M4ERPIjiwSOSU3bubG0/edit?usp=sharing) for more info about the token generation**
 
 > Now you are ready to go. Deploy your app.

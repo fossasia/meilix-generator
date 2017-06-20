@@ -18,7 +18,7 @@ UPLOAD_FOLDER = 'uploads/'
 # Initialize the Flask application
 app = Flask(__name__)
 
-'''# mail config
+# mail config
 mail=Mail(app)
 app.config.update(
 	DEBUG=True,
@@ -31,7 +31,7 @@ app.config.update(
 	)
 
 # Mail init
-mail = Mail(app)'''
+mail = Mail(app)
 
 # This is the path to the upload directory
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -66,45 +66,32 @@ def index():
 				return redirect(url_for('test_page'))
 	return render_template('index.html')
 
-'''def Email():
-	s = threading.Timer(60.0, Email)
+def Email():
 	receiver = os.environ["email"]
 	tag = os.environ["TRAVIS_TAG"]
 	date = datetime.datetime.now().strftime('%Y%m%d')
 	url = "https://github.com/xeon-zolt/meilix/releases/download/"+tag+"/meilix-zesty-"+date+"-i386.iso"
-	os.system('./script.sh')
-
-	req = Request(url)
-	s.start()
 	msg = Message('Hi your link is ready  ',
 				sender='FossAsia')
 	msg.recipients = [receiver]
-
-	try:
-		response = urlopen(req)
-	except HTTPError as e:
-		msg.body = "Your ISO is currently building : " + url
-		mail.send(msg)
-
-	else:
-		msg.body = "Your ISO is ready  : " + url
-		mail.send(msg)
-		s.cancel()'''
+	msg.body = "Your ISO is ready  : " + url
+	mail.send(msg)
 
 
 def status():
-    tag = os.environ["TRAVIS_TAG"]
-    date = datetime.datetime.now().strftime('%Y%m%d')
-    url = "https://github.com/xeon-zolt/meilix/releases/download/"+tag+"/meilix-zesty-"+date+"-i386.iso"
-    req = Request(url)
-    try:
-        response = urlopen(req)
-    except HTTPError as e:
-        return('Building Your Iso')
-    except URLError as e:
-        return('We failed to reach the server.')
-    else:
-        return('Build Sucessful : ' + url)
+	tag = os.environ["TRAVIS_TAG"]
+	date = datetime.datetime.now().strftime('%Y%m%d')
+	url = "https://github.com/xeon-zolt/meilix/releases/download/"+tag+"/meilix-zesty-"+date+"-i386.iso"
+	req = Request(url)
+	try:
+		response = urlopen(req)
+	except HTTPError as e:
+		return('Building Your Iso')
+	except URLError as e:
+		return('We failed to reach the server.')
+	else:
+		return('Build Sucessful : ' + url)
+		email()
 
 
 @app.route('/now')

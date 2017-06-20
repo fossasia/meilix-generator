@@ -90,7 +90,6 @@ def status():
 	except URLError as e:
 		return('We failed to reach the server.')
 	else:
-		Email()
 		return('Build Sucessful : ' + url)
 
 @app.route('/now')
@@ -100,7 +99,6 @@ def time():
 @app.route('/test')
 def test_page():
 	os.system('./script.sh')
-	print ('/test called')
 	return send_from_directory('static','test.html')
 
 #Function to call meilix script on clicking the build button

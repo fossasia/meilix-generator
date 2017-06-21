@@ -62,6 +62,13 @@ The generator runs on flask framework, using the main [app script](/app.py)
 - [script.sh](/script.sh) - Use the Travis API to trigger the build
 - [travis_tokens](/travis_tokens) - Sends the user, repo and branch required for triggering to [script.sh](/script.sh).
 
+4. [Requirement File](/requirements.in)
+
+This contains the required packages for running the app.
+- `pip install --upgrade -r requirements.in` will install latest packages
+- Note that if you would like to change the requirements, please edit the requirements.in file and run this command to update the dependencies:
+ `pip-compile --output-file requirements.txt requirements.in` fix the versions that definitely work for an eternity.
+
 ##### Working
 Webapp ask user for their email-id and event name and a wallpaper which will further be the default wallpaper of the distro. The given event name is used as a tag name of the release.
 Heroku sends these data to Travis to trigger the build. After successful build Travis deployed the iso in the Github Release of the repository whose information is provided in [travis_tokens](/travis_tokens).

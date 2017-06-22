@@ -16,7 +16,6 @@ This contains an line as
 change it to:
 `echo "https://github.com/user_name/meilix/releases/download/${TRAVIS_TAG}/meilix-zesty-`date +%Y%m%d`-i386.iso"`
 
-
 Where the *user_name* is your github profile username where you have forked the **meilix** repo.
 
 Since in the above step you changed the repository which is going to be used for triggering the build, so the iso will also be released in the that repository only.
@@ -39,6 +38,5 @@ travis token --org
 ```
 
 ###### Paste this token in config variable present in setting of the Heroku app and add KEY as `KEY` and VALUE as the `access token`.
-
 
 > Now you are ready to go. Deploy your app.

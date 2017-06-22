@@ -1,50 +1,44 @@
-
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='bootstrap.min.css') }}">
-    <script src="{{ url_for('static', filename='jquery.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='bootstrap.min.js') }}"></script>
-    <title>Meilix Generator</title>
-    <link rel="shortcut icon" href="{{ url_for('static', filename='logo.png') }}">
-</head>
-
-
-    <!--file upload form-->
-   <form method="POST" enctype="multipart/form-data">
-
-  <div class="container">
-    <div class="col-md-4 mx-auto">
-
-  <h2 align="center">Meilix Generator</h2>
-  <p align="center">A webapp which can generate iso for you</p>
-  <form class="form-inline">
-    <div class="form-group">
-      <label for="email">Email:</label>
-      <input type="email" class="form-control" placeholder="Enter email" name="email" required>
-    </div>
-    <div class="form-group">
-      <label for="TRAVIS_TAG">Event Name:</label>
-      <input type="text" pattern="[A-Za-z0-9\s]{1,20}" class="form-control" placeholder="Enter event" name="TRAVIS_TAG" required>
-    </div>
-<div class="col-md-06">
-    <div class="form-group">
-        <label>Upload Wallpaper:</label>
-
-        <label class="btn btn-secondary center-block btn-block">
-            <span>Browse</span>
-            <input type="file" name="file" class="file" style="display: none;" onchange="$(this).prev('span').text($(this).val()!=''?$(this).val():'Browse')" required>
-        </label>
-
-        <img id='file-upload'/>
-    </div>
-</div>
-  <input type="submit" class="btn btn-info center-block btn-block" id="file-upload" value="Build" required>
-  </form>
-</div>
-</div>
-</form>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='bootstrap.min.css') }}">
+        <script src="{{ url_for('static', filename='jquery.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='bootstrap.min.js') }}"></script>
+        <title>Meilix Generator</title>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='logo.png') }}">
+    </head>
+    <body>
+        <!--file upload form-->
+        <form method="POST" enctype="multipart/form-data">
+            <div class="container"><div class="row mt-3">
+                <div class="col-md-4 mx-auto">
+                    <h2 align="center">Meilix Generator</h2>
+                    <p align="center">A webapp which can generate iso for you</p>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input class="form-control" placeholder="Enter email" name="email" required="" type="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="TRAVIS_TAG">Event Name:</label>
+                        <input pattern="[A-Za-z0-9\s]{1,20}" class="form-control" placeholder="Enter event" name="TRAVIS_TAG" required="" type="text">
+                    </div>
+                    <div class="col-md-06">
+                        <div class="form-group">
+                            <label>Upload Wallpaper:</label>
+                            <label class="btn btn-secondary mx-auto btn-block btn-secondary">
+                            <span>Browse</span>
+                            <input name="file" class="file form-control" style="display: none;" onchange="$(this).prev('span').text($(this).val()!=''?$(this).val():'Browse')" required="" type="file">
+                            </label>
+                            <img id="file-upload">
+                        </div>
+                    </div>
+                    <input class="btn btn-info mx-auto btn-block form-control" id="file-upload" value="Build" required="" type="submit">
+                </div>
+                </div>
+            </div>
+        </form>
+    </body>
 </html>
+

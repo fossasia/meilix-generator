@@ -1,22 +1,25 @@
+
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='bootstrap.min.css') }}">
+    <script src="{{ url_for('static', filename='jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='bootstrap.min.js') }}"></script>
     <title>Meilix Generator</title>
     <link rel="shortcut icon" href="{{ url_for('static', filename='logo.png') }}">
 </head>
 
-<body>
+
     <!--file upload form-->
    <form method="POST" enctype="multipart/form-data">
+
   <div class="container">
-    <div class="col-md-4 col-md-offset-4">
-  <h2>Meilix Generator</h2>
-  <p>A webapp which can generate iso for you</p>
+    <div class="col-md-4 mx-auto">
+
+  <h2 align="center">Meilix Generator</h2>
+  <p align="center">A webapp which can generate iso for you</p>
   <form class="form-inline">
     <div class="form-group">
       <label for="email">Email:</label>
@@ -29,17 +32,16 @@
 <div class="col-md-06">
     <div class="form-group">
         <label>Upload Wallpaper:</label>
-        <div class="input-group">
-            <span class="input-group-btn">
-                <span class="btn btn-default btn-file">
-                    <input type="file" name="file" class="file" data-show-preview="false" required>
-                </span>
-            </span>
-        </div>
+
+        <label class="btn btn-secondary center-block btn-block">
+            <span>Browse</span>
+            <input type="file" name="file" class="file" style="display: none;" onchange="$(this).prev('span').text($(this).val()!=''?$(this).val():'Browse')" required>
+        </label>
+
         <img id='file-upload'/>
     </div>
 </div>
-  <input type="submit" class="btn btn-info center-block" id="file-upload" value="Build" required>
+  <input type="submit" class="btn btn-info center-block btn-block" id="file-upload" value="Build" required>
   </form>
 </div>
 </div>

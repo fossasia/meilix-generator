@@ -17,6 +17,7 @@ change it to:
 `echo "https://github.com/user_name/meilix/releases/download/${TRAVIS_TAG}/meilix-zesty-`date +%Y%m%d`-i386.iso"`
 
 Where the *user_name* is your github profile username where you have forked the **meilix** repo.
+
 Since in the above step you changed the repository which is going to be used for triggering the build, so the iso will also be released in the that repository only.
 
 ### Generate your own token
@@ -31,6 +32,7 @@ travis login --org
 Now cd into the forked repo of meilix and generate token
 
 ```sh
+
 cd meilix-generator
 travis token --org
 ```

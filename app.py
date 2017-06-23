@@ -61,9 +61,12 @@ def output():
 			for line in iter(proc.stdout.readline,''):
 				time.sleep(1)  # Don't need this just shows the text streaming
 				yield line.rstrip() + '<br/>\n'
+
 	else:
 		return redirect(url_for('index'))
 	return Response(inner())  # text/html is required for most browsers to show th$
+
+
 
 #Function to call meilix script on clicking the build button
 

@@ -82,6 +82,18 @@ The meilix-generator can be easily deployed on a variety of platform. Detailed p
 1. [Local Installation](/docs/installation/local.md)
 2. [Deployment on Heroku](/docs/installation/heroku.md)
 
+## Accessing the Generator Web App
+
+ - Once deployed, you'll find the generator running on http://localhost:5000, it should look like this:
+
+![Generator Screencast](docs/screenshots/screencast.gif)
+
+ - Add your **email id**, **event-name**, **upload an wallpaper** (this picture will be set as the default wallpaper).
+
+ - Then click on build button to start the building of the iso with the given configuraiton.
+
+ - You will be given a link on the next page from which iso can be downloaded after 20 minutes.
+
 ## Contributions, Bug Reports, Feature Requests
 
 This is an Open Source project and we would be happy to see contributors who report bugs and file feature requests submitting pull requests as well. Please report issues here https://github.com/fossasia/meilix-generator/issues

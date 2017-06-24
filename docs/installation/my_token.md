@@ -4,9 +4,9 @@ Till now if you are here, then you must have gone through the code.
 It contain 3 words as :
 `username repository branch`
 This is the user whose branch of that repository is going to be trigger.
-We are using [fossasia/meilx](https://github.com/fossasia/meilix) repository to trigger its build.
+We are using [fossasia/meilix](https://github.com/fossasia/meilix) repository to trigger its build.
 
-**Before undergoing any development process you must fork [fossasia/meilx](https://github.com/fossasia/meilix) repository and change the username so that the release will be done in your repository**.
+**Before undergoing any development process you must fork [fossasia/meilix](https://github.com/fossasia/meilix) repository and change the username so that the release will be done in your repository**.
 You can fork [this](https://github.com/fossasia/meilix) and start to put **your username** so that the fossasia/meilix repo will not get flooded with unnecessary builds. And your can easily play with configuration without disturbing the original repo.
 
 ### [script.sh](/script.sh)

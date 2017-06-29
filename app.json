@@ -20,5 +20,5 @@
     },
     "buildpacks": {
             "url": "heroku/python"
-        }
+    }
 }

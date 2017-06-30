@@ -101,6 +101,7 @@ This is an Open Source project and we would be happy to see contributors who rep
 ## Issue and Branch Policy
 
 Before making a pull request, please file an issue. So, other developers have the chance to give feedback or discuss details. Match every pull request with an issue please and add the issue number in description e.g. like "Fixes #123".
+**Go for only one issue in a pull request**
 
 We have the following branches
 * **master**

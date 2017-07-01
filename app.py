@@ -38,6 +38,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
 def allowed_file(filename):
+        #Check for allowed file extension
 	return '.' in filename and \
 			filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
@@ -96,10 +97,18 @@ def status():
 def time():
 	return (status())
 
+<<<<<<< HEAD
 @app.route('/test')
 def test_page():
 	os.system('./script.sh')
 	return send_from_directory('static','test.html')
+=======
+	else:
+		return redirect(url_for('index'))
+	return Response(inner())  # text/html is required for most browsers to show th$
+
+
+>>>>>>> upstream/master
 
 #Function to call meilix script on clicking the build button
 

@@ -10,7 +10,7 @@ Meilix-Generator is a webapp which generates iso using [meilix](https://github.c
   - Through the webapp, a build button is taken as an input to go to a build page which triggers the Travis with the same user configuration to build the iso and deploy it on Github page. The user gets the link to the build on the next page only.
   - Thanks to [Travis API](https://blog.travis-ci.com/2017-04-06-api-v3-is-here) without which our idea is impossible to implement. We used a [shell script](/docs/installation/my_token.md) to outframe our idea. The script takes the input of the user’s, repository, and branch to decide to where the trigger to take place.
 
-[![Travis branch](https://img.shields.io/travis/fossasia/meilix-generator/master.svg?style=flat-square)](https://travis-ci.org/fossasia/meilix-generator) [![Gemnasium](https://img.shields.io/gemnasium/fossasia/meilix-generator.svg?style=flat-square)](https://gemnasium.com/github.com/fossasia/meilix-generator) [![Heroku](https://heroku-badge.herokuapp.com/?app=meilix-generator)](https://meilix-generator.herokuapp.com/) [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/fossasia/meilix?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+![GSoC 2017](https://img.shields.io/badge/GSoC-2017-blue.svg) [![Travis branch](https://img.shields.io/travis/fossasia/meilix-generator/master.svg?style=flat-square)](https://travis-ci.org/fossasia/meilix-generator) [![Gemnasium](https://img.shields.io/gemnasium/fossasia/meilix-generator.svg?style=flat-square)](https://gemnasium.com/github.com/fossasia/meilix-generator) [![Heroku](https://heroku-badge.herokuapp.com/?app=meilix-generator)](https://meilix-generator.herokuapp.com/) [![Code Climate](https://codeclimate.com/github/fossasia/meilix-generator/badges/gpa.svg?branch=master)](https://codeclimate.com/github/fossasia/meilix-generator) [![codecov](https://codecov.io/gh/fossasia/meilix-generator/branch/master/graph/badge.svg)](https://codecov.io/gh/fossasia/meilix-generator) [![Codacy branch grade](https://img.shields.io/codacy/grade/2040e9769e0c446dbb400fc5a77d2dc2/master.svg?style=flat-square)](https://www.codacy.com/app/fossasia/meilix-generator) [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/fossasia/meilix?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## Communication
 
@@ -62,6 +62,13 @@ The generator runs on flask framework, using the main [app script](/app.py)
 - [script.sh](/script.sh) - Use the Travis API to trigger the build
 - [travis_tokens](/travis_tokens) - Sends the user, repo and branch required for triggering to [script.sh](/script.sh).
 
+4. [Requirement File](/requirements.in)
+
+This contains the required packages for running the app.
+- `pip install --upgrade -r requirements.in` will install latest packages
+- Note that if you would like to change the requirements, please edit the requirements.in file and run this command to update the dependencies:
+ `pip-compile --output-file requirements.txt requirements.in` fix the versions that definitely work for an eternity.
+
 ##### Working
 Webapp ask user for their email-id and event name and a wallpaper which will further be the default wallpaper of the distro. The given event name is used as a tag name of the release.
 Heroku sends these data to Travis to trigger the build. After successful build Travis deployed the iso in the Github Release of the repository whose information is provided in [travis_tokens](/travis_tokens).
@@ -75,6 +82,18 @@ The meilix-generator can be easily deployed on a variety of platform. Detailed p
 1. [Local Installation](/docs/installation/local.md)
 2. [Deployment on Heroku](/docs/installation/heroku.md)
 
+## Accessing the Generator Web App
+
+ - Once deployed, you'll find the generator running on http://localhost:5000, it should look like this:
+
+![Generator Screencast](docs/screenshots/screencast.gif)
+
+ - Add your **email id**, **event-name**, **upload an wallpaper** (this picture will be set as the default wallpaper).
+
+ - Then click on build button to start the building of the iso with the given configuraiton.
+
+ - You will be given a link on the next page from which iso can be downloaded after 20 minutes.
+
 ## Contributions, Bug Reports, Feature Requests
 
 This is an Open Source project and we would be happy to see contributors who report bugs and file feature requests submitting pull requests as well. Please report issues here https://github.com/fossasia/meilix-generator/issues
@@ -82,6 +101,7 @@ This is an Open Source project and we would be happy to see contributors who rep
 ## Issue and Branch Policy
 
 Before making a pull request, please file an issue. So, other developers have the chance to give feedback or discuss details. Match every pull request with an issue please and add the issue number in description e.g. like "Fixes #123".
+**Go for only one issue in a pull request**
 
 We have the following branches
 * **master**
@@ -93,7 +113,7 @@ We have the following branches
 * Do read the [Open Source Developer Guide and Best Practices at FOSSASIA](https://blog.fossasia.org/open-source-developer-guide-and-best-practices-at-fossasia).
 
 **Write-up containing project buildup**
-* These documents will help you to know more about the backbone of the project: [Flask](https://docs.google.com/document/d/1TWsz0aP0vLwXwcTX1VC58lEYy5dM6xvxnAABEtzyUZY/edit?usp=sharing) and [Heroku Travis Intergration](https://docs.google.com/document/d/19xBAbjH04e_KlWwzGiDCDVAs4bLv-d-lcjKyr6bTRWE/edit?usp=sharing)
+* These documents will help you to know more about the backbone of the project: [Flask](https://docs.google.com/document/d/1TWsz0aP0vLwXwcTX1VC58lEYy5dM6xvxnAABEtzyUZY/edit?usp=sharing) and [Heroku Travis Intergration](https://docs.google.com/document/d/19xBAbjH04e_KlWwzGiDCDVAs4bLv-d-lcjKyr6bTRWE/edit?usp=sharing) and [Token Generation](https://docs.google.com/document/d/1agoZ3pSKjUfwSAJ3Yu0m-P08M4ERPIjiwSOSU3bubG0/edit?usp=sharing)
 
 
 ## License

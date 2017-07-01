@@ -9,15 +9,16 @@
         "flask"
     ],
     "env": {
-        "APP_SECRET_TOKEN": {
-            "generator": "secret"
-        },
-        "ON_HEROKU": "true",
-        "FORCE_SSL": "true",
-        "INVITATION_CODE": {
-            "generator": "secret"
-        }
-    },
+        "email": { 
+      "required": true 
+    }, 
+    "KEY": { 
+      "required": true 
+    }, 
+    "TRAVIS_TAG": { 
+      "required": true 
+    } 
+  }, 
   "buildpacks": [ 
     { 
       "url": "heroku/python" 

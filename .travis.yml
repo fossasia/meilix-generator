@@ -1,0 +1,13 @@
+language: python
+python:
+  - 3.6
+sudo: required
+install: pip install -r requirements.txt
+script: nosetests app.py
+deploy:
+  provider: heroku
+  api_key:
+    secure: T0Rqem1YnSPY02Cli0mOpGTA3GE3Wc01hKkyRCj31PBvjsiGh3X8HP2n8WM+zdP06m4k8wteZV0ZcU6rtAR/ETRtn2gi1glwtkpwoIy4ePCWky3obG0cNNb6PnUE/05enQQz/6XOxyhMdcjK0aCqTHJMNIw76uQHdkodPBWFVEId7DLrkMkHRt0+VRgY0ccv+VOc2hVDo/nrYq7sFkgnpCVqtzRSU6PmY8dDNVFiPvHDv3GL1g/8rF34l1pJIUzcs6mxlHP1tdXBcVY0wYUySj1c0EGZun9ajFLeSMTYBSxaci/RI9X6oXufd8v55861hkRaoGqn7JcM27QKJUtK0r9EfUqr7s+1LxBnZgk6mJ3Bz0XPIweGrP0gIiPhu254mdWAID0Xwdb6XhWIQBL30kWNJEq0nbMuQyTLHTrEjYizgbnnWI5hLngJspRFx8HM33/Vxez2/xoEBH+cDSdUX8GW3mbUTQEtWRQN5KNgibPIUlVCjGN2Xjje623715MgjDDrWaFWmMtTx8qTI08A9GuLBwOL+TeQ/MeWzhsejbrHl4xaDvPBZi8VVvmvK1v9GUd8p4GNxvEs3/i7eQ/ktthgTH+Mij1DDrZz9cxuU86Bd917igzgAibQmT1KFBGDOyxMDjmx8owi9ZG9XSlnmYKAFhBb4DwEbR5pJg39ZtY=
+  app: meilix-generator
+  on:
+    repo: fossasia/meilix-generator

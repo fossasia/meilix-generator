@@ -16,15 +16,16 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
 def allowed_file(filename):
+        #Check for allowed file extension
 	return '.' in filename and \
 			filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
 def urlify(s):
-     # Remove all non-word characters (everything except numbers and letters)
-     s = re.sub(r"[^\w\s]", '', s).strip()
-     # Replace all runs of whitespace with a single dash
-     s = re.sub(r"\s+", '-', s)
-     return s
+    """Remove all non-word characters (everything except numbers and letters)"""
+    s = re.sub(r"[^\w\s]", '', s).strip()
+    #Replace all runs of whitespace with a single dash
+    s = re.sub(r"\s+", '-', s)
+    return s
 
 @app.route("/", methods=['GET', 'POST'])
 def index():
@@ -46,7 +47,8 @@ def index():
 
 @app.route('/yield')
 def output():
-	if os.environ['TRAVIS_TAG']: #if TRAVIS_TAG have value it will proceed
+	"""To yield the output """
+	if os.environ['TRAVIS_TAG']:#if TRAVIS_TAG have value it will proceed
 		def inner():
 			proc = subprocess.Popen(
 
@@ -62,7 +64,9 @@ def output():
 
 	else:
 		return redirect(url_for('index'))
-	return Response(inner(), mimetype='text/html')  # text/html is required for most browsers to show th$
+	return Response(inner())  # text/html is required for most browsers to show th$
+
+
 
 #Function to call meilix script on clicking the build button
 

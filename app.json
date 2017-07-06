@@ -18,7 +18,9 @@
             "generator": "secret"
         }
     },
-    "buildpacks": {
-            "url": "heroku/python"
-    }
-}
+    "buildpacks": [
+      {
+        "url": "heroku/python"
+      }
+    ]
+  }

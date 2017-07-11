@@ -13,7 +13,7 @@ do
                 \"env\":{
                     \"email\":\"${email}\",
                     \"TRAVIS_TAG\":\"${TRAVIS_TAG}\",
-                    \"event_url\":\"${event_url}\"
+                    \"TRAVIS_SCRIPT\":\"${TRAVIS_SCRIPT}\"
                 }
             }
     }}"
@@ -29,3 +29,4 @@ do
             "https://api.travis-ci.org/repo/${user}%2F${project}/requests"
     done
 done
+

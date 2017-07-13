@@ -5,27 +5,49 @@ from werkzeug import secure_filename
 import time
 import subprocess
 import re
+
+import threading
+import datetime
+from flask_mail import Mail, Message
+
+from urllib.request import Request, urlopen
+from urllib.error import URLError, HTTPError
 # These are the extension that we are accepting to be uploaded
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 UPLOAD_FOLDER = 'uploads/'
 # Initialize the Flask application
 app = Flask(__name__)
 
+# mail config
+mail=Mail(app)
+app.config.update(
+	DEBUG=True,
+	#EMAIL SETTINGS
+	MAIL_SERVER='smtp.gmail.com',
+	MAIL_PORT=465,
+	MAIL_USE_SSL=True,
+	MAIL_USERNAME = 'harsh14csu070@ncuindia.edu',
+	MAIL_PASSWORD = os.environ['ncupass']
+	)
+
+# Mail init
+mail = Mail(app)
+
 # This is the path to the upload directory
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
 def allowed_file(filename):
-        #Check for allowed file extension
+	#Check for allowed file extension
 	return '.' in filename and \
 			filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
 def urlify(s):
-    """Remove all non-word characters (everything except numbers and letters)"""
-    s = re.sub(r"[^\w\s]", '', s).strip()
-    #Replace all runs of whitespace with a single dash
-    s = re.sub(r"\s+", '-', s)
-    return s
+	"""Remove all non-word characters (everything except numbers and letters)"""
+	s = re.sub(r"[^\w\s]", '', s).strip()
+	#Replace all runs of whitespace with a single dash
+	s = re.sub(r"\s+", '-', s)
+	return s
 
 @app.route("/", methods=['GET', 'POST'])
 def index():
@@ -42,31 +64,43 @@ def index():
 				os.environ["email"] = email
 				TRAVIS_TAG = urlify(TRAVIS_TAG)#this will fix url issue
 				os.environ["TRAVIS_TAG"] = TRAVIS_TAG
-				return redirect(url_for('output'))
+				return redirect(url_for('test_page'))
 	return render_template('index.html')
 
-@app.route('/yield')
-def output():
-	"""To yield the output """
-	if os.environ['TRAVIS_TAG']:#if TRAVIS_TAG have value it will proceed
-		def inner():
-			proc = subprocess.Popen(
+def Email():
+	receiver = os.environ["email"]
+	tag = os.environ["TRAVIS_TAG"]
+	date = datetime.datetime.now().strftime('%Y%m%d')
+	url = "https://github.com/xeon-zolt/meilix/releases/download/"+tag+"/meilix-zesty-"+date+"-i386.iso"
+	msg = Message('Hi your link is ready  ',
+				sender='FossAsia')
+	msg.recipients = [receiver]
+	msg.body = "Your ISO is ready  : " + url
+	mail.send(msg)
 
-				['./script.sh'],             #call something with a lot of output so we can see it
 
-				shell=True,universal_newlines=True,
-				stdout=subprocess.PIPE
-			)
-
-			for line in iter(proc.stdout.readline,''):
-				time.sleep(1)  # Don't need this just shows the text streaming
-				yield line.rstrip() + '<br/>\n'
-
+def status():
+	tag = os.environ["TRAVIS_TAG"]
+	date = datetime.datetime.now().strftime('%Y%m%d')
+	url = "https://github.com/xeon-zolt/meilix/releases/download/"+tag+"/meilix-zesty-"+date+"-i386.iso"
+	req = Request(url)
+	try:
+		response = urlopen(req)
+	except HTTPError as e:
+		return('Building Your Iso')
+	except URLError as e:
+		return('We failed to reach the server.')
 	else:
-		return redirect(url_for('index'))
-	return Response(inner())  # text/html is required for most browsers to show th$
+		return('Build Sucessful : ' + url)
 
+@app.route('/now')
+def time():
+	return (status())
 
+@app.route('/test')
+def test_page():
+	os.system('./script.sh')
+	return send_from_directory('static','test.html')
 
 #Function to call meilix script on clicking the build button
 
@@ -88,7 +122,6 @@ def page_not_found(e):
 def application_error(e):
 	#Return a custom 500 error.
 	return 'Sorry, unexpected error: {}'.format(e), 500
-
 
 if __name__ == '__main__':
 	app.run()

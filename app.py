@@ -2,9 +2,12 @@ import os
 from flask import Flask, render_template, Response ,request ,redirect ,url_for ,send_from_directory
 
 from werkzeug import secure_filename
-import time
-import subprocess
 import re
+
+import datetime
+
+from urllib.request import Request, urlopen
+from urllib.error import URLError, HTTPError
 # These are the extension that we are accepting to be uploaded
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 UPLOAD_FOLDER = 'uploads/'
@@ -42,33 +45,39 @@ def index():
 				os.environ["email"] = email
 				TRAVIS_TAG = urlify(TRAVIS_TAG)#this will fix url issue
 				os.environ["TRAVIS_TAG"] = TRAVIS_TAG
-				return redirect(url_for('output'))
+				return redirect(url_for('test_page'))
 	return render_template('index.html')
 
-@app.route('/yield')
-def output():
-	"""To yield the output """
-	if os.environ['TRAVIS_TAG']:#if TRAVIS_TAG have value it will proceed
-		def inner():
-			proc = subprocess.Popen(
-
-				['./script.sh'],             #call something with a lot of output so we can see it
-
-				shell=True,universal_newlines=True,
-				stdout=subprocess.PIPE
-			)
-
-			for line in iter(proc.stdout.readline,''):
-				time.sleep(1)  # Don't need this just shows the text streaming
-				yield line.rstrip() + '<br/>\n'
-
-	else:
-		return redirect(url_for('index'))
-	return Response(inner())  # text/html is required for most browsers to show th$
+def status():
+    tag = os.environ["TRAVIS_TAG"]
+    date = datetime.datetime.now().strftime('%Y%m%d')
+    url = "https://github.com/xeon-zolt/meilix/releases/download/"+tag+"/meilix-zesty-"+date+"-i386.iso"
+    req = Request(url)
+    try:
+        response = urlopen(req)
+    except HTTPError as e:
+        return('Building Your Iso')
+    except URLError as e:
+        return('We failed to reach the server.')
+    else:
+        return('Build Sucessful : ' + url)
 
 
+@app.route('/now')
+def status_url():
+	return (status())
 
 #Function to call meilix script on clicking the build button
+@app.route('/test')
+def test_page():
+	if os.environ['TRAVIS_TAG']:#if TRAVIS_TAG have value it will proceed
+		os.system('./script.sh')
+		print ('/test called')
+		return send_from_directory('static','test.html')
+	else:
+		return redirect(url_for('index'))
+
+	return Response(inner())  # text/html is required for most browsers to show th$
 
 @app.route('/uploads/<filename>')
 def uploaded_file(filename):
@@ -88,7 +97,6 @@ def page_not_found(e):
 def application_error(e):
 	#Return a custom 500 error.
 	return 'Sorry, unexpected error: {}'.format(e), 500
-
 
 if __name__ == '__main__':
 	app.run()

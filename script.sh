@@ -12,7 +12,8 @@ do
             \"config\":{
                 \"env\":{
                     \"email\":\"${email}\",
-                    \"TRAVIS_TAG\":\"${TRAVIS_TAG}\"
+                    \"TRAVIS_TAG\":\"${TRAVIS_TAG}\",
+                    \"event_url\":\"${event_url}\"
                 }
             }
     }}"

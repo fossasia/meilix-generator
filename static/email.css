@@ -12,6 +12,7 @@
 			transform: scale(1);
 			animation:text 1s ease forwards;
 			-webkit-animation:text 1s ease forwards;
+			-moz-animation:text 1s ease forwards;
 		}
 		main {
 			width: 150px;
@@ -62,6 +63,7 @@
 			margin-top:10px;
 			animation:msg 1s ease 0.5s forwards;
 			-webkit-animation:msg 1s ease 0.5s forwards;
+			-moz-animation:msg 1s ease 0.5s forwards;
 		}
 		a {
 			width: 250px;
@@ -79,6 +81,7 @@
 			bottom: -10px;
 			animation:check 1s ease 0.8s forwards;
 			-webkit-animation:check 1s ease 0.8s forwards;
+			-moz-animation:check 1s ease 0.8s forwards;
 		}
 		a:before {
 			content: "";

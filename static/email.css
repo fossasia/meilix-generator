@@ -1,6 +1,6 @@
 		body {
-			margin:0px;
-			padding:0px;
+			margin:0;
+			padding:0;
 			background: #2cb3f1;
 			font-family: Helvetica,Verdana;
 			overflow: hidden;
@@ -15,7 +15,7 @@
 		}
 		main {
 			width: 150px;
-			margin:50px auto 0px auto;
+			margin:50px auto 0 auto;
 			position: relative;
 		}
 		.envelope-top {
@@ -26,7 +26,7 @@
 			border-top: 47px solid #fbf1cd;
 			position: relative;
 			top: 47px;
-			left: 0px;
+			left: 0;
 		}
 		.envelope-right {
 			width: 0;
@@ -115,7 +115,7 @@
 				opacity: 0;
 			}
 			100% {
-				margin-top: 0px;
+				margin-top: 0;
 				opacity: 1;
 			}
 		}
@@ -125,7 +125,7 @@
 				opacity: 0;
 			}
 			100% {
-				margin-top: 0px;
+				margin-top: 0;
 				opacity: 1;
 			}
 		}
@@ -135,7 +135,7 @@
 				opacity: 0;
 			}
 			100% {
-				bottom: 0px;
+				bottom: 0;
 				opacity: 1;
 			}
 		}
@@ -145,7 +145,7 @@
 				opacity: 0;
 			}
 			100% {
-				bottom: 0px;
+				bottom: 0;
 				opacity: 1;
 			}
 		}

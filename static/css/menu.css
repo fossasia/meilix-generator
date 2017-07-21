@@ -1,11 +1,3 @@
-html {
-  box-sizing: border-box;
-}
-
-*, *:after, *:before {
-  box-sizing: inherit;
-}
-
 a {
   color: #333;
   text-decoration: none;
@@ -34,6 +26,8 @@ body {
   display: block;
   cursor: pointer;
   -webkit-transition: opacity 0.2s linear;
+  -moz-transition: opacity 0.2s linear;
+  -o-transition: opacity 0.2s linear;
   transition: opacity 0.2s linear;
 }
 .open:hover {
@@ -52,6 +46,8 @@ body {
   top: 3px;
   overflow: hidden;
   -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
   transition: all 0.4s ease;
 }
 .open span:nth-child(1) {
@@ -67,6 +63,8 @@ body {
 
 .sub-menu {
   -webkit-transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  -moz-transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  -o-transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   height: 0;
   width: 0;
@@ -85,6 +83,8 @@ body {
   height: auto;
   margin-right: -160px;
   -webkit-transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  -moz-transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  -o-transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 .sub-menu li:first-child {
@@ -92,18 +92,28 @@ body {
 }
 .sub-menu li:nth-child(1) {
   -webkit-transition-delay: 0.05s;
+  -moz-transition-delay: 0.05s;
+  -o-transition-delay: 0.05s;
 }
 .sub-menu li:nth-child(2) {
   -webkit-transition-delay: 0.10s;
+  -moz-transition-delay: 0.10s;
+  -o-transition-delay: 0.10s;
 }
 .sub-menu li:nth-child(3) {
   -webkit-transition-delay: 0.15s;
+  -moz-transition-delay: 0.15s;
+  -o-transition-delay: 0.15s;
 }
 .sub-menu li:nth-child(4) {
   -webkit-transition-delay: 0.20s;
+  -moz-transition-delay: 0.20s;
+  -o-transition-delay: 0.20s;
 }
 .sub-menu li:nth-child(5) {
   -webkit-transition-delay: 0.25s;
+  -moz-transition-delay: 0.25s;
+  -o-transition-delay: 0.25s;
 }
 .sub-menu li a {
   color: #fff;
@@ -126,10 +136,14 @@ body {
 .oppenned span:nth-child(1), .oppenned span:nth-child(3) {
   z-index: 100;
   -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
           transform: rotate(45deg);
 }
 .oppenned span:nth-child(1) {
   -webkit-transform: rotate(45deg) translateY(12px) translateX(12px);
+  -moz-transform: rotate(45deg) translateY(12px) translateX(12px);
+  -o-transform: rotate(45deg) translateY(12px) translateX(12px);
           transform: rotate(45deg) translateY(12px) translateX(12px);
 }
 .oppenned span:nth-child(2) {
@@ -142,6 +156,8 @@ body {
 }
 .oppenned span:nth-child(3) {
   -webkit-transform: rotate(-45deg) translateY(-10px) translateX(10px);
+  -moz-transform: rotate(-45deg) translateY(-10px) translateX(10px);
+  -o-transform: rotate(-45deg) translateY(-10px) translateX(10px);
           transform: rotate(-45deg) translateY(-10px) translateX(10px);
 }
 .oppenned li {

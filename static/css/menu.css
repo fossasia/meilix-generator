@@ -138,12 +138,14 @@ body {
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
   -o-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
           transform: rotate(45deg);
 }
 .oppenned span:nth-child(1) {
   -webkit-transform: rotate(45deg) translateY(12px) translateX(12px);
   -moz-transform: rotate(45deg) translateY(12px) translateX(12px);
   -o-transform: rotate(45deg) translateY(12px) translateX(12px);
+  -ms-transform: rotate(45deg) translateY(12px) translateX(12px);
           transform: rotate(45deg) translateY(12px) translateX(12px);
 }
 .oppenned span:nth-child(2) {
@@ -158,6 +160,7 @@ body {
   -webkit-transform: rotate(-45deg) translateY(-10px) translateX(10px);
   -moz-transform: rotate(-45deg) translateY(-10px) translateX(10px);
   -o-transform: rotate(-45deg) translateY(-10px) translateX(10px);
+  -ms-transform: rotate(-45deg) translateY(-10px) translateX(10px);
           transform: rotate(-45deg) translateY(-10px) translateX(10px);
 }
 .oppenned li {

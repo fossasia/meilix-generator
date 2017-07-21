@@ -71,7 +71,7 @@ body {
   right: 0;
   top: 0;
   position: absolute;
-  background-color: rgba(91, 192, 222);
+  background-color: rgb(91, 192, 222);
   border-radius: 50%;
   z-index: 18;
   overflow: hidden;
@@ -154,6 +154,7 @@ body {
   right: -160px;
   top: -160px;
   border-radius: 50%;
+  background-color: rgb(38, 84, 133);/*fallback color*/
   background-color: rgba(38, 84, 133, 0.54);
 }
 .oppenned span:nth-child(3) {

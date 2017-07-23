@@ -32,6 +32,7 @@ def index():
 	if request.method == 'POST':
 		email = request.form['email']
 		TRAVIS_TAG = request.form['TRAVIS_TAG']
+		event_url = request.form['event_url']
 		file = request.files['file']
 		if file and allowed_file(file.filename):
 			filename = secure_filename(file.filename)
@@ -42,31 +43,18 @@ def index():
 				os.environ["email"] = email
 				TRAVIS_TAG = urlify(TRAVIS_TAG)#this will fix url issue
 				os.environ["TRAVIS_TAG"] = TRAVIS_TAG
+				os.environ["event_url"] = event_url
 				return redirect(url_for('output'))
 	return render_template('index.html')
 
-@app.route('/yield')
+@app.route('/output')
 def output():
-	"""To yield the output """
-	if os.environ['TRAVIS_TAG']:#if TRAVIS_TAG have value it will proceed
-		def inner():
-			proc = subprocess.Popen(
-
-				['./script.sh'],             #call something with a lot of output so we can see it
-
-				shell=True,universal_newlines=True,
-				stdout=subprocess.PIPE
-			)
-
-			for line in iter(proc.stdout.readline,''):
-				time.sleep(1)  # Don't need this just shows the text streaming
-				yield line.rstrip() + '<br/>\n'
-
-	else:
-		return redirect(url_for('index'))
-	return Response(inner())  # text/html is required for most browsers to show th$
-
-
+    if os.environ['TRAVIS_TAG']:#if TRAVIS_TAG have value it will proceed
+        os.system('./script.sh')
+        print ('/build called')
+        return render_template('build.html')
+    else:
+        return redirect(url_for('index'))
 
 #Function to call meilix script on clicking the build button
 

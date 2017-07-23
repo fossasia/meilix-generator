@@ -3,13 +3,31 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='bootstrap.min.css') }}">
-        <script src="{{ url_for('static', filename='jquery.min.js') }}"></script>
-        <script src="{{ url_for('static', filename='bootstrap.min.js') }}"></script>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static',filename='css/menu.css') }}">
+
+        <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
         <title>Meilix Generator</title>
         <link rel="shortcut icon" href="{{ url_for('static', filename='logo.png') }}">
     </head>
     <body>
+
+        <div  class="open">
+        	<span class="cls"></span>
+        	<span>
+        		<ul class="sub-menu ">
+        			<li>
+        				<a href="#about" title="about">About</a>
+        			</li>
+        			<li>
+        				<a href="http://github.com/fossasia/meilix-generator/" title="Github">Github</a>
+        			</li>
+        		</ul>
+        	</span>
+        	<span class="cls"></span>
+        </div>
+
         <!--file upload form-->
         <form method="POST" enctype="multipart/form-data">
             <div class="container"><div class="row mt-3">
@@ -24,6 +42,12 @@
                         <label for="TRAVIS_TAG">Event Name:</label>
                         <input pattern="[A-Za-z0-9\s]{1,20}" class="form-control" placeholder="Enter event" name="TRAVIS_TAG" required="" type="text">
                     </div>
+
+                    <div class="form-group">
+                      <label for="event_url">Event Link:</label>
+                      <input pattern="https?://.+" class="form-control" placeholder="Enter event link" name="event_url" title="this will be used as home page of the browser" required="" type="url" >
+                    </div>
+
                     <div class="col-md-06">
                         <div class="form-group">
                             <label>Upload Wallpaper:</label>
@@ -39,6 +63,8 @@
                 </div>
             </div>
         </form>
+
+        <script type="text/javascript" src="{{ url_for('static', filename='js/menu.js') }}"></script>
+
     </body>
 </html>
-

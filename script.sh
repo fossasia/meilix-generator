@@ -13,12 +13,11 @@ do
                 \"env\":{
                     \"email\":\"${email}\",
                     \"TRAVIS_TAG\":\"${TRAVIS_TAG}\",
+                    \"event_url\":\"${event_url}\",
                     \"TRAVIS_SCRIPT\":\"${TRAVIS_SCRIPT}\"
                 }
             }
     }}"
-    echo "This link will be ready in approx 20 minutes"
-    echo "https://github.com/xeon-zolt/meilix/releases/download/${TRAVIS_TAG}/meilix-zesty-`date +%Y%m%d`-i386.iso"
     echo "Sending Data To travis To build ISO"
         curl -s -X POST \
             -H "Content-Type: application/json" \

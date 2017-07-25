@@ -19,9 +19,9 @@ Do read the [Open Source Developer Guide and Best Practices at FOSSASIA](https:/
 
 Pull requests must be reviewed before merge. The goal is to have two people review the pull request. With this we want to spread the knowledge about the project and encourage positive feedback.
 
-- A pull-request with **two** positive reviews of contributors should be merged by the last reviewer.
-- A pull-request with **one** positive review of contributors can be merged after 24 hours.
-- A pull-request with **no** positive review can be merged after three days.
+- A pull-request with **two** positive reviews of contributors should be merged by the last reviewer and can be merged by anyone with write access.
+- A pull-request with **one** positive review of contributors can be merged after 24 hours by anyone with write access.
+- A pull-request with **no** positive review can be merged after three days by anyone with write access.
 
 Note that this does not clarify what to do if there a negative reviews.
 The goal is again to spread knowledge and feedback but also prevent frustration and stagnation of the project.

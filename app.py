@@ -46,12 +46,7 @@ def index():
 				file = open('travis_script_1.sh', 'r')
 				script1 = file.readlines()
 				file.close()
-				# for json replace " with \\\"
-				script1 = r''.join(script1)
-				#script1 = repr(script1)
-				#script1 = script1.replace(r'\n',r'\\\n')
-				#script1 = script1.replace(r'"',r'\\\"')
-				os.environ["TRAVIS_SCRIPT"] = script1.rstrip()
+				os.environ["TRAVIS_SCRIPT"] = os.popen('base64 travis_script_1.sh').read().rstrip()
 				return redirect(url_for('output'))
 	return render_template('index.html')
 

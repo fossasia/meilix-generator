@@ -14,3 +14,14 @@
 * If you would like to work on an issue, drop in a comment at the issue. If it is already assigned to someone, but there is no sign of any work being done, please free to drop in a comment so that the issue can be assigned to you if the previous assignee has dropped it entirely.
 
 Do read the [Open Source Developer Guide and Best Practices at FOSSASIA](https://blog.fossasia.org/open-source-developer-guide-and-best-practices-at-fossasia).
+
+**Review Policy**
+
+Pull requests must be reviewed before merge. The goal is to have two people review the pull request. With this we want to spread the knowledge about the project and encourage positive feedback.
+
+- A pull-request with **two** positive reviews of contributors should be merged by the last reviewer and can be merged by anyone with write access.
+- A pull-request with **one** positive review of contributors can be merged after 24 hours by anyone with write access.
+- A pull-request with **no** positive review can be merged after three days by anyone with write access.
+
+Note that this does not clarify what to do if there a negative reviews.
+The goal is again to spread knowledge and feedback but also prevent frustration and stagnation of the project.

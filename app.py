@@ -1,4 +1,4 @@
-
+import os
 from flask import Flask, render_template ,request ,redirect ,url_for ,send_from_directory
 from werkzeug import secure_filename
 import re
@@ -44,11 +44,6 @@ def index():
 				TRAVIS_TAG = urlify(TRAVIS_TAG)#this will fix url issue
 				os.environ["TRAVIS_TAG"] = TRAVIS_TAG
 				os.environ["event_url"] = event_url
-				file = open('travis_script_1.sh', 'r')
-				script1 = file.readlines()
-				file.close()
-				os.environ["TRAVIS_SCRIPT"] = os.popen('base64 travis_script_1.sh').read().rstrip()
-				os.environ["event_url"] = event_url
 				with open('travis_script_1.sh','rb') as f:
 					os.environ["TRAVIS_SCRIPT"] = str(base64.b64encode(f.read()))[1:]
 				return redirect(url_for('output'))
@@ -56,27 +51,12 @@ def index():
 
 @app.route('/output')
 def output():
-    if os.environ['TRAVIS_TAG']:#if TRAVIS_TAG have value it will proceed
-        os.system('./script.sh')
-        print ('/build called')
-        return render_template('build.html')
-    else:
-        return redirect(url_for('index'))
-
-				['./script.sh'],             #call something with a lot of output so we can see it
-
-				shell=True,universal_newlines=True,
-				stdout=subprocess.PIPE
-			)
-
-			for line in iter(proc.stdout.readline,''):
-				time.sleep(1)  # Don't need this just shows the text streaming
-				yield line.rstrip() + '<br/>\n'
-
+	if os.environ['TRAVIS_TAG']:#if TRAVIS_TAG have value it will proceed
+		os.system('./script.sh')
+		print ('/build called')
+		return render_template('build.html')
 	else:
 		return redirect(url_for('index'))
-	return Response(inner())  # text/html is required for most browsers to show th$
-
 
 
 #Function to call meilix script on clicking the build button

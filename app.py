@@ -40,8 +40,6 @@ def index():
 				TRAVIS_TAG = urlify(TRAVIS_TAG)#this will fix url issue
 				os.environ["TRAVIS_TAG"] = TRAVIS_TAG
 				os.environ["event_url"] = event_url
-				with open('travis_script_1.sh','rb') as f:
-					os.environ["TRAVIS_SCRIPT"] = str(base64.b64encode(f.read()))[1:]
 				with open(filename,'rb') as f:
 					os.environ["Wallpaper"] = str(base64.b64encode(f.read()))[1:]
 				return redirect(url_for('output'))

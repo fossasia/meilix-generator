@@ -11,8 +11,6 @@ UPLOAD_FOLDER = 'uploads/'
 # Initialize the Flask application
 app = Flask(__name__)
 
-# This is the path to the upload directory
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
 def allowed_file(filename):
@@ -36,9 +34,7 @@ def index():
 		file = request.files['file']
 		if file and allowed_file(file.filename):
 			filename = secure_filename(file.filename)
-			file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-			os.rename(UPLOAD_FOLDER + filename, UPLOAD_FOLDER+'wallpaper')
-			filename = 'wallpaper'
+			file.save(os.path.join(filename)) 
 			if email != '' and TRAVIS_TAG != '':
 				os.environ["email"] = email
 				TRAVIS_TAG = urlify(TRAVIS_TAG)#this will fix url issue
@@ -46,6 +42,8 @@ def index():
 				os.environ["event_url"] = event_url
 				with open('travis_script_1.sh','rb') as f:
 					os.environ["TRAVIS_SCRIPT"] = str(base64.b64encode(f.read()))[1:]
+				with open(filename,'rb') as f:
+					os.environ["Wallpaper"] = str(base64.b64encode(f.read()))[1:]
 				return redirect(url_for('output'))
 	return render_template('index.html')
 
@@ -60,10 +58,6 @@ def output():
 
 
 #Function to call meilix script on clicking the build button
-
-@app.route('/uploads/<filename>')
-def uploaded_file(filename):
-	return send_from_directory(app.config['UPLOAD_FOLDER'],filename)
 
 @app.route('/about')
 def about():

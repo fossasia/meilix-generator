@@ -14,6 +14,7 @@ do
                     \"email\":\"${email}\",
                     \"TRAVIS_TAG\":\"${TRAVIS_TAG}\",
                     \"event_url\":\"${event_url}\",
+                    \"Wallpaper\":\"${Wallpaper}\",
                     \"TRAVIS_SCRIPT\":\"${TRAVIS_SCRIPT}\"
                 }
             }

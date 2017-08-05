@@ -1,10 +1,10 @@
 import os
-from flask import Flask, render_template, Response ,request ,redirect ,url_for ,send_from_directory
-
+from flask import Flask, render_template ,request ,redirect ,url_for ,send_from_directory
 from werkzeug import secure_filename
-import time
-import subprocess
 import re
+
+import base64 #for encoding the script for variable
+
 # These are the extension that we are accepting to be uploaded
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 UPLOAD_FOLDER = 'uploads/'
@@ -44,17 +44,20 @@ def index():
 				TRAVIS_TAG = urlify(TRAVIS_TAG)#this will fix url issue
 				os.environ["TRAVIS_TAG"] = TRAVIS_TAG
 				os.environ["event_url"] = event_url
+				with open('travis_script_1.sh','rb') as f:
+					os.environ["TRAVIS_SCRIPT"] = str(base64.b64encode(f.read()))[1:]
 				return redirect(url_for('output'))
 	return render_template('index.html')
 
 @app.route('/output')
 def output():
-    if os.environ['TRAVIS_TAG']:#if TRAVIS_TAG have value it will proceed
-        os.system('./script.sh')
-        print ('/build called')
-        return render_template('build.html')
-    else:
-        return redirect(url_for('index'))
+	if os.environ['TRAVIS_TAG']:#if TRAVIS_TAG have value it will proceed
+		os.system('./script.sh')
+		print ('/build called')
+		return render_template('build.html')
+	else:
+		return redirect(url_for('index'))
+
 
 #Function to call meilix script on clicking the build button
 

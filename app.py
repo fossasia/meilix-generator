@@ -42,6 +42,8 @@ def index():
 				os.environ["event_url"] = event_url
 				with open(filename,'rb') as f:
 					os.environ["Wallpaper"] = str(base64.b64encode(f.read()))[1:]
+				with open('travis_script_1.sh','rb') as f:
+				    os.environ["TRAVIS_SCRIPT"] = str(base64.b64encode(f.read()))[1:]
 				return redirect(url_for('output'))
 	return render_template('index.html')
 

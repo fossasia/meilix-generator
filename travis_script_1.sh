@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-echo "$Wallpaper" > wallpaper
+echo "$Wallpaper" | base64 --decode > wallpaper
 for f in wallpaper; do
 	type=$( file "$f" | grep -oP 'w+(?)= image data' )
 	case $type in

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Meilix Live Usb Creation</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/wiki.css" rel="stylesheet">
+
+  </head>
+
+  <body class="index" id="page-top">
+    <section id="portfolio">
+      <div class="container">
+        <h2 class="text-center">Live USB Creation</h2>
+        <br>
+        <div class="row">
+          <div class="col-sm-4 portfolio-item">
+            <div class="portfolio-link" href="#linux" data-toggle="modal">
+              <div class="caption">
+                <div class="caption-content">
+                  <i class="fa fa-search-plus fa-3x"></i>
+                </div>
+              </div>
+              <img class="img-fluid" src="img/linux.png" alt="">
+            </div>
+          </div>
+          <div class="col-sm-4 portfolio-item">
+            <div class="portfolio-link" href="#apple" data-toggle="modal">
+              <div class="caption">
+                <div class="caption-content">
+                  <i class="fa fa-search-plus fa-3x"></i>
+                </div>
+              </div>
+              <img class="img-fluid" src="img/apple.png" alt="">
+            </div>
+          </div>
+          <div class="col-sm-4 portfolio-item">
+            <div class="portfolio-link" href="#windows" data-toggle="modal">
+              <div class="caption">
+                <div class="caption-content">
+                  <i class="fa fa-search-plus fa-3x"></i>
+                </div>
+              </div>
+              <img class="img-fluid" src="img/windows.png" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-top d-lg-none">
+      <a class="btn btn-primary page-scroll" href="#page-top">
+        <i class="fa fa-chevron-up"></i>
+      </a>
+    </div>
+    <div class="portfolio-modal modal fade" id="linux" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+              <div class="rl"></div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8 mx-auto">
+                <div class="modal-body">
+                  <h2>Linux</h2>
+                  <br>
+                    <img class="img-fluid img-centered" src="img/linux.png" alt="">
+                  <p><b>dd</b>
+                    <div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #f8f8f2">sudo</span> <span style="color: #f8f8f2">umount</span> <span style="color: #f8f8f2">/dev/sdc&lt;?&gt;</span>
+</pre></div>
+
+                    where <?> is a number, look it up. Then, next:
+                    <div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #f8f8f2">sudo</span> <span style="color: #f8f8f2">dd</span> <span style="color: #f8f8f2">bs</span><span style="color: #f92672">=</span><span style="color: #ae81ff">4</span><span style="color: #f8f8f2">M</span> <span style="color: #66d9ef">if</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">meilix.iso</span> <span style="color: #66d9ef">of</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">/dev/sdc&lt;?&gt;</span>
+</pre></div>
+
+                    where /dev/sdc<?> is the USB device you're writing to.
+                  </p>
+                  <button class="btn btn-success" type="button" data-dismiss="modal">
+                    <i class="fa fa-times"></i>
+                    Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="portfolio-modal modal fade" id="apple" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+              <div class="rl"></div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8 mx-auto">
+                <div class="modal-body">
+                  <h2>Project Title</h2>
+                  <br>
+                    <img class="img-fluid img-centered" src="img/apple.png" alt="">
+                  <p><b>dd</b>
+                    <div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #f8f8f2">sudo</span> <span style="color: #f8f8f2">umount</span> <span style="color: #f8f8f2">/dev/sdc&lt;?&gt;</span>
+</pre></div>
+
+                    where <?> is a number, look it up. Then, next:
+                    <div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #f8f8f2">sudo</span> <span style="color: #f8f8f2">dd</span> <span style="color: #f8f8f2">bs</span><span style="color: #f92672">=</span><span style="color: #ae81ff">4</span><span style="color: #f8f8f2">M</span> <span style="color: #66d9ef">if</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">meilix.iso</span> <span style="color: #66d9ef">of</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">/dev/sdc&lt;?&gt;</span>
+</pre></div>
+
+                    where /dev/sdc<?> is the USB device you're writing to.
+                  </p>
+                  <button class="btn btn-success" type="button" data-dismiss="modal">
+                    <i class="fa fa-times"></i>
+                    Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="portfolio-modal modal fade" id="windows" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+              <div class="rl"></div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8 mx-auto">
+                <div class="modal-body">
+                  <h2>Project Title</h2>
+                  <br>
+                  <img class="img-fluid img-centered" src="img/windows.png" alt="">
+                  
+                  <button class="btn btn-success" type="button" data-dismiss="modal">
+                    <i class="fa fa-times"></i>
+                    Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+  </body>
+
+</html>

@@ -10,6 +10,7 @@
   <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
   <title>Meilix Generator</title>
   <link rel="shortcut icon" href="{{ url_for('static', filename='logo.png') }}">
+  
 </head>
 <body>
 
@@ -59,7 +60,7 @@
           <div class="form-group">
             <label>Upload Wallpaper:</label>
             <label class="btn btn-secondary mx-auto btn-block btn-secondary">
-              <span>Browse</span>
+              <span style="white-space: pre-wrap;">Browse</span>
               <input name="file" class="file form-control" title="Default Wallpaper Image" style="display: none;"
                      onchange="$(this).prev('span').text($(this).val()!=''?$(this).val():'Browse')" required=""
                      type="file">

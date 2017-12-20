@@ -1,82 +1,93 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
   <link rel="stylesheet" href="{{ url_for('static',filename='css/menu.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
   <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
-  <title>Meilix Generator</title>
-  <link rel="shortcut icon" href="{{ url_for('static', filename='logo.png') }}">
-  
+  <title>Meilix ISO Generator</title>
 </head>
+
 <body>
-<div class="logo">
-        <img src="{{ url_for('static', filename='logo.png') }}" class="img-rounded" alt="meilix generator">
-</div>
-<div class="open">
-  <span class="cls"></span>
-  <span>
-        		<ul class="sub-menu ">
-        			<li>
-        				<a href="#about" title="about">About</a>
-        			</li>
-        			<li>
-        				<a href="http://github.com/fossasia/meilix-generator/" title="Github">Github</a>
-        			</li>
-        		</ul>
-        	</span>
-  <span class="cls"></span>
-</div>
-
-<!--file upload form-->
-<form method="POST" enctype="multipart/form-data">
-  <div class="container">
-    <div class="row mt-3">
-      <div class="col-md-4 mx-auto">
-        <h2 align="center">Meilix Generator</h2>
-        <p align="center">A webapp which can generate iso for you</p>
-        <div class="form-group">
-          <label for="email">Email:</label>
-          <input class="form-control" placeholder="Enter email to receive download link" name="email" title="Email for sending the ISO"
-                 required="" type="email">
-        </div>
-        <div class="form-group">
-          <label for="TRAVIS_TAG">Event Name:</label>
-          <input pattern="[A-Za-z0-9\s]{1,20}" class="form-control" placeholder="Enter event name for GitHub release tag"
-                 title="Event name is used to create a tag for GitHub release to generate a unique URL" name="TRAVIS_TAG"
-                 required="" type="text">
-        </div>
-
-        <div class="form-group">
-          <label for="event_url">Event Link:</label>
-          <input pattern="https?://.+" class="form-control" placeholder="Enter event link" name="event_url"
-                 title="This will be used as home page of the browser" required="" type="url">
-        </div>
-
-        <div class="col-md-06">
-          <div class="form-group">
-            <label>Upload Wallpaper:</label>
-            <label class="btn btn-secondary mx-auto btn-block btn-secondary">
-              <span style="white-space: pre-wrap;">Browse</span>
-              <input name="file" class="file form-control" title="Default Wallpaper Image" style="display: none;"
-                     onchange="$(this).prev('span').text($(this).val()!=''?$(this).val():'Browse')" required=""
-                     type="file">
-            </label>
-            <img id="file-upload">
+  <!--file upload form-->
+  <form method="POST" enctype="multipart/form-data">
+    <nav class="navbar navbar-toggleable-md navbar-light">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      </button>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="navbar-brand" href="#">
+            <img class="d-inline-block align-top" src="{{ url_for('static', filename='meilix_flower.png') }}" class="img" alt="meilix generator"
+              width="270" height="65">
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="navbar-toggler-icon"></span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="#about">
+              <i class="fa fa-info-circle" aria-hidden="true"></i> About </a>
+            <a class="dropdown-item" href="https://github.com/fossasia/meilix-generator">
+              <i class="fa fa-github" aria-hidden="true"></i> Github </a>
           </div>
+        </li>
+      </ul>
+    </nav>
+    <div class="container">
+      <div class="row mt-3">
+        <div class="col-md-4 mx-auto">
+          <h2 align="center">Meilix Generator</h2>
+          <p align="center">Create your own Lubuntu Distribution</p>
+          <div class="form-group">
+            <label class="heading" id="label" for="email">Email</label>
+            <input class="form-control" placeholder="Enter email" name="email" title="Email for sending the ISO" required="" type="email">
+          </div>
+          <div class="form-group">
+            <label class="heading" for="TRAVIS_TAG">Name of your Distribution</label>
+            <input pattern="[A-Za-z0-9\s]{1,20}" class="form-control" placeholder="Enter event name" title="Event name to trigger build"
+              name="TRAVIS_TAG" required="" type="text">
+          </div>
+
+          <div class="form-group">
+            <label class="heading" for="event_url">Browser Home Page</label>
+            <input pattern="https?://.+" class="form-control" placeholder="Enter link" name="event_url" title="this will be used as home page of the browser"
+              required="" type="url">
+          </div>
+
+          <div class="col-md-06">
+            <div class="form-group">
+              <label class="heading">Upload Wallpaper</label>
+              <label class="btn btn-secondary mx-auto btn-block btn-secondary">
+                <span style="white-space: pre-wrap;">Browse</span>
+                <input name="file" class="file form-control" title="Default Wallpaper Image" style="display: none;" onchange="$(this).prev('span').text($(this).val()!=''?$(this).val():'Browse')"
+                  required="" type="file">
+              </label>
+              <img id="file-upload">
+            </div>
+          </div>
+          <input class="btn btn-info mx-auto btn-block" id="file-upload" value="Build" required="" type="submit">
         </div>
-        <input class="btn btn-info mx-auto btn-block form-control" id="file-upload" value="Build" required=""
-               type="submit">
       </div>
     </div>
-  </div>
-</form>
+  </form>
 
-<script type="text/javascript" src="{{ url_for('static', filename='js/menu.js') }}"></script>
+  <footer class="footer">
+    <div class="container text-center">
+      <span class="text-muted"> Grab the latest pre-built ISO
+        <a href="https://github.com/fossasia/meilix/zipball/master">here</a> or head to the
+        <a href="https://github.com/fossasia/meilix/releases">Releases</a> page for more options.</span>
+    </div>
+  </footer>
 
 </body>
-</html>
 
+</html>

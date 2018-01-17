@@ -67,7 +67,7 @@ The generator runs on flask framework, using the main [app script](/app.py)
 This contains the required packages for running the app.
 - `pip install --upgrade -r requirements.in` will install latest packages
 - Note that if you would like to change the requirements, please edit the requirements.in file and run this command to update the dependencies:
- `pip-compile --output-file requirements.txt requirements.in` fix the versions that definitely work for an eternity.
+   `pip-compile --output-file requirements.txt requirements.in` fix the versions that definitely work for an eternity.
 
 ##### Working
 Webapp ask user for their email-id and event name and a wallpaper which will further be the default wallpaper of the distro. The given event name is used as a tag name of the release.
@@ -81,6 +81,7 @@ The meilix-generator can be easily deployed on a variety of platform. Detailed p
 
 1. [Local Installation](/docs/installation/local.md)
 2. [Deployment on Heroku](/docs/installation/heroku.md)
+3. [Docker container](/docs/installation/docker.md)
 
 ## Accessing the Generator Web App
 

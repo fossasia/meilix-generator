@@ -16,7 +16,7 @@ Get started by creating docker image
 docker build -t meilix-generator . 
 ```
 
-Running the image
+Running the image, 
 replace Travis Key with your token
 
 ```sh

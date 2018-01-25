@@ -1,4 +1,4 @@
-![Meilix Generator](https://preview.ibb.co/hjxP3Q/m_g.jpg)
+![Meilix Generator](/docs/images/meilix-logo.png)
 
 
 # Meilix Generator

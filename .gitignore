@@ -106,6 +106,3 @@ ENV/
 
 # mypy
 .mypy_cache/
-
-Visual Studio Code config
-.vscode 

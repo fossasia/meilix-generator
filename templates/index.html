@@ -49,7 +49,7 @@
           <p align="center">Create your own Lubuntu Distribution</p>
           <div class="form-group">
             <label class="heading" id="label" for="email">Email</label>
-            <input class="form-control" placeholder="Enter email" name="email" title="Email for sending the ISO" required="" type="email">
+            <input autofocus="" class="form-control" placeholder="Enter email" name="email" title="Email for sending the ISO" required="" type="email">
           </div>
           <div class="form-group">
             <label class="heading" for="TRAVIS_TAG">Name of your Distribution</label>
@@ -70,18 +70,42 @@
           </div>
 
           <div class="form-group">
-            <label class="heading" for="bookmark">Choose bookmarks to be</label>
-        <ul style="list-style-type:none">
+            <label class="heading" for="bookmark">Choose bookmarks to be:</label>
+        <ul style="list-style-type:none;postion: relative;">
           <li>
             <input name="bookmark" required="" type="radio" value="enable" id="enable">
             <label>Enable</label>
           </li>
 
           <li>
-            <input name="bookmark" type="radio" value="disable" id="disable">
+            <input name="bookmark" type="radio" value="disable" id="disable" checked>
             <label>Disable</label>
           </li>
         </ul>
+      </div>
+
+      <div class="form-group">
+        <label class="heading" for="packages">Check the packages which you want to install</label>
+        <ul style="list-style-type:none;postion: relative;">
+        <li>
+        <input name="packages" type="checkbox" value="git" id="git">
+        <label>Git</label>
+        <input name="packages" type="checkbox" value="chromium" id="chromium" checked>
+        <label>Chromium</label> 
+        <input name="packages" type="checkbox" value="firefox" id="firefox">
+        <label>Firefox</label>
+        <input name="packages" type="checkbox" value="vlc" id="vlc">
+        <label>VLC</label> 
+        </li>
+        <li>
+        <input name="packages" type="checkbox" value="gimp" id="gimp">
+        <label>GIMP</label> 
+        <input name="packages" type="checkbox" value="libreoffice" id="libreoffice">
+        <label>LibreOffice</label> 
+        <input name="packages" type="checkbox" value="inkscape" id="inkscape">
+        <label>Inkscape</label> 
+        </li>
+      </ul>
       </div>
 
           <div class="col-md-06">

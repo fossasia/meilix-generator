@@ -59,9 +59,30 @@
 
           <div class="form-group">
             <label class="heading" for="event_url">Browser Home Page</label>
-            <input pattern="https?://.+" class="form-control" placeholder="Enter link" name="event_url" title="this will be used as home page of the browser"
+            <input pattern="https?://.+" class="form-control" placeholder="Enter link" name="event_url" title="This will be the home page of the browser"
               required="" type="url">
           </div>
+
+          <div class="form-group">
+            <label class="heading" for="search_engine">Default Search Engine</label>
+            <input pattern="https?://.+" class="form-control" placeholder="Enter link" name="search_engine" title="This will be the default search engine of the browser"
+              required="" type="url">
+          </div>
+
+          <div class="form-group">
+            <label class="heading" for="bookmark">Choose bookmarks to be</label>
+        <ul style="list-style-type:none">
+          <li>
+            <input name="bookmark" required="" type="radio" value="enable" id="enable">
+            <label>Enable</label>
+          </li>
+
+          <li>
+            <input name="bookmark" type="radio" value="disable" id="disable">
+            <label>Disable</label>
+          </li>
+        </ul>
+      </div>
 
           <div class="col-md-06">
             <div class="form-group">

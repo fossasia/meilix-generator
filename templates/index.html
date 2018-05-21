@@ -3,50 +3,269 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
   <link rel="stylesheet" href="{{ url_for('static',filename='css/menu.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/font-awesome.min.css') }}">
-
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,100' rel='stylesheet' type='text/css'>
   <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
   <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
   <title>Meilix ISO Generator</title>
+  <style>
+    .error {
+      font-weight: normal;
+    }
+    /* made changes-1 added from here */
+    label.error{
+      color:red;
+      display:block;
+    }
+    ul>label.error{
+    position: absolute;
+    }
+    /* made changes-1 till here */
+
+    html {
+      height: 100%;
+    }
+
+    body {
+      position: relative;
+      min-height: 100%;
+      padding-bottom: 40px;
+    }
+
+    .custom-navbar {
+      padding: 10px 15px;
+      border-bottom: 1px solid #bfbfbf;
+      z-index: -1;
+    }
+
+    .custom-navtitle {
+      display: inline-block;
+      margin: 0px;
+      font-size: 20px;
+      color: black;
+    }
+
+    h3.custom-navtitle {
+      position: relative;
+    }
+
+    .custom-menubutton {
+      position: absolute;
+      top:0px;
+      right: 40px;
+      cursor: pointer;
+      padding: 10px;
+      height:50px;
+      width: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .custom-menubutton:hover {
+      background-color:#F0EEEE;
+    }
+
+    .custom-menu-cont {
+      position: relative;
+    }
+
+    .custom-menu-cont.hidden {
+      display: none;
+    }
+
+    .custom-menu-cont-shown {
+      display: inline-block;
+    }
+
+    .custom-menu {
+      min-height: 350px;
+      width: 327px;
+      position: absolute;
+      border: 1px solid #bfbfbf;
+      border-top: none;
+      right: 40px;
+      top: 0px;
+      box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.176);
+      background-color: white;
+      padding:28px;
+    }
+
+    .arrow-up {
+      width: 7px;
+      height: 7px;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-bottom: 7px solid white;
+      position: absolute;
+      right:17px;
+      top:-7px;
+    }
+
+    .custom-menu-cont {
+      z-index: 3;
+    }
+
+    .custom-menu-item {
+      border: 1px solid white;
+      display: inline-block;
+      width: 87px;
+      padding: 10px 0;
+      text-align: center;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    .custom-menu-item a {
+      color: #737373;
+      text-decoration: none;
+      outline: none;
+    }
+
+    .custom-menu-item img {
+      display: block;
+      margin: 0 auto 5px auto;
+      height: auto;
+      width: auto;
+      max-height: 50px;
+      max-width: 60px;
+    }
+
+    .custom-menu-item p {
+      height:28px;
+      margin:0px;
+    }
+
+    .custom-menu-item:hover {
+      border:1px solid #e7e7e7;
+    }
+
+    .custom-menubutton-color {
+      background-color: #e7e7e7;
+    }
+
+    .custom-icon {
+      height:50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #deployment {
+      position: absolute;
+      text-align: center;
+      width: 100%;
+      padding: 10px;
+      bottom: 0px;
+      border-top: 1px solid #bfbfbf;
+      background-color: #f9f9f9;
+    }
+
+    @media(max-width: 768px){
+      .custom-navtitle, .custom-menubutton {
+          font-size: 15px;
+      }
+
+      .custom-arrow {
+          right: 40px;
+      }
+    }
+
+    #message {
+      display: none;
+      color: green;
+    }
+
+    @media(max-width: 400px){
+      .custom-menu {
+          width: 250px;
+      }
+    }
+  </style>
 </head>
 
 <body>
   <!--file upload form-->
   <form method="POST" enctype="multipart/form-data">
-    <nav class="navbar navbar-toggleable-md navbar-light">
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      </button>
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="navbar-brand" href="#">
-            <img class="d-inline-block align-top" src="{{ url_for('static', filename='meilix_flower.png') }}" class="img" alt="meilix generator"
-              width="270" height="65">
-          </a>
-        </li>
-      </ul>
-      <ul class="navbar-nav">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span class="navbar-toggler-icon"></span>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#about">
-              <i class="fa fa-info-circle" aria-hidden="true"></i> About </a>
-            <a class="dropdown-item" href="https://github.com/fossasia/meilix-generator">
-              <i class="fa fa-github" aria-hidden="true"></i> Github </a>
-          </div>
-        </li>
-      </ul>
-    </nav>
+<div class="custom-navbar">
+    <a href='.' class="custom-navtitle">
+      <strong>Meilix Generator</strong>
+    </a>
+    <div class="custom-menubutton">
+      <i class="glyphicon glyphicon-th" style="font-size:20px;"></i>
+    </div>
+  </div>
+  <div class="custom-menu-cont hidden">
+    <div class="custom-menu">
+      <div class="arrow-up"></div>
+      <div>
+        <div class="custom-menu-item">
+          <a href="http://github.com/fossasia/meilix-generator" target="_blank">
+          <div class="custom-icon"><img src="./icons/code.png"></div>
+          <p class="custom-title">Code</p></a>
+        </div>
+        <div class="custom-menu-item">
+          <a href="http://github.com/fossasia/meilix-generator/issues" target="_blank">
+          <div class="custom-icon"><img src="./icons/bug.png"></div>
+          <p class="custom-title">Bug Report</p></a>
+        </div>
+        <div class="custom-menu-item">
+          <a href="http://blog.fossasia.org" target="_blank">
+          <div class="custom-icon"><img src="./icons/blog.png"></div>
+          <p class="custom-title">Blogs</p></a>
+        </div>
+        <hr style="margin-bottom: 10px; margin-top: 10px;">
+        <div class="custom-menu-item">
+          <a href="https://eventyay.com/" target="_blank">
+          <div class="custom-icon"><img src="./icons/eventyay.png"></div>
+          <p class="custom-title">Eventyay</p></a>
+        </div>
+        <div class="custom-menu-item">
+          <a href="https://susper.com/" target="_blank">
+          <div class="custom-icon"><img src="./icons/susper.png" style="width: 60px;height: 16px;"></div>
+          <p class="custom-title">Susper</p></a>
+        </div>
+        <div class="custom-menu-item">
+          <a href="https://chat.susi.ai/" target="_blank">
+          <div class="custom-icon"><img src="./icons/susi.png"></div>
+          <p class="custom-title">Susi</p></a>
+        </div>
+        <div class="custom-menu-item">
+          <a href="https://fossasia.org/" target="_blank">
+          <div class="custom-icon"><img src="./icons/fossasia.png"></div>
+          <p class="custom-title">FOSSASIA</p></a>
+        </div>
+        <div class="custom-menu-item">
+          <a href="https://loklak.org/" target="_blank">
+          <div class="custom-icon"><img src="./icons/loklak.png"></div>
+          <p class="custom-title">loklak</p></a>
+        </div>
+        <div class="custom-menu-item">
+          <a href="https://phimp.me/" target="_blank">
+          <div class="custom-icon"><img src="./icons/phimp.png"></div>
+          <p class="custom-title">Phimp.me</p></a>
+        </div>
+        <div class="custom-menu-item">
+          <a href="https://pslab.fossasia.org" target="_blank">
+          <div class="custom-icon"><img src="./icons/Pslab.png"></div>
+          <p class="custom-title">PS Lab</p></a>
+        </div>
+        <hr style="margin: 10px">
+        <div style="display: flex;justify-content: center;align-items: center; margin: 0 0 -20px 0">
+          <a href="https://labs.fossasia.org/" target="_blank" style="text-decoration: none;color: #737373">More on labs.fossasia.org</a>
+        </div>
+      </div>
+    </div>
+  </div>
     <div class="container">
       <div class="row mt-3">
         <div class="col-md-4 mx-auto">
-          <h2 align="center">Meilix Generator</h2>
-          <p align="center">Create your own Lubuntu Distribution</p>
           <div class="form-group">
             <label class="heading" id="label" for="email">Email</label>
             <input autofocus="" class="form-control" placeholder="Enter email" name="email" title="Email for sending the ISO" required="" type="email">

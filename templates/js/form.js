@@ -1,7 +1,4 @@
 /* global $ */
-"use strict";
-
-
 
   var customMenuButton = $('.custom-menubutton');
   var menuContent = $('.custom-menu-cont');
@@ -22,6 +19,6 @@
     // the container, or descendants of the container
     if (!$(e.target).is(customMenuButton) && !$(e.target).is(menuContent) && menuContent.has(e.target).length === 0 && !$(e.target).is(fontAwesomeIcom)) {
       menuContent.addClass("hidden");
-      customMenuButton.removeClass('custom-menubutton-color')
+      customMenuButton.removeClass('custom-menubutton-color');
     }
   });

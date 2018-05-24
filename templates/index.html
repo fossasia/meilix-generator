@@ -13,7 +13,6 @@
   <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
   <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="{{ url_for('static', filename='js/form.js') }}"></script>
   <title>Meilix ISO Generator</title>
   <style>
     .error {
@@ -199,7 +198,7 @@
     <a href='.' class="custom-navtitle">
       <strong>Meilix Generator</strong>
     </a>
-    <div class="custom-menubutton">
+    <div onclick="document.getElementsByClassName('custom-menu-cont')[0].classList.toggle('hidden')" class="custom-menubutton">
       <i class="glyphicon glyphicon-th" style="font-size:20px;"></i>
     </div>
   </div>

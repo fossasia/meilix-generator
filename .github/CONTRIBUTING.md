@@ -23,5 +23,15 @@ Pull requests must be reviewed before merge. The goal is to have two people revi
 - A pull-request with **one** positive review of contributors can be merged after 24 hours by anyone with write access.
 - A pull-request with **no** positive review can be merged after three days by anyone with write access.
 
+**Merging Pull Requests**
+
+- These MUST apply for your pull request to be merged:
+  - you provide a screenshot of the working webapp or the link to the webapp.
+  - the build passes
+- Your Pull request can be merged within 24 hours if you get a positive review.
+- Your Pull request can be merged after 24 hours of the last commit and last comment if no maintainer responded.
+
+If the pull request creates a problem, the first person to recognize it should revert the pull requets as soon as possible.
+
 Note that this does not clarify what to do if there a negative reviews.
 The goal is again to spread knowledge and feedback but also prevent frustration and stagnation of the project.

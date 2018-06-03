@@ -10,7 +10,6 @@
   <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/font-awesome.min.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/bootstrap2.min.css') }}">
   <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
   <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
   <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
   <title>Meilix ISO Generator</title>
@@ -190,6 +189,27 @@
     }
     .radiotext {
     margin: 10px 10px 0px 0px;
+  }
+    /* 
+Generic Styling, for Desktops/Laptops 
+*/
+table { 
+  width: 100%; 
+  border-collapse: collapse; 
+}
+/* Zebra striping */
+tr:nth-of-type(odd) { 
+  background: #eee; 
+}
+th { 
+  background: #333; 
+  color: white; 
+  font-weight: bold; 
+}
+td, th { 
+  padding: 6px; 
+  border: 1px solid #ccc; 
+  text-align: left; 
 }
   </style>
 </head>
@@ -448,27 +468,57 @@
       </div>
 
       <div class="form-group">
-        <label class="heading" for="packages">Check the packages which you want to install</label>
-        <ul style="list-style-type:none;postion: relative;">
-        <li>
-        <input name="packages" type="checkbox" value="git" id="git">
-        <label>Git</label>
-        <input name="packages" type="checkbox" value="chromium" id="chromium" checked>
-        <label>Chromium</label> 
-        <input name="packages" type="checkbox" value="firefox" id="firefox">
-        <label>Firefox</label>
-        <input name="packages" type="checkbox" value="vlc" id="vlc">
-        <label>VLC</label> 
-        </li>
-        <li>
-        <input name="packages" type="checkbox" value="gimp" id="gimp">
-        <label>GIMP</label> 
-        <input name="packages" type="checkbox" value="libreoffice" id="libreoffice">
-        <label>LibreOffice</label> 
-        <input name="packages" type="checkbox" value="inkscape" id="inkscape">
-        <label>Inkscape</label> 
-        </li>
-      </ul>
+        <label class="heading" for="packages">Check the packages which you want to install:</label>
+<table id="package" class="responsive-table-input-matrix" style="width:100%">
+  <thread>
+    <tr>
+      <th>Package</th>
+      <th>Checkbox</th>
+</tr>
+<tbody>
+  <tr>
+    <td>Chromium</td>
+    <td><input type="checkbox"></td>
+  </tr>
+    <tr>
+    <td>Firefox</td>
+    <td><input type="checkbox"></td>
+  </tr>
+    <tr>
+    <td>Hangout</td>
+    <td><input type="checkbox"></td>
+  </tr>
+    <tr>
+    <td>VLC</td>
+    <td><input type="checkbox"></td>
+  </tr>
+      <tr>
+    <td>GIMP</td>
+    <td><input type="checkbox"></td>
+  </tr>
+      <tr>
+    <td>Inkscape</td>
+    <td><input type="checkbox"></td>
+  </tr>
+      <tr>
+    <td>LibreOffice</td>
+    <td><input type="checkbox"></td>
+  </tr>
+      <tr>
+    <td>Git</td>
+    <td><input type="checkbox"></td>
+  </tr>
+      <tr>
+    <td>Dropbox</td>
+    <td><input type="checkbox"></td>
+  </tr>
+      <tr>
+    <td>Owncloud</td>
+    <td><input type="checkbox"></td>
+  </tr>
+</tbody>
+
+</table>
       </div>
 
           <div class="col-md-06">

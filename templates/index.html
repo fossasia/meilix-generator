@@ -182,6 +182,17 @@
       color: green;
     }
 
+        #deployment {
+      position: absolute;
+      text-align: center;
+      width: 100%;
+      padding: 10px;
+      bottom: 0px;
+      border-top: 1px solid #bfbfbf;
+      background-color: #f9f9f9;
+    }
+
+
     @media(max-width: 400px){
       .custom-menu {
           width: 250px;
@@ -190,6 +201,9 @@
     .radiotext {
     margin: 10px 10px 0px 0px;
   }
+  /*#file-upload {
+    width: 2em;  height: 2em;
+}
     /* 
 Generic Styling, for Desktops/Laptops 
 */
@@ -533,20 +547,18 @@ td, th {
             </div>
           </div>
           <div class="form-group">
-          <input class="btn btn-info mx-auto btn-block" id="file-upload" value="Build" required="" type="submit">
+          <input class="btn btn-info mx-auto btn-block" id="file-upload" value="Build" required="" type="submit" style="height: 50px; width: 360px; border-radius: 500px;"/>
         </div>
         </div>
       </div>
     </div>
   </form>
 
-  <footer class="footer">
-    <div class="container text-center">
-      <span class="text-muted"> Grab the latest pre-built ISO
+  <div id="deployment">
+         <span class="text-muted"> Grab the latest pre-built ISO
         <a href="https://github.com/fossasia/meilix/zipball/master">here</a> or head to the
         <a href="https://github.com/fossasia/meilix/releases">Releases</a> page for more options.</span>
-    </div>
-  </footer>
+  </div>
 
 </body>
 

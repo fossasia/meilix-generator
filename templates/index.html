@@ -187,6 +187,30 @@
           width: 250px;
       }
     }
+    .radiotext {
+    margin: 10px 10px 0px 0px;
+  }
+    /* 
+Generic Styling, for Desktops/Laptops 
+*/
+table { 
+  width: 100%; 
+  border-collapse: collapse; 
+}
+/* Zebra striping */
+tr:nth-of-type(odd) { 
+  background: #eee; 
+}
+th { 
+  background: #333; 
+  color: white; 
+  font-weight: bold; 
+}
+td, th { 
+  padding: 6px; 
+  border: 1px solid #ccc; 
+  text-align: left; 
+}
   </style>
 </head>
 
@@ -291,42 +315,210 @@
           </div>
 
           <div class="form-group">
-            <label class="heading" for="bookmark">Choose bookmarks to be:</label>
-        <ul style="list-style-type:none;postion: relative;">
-          <li>
-            <input name="bookmark" required="" type="radio" value="enable" id="enable">
-            <label>Enable</label>
-          </li>
-
-          <li>
-            <input name="bookmark" type="radio" value="disable" id="disable" checked>
-            <label>Disable</label>
-          </li>
-        </ul>
+            <label class="heading" for="bookmark">Choose Either ON or OFF:</label>
+<table class="table table-responsive" style="width:100%">
+     <thead>
+         <tr>
+             <th>Tweaks</th>
+             <th>ON</th>
+             <th>OFF</th>
+         </tr>
+     </thead>
+     <tbody>
+     <form>
+         <tr>
+             <td>
+                  <div class="radiotext">
+                     <label for='express'>Notification</label>
+                 </div>
+             </td>
+             <td>
+             <div class="radio">
+                     <label><input type="radio" id='express' name="optradio"></label>
+                </div>
+             </td>
+            <td>
+             <div class="radio">
+                     <label><input type="radio" id='express' name="optradio"></label>
+                </div>
+             </td>
+         </tr>
+                  <tr>
+             <td>
+                  <div class="radiotext">
+                     <label for='express'>Screensaver</label>
+                 </div>
+             </td>
+             <td>
+             <div class="radio">
+                     <label><input type="radio" id='express' name="optradio"></label>
+                </div>
+             </td>
+            <td>
+             <div class="radio">
+                     <label><input type="radio" id='express' name="optradio"></label>
+                </div>
+             </td>
+         </tr>
+                  <tr>
+             <td>
+                  <div class="radiotext">
+                     <label for='express'>Sleep Modus</label>
+                 </div>
+             </td>
+             <td>
+             <div class="radio">
+                     <label><input type="radio" id='express' name="optradio"></label>
+                </div>
+             </td>
+            <td>
+             <div class="radio">
+                     <label><input type="radio" id='express' name="optradio"></label>
+                </div>
+             </td>
+         </tr>
+                  <tr>
+             <td>
+                  <div class="radiotext">
+                     <label for='express'>System Sounds</label>
+                 </div>
+             </td>
+             <td>
+             <div class="radio">
+                     <label><input type="radio" id='express' name="optradio"></label>
+                </div>
+             </td>
+            <td>
+             <div class="radio">
+                     <label><input type="radio" id='express' name="optradio"></label>
+                </div>
+             </td>
+         </tr>
+                  <tr>
+             <td>
+                  <div class="radiotext">
+                     <label for='express'>Bookmarks</label>
+                 </div>
+             </td>
+             <td>
+             <div class="radio">
+                     <label><input type="radio" id='express' name="optradio"></label>
+                </div>
+             </td>
+            <td>
+             <div class="radio">
+                     <label><input type="radio" id='express' name="optradio"></label>
+                </div>
+             </td>
+         </tr>
+                  <tr>
+             <td>
+                  <div class="radiotext">
+                     <label for='express'>Screen Diming</label>
+                 </div>
+             </td>
+             <td>
+             <div class="radio">
+                     <label><input type="radio" id='express' name="optradio"></label>
+                </div>
+             </td>
+            <td>
+             <div class="radio">
+                     <label><input type="radio" id='express' name="optradio"></label>
+                </div>
+             </td>
+         </tr>
+                  <tr>
+             <td>
+                  <div class="radiotext">
+                     <label for='express'>Power Management Saving Feature</label>
+                 </div>
+             </td>
+             <td>
+             <div class="radio">
+                  <label><input type="radio" id='express' name="optradio"></label>
+                </div>
+             </td>
+            <td>
+             <div class="radio">
+                    <label> <input type="radio" id='express' name="optradio"></label>
+                </div>
+             </td>
+         </tr>
+         <tr>
+             <td>
+                 <div class="radiotext">
+                 <label for='regular'>Taskbar Autohide</label>
+             </div>
+             </td>
+             <td>
+                  <div class="radio">
+                     <label><input type="radio" id='express' name="optradio"></label>
+                </div>
+             </td>
+             <td>
+                  <div class="radio">
+                     <label><input type="radio" id='express' name="optradio"></label>
+                </div>
+             </td>
+         </tr>
+         </form>
+         </tbody>
+</table>
       </div>
 
       <div class="form-group">
-        <label class="heading" for="packages">Check the packages which you want to install</label>
-        <ul style="list-style-type:none;postion: relative;">
-        <li>
-        <input name="packages" type="checkbox" value="git" id="git">
-        <label>Git</label>
-        <input name="packages" type="checkbox" value="chromium" id="chromium" checked>
-        <label>Chromium</label> 
-        <input name="packages" type="checkbox" value="firefox" id="firefox">
-        <label>Firefox</label>
-        <input name="packages" type="checkbox" value="vlc" id="vlc">
-        <label>VLC</label> 
-        </li>
-        <li>
-        <input name="packages" type="checkbox" value="gimp" id="gimp">
-        <label>GIMP</label> 
-        <input name="packages" type="checkbox" value="libreoffice" id="libreoffice">
-        <label>LibreOffice</label> 
-        <input name="packages" type="checkbox" value="inkscape" id="inkscape">
-        <label>Inkscape</label> 
-        </li>
-      </ul>
+        <label class="heading" for="packages">Check the packages which you want to install:</label>
+<table id="package" class="responsive-table-input-matrix" style="width:100%">
+  <thread>
+    <tr>
+      <th>Package</th>
+      <th>Checkbox</th>
+</tr>
+<tbody>
+  <tr>
+    <td>Chromium</td>
+    <td><input type="checkbox"></td>
+  </tr>
+    <tr>
+    <td>Firefox</td>
+    <td><input type="checkbox"></td>
+  </tr>
+    <tr>
+    <td>Hangout</td>
+    <td><input type="checkbox"></td>
+  </tr>
+    <tr>
+    <td>VLC</td>
+    <td><input type="checkbox"></td>
+  </tr>
+      <tr>
+    <td>GIMP</td>
+    <td><input type="checkbox"></td>
+  </tr>
+      <tr>
+    <td>Inkscape</td>
+    <td><input type="checkbox"></td>
+  </tr>
+      <tr>
+    <td>LibreOffice</td>
+    <td><input type="checkbox"></td>
+  </tr>
+      <tr>
+    <td>Git</td>
+    <td><input type="checkbox"></td>
+  </tr>
+      <tr>
+    <td>Dropbox</td>
+    <td><input type="checkbox"></td>
+  </tr>
+      <tr>
+    <td>Owncloud</td>
+    <td><input type="checkbox"></td>
+  </tr>
+</tbody>
+
+</table>
       </div>
 
           <div class="col-md-06">

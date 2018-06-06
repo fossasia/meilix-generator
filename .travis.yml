@@ -1,6 +1,6 @@
 language: python
 python:
-- 3.6.5
+- 3.6
 sudo: required
 install: pip install -r requirements.txt
 script: nosetests app.py

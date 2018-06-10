@@ -36,6 +36,7 @@ def index():
         email = request.form['email']
         TRAVIS_TAG = request.form['TRAVIS_TAG']
         event_url = request.form['event_url']
+        GENERATOR_ = request.form['GENERATOR_']
         file = request.files['file']
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)

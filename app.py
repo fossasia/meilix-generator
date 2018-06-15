@@ -36,9 +36,12 @@ def index():
         email = request.form['email']
         TRAVIS_TAG = request.form['TRAVIS_TAG']
         event_url = request.form['event_url']
-        GENERATOR_ = request.form['GENERATOR_']
+        variables = {}
+        for name, value in request.form.items():
+        if name.startswith("GENERATOR_"):
+        variables[name] = value
         file = request.files['file']
-        if file and allowed_file(file.filename):
+         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             os.rename(UPLOAD_FOLDER + filename, UPLOAD_FOLDER + 'wallpaper')

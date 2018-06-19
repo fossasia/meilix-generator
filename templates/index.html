@@ -363,11 +363,11 @@ input:checked + .slider:before {
             <label class="heading" id="label" for="email">Email</label>
             <div class="input-group margin-bottom-sm">
              <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
-            <input autofocus="" class="form-control" placeholder="Enter email" name="email" title="Email for sending the ISO" required="" type="email"></div>
+            <input autofocus="" class="form-control" placeholder="Enter email" name="email" title="Email for sending the ISO" required="" type="email" pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+$" required /> </div>
           </div>
           <div class="form-group">
             <label class="heading" for="TRAVIS_TAG">Name of your Distribution</label>
-            <input pattern="[A-Za-z0-9\s]{1,20}" class="form-control" placeholder="Enter event name" title="Event name to trigger build"
+            <input pattern="[A-Za-z0-9\s]{1,20}" class="form-control" placeholder="Enter name" title="Event name to trigger build"
               name="TRAVIS_TAG" required="" type="text">
           </div>
 
@@ -556,8 +556,8 @@ input:checked + .slider:before {
     <td><input name="GENERATOR_package_dropbox" type="checkbox" value="dropbox" id="dropbox"></td>
   </tr>
       <tr>
-    <td>Owncloud</td>
-    <td><input name="GENERATOR_package_owncloud" type="checkbox" value="owncloud" id="owncloud"></td>
+    <td>NextCloud</td>
+    <td><input name="GENERATOR_package_nextcloud" type="checkbox" value="nextcloud" id="nextcloud"></td>
   </tr>
 </tbody>
 

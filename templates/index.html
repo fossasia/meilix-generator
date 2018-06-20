@@ -13,7 +13,7 @@
   <title>Meilix ISO Generator</title>
 </head>
 
-<body>
+<body >
   <!--file upload form-->
   <form method="POST" enctype="multipart/form-data">
     <nav class="navbar navbar-toggleable-md navbar-light">
@@ -42,32 +42,34 @@
         </li>
       </ul>
     </nav>
-    <div class="container">
+    <div class="container" align="center">
       <div class="row mt-3">
         <div class="col-md-4 mx-auto">
-          <h2 align="center">Meilix Generator</h2>
-          <p align="center">Create your own Lubuntu Distribution</p>
+          <h1 align="center">Meilix Generator</h1>
+          <p align="center"><h3>Create your own Lubuntu Distribution</h3></p>
           <div class="form-group">
             <label class="heading" id="label" for="email">Email</label>
-            <input class="form-control" placeholder="Enter email" name="email" title="Email for sending the ISO" required="" type="email">
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <input class="form-control" placeholder="Enter email" name="email" title="Email for sending the ISO" required="" type="email">
           </div>
+          <br>
           <div class="form-group">
             <label class="heading" for="TRAVIS_TAG">Name of your Distribution</label>
-            <input pattern="[A-Za-z0-9\s]{1,20}" class="form-control" placeholder="Enter event name" title="Event name to trigger build"
+            &emsp;&emsp;<input pattern="[A-Za-z0-9\s]{1,20}" class="form-control" placeholder="Enter event name" title="Event name to trigger build"
               name="TRAVIS_TAG" required="" type="text">
           </div>
-
+          <br>
           <div class="form-group">
             <label class="heading" for="event_url">Browser Home Page</label>
-            <input pattern="https?://.+" class="form-control" placeholder="Enter link" name="event_url" title="this will be used as home page of the browser"
+            &emsp;&emsp;&emsp;&emsp;&ensp;<input pattern="https?://.+" class="form-control" placeholder="Enter link" name="event_url" title="this will be used as home page of the browser"
               required="" type="url">
           </div>
-
+          <br>
           <div class="col-md-06">
             <div class="form-group">
               <label class="heading">Upload Wallpaper</label>
               <label class="btn btn-secondary mx-auto btn-block btn-secondary">
                 <span style="white-space: pre-wrap;">Browse</span>
+                <br>
                 <input name="file" class="file form-control" title="Default Wallpaper Image" style="display: none;" onchange="$(this).prev('span').text($(this).val()!=''?$(this).val():'Browse')"
                   required="" type="file">
               </label>
@@ -79,9 +81,9 @@
       </div>
     </div>
   </form>
-
+  <br>
   <footer class="footer">
-    <div class="container text-center">
+    <div class="container text-center" align="center">
       <span class="text-muted"> Grab the latest pre-built ISO
         <a href="https://github.com/fossasia/meilix/zipball/master">here</a> or head to the
         <a href="https://github.com/fossasia/meilix/releases">Releases</a> page for more options.</span>

@@ -12,6 +12,9 @@
   <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
   <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
   <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <title>Meilix ISO Generator</title>
   <style>
     .error {
@@ -572,7 +575,7 @@ input:checked + .slider:before {
             <div class="form-group">
               <label class="heading">Upload Wallpaper</label>
               <label class="btn btn-secondary mx-auto btn-block btn-secondary">
-                <span style="white-space: pre-wrap;">Browse</span>
+                <span style="white-space: pre-wrap;" data-toggle="tooltip" title=" REC size (1920X1080) or (1280X720)">Browse</span>
                 <input name="file" class="file form-control" title="Default Wallpaper Image" style="display: none;" onchange="$(this).prev('span').text($(this).val()!=''?$(this).val():'Browse')"
                   required="" type="file">
               </label>
@@ -593,7 +596,11 @@ input:checked + .slider:before {
         <a href="https://github.com/fossasia/meilix/zipball/master">here</a> or head to the
         <a href="https://github.com/fossasia/meilix/releases">Releases</a> page for more options.</span>
   </div>
-
+  <script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();   
+    });
+    </script>
 </body>
 
 </html>

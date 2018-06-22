@@ -12,6 +12,9 @@
   <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
   <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
   <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <title>Meilix ISO Generator</title>
   <style>
     .error {
@@ -281,16 +284,20 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
   </style>
+
 </head>
 
 <body>
   <!--file upload form-->
   <form method="POST" enctype="multipart/form-data">
+
+
+
 <div class="custom-navbar">
     <a href='.' class="custom-navtitle">
       <strong>Meilix Generator</strong>
     </a>
-    <div onclick="document.getElementsByClassName('custom-menu-cont')[0].classList.toggle('hidden')" class="custom-menubutton">
+    <div onclick="document.getElementsByClassName('custom-menu-cont')[0].classList.toggle('hidden')";	 class="custom-menubutton">
       <i class="glyphicon glyphicon-th" style="font-size:20px;"></i>
     </div>
   </div>
@@ -351,38 +358,38 @@ input:checked + .slider:before {
         </div>
         <hr style="margin: 10px">
         <div style="display: flex;justify-content: center;align-items: center; margin: 0 0 -20px 0">
-          <a href="https://labs.fossasia.org/" target="_blank" style="text-decoration: none;color: #737373">More on labs.fossasia.org</a>
+          More on <a href="https://labs.fossasia.org/" target="_blank" style="text-decoration: none;color: #737373"> labs.fossasia.org</a>
         </div>
       </div>
     </div>
   </div>
   <br>  
-    <div class="container" align="center">
+    <div class="container">
       <div class="row mt-3">
         <div class="col-md-4 mx-auto">
           <div class="form-group">
             
             <div class="input-group margin-bottom-sm">
-             <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+             <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span><br>
             <label class="heading" id="label" for="email">Email</label>
-            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;<input autofocus="" class="form-control" placeholder="Enter email" name="email" title="Email for sending the ISO" required="" type="email" pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+$" required /> </div>
+            <input autofocus="" class="form-control" placeholder="Enter email" name="email" title="Email for sending the ISO" required="" type="email" pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+$" required /> </div>
           </div>
           <br>
           <div class="form-group">
             <label class="heading" for="TRAVIS_TAG">Name of your Distribution</label>
-            &emsp;&emsp;&emsp; <input pattern="[A-Za-z0-9\s]{1,20}" class="form-control" placeholder="Enter name" title="Event name to trigger build"
+            <input pattern="[A-Za-z0-9\s]{1,20}" class="form-control" placeholder="Enter name" title="Event name to trigger build"
               name="TRAVIS_TAG" required="" type="text">
           </div>
           <br>
           <div class="form-group">
             <label class="heading" for="event_url">Browser Home Page</label>
-            &emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&nbsp;<input pattern="https?://.+" class="form-control" placeholder="Enter link" name="event_url" title="This will be the home page of the browser"
+            <input pattern="https?://.+" class="form-control" placeholder="Enter link" name="event_url" title="This will be the home page of the browser"
               required="" type="url">
           </div>
           <br>
           <div class="form-group">
             <label class="heading" for="search_engine">Default Search Engine</label>
-            &emsp;&emsp;&emsp;&emsp;&emsp;<input pattern="https?://.+" class="form-control" placeholder="Enter link" name="search_engine" title="This will be the default search engine of the browser"
+            <input pattern="https?://.+" class="form-control" placeholder="Enter link" name="search_engine" title="This will be the default search engine of the browser"
               required="" type="url">
           </div>
           <br>
@@ -572,7 +579,7 @@ input:checked + .slider:before {
             <div class="form-group">
               <label class="heading">Upload Wallpaper</label>
               <label class="btn btn-secondary mx-auto btn-block btn-secondary">
-                <span style="white-space: pre-wrap;">Browse</span>
+                <span style="white-space: pre-wrap;" data-toggle="tooltip" title=" REC size (1920X1080) or (1280X720)">Browse</span>
                 <input name="file" class="file form-control" title="Default Wallpaper Image" style="display: none;" onchange="$(this).prev('span').text($(this).val()!=''?$(this).val():'Browse')"
                   required="" type="file">
               </label>
@@ -593,7 +600,11 @@ input:checked + .slider:before {
         <a href="https://github.com/fossasia/meilix/zipball/master">here</a> or head to the
         <a href="https://github.com/fossasia/meilix/releases">Releases</a> page for more options.</span>
   </div>
-
+  <script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();   
+    });
+    </script>
 </body>
 
 </html>

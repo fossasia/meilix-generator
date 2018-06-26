@@ -286,18 +286,21 @@ input:checked + .slider:before {
   </style>
 
 </head>
-
+<script type="text/javascript">
+	function hideDiv(){
+    document.getElementsByClassName('custom-menu-cont')[0].classList.toggle('hidden')
+}
+document.addEventListener("click", hideDiv);	
+</script>
 <body>
   <!--file upload form-->
   <form method="POST" enctype="multipart/form-data">
-
-
-
+  	
 <div class="custom-navbar">
     <a href='.' class="custom-navtitle">
       <strong>Meilix Generator</strong>
     </a>
-    <div onclick="document.getElementsByClassName('custom-menu-cont')[0].classList.toggle('hidden')";	 class="custom-menubutton">
+    <div class="custom-menubutton">
       <i class="glyphicon glyphicon-th" style="font-size:20px;"></i>
     </div>
   </div>
@@ -605,6 +608,7 @@ input:checked + .slider:before {
         $('[data-toggle="tooltip"]').tooltip();   
     });
     </script>
+    
 </body>
 
 </html>

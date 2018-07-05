@@ -283,48 +283,6 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
-
-body {font-family: Arial, Helvetica, sans-serif;}
-
-/* The Modal (background) */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content */
-.modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-}
-
-/* The Close Button */
-.close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
-
   </style>
 </head>
 <script type="text/javascript">
@@ -419,39 +377,25 @@ function noti()
       <div class="row mt-3">
         <div class="col-md-4 mx-auto">
           <div class="form-group">
-            <label class="heading" id="label" for="email">Email&ensp;<img src="{{ url_for('static', filename='alert.jpg') }}" height="20" width="20" onclick="noti()"></label>
+            <label class="heading" id="label" for="email">Email *&ensp;<img src="{{ url_for('static', filename='alert.jpg') }}" height="20" width="20" onclick="noti()"></label>
             <div class="input-group margin-bottom-sm">
              <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
             <input autofocus="" class="form-control" placeholder="Enter email" name="email" title="Email for sending the ISO" required="" type="email" pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+$" required /></div>
             <br>
           </div>
-          <!-- Trigger/Open The Modal -->
-<button id="myBtn">Help</button>
-
-<!-- The Modal -->
-<div id="myModal" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <p>Email is used to mail user the link to the build ISO</p>
-  </div>
-
-</div>
-          <br>
           <div class="form-group">
-            <label class="heading" for="TRAVIS_TAG">Name of your Distribution</label>
+            <label class="heading" for="TRAVIS_TAG">Name of your Distribution *</label>
             <input pattern="[A-Za-z0-9\s]{1,20}" class="form-control" placeholder="Enter name" name="TRAVIS_TAG" required="" type="text" data-toggle="tooltip" title="Only alphanumeric characters allowed">
           </div>
           <br>
           <div class="form-group">
-            <label class="heading" for="event_url">Browser Home Page</label>
+            <label class="heading" for="event_url">Browser Home Page *</label>
             <input pattern="https?://.+" class="form-control" placeholder="Enter link" name="event_url" title="This will be the home page of the browser"
               required="" type="url">
           </div>
           <br>
           <div class="form-group">
-            <label class="heading" for="search_engine">Default Search Engine</label>
+            <label class="heading" for="search_engine">Default Search Engine *</label>
             <input pattern="https?://.+" class="form-control" placeholder="Enter link" name="search_engine" title="This will be the default search engine of the browser"
               required="" type="url">
           </div>
@@ -584,7 +528,7 @@ function noti()
       </div>
       <br>
       <div class="form-group">
-        <label class="heading" for="packages">Check the packages which you want to install:</label>
+        <label class="heading" for="packages">Check the packages which you want to install: *</label>
 <table id="package" class="responsive-table-input-matrix" style="width:100%">
   <thread>
     <tr>
@@ -668,33 +612,7 @@ function noti()
         $('[data-toggle="tooltip"]').tooltip();   
     });
     </script>
-    <script>
-      // Get the modal
-      var modal = document.getElementById('myModal');
-      
-      // Get the button that opens the modal
-      var btn = document.getElementById("myBtn");
-      
-      // Get the <span> element that closes the modal
-      var span = document.getElementsByClassName("close")[0];
-      
-      // When the user clicks the button, open the modal 
-      btn.onclick = function() {
-          modal.style.display = "block";
-      }
-      
-      // When the user clicks on <span> (x), close the modal
-      span.onclick = function() {
-          modal.style.display = "none";
-      }
-      
-      // When the user clicks anywhere outside of the modal, close it
-      window.onclick = function(event) {
-          if (event.target == modal) {
-              modal.style.display = "none";
-          }
-      }
-      </script>
+
 </body>
 
 </html>

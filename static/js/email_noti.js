@@ -1,5 +1,5 @@
 function hideDiv(){
-    document.getElementsByClassName('custom-menu-cont')[0].classList.toggle('hidden')
+    document.getElementsByClassName("custom-menu-cont")[0].classList.toggle("hidden");
 }
 document.addEventListener("click", hideDiv);
 function noti()

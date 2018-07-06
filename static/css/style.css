@@ -33,6 +33,7 @@
     font-size: 20px;
     color: black;
   }
+
   h3.custom-navtitle {
     position: relative;
   }
@@ -262,4 +263,4 @@ border-radius: 34px;
 
 .slider.round:before {
 border-radius: 50%;
-}
+

@@ -1,11 +1,3 @@
-$(document).on('click', function() {
-  $('.custom-menu-cont').toggleClass('hidden');
-});
-
-$('.custom-menubutton').on('click', function(e) {
-  e.stopPropagation();
-  $('.custom-menu-cont').toggleClass('hidden');
-});
 function disti()
 {
 	alert("This will be name of the distribution");

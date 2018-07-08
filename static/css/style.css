@@ -260,10 +260,10 @@ transform: translateX(26px);
 .slider.round {
 border-radius: 34px;
 }
+
 .slider.round:before {
 border-radius: 50%;
 }
-
 /*<--Loader start here-->*/
 .csd {
   position: absolute;

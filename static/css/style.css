@@ -264,3 +264,41 @@ border-radius: 34px;
 .slider.round:before {
 border-radius: 50%;
 }
+/*<--Loader start here-->*/
+.csd {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: darkgray;
+  z-index: 300000;		
+  display: block;
+  text-align: center;
+}
+
+.dot {
+  background: tomato;
+}
+.dot, .dot:after {
+  margin-top:25%;
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  animation: a 1.5s calc(((var(--i) + var(--o, 0))/var(--n) - 1)*1.5s) infinite;
+}
+.dot:after {
+  --o: 1;
+  background: currentcolor;
+  content: "";
+}
+
+@keyframes a {
+  0%, 50% {
+    transform: scale(0);
+  }
+}
+/*<---Loader End-->*/

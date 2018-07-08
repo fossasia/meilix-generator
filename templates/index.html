@@ -13,18 +13,33 @@
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
   <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
   <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
-  <script src="{{ url_for('static', filename='js/email_noti.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/alert.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/functions.js') }}"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <title>Meilix ISO Generator</title>
 </head>
 <body>
+  <!--Loader-->
+    <div class="welcome">
+      <div class="csd">
+      <div class="a" style="--n: 5;">
+        <div class="dot" style="--i: 0;"></div>
+        <div class="dot" style="--i: 1;"></div>
+        <div class="dot" style="--i: 2;"></div>
+        <div class="dot" style="--i: 3;"></div>
+        <div class="dot" style="--i: 4;"></div>
+      </div>
+    </div>
+</div>
+    <!--End Loader-->
+    
   <!--file upload form-->
   <form method="POST" enctype="multipart/form-data">
   	
 <div class="custom-navbar">
-    <a href='.' class="custom-navtitle">
+    <a style="text-decoration: none;" href='.' class="custom-navtitle">
       <strong>Meilix Generator</strong>
     </a>
     <div id="myBtn" class="custom-menubutton">

@@ -3,7 +3,7 @@
 $("nav").hide();
 $(document).ready(function(){
 $("nav").show();
-$(".welcome").fadeOut("slow", function() { $(this).css({visibility: "hidden", opacity: 0});
+$(".welcome").fadeOut("slow", function () {$(this).css({visibility: "hidden", opacity: 0});
 });
 });
 /*<----loader script End---->*/

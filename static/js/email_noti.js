@@ -12,5 +12,12 @@ function sengine()
 }
 function pinstall()
 {
+  alert("This will install the packages which you have check");
+}
+$(document).on("click", ".glyphicon-th", function () {
+    document.getElementsByClassName("custom-menu-cont")[0].classList.toggle("hidden");
+});
+function noti()
+{
 	alert("packages will installed which you have checked");
 }

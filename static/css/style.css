@@ -291,7 +291,6 @@ border-radius: 50%;
   animation: a 1.5s calc(((var(--i) + var(--o, 0))/var(--n) - 1)*1.5s) infinite;
 }
 .dot:after {
-  --o: 1;
   background: currentcolor;
   content: "";
 }

@@ -20,20 +20,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <title>Meilix ISO Generator</title>
 </head>
-<script type="text/javascript">
-$(document).on('click', function() {
-  $('.custom-menu-cont').toggleClass('hidden');
-});
 
-$('.custom-menubutton').on('click', function(e) {
-  e.stopPropagation();
-  $('.custom-menu-cont').toggleClass('hidden');
-});
-function noti()
-{
-	alert("Email is used to mail user the link to the build ISO");
-}
-</script>
 <body>
   <!--Loader-->
     <div class="welcome">
@@ -280,7 +267,7 @@ function noti()
       <br>
       <div class="form-group">
         <label class="heading" for="packages">Check the packages which you want to install: *&ensp;<img src="{{ url_for('static', filename='alert.jpg') }}" height="20" width="20" onclick="pinstall()"></label>
-<table id="package" class="responsive-table-input-matrix" style="width:100%">
+<table id="package" class="table responsive-table-input-matrix" style="width:100%">
   <thread>
     <tr>
       <th>Package</th>

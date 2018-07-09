@@ -11,3 +11,4 @@ $(".welcome").fadeOut("slow", function () {$(this).css({visibility: "hidden", op
 $(document).on("click", ".glyphicon-th", function () {
     document.getElementsByClassName("custom-menu-cont")[0].classList.toggle("hidden");
 });
+/*<----Drop down menu show hide End---->*/

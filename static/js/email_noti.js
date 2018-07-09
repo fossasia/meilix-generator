@@ -18,6 +18,3 @@ function pinstall()
 {
   alert("This will install the packages which you have check");
 }
-$(document).on("click", ".glyphicon-th", function () {
-    document.getElementsByClassName("custom-menu-cont")[0].classList.toggle("hidden");
-});

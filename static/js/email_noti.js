@@ -1,3 +1,7 @@
+function noti()
+{
+	alert("Email is used to mail user the link to the build ISO");
+}
 function disti()
 {
 	alert("This will be name of the distribution");

@@ -20,5 +20,5 @@ function pinstall()
 }
 function upwal()
 {
-  alert("This will be the default beakground image");
+  alert("This will be the default background image");
 }

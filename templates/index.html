@@ -322,7 +322,7 @@
 
           <div class="col-md-06">
             <div class="form-group">
-              <label class="heading" style="text-align: center;">Upload Wallpaper</label>
+              <label class="heading" style="text-align: center;">Upload Wallpaper*&ensp;<img src="{{ url_for('static', filename='alert.jpg') }}" height="20" width="20" onclick="upwal()"></label>
               <label class="btn btn-secondary mx-auto btn-block btn-secondary">
                 <span style="white-space: pre-wrap;" data-toggle="tooltip" title=" REC size (1920X1080) or (1280X720)">Browse</span>
                 <input name="file" class="file form-control" title="Default Wallpaper Image" style="display: none;" onchange="$(this).prev('span').text($(this).val()!=''?$(this).val():'Browse')"

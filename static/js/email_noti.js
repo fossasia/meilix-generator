@@ -18,3 +18,7 @@ function pinstall()
 {
   alert("This will install the packages which you have check");
 }
+function upwal()
+{
+  alert("This will be the default beakground image");
+}

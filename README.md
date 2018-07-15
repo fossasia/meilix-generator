@@ -3,7 +3,7 @@
 
 # Meilix Generator
 
-Meilix-Generator is a webapp which generates iso using [meilix](https://github.com/fossasia/meilix) script.
+Meilix-Generator is a webapp which generates an iso with a custom [meilix](https://github.com/fossasia/meilix).
 
   - [fossasia/meilix](https://github.com/fossasia/meilix) consists the script of a Linux Operating System based on Lubuntu. It uses Travis to build that script to result in a release of an iso file.
   - Now we thought an idea of building an autonomous system to start this build and get the release and in the meanwhile also make some required changes to the script to get it into the OS. We came up with an idea of a webapp which ask user it’s email id and tag of the build and till now a picture from the user which will be set as a wallpaper. Means user can able to config its distro according to its need through the graphical interface without a single line to code from the user end.

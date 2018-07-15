@@ -74,8 +74,8 @@ This contains the required packages for running the app.
 Webapp ask user for their email-id and event name and a wallpaper which will further be the default wallpaper of the distro. The given event name is used as a tag name of the release.
 Heroku sends these data to Travis to trigger the build. After successful build Travis deployed the iso in the Github Release of the repository whose information is provided in [travis_tokens](/travis_tokens).
 
-![build](https://user-images.githubusercontent.com/15213246/42339925-285cc9ae-80ac-11e8-96aa-5a56456e44a3.png)
-![customize](https://user-images.githubusercontent.com/15213246/42339928-2c0c948a-80ac-11e8-9a84-c464bf9f9e2b.png)
+![Build](/docs/images/build.png)
+![Customize](/docs/images/customize.png)
 
 ### Installation
 

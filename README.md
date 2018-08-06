@@ -91,14 +91,15 @@ The meilix-generator can be easily deployed on a variety of platform. Detailed p
 
  - Once deployed, you'll find the generator running on http://localhost:5000, it should look like this:
 
-![Generator Screencast](docs/screenshots/screencast.gif)
 ![Generator with all new features](docs/screenshots/meilix.gif)
 
  - Add your **email id**, **event-name**, **upload an wallpaper** (this picture will be set as the default wallpaper).
 
+ - You can click on toggle within tweakes and features and checkbox the packages which you want to install.
+
  - Then click on build button to start the building of the iso with the given configuraiton.
 
- - You will be given a link on the next page from which iso can be downloaded after 20 minutes.
+ - You will be welcomed by a screen which has a message that your ISO will be mailed to you on the provided email.
 
 ## Contributions, Bug Reports, Feature Requests
 

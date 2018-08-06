@@ -92,6 +92,7 @@ The meilix-generator can be easily deployed on a variety of platform. Detailed p
  - Once deployed, you'll find the generator running on http://localhost:5000, it should look like this:
 
 ![Generator Screencast](docs/screenshots/screencast.gif)
+![Generator with all new features](docs/screenshots/meilix.gif)
 
  - Add your **email id**, **event-name**, **upload an wallpaper** (this picture will be set as the default wallpaper).
 

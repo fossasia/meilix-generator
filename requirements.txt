@@ -6,7 +6,7 @@
 #
 
 click==6.7                # via flask
-Flask~>0.12.3
+Flask==0.12.4
 gunicorn==19.7.1
 itsdangerous==0.24        # via flask
 Jinja2==2.9.6             # via flask

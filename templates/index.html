@@ -141,139 +141,144 @@
           <div class="form-group">
 
             <label class="heading" for="bookmark">Choose Either ON or OFF:</label>
-<table class="table table-responsive" style="width:100%">
+<table class="table table-responsive" style="width: 100%">
      <thead>
          <tr>
-             <th>Tweaks</th>
              <th>OFF/ON</th>
+             <th>Tweaks</th>
          </tr>
      </thead>
      <tbody>
         <form>
-            <tr>
-       <td>
-            <div class="radiotext">
-               <label for='express'>Toggle for 64 bit (Default 32 bit)</label>
-           </div>
+      <tr>
+        <td>
+          <label class="switch">
+           <input type="checkbox">
+           <span class="slider round"></span>
+         </label>
+         </td>
+        <td id="long">
+          <div class="radiotext">
+            <label for='express'>Toggle for 64 bit (Default 32 bit)</label>
+          </div>
        </td>
-       <td>
-        <label class="switch">
-         <input type="checkbox">
-         <span class="slider round"></span>
-       </label>
-       </td>
-   </tr></form>
+      </tr>
+  </form>
      <form>
          <tr>
-             <td>
-                  <div class="radiotext">
-                     <label for='express'>Notification</label>
-                 </div>
-                 </td>
-                 <td>
-                 <label class="switch">
-                  <input type="checkbox">
-                  <span class="slider round"></span>
-                </label>
-                </td>
+          <td>
+            <label class="switch">
+             <input type="checkbox">
+             <span class="slider round"></span>
+           </label>
+           </td>
+            <td id="long">
+              <div class="radiotext">
+              <label for='express'>Notification</label>
+              </div>
+            </td>
+                 
          </tr></form>
          <form>
                   <tr>
-             <td>
-                  <div class="radiotext">
-                     <label for='express'>Screensaver</label>
-                 </div>
-             </td>
              <td>
               <label class="switch">
                <input type="checkbox">
                <span class="slider round"></span>
              </label>
              </td>
+
+             <td  id="long">
+              <div class="radiotext">
+                 <label for='express'>Screensaver</label>
+             </div>
+         </td>
          </tr></form>
          <form>
                   <tr>
-             <td>
-                  <div class="radiotext">
-                     <label for='express'>Sleep Modus</label>
-                 </div>
-             </td>
              <td>
               <label class="switch">
                <input type="checkbox">
                <span class="slider round"></span>
              </label>
              </td>
+             <td id="long">
+              <div class="radiotext">
+                 <label for='express'>Sleep Modus</label>
+             </div>
+         </td>
+         
          </tr></form>
                 <form>
                   <tr>
              <td>
-                  <div class="radiotext">
-                     <label for='express'>System Sounds</label>
-                 </div>
-             </td>
-             <td>
               <label class="switch">
                <input type="checkbox">
                <span class="slider round"></span>
              </label>
              </td>
+             <td id="long">
+              <div class="radiotext">
+                 <label for='express'>System Sounds</label>
+             </div>
+         </td>
+         
          </tr></form>
                <form>
                   <tr>
              <td>
-                  <div class="radiotext">
-                     <label for='express'>Bookmarks</label>
-                 </div>
-             </td>
-             <td>
               <label class="switch">
                <input type="checkbox">
                <span class="slider round"></span>
              </label>
              </td>
+             <td id="long">
+              <div class="radiotext">
+                 <label for='express'>Bookmarks</label>
+             </div>
+         </td>
          </tr></form>
               <form>
                   <tr>
              <td>
-                  <div class="radiotext">
-                     <label for='express'>Screen Diming</label>
-                 </div>
-             </td>
-             <td>
               <label class="switch">
                <input type="checkbox">
                <span class="slider round"></span>
              </label>
              </td>
+             <td id="long">
+              <div class="radiotext">
+                 <label for='express'>Screen Diming</label>
+             </div>
+         </td>
          </tr></form>
               <form>
                <tr>
              <td>
-                  <div class="radiotext">
-                     <label for='express'>Power Management Saving Feature</label>
-                 </div>
-             </td>
-             <td>
               <label class="switch">
                <input type="checkbox">
                <span class="slider round"></span>
              </label>
              </td>
+             <td id="long">
+              <div class="radiotext">
+                 <label for='express'>Power Management Saving Feature</label>
+             </div>
+         </td>
          </tr></form>
          <form>
          <tr>
              <td>
-                 <div class="radiotext">
-                 <label for='regular'>Taskbar Autohide</label>
-             </div>
-             </td>
-             <td>
               <label class="switch">
                <input type="checkbox">
                <span class="slider round"></span>
              </label>
              </td>
+          <td id="long">
+            <div class="radiotext">
+              <label for='regular'>Taskbar Autohide</label>
+            </div>
+          </td>
          </tr>
          </form>
          </tbody>
@@ -283,7 +288,7 @@
       <div class="form-group">
         <label class="heading" for="packages">Check the packages which you want to install: *&ensp;<img src="{{ url_for('static', filename='alert.jpg') }}" height="20" width="20" onclick="pinstall()"></label>
 <table id="package" class="table responsive-table-input-matrix" style="width:100%">
-  <thread>
+  <thead>
     <tr>
       <th>Package</th>
       <th>Checkbox</th>
@@ -348,7 +353,7 @@
           </div>
           <br>
           <div class="form-group">
-          <input class="btn btn-info mx-auto btn-block" id="file-upload" value="Build" required="" type="submit" style="height: 50px; width: 360px; border-radius: 500px;"/>
+          <input class="btn btn-info mx-auto " id="file-upload" value="Build" required="" type="submit" style="height: 45px; width: 360px;"/>
         </div>
         </div>
       </div>

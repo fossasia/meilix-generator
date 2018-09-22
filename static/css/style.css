@@ -297,6 +297,14 @@ border-radius: 50%;
 #long {
   width: 100%;
 }
+#scroll-to.active , #scroll1.active  , #scroll2.active{
+  display: inline;
+}
+#scroll-to, #scroll1, #scroll2{
+  display: none;
+  
+}
+
 
 @keyframes a {
   0%, 50% {

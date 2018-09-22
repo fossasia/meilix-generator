@@ -22,3 +22,5 @@ function upwal()
 {
   alert("This will be the default background image of the desktop");
 }
+
+

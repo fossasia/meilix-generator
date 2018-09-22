@@ -188,26 +188,26 @@ margin: 10px 10px 0px 0px;
 /*#file-upload {
 width: 2em;  height: 2em;
 }
-/* 
-Generic Styling, for Desktops/Laptops 
+/*
+Generic Styling, for Desktops/Laptops
 */
-table { 
-width: 100%; 
-border-collapse: collapse; 
+table {
+width: 100%;
+border-collapse: collapse;
 }
 /* Zebra striping */
-tr:nth-of-type(odd) { 
-background: #eee; 
+tr:nth-of-type(odd) {
+background: #eee;
 }
-th { 
-background: #333; 
-color: white; 
-font-weight: bold; 
+th {
+background: #333;
+color: white;
+font-weight: bold;
 }
-td, th { 
-padding: 6px; 
-border: 1px solid #ccc; 
-text-align: left; 
+td, th {
+padding: 6px;
+border: 1px solid #ccc;
+text-align: left;
 }
 .switch {
 position: relative;
@@ -274,7 +274,7 @@ border-radius: 50%;
   width: 100%;
   height: 100%;
   background-color: darkgray;
-  z-index: 300000;		
+  z-index: 300000;
   display: block;
   text-align: center;
 }
@@ -304,3 +304,39 @@ border-radius: 50%;
   }
 }
 /*<---Loader End-->*/
+
+
+/* big check labels */
+.label-big-check {
+position: relative;
+display: block;
+margin: 0;
+cursor: pointer;
+}
+
+.label-big-check input {
+display: none;
+}
+
+.label-big-check .check-title {
+font-size: .9em;
+font-weight: 700;
+cursor: pointer;
+}
+
+.label-big-check input[type="checkbox"] + .check-title:before {
+position: absolute;
+top: 0px;
+left: 0;
+width: 20px;
+font-family: FontAwesome;
+      content: "\f096";
+      font-size: 2em;
+      line-height: 1;
+      color: #aaa;
+}
+
+.label-big-check input[type="checkbox"]:checked + .check-title:before {
+  content: "\f14a";
+  color: #333;
+}

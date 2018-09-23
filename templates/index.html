@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
   <title>Meilix ISO Generator</title>
 </head>
 
@@ -35,10 +36,10 @@
     </div>
 </div>
     <!--End Loader-->
-    
+
   <!--file upload form-->
   <form method="POST" enctype="multipart/form-data">
-  	
+
 <div class="custom-navbar">
     <a style="text-decoration: none;" href='.' class="custom-navtitle">
       <strong>Meilix Generator</strong>
@@ -109,8 +110,8 @@
       </div>
     </div>
   </div>
-  <br>  
-  
+  <br>
+
     <div class="container">
       <div class="row mt-3">
         <div class="col-md-4 mx-auto">
@@ -148,12 +149,6 @@
 
             <label class="heading" for="bookmark">Choose Either ON or OFF:<span><p id="scroll-to">This will install the packages which you have check</p></span></label>
 <table class="table table-responsive" style="width: 100%">
-     <thead>
-         <tr>
-             <th>OFF/ON</th>
-             <th>Tweaks</th>
-         </tr>
-     </thead>
      <tbody>
         <form>
       <tr>
@@ -183,7 +178,7 @@
               <label for='express'>Notification</label>
               </div>
             </td>
-                 
+
          </tr></form>
          <form>
                   <tr>
@@ -213,7 +208,7 @@
                  <label for='express'>Sleep Modus</label>
              </div>
          </td>
-         
+
          </tr></form>
                 <form>
                   <tr>
@@ -228,7 +223,7 @@
                  <label for='express'>System Sounds</label>
              </div>
          </td>
-         
+
          </tr></form>
                <form>
                   <tr>
@@ -296,53 +291,98 @@
       <div class="form-group" >
         <label class="heading" for="packages">Check the packages which you want to install: <span><p id="scroll1">This will install the packages which you have check</p></span></label>
 <table id="package" class="table responsive-table-input-matrix" style="width:100%">
-  <thead >
-    <tr>
-      <th>Package</th>
-      <th>Checkbox</th>
-</tr>
-<tbody >
-  <tr>
-    <td>Chromium</td>
-    <td><input name="GENERATOR_package_chromium" type="checkbox" value="chromium" id="chromium"></td>
-  </tr>
-    <tr>
-    <td>Firefox</td>
-    <td><input name="GENERATOR_package_firefox" type="checkbox" value="firefox" id="firefox"></td>
-  </tr>
-    <tr>
-    <td>Hangout</td>
-    <td><input name="GENERATOR_package_hangout" type="checkbox" value="hangout" id="hangout"></td>
-  </tr>
-    <tr>
-    <td>VLC</td>
-    <td><input name="GENERATOR_package_vlc" type="checkbox" value="vlc" id="vlc"></td>
-  </tr>
-      <tr>
-    <td>GIMP</td>
-    <td><input name="GENERATOR_package_gimp" type="checkbox" value="gimp" id="gimp"></td>
-  </tr>
-      <tr>
-    <td>Inkscape</td>
-    <td><input name="GENERATOR_package_inkscape" type="checkbox" value="inkscape" id="inkscape"></td>
-  </tr>
-      <tr>
-    <td>LibreOffice</td>
-    <td><input name="GENERATOR_package_office" type="checkbox" value="office" id="office"></td>
-  </tr>
-      <tr>
-    <td>Git</td>
-    <td><input name="GENERATOR_package_git" type="checkbox" value="git" id="git"></td>
-  </tr>
-      <tr>
-    <td>Dropbox</td>
-    <td><input name="GENERATOR_package_dropbox" type="checkbox" value="dropbox" id="dropbox"></td>
-  </tr>
-      <tr>
-    <td>NextCloud</td>
-    <td><input name="GENERATOR_package_nextcloud" type="checkbox" value="nextcloud" id="nextcloud"></td>
-  </tr>
-</tbody>
+  <tbody>
+   <tr>
+     <td>Chromium</td>
+     <td>
+       <label class="label-big-check">
+       <input type="checkbox" id="chromium" value="chromium" name="GENERATOR_package_chromium">
+       <label for="chromium" class="check-title"></label>
+       </label>
+     </td>
+     </tr>
+   <tr>
+     <td>Firefox</td>
+     <td>
+     <label class="label-big-check">
+     <input type="checkbox" id="firefox" value="firefox" name="GENERATOR_package_firefox">
+     <label for="firefox" class="check-title"></label>
+     </label>
+   </td>
+   </tr>
+     <tr>
+     <td>Hangout</td>
+     <td>
+       <label class="label-big-check">
+       <input type="checkbox" id="hangout" value="hangout" name="GENERATOR_package_hangout">
+       <label for="hangout" class="check-title"></label>
+       </label>
+     </td>
+    </tr>
+     <tr>
+     <td>VLC</td>
+     <td>
+       <label class="label-big-check">
+       <input type="checkbox" id="vlc" value="vlc" name="GENERATOR_package_vlc">
+       <label for="vlc" class="check-title"></label>
+       </label>
+     </td>
+     </tr>
+       <tr>
+       <td>GIMP</td>
+       <td>
+         <label class="label-big-check">
+         <input type="checkbox" id="gimp" value="gimp" name="GENERATOR_package_gimp">
+         <label for="gimp" class="check-title"></label>
+         </label>
+       </td>
+       </tr>
+       <tr>
+       <td>Inkscape</td>
+       <td>
+         <label class="label-big-check">
+         <input type="checkbox" id="inkspace" value="inkspace" name="GENERATOR_package_inkspace">
+         <label for="inkspace" class="check-title"></label>
+         </label>
+       </td>
+       </tr>
+       <tr>
+     <td>LibreOffice</td>
+     <td>
+       <label class="label-big-check">
+       <input type="checkbox" id="office" value="office" name="GENERATOR_package_office">
+       <label for="office" class="check-title"></label>
+       </label>
+     </td>
+     </tr>
+       <tr>
+     <td>Git</td>
+     <td>
+       <label class="label-big-check">
+       <input type="checkbox" id="git" value="git" name="GENERATOR_package_git">
+       <label for="git" class="check-title"></label>
+       </label>
+     </td>
+     </tr>
+     <tr>
+     <td>Dropbox</td>
+     <td>
+       <label class="label-big-check">
+       <input type="checkbox" id="dropbox" value="dropbox" name="GENERATOR_package_dropbox">
+       <label for="dropbox" class="check-title"></label>
+       </label>
+     </td>
+     </tr>
+     <tr>
+     <td>NextCloud</td>
+     <td>
+       <label class="label-big-check">
+       <input type="checkbox" id="nextcloud" value="nextcloud" name="GENERATOR_package_nextcloud">
+       <label for="nextcloud" class="check-title"></label>
+       </label>
+     </td>
+     </tr>
+  </tbody>
 
 </table>
 <br>
@@ -377,8 +417,7 @@
   <script>
     $(document).ready(function(){
         $('[data-toggle="tooltip"]').tooltip();
-      
-      function debounce(func, wait = 0, immediate = true) {
+  function debounce(func, wait = 0, immediate = true) {
       var timeout;
       return function() {
         var context = this, args = arguments;

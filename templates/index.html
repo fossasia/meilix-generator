@@ -119,29 +119,33 @@
             <label  class="heading" id="label" for="email">Email</label>
             <div class="input-group margin-bottom-sm">
              <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
-
-            
-          <input  autofocus="" class="form-control" placeholder="Enter email" name="email" title="Email for sending the ISO" required="" type="email" pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+$" required /></div>
-          <p id="scroll-to">Email is used to mail user the link to the build ISO</p>  
-          <br>
+             <input  autofocus="" class="form-control" placeholder="Enter email" name="email" title="Email for sending the ISO" required="" type="email" pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+$" required /></div>
+             <p id="scroll-to">Email is used to mail user the link to the build ISO</p>
+             <br>
           </div>
           <div class="form-group">
             <label class="heading" for="TRAVIS_TAG">Name of your Distribution</label>
-            <input pattern="[A-Za-z0-9\s]{1,20}" class="form-control" placeholder="Enter name" name="TRAVIS_TAG" required="" type="text" data-toggle="tooltip" title="Only alphanumeric characters allowed">
+            <div class="input-group margin-bottom-sm">
+            <span class="input-group-addon"><i class="fa fa-address-book fa-fw"></i></span>
+            <input pattern="[A-Za-z0-9\s]{1,20}" class="form-control" placeholder="Enter name" name="TRAVIS_TAG" required="" type="text" data-toggle="tooltip" title="Only alphanumeric characters allowed"></div>
             <p id="scroll-to">This will be name of the distribution</p>
           </div>
           <br>
           <div class="form-group">
             <label class="heading" for="event_url">Browser Home Page </label>
+            <div class="input-group margin-bottom-sm">
+            <span class="input-group-addon"><i class="fa fa-window-maximize fa-fw"></i></span>
             <input pattern="https?://.+" class="form-control" placeholder="Enter link" name="event_url" title="only url is allowed"
-              required="" type="url">
+              required="" type="url"></div>
               <p id="scroll-to">This will be the home page of the browser</p>
           </div>
           <br>
           <div class="form-group">
             <label class="heading" for="search_engine">Default Search Engine</label>
+            <div class="input-group margin-bottom-sm">
+            <span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
             <input pattern="https?://.+" class="form-control" placeholder="Enter link" name="search_engine" title="only url is allowed"
-              required="" type="url">
+              required="" type="url"></div>
               <p id="scroll-to">This will be the default search engine of the browser</p>
           </div>
           <br>
@@ -284,9 +288,9 @@
          </form>
          </tbody>
 </table>
-  
+
       </div>
-      
+
       <br>
       <div class="form-group" >
         <label class="heading" for="packages">Check the packages which you want to install: <span><p id="scroll1">This will install the packages which you have check</p></span></label>
@@ -433,14 +437,14 @@
     }
         const messages = document.querySelectorAll('#scroll-to');
         console.log(messages);
-      
+
       function display(e){
         messages.forEach(message => {
           let hT = message.offsetTop;
           let hH = $(message).outerHeight();
           let wH = window.innerHeight;
           let wS = window.scrollY;
-          
+
           let isNotScrolledPast = wS < (hH + hT);
           if (wS > (hT+hH-wH) && isNotScrolledPast){
 				    message.classList.add('active');
@@ -450,7 +454,7 @@
         });
       }
       window.addEventListener('scroll', debounce(display));
-      
+
     var browse = document.getElementById('browse');
     browse.addEventListener('mouseenter', function(){
       $('#scroll2').addClass('active');
@@ -458,7 +462,7 @@
     browse.addEventListener('mouseout', function(){
       $('#scroll2').removeClass('active');
     });
-   
+
    var table = document.getElementById('package');
    table.addEventListener('mouseenter', () => $('#scroll1').addClass('active'));
    table.addEventListener('mouseout', () => $('#scroll1').removeClass('active'));
@@ -466,7 +470,7 @@
 
 });
 
-    
+
     </script>
 
 </body>

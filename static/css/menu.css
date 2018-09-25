@@ -11,6 +11,7 @@ html {
 .heading {
   font-weight: bold;
   font-size: 0.9em;
+  font-family: Helvetica;
 }
 
 nav {

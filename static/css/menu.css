@@ -11,7 +11,7 @@ html {
 .heading {
   font-weight: bold;
   font-size: 0.9em;
-  font-family: Helvetica;
+  font-family: Helvetica, Verdana;
 }
 
 nav {
@@ -19,7 +19,7 @@ nav {
 }
 
 h2 {
-  font-family: Helvetica;
+  font-family: Helvetica,Verdana;
 }
 
 p {
@@ -30,7 +30,7 @@ p {
 
 .form-control {
   font-size: small;
-  font-family: Helvetica;
+  font-family: Helvetica,Verdana;
 }
 
 #toggler {

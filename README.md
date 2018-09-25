@@ -5,7 +5,7 @@
 
 Meilix-Generator is a webapp which generates an iso with a custom [meilix](https://github.com/fossasia/meilix). The main aim of the project is to help a user to make its personalised linux distribution.
 
-  - [fossasia/meilix](https://github.com/fossasia/meilix) consists the script of a Linux Operating System based on Lubuntu. It uses Travis to trigger that script to result in a release of an iso file.
+  - [fossasia/meilix](https://github.com/fossasia/meilix) consists the script of a Linux Operating System based on Lubuntu. The bootscreen is build as a deb package in [fossasia/meilix-artwork](https://github.com/fossasia/meilix-artwork). The app uses Travis to trigger that script to result in a release of an iso file.
   - Now we thought an idea of building an autonomous system to start this build and in the meanwhile also make some required changes to the script to get it into the OS. We came up with a webapp which asks users about their email id and tag of the build and e.g. a wallpaper image uploaded by the user which will be set as default. A user is able to config its distro release according to its needs via the app user interface without a single line to code.
   - Through the webapp, a build button is taken as an input to go to a build page which triggers Travis with the same user configuration to build the iso and deploy it on a Github page. The user gets the link to the build on the next page only.
   - We use [Travis API](https://blog.travis-ci.com/2017-04-06-api-v3-is-here) with a [shell script](/docs/installation/my_token.md) to outframe our concept. The script takes the input of the users, repository, and branch to decide to where the trigger to take place.

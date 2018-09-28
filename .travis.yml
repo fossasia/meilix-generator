@@ -3,7 +3,7 @@ python:
 - 3.6
 sudo: required
 install: pip install -r requirements.txt
-script: nosetests app.py
+script: # nosetests app.py
 deploy:
   provider: heroku
   api_key:

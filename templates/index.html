@@ -309,7 +309,7 @@
 
       <br>
       <div class="form-group" >
-        <label class="heading" for="packages">Check the packages which you want to install: <span><p id="scroll1">This will install the packages which you have check</p></span></label>
+        <label class="heading" for="packages">Check the packages which you want to install: <span><p id="scroll1" class="active">This will install the packages which you have check</p></span></label>
 <table id="package" class="table responsive-table-input-matrix" style="width:100%">
   <tbody>
    <tr>
@@ -480,10 +480,9 @@
       $('#scroll2').removeClass('active');
     });
 
-   var table = document.getElementById('package');
-   table.addEventListener('mouseenter', () => $('#scroll1').addClass('active'));
-   table.addEventListener('mouseout', () => $('#scroll1').removeClass('active'));
-
+   // var table = document.getElementById('package');
+   // table.addEventListener('mouseenter', () => $('#scroll1').addClass('active'));
+   // table.addEventListener('mouseout', () => $('#scroll1').removeClass('active'));
 
 });
 

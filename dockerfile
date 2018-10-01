@@ -1,5 +1,14 @@
 # Set the base image
-FROM python:3.6
+FROM alpine:latest
+RUN apk add --no-cache py-crypto \
+                       py-tornado \
+                       py-mysqldb \
+                       python && \
+                       python -m ensurepip && \
+                       rm -r /usr/lib/python*/ensurepip && \
+                       pip install --upgrade pip setuptools && \
+                       rm -r /root/.cache
+
 
 # File Author / Maintainer
 MAINTAINER Xeon Zolt

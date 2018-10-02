@@ -144,7 +144,7 @@
             <div class="input-group margin-bottom-sm">
             <span class="input-group-addon"><i class="fa fa-address-book fa-fw"></i></span>
             <input pattern="[A-Za-z0-9\s]{1,20}" class="form-control" placeholder="Enter name" name="TRAVIS_TAG" required="" type="text" data-toggle="tooltip" title="Only alphanumeric characters allowed"></div>
-            <p id="scroll-to">This will be name of the distribution</p>
+            <p id="scroll-to">Name of your custom distribution</p>
           </div>
           <br>
           <div class="form-group">
@@ -153,7 +153,7 @@
             <span class="input-group-addon"><i class="fa fa-window-maximize fa-fw"></i></span>
             <input pattern="https?://.+" class="form-control" placeholder="Enter link" name="event_url" title="only url is allowed"
               required="" type="url"></div>
-              <p id="scroll-to">This will be the home page of the browser</p>
+              <p id="scroll-to">Default home page of the browser</p>
           </div>
           <br>
           <div class="form-group">
@@ -162,12 +162,13 @@
             <span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
             <input pattern="https?://.+" class="form-control" placeholder="Enter link" name="search_engine" title="only url is allowed"
               required="" type="url"></div>
-              <p id="scroll-to">This will be the default search engine of the browser</p>
+              <p id="scroll-to">Default search engine of the browser</p>
           </div>
           <br>
           <div class="form-group">
 
-            <label class="heading" for="bookmark">Choose Either ON or OFF:<span><p id="scroll-to">This will install the packages which you have check</p></span></label>
+            <label class="heading" for="bookmark">Choose Either ON or OFF:<span>
+		    <p id="scroll-to">Packages that will be installed</p></span></label>
 <table class="table table-responsive" style="width: 100%">
      <tbody>
         <form>
@@ -180,7 +181,7 @@
          </td>
         <td id="long">
           <div class="radiotext">
-            <label for='express'>Toggle for 64 bit (Default 32 bit)</label>
+            <label for='express'>Support 64 bit (Default 32 bit)</label>
           </div>
        </td>
       </tr>
@@ -195,7 +196,7 @@
            </td>
             <td id="long">
               <div class="radiotext">
-              <label for='express'>Notification</label>
+              <label for='express'>Notifications</label>
               </div>
             </td>
 
@@ -269,7 +270,7 @@
              </td>
              <td id="long">
               <div class="radiotext">
-                 <label for='express'>Screen Diming</label>
+                 <label for='express'>Screen Dimming</label>
              </div>
          </td>
          </tr></form>

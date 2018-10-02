@@ -1,7 +1,7 @@
 {
   "name": "meilix-generator",
   "scripts": {},
-    "description": "A webapp which generates iso for you",
+    "description": "A webapp which generates an iso for you",
     "repository": "https://github.com/fossasia/meilix-generator/",
     "logo": "https://github.com/fossasia/meilix-generator/blob/master/static/logo.png",
     "keywords": [

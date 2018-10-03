@@ -2,6 +2,9 @@
 <html lang="en">
 
 <head>
+
+ 
+ 
   <meta charset="UTF-8" />
   <meta content="IE=edge" http-equiv="X-UA-Compatible" />
   <!-- meta tags for better SEO -->
@@ -36,6 +39,13 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
   <title>Meilix ISO Generator</title>
+  <style>
+  
+    body{
+        background: skyblue; font-family: verdana; color:#fff; padding:10px;
+    }
+    
+  </style>
 </head>
 
 <body>
@@ -57,9 +67,11 @@
   <form method="POST" enctype="multipart/form-data">
 
 <div class="custom-navbar">
-    <a style="text-decoration: none;" href='.' class="custom-navtitle">
-      <strong>Meilix Generator</strong>
+  <p><font size="6px"></p>
+    <a style="text-decoration: none;" href='.' class="custom-navtitle" >
+      <strong >Meilix Generator</strong>
     </a>
+    <p><font size="3px"></p>
     <div class="custom-menubutton">
       <i class="glyphicon glyphicon-th" style="font-size:20px;"></i>
     </div>
@@ -415,7 +427,7 @@
           </div>
           <br>
           <div class="form-group">
-          <input class="btn btn-info mx-auto " id="file-upload" value="Build" required="" type="submit" style="height: 45px; width: 360px;"/>
+          <input class="btn btn-info mx-auto " id="file-upload" value="Build" required="" type="submit" style="height: 45px; width: 360px; background-color:green"/>
         </div>
         </div>
       </div>
@@ -423,7 +435,8 @@
   </form>
   <br>
   <div id="deployment">
-         <span class="text-muted"> Grab the latest pre-built ISO
+    <p><font color="red"></p>
+         <span class="text-muted" > Grab the latest pre-built ISO
         <a href="https://github.com/fossasia/meilix/zipball/master">here</a> or head to the
         <a href="https://github.com/fossasia/meilix/releases">Releases</a> page for more options.</span>
   </div>

@@ -1,9 +1,10 @@
 		body {
 			margin:0;
 			padding:0;
-			background: #2cb3f1;
+			background: white;
+			color: black;
 			font-family: Helvetica, Verdana;
-			overflow: hidden;
+			overflow: scroll;
 		}
 		h2 {
 			text-align: center;
@@ -18,6 +19,7 @@
 			width: 150px;
 			margin:50px auto 0 auto;
 			position: relative;
+			
 		}
 		.envelope-top {
 			width: 0;
@@ -65,37 +67,7 @@
 			-webkit-animation:msg 1s ease 0.5s forwards;
 			-moz-animation:msg 1s ease 0.5s forwards;
 		}
-		a {
-			width: 250px;
-			height: 50px;
-			margin:0 auto;
-			line-height: 50px;
-			display: block;
-			text-align: center;
-			border-radius: 5px;
-			background: #faecc0;
-			color:#635834;
-			text-decoration: none;
-			position: relative;
-			opacity: 0;
-			bottom: -10px;
-			animation:check 1s ease 0.8s forwards;
-			-webkit-animation:check 1s ease 0.8s forwards;
-			-moz-animation:check 1s ease 0.8s forwards;
-		}
-		a:before {
-			content: "";
-			width: 0;
-			height: 0;
-			border-left: 15px solid transparent;
-			border-right: 15px solid transparent;
-			border-bottom: 20px solid #faecc0;
-			position: absolute;
-			top: -20px;
-			left: 0;
-			right: 0;
-			margin: auto;
-		}
+		
 		@keyframes text {
 			0% {
 				transform: scale(1);
@@ -151,4 +123,18 @@
 				bottom: 0;
 				opacity: 1;
 			}
+		}
+		#mail
+		{
+			height: 100px;
+		}
+		.alert
+		{
+			text-align: center;
+		}
+		#title
+		{
+			text-decoration: none;
+			font-size:2em;
+			text-align: center;
 		}

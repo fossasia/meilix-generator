@@ -1,21 +1,71 @@
 <!DOCTYPE html>
-<html >
+<html>
+
 <head>
-  <meta charset="UTF-8">
-  <title>Meilix Generator Email Notification</title>
-      <link rel="stylesheet" href="{{ url_for('static',filename='css/email.css') }}">
+	<meta charset="UTF-8">
+	<title>Meilix Generator Email Notification</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="{{ url_for('static',filename='css/email.css') }}">
+
 </head>
 
 <body>
-  	<h2>Email will be sent with the downloadable ISO link once it is ready</h2>
-<main>
-	<div class="msg">1</div>
-	<section class="envelope-top"></section>
-	<section class="envelope-left"></section>
-	<section class="envelope-right"></section>
-</main>
-	<a class="tooltip" target="_blank" href="https://www.gmail.com">Check your email!</a>
+	<div class="custom-navbar">
 
+		<div class="alert alert-info" >
+
+			<a id="title" href='.'>
+				<strong>Meilix Generator</strong>
+			</a>
+		</div>
+
+	</div>
+
+	<br>
+	<div class="alert alert-danger" >
+		<strong>Success!</strong> Email will be sent with the downloadable ISO link once it is ready
+	</div>
+	<main>
+		<div class="msg">1</div>
+		<section class="envelope-top"></section>
+		<section class="envelope-left"></section>
+		<section class="envelope-right"></section>
+	</main>
+	<div class="container">
+
+
+		<div class="alert alert-info" >
+			<strong>Check your Email Now</strong>
+			<div class="container-fluid">
+				<div class="row">
+
+					<a class="col-3" target="_blank" href="https://www.gmail.com">
+						<img id='mail'  src="{{ url_for('static',filename='gmail.png') }}">
+
+					</a>
+					<a class="col-3" target="_blank" href="https://outlook.com">
+						<img id='mail'  src="{{ url_for('static',filename='outlook.png') }}">
+
+					</a>
+					<a class="col-3" target="_blank" href="https://overview.mail.yahoo.com/">
+						<img id='mail'  src="{{ url_for('static',filename='yahoo.jpeg') }}">
+					</a>
+					<a class="col-3" target="_blank" href="https://mail.protonmail.com/">
+						<img id='mail'  src="{{ url_for('static',filename='proton.jpeg') }}">
+					</a>
+
+
+
+
+				</div>
+
+			</div>
+
+		</div>
+
+
+	</div>
 
 </body>
+
 </html>

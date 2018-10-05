@@ -3,32 +3,20 @@
 
 # Meilix Generator
 
-Meilix-Generator is a webapp which generates an iso with a custom [meilix](https://github.com/fossasia/meilix). The main aim of the project is to help a user to make its personalised linux distribution.
+Meilix-Generator is a webapp which generates an iso with a custom [meilix](https://github.com/fossasia/meilix) Linux upon request of a user. 
 
   - [fossasia/meilix](https://github.com/fossasia/meilix) consists the script of a Linux Operating System based on Lubuntu. The bootscreen is build as a deb package in [fossasia/meilix-artwork](https://github.com/fossasia/meilix-artwork). The app uses Travis to trigger that script to result in a release of an iso file.
-  - Now we thought an idea of building an autonomous system to start this build and in the meanwhile also make some required changes to the script to get it into the OS. We came up with a webapp which asks users about their email id and tag of the build and e.g. a wallpaper image uploaded by the user which will be set as default. A user is able to config its distro release according to its needs via the app user interface without a single line to code.
-  - Through the webapp, a build button is taken as an input to go to a build page which triggers Travis with the same user configuration to build the iso and deploy it on a Github page. The user gets the link to the build on the next page only.
+  - Now we thought an idea of building an autonomous system to start this build and in the meanwhile also make some required changes to the script to get it into the OS. We came up with a webapp which asks users about their email id and tag of the build and several other options e.g. a default wallpaper image upload. A user is able to config its distro release according to its needs via the app user interface without a single line to code. You can get the iso within 25 minutes of starting of the build.
+  - Through the webapp, a build button is taken as an input to go to a build page which triggers Travis with the same user configuration to build the iso and deploy it on a Github page. The user receives a link to the build.
   - We use [Travis API](https://blog.travis-ci.com/2017-04-06-api-v3-is-here) with a [shell script](/docs/installation/my_token.md) to outframe our concept. The script takes the input of the users, repository, and branch to decide to where the trigger to take place.
-  - The webapp follows the standard frontend of other FOSSASIA projects like [Open Event Webapp](https://github.com/fossasia/open-event-webapp)
+  - The webapp follows the same standard frontend of other FOSSASIA projects like [Open Event Webapp](https://github.com/fossasia/open-event-webapp)
 
 ![GSoC 2017](https://img.shields.io/badge/GSoC-2017-blue.svg) [![Travis branch](https://img.shields.io/travis/fossasia/meilix-generator/master.svg?style=flat-square)](https://travis-ci.org/fossasia/meilix-generator) [![Gemnasium](https://img.shields.io/gemnasium/fossasia/meilix-generator.svg?style=flat-square)](https://gemnasium.com/github.com/fossasia/meilix-generator) [![Heroku](https://heroku-badge.herokuapp.com/?app=meilix-generator)](https://meilix-generator.herokuapp.com/) [![Code Climate](https://codeclimate.com/github/fossasia/meilix-generator/badges/gpa.svg?branch=master)](https://codeclimate.com/github/fossasia/meilix-generator) [![codecov](https://codecov.io/gh/fossasia/meilix-generator/branch/master/graph/badge.svg)](https://codecov.io/gh/fossasia/meilix-generator) [![Codacy branch grade](https://img.shields.io/codacy/grade/2040e9769e0c446dbb400fc5a77d2dc2/master.svg?style=flat-square)](https://www.codacy.com/app/fossasia/meilix-generator) [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/fossasia/meilix?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## Communication
 
-Please join our mailing list to discuss questions regarding the project: https://groups.google.com/forum/#!forum/meilix
+Please join our chat channel on Gitter [gitter.im/fossasia/meilix](https://gitter.im/fossasia/meilix) and our [mailing list](https://groups.google.com/forum/#!forum/meilix) to discuss questions regarding the project and ongoing development. 
 
-Our chat channel is on Gitter here: [gitter.im/fossasia/meilix](https://gitter.im/fossasia/meilix)
-
-# New Features!
-
-  - User can give their own configuration
-  - Travis will build it for them
-  - Github will release the iso
-  - User can upload a wallpaper which will be set as the desktop background
-
-
-You can
-  - Get the iso within 25 minutes of starting of the build
 
 ### Technologies Used
 
@@ -36,7 +24,7 @@ Meilix-Generator uses a number of open source projects to work properly:
 
 * [Flask](http://flask.pocoo.org/) - Microframework powered by python
 * [Bootstrap](http://getbootstrap.com/) - Responsive frontend framework for webapp
-* [Shell](https://en.wikipedia.org/wiki/Unix_shell) - Script used for triggering Travis using [Travis API](https://docs.travis-ci.com/user/triggering-builds/)
+* [Shell](https://en.wikipedia.org/wiki/Unix_shell) - Script used for triggering Travis using their [Travis API](https://docs.travis-ci.com/user/triggering-builds/)
 * [Heroku](https://www.heroku.com/) - Webapp deployed here
 * [Travis](travis-ci.org) - Continuous Integration which build the iso
 * [Github Release](https://help.github.com/articles/creating-releases/) - Deploying the iso here
@@ -89,7 +77,7 @@ The meilix-generator can be easily deployed on a variety of platform. Detailed p
 
 ![Generator with all new features](docs/screenshots/meilix-1.gif)
 
- - Add your **email id**, **event-name**, **upload an wallpaper** (this picture will be set as the default wallpaper).
+ - Add your **email id**, **event-name**, **upload an wallpaper** (this picture will be set as the default wallpaper) etc.
 
  - Then click on build button to start the building of the iso with the given configuraiton.
 
@@ -102,7 +90,7 @@ This is an Open Source project and we would be happy to see contributors who rep
 ## Issue and Branch Policy
 
 Before making a pull request, please file an issue. So, other developers have the chance to give feedback or discuss details. Match every pull request with an issue please and add the issue number in description e.g. like "Fixes #123".
-**Go for only one issue in a pull request**
+**Go for only one issue per pull request**
 
 We have the following branches
 * **master**

@@ -40,8 +40,8 @@
 
 <body>
   <!--Loader-->
-    <div class="welcome">
-      <div class="csd">
+  <div class="welcome">
+    <div class="csd">
       <div class="a" style="--n: 5;">
         <div class="dot" style="--i: 0;"></div>
         <div class="dot" style="--i: 1;"></div>
@@ -50,417 +50,440 @@
         <div class="dot" style="--i: 4;"></div>
       </div>
     </div>
-</div>
-    <!--End Loader-->
+  </div>
+  <!--End Loader-->
 
   <!--file upload form-->
   <form method="POST" enctype="multipart/form-data">
 
-<div class="custom-navbar">
-    <a style="text-decoration: none;" href='.' class="custom-navtitle">
-      <strong>Meilix Generator</strong>
-    </a>
-    <div class="custom-menubutton">
-      <i class="glyphicon glyphicon-th" style="font-size:20px;"></i>
-    </div>
-  </div>
-  <div class="custom-menu-cont hidden">
-    <div class="custom-menu">
-      <div class="arrow-up"></div>
-      <div>
-        <div class="custom-menu-item">
-          <a href="http://github.com/fossasia/meilix-generator" target="_blank">
-          <div class="custom-icon"><img src="{{ url_for('static', filename='code.png') }}"></div>
-          <p class="custom-title">Code</p></a>
-        </div>
-        <div class="custom-menu-item">
-          <a href="http://github.com/fossasia/meilix-generator/issues" target="_blank">
-          <div class="custom-icon"><img src="{{ url_for('static', filename='bug.png') }}"></div>
-          <p class="custom-title">Bug Report</p></a>
-        </div>
-        <div class="custom-menu-item">
-          <a href="http://blog.fossasia.org" target="_blank">
-          <div class="custom-icon"><img src="{{ url_for('static', filename='blog.png') }}"></div>
-          <p class="custom-title">Blogs</p></a>
-        </div>
-        <hr style="margin-bottom: 10px; margin-top: 10px;">
-        <div class="custom-menu-item">
-          <a href="https://eventyay.com/" target="_blank">
-          <div class="custom-icon"><img src="{{ url_for('static', filename='eventyay.png') }}"></div>
-          <p class="custom-title">Eventyay</p></a>
-        </div>
-        <div class="custom-menu-item">
-          <a href="https://susper.com/" target="_blank">
-          <div class="custom-icon"><img src="{{ url_for('static', filename='susper.png') }}" style="width: 60px;height: 16px;"></div>
-          <p class="custom-title">Susper</p></a>
-        </div>
-        <div class="custom-menu-item">
-          <a href="https://chat.susi.ai/" target="_blank">
-          <div class="custom-icon"><img src="{{ url_for('static', filename='susi.png') }}"></div>
-          <p class="custom-title">Susi</p></a>
-        </div>
-        <div class="custom-menu-item">
-          <a href="https://fossasia.org/" target="_blank">
-          <div class="custom-icon"><img src="{{ url_for('static', filename='fossasia.png') }}"></div>
-          <p class="custom-title">FOSSASIA</p></a>
-        </div>
-        <div class="custom-menu-item">
-          <a href="https://loklak.org/" target="_blank">
-          <div class="custom-icon"><img src="{{ url_for('static', filename='loklak.png') }}"></div>
-          <p class="custom-title">loklak</p></a>
-        </div>
-        <div class="custom-menu-item">
-          <a href="https://phimp.me/" target="_blank">
-          <div class="custom-icon"><img src="{{ url_for('static', filename='phimp.png') }}"></div>
-          <p class="custom-title">Phimp.me</p></a>
-        </div>
-        <div class="custom-menu-item">
-          <a href="https://pslab.fossasia.org" target="_blank">
-          <div class="custom-icon"><img src="{{ url_for('static', filename='Pslab.png') }}"></div>
-          <p class="custom-title">PS Lab</p></a>
-        </div>
-        <div class="custom-menu-item">
-          <a href="http://badgeyay.com/" target="_blank">
-          <div class="custom-icon"><img src="{{ url_for('static', filename='badgeyay.png') }}"></div>
-          <p class="custom-title">Badgeyay</p></a>
-        </div>
-        <hr style="margin: 10px">
-        <div style="display: flex;justify-content: center;align-items: center; margin: 0 0 -20px 0">
-          More on&nbsp;<a href="https://labs.fossasia.org/" target="_blank" style="text-decoration: none;color: #737373"> labs.fossasia.org</a>
-        </div>
+    <div class="custom-navbar">
+      <a style="text-decoration: none;" href='.' class="custom-navtitle">
+        <strong>Meilix Generator</strong>
+      </a>
+      <div class="custom-menubutton">
+        <i class="glyphicon glyphicon-th" style="font-size:20px;"></i>
       </div>
     </div>
+    <div class="custom-menu-cont hidden">
+      <div class="custom-menu">
+        <div class="arrow-up"></div>
+        <div>
+          <div class="custom-menu-item">
+            <a href="http://github.com/fossasia/meilix-generator" target="_blank">
+              <div class="custom-icon"><img src="{{ url_for('static', filename='code.png') }}"></div>
+              <p class="custom-title">Code</p>
+            </a>
+          </div>
+          <div class="custom-menu-item">
+            <a href="http://github.com/fossasia/meilix-generator/issues" target="_blank">
+              <div class="custom-icon"><img src="{{ url_for('static', filename='bug.png') }}"></div>
+              <p class="custom-title">Bug Report</p>
+            </a>
+          </div>
+          <div class="custom-menu-item">
+            <a href="http://blog.fossasia.org" target="_blank">
+              <div class="custom-icon"><img src="{{ url_for('static', filename='blog.png') }}"></div>
+              <p class="custom-title">Blogs</p>
+            </a>
+          </div>
+          <hr style="margin-bottom: 10px; margin-top: 10px;">
+          <div class="custom-menu-item">
+            <a href="https://eventyay.com/" target="_blank">
+              <div class="custom-icon"><img src="{{ url_for('static', filename='eventyay.png') }}"></div>
+              <p class="custom-title">Eventyay</p>
+            </a>
+          </div>
+          <div class="custom-menu-item">
+            <a href="https://susper.com/" target="_blank">
+              <div class="custom-icon"><img src="{{ url_for('static', filename='susper.png') }}" style="width: 60px;height: 16px;"></div>
+              <p class="custom-title">Susper</p>
+            </a>
+          </div>
+          <div class="custom-menu-item">
+            <a href="https://chat.susi.ai/" target="_blank">
+              <div class="custom-icon"><img src="{{ url_for('static', filename='susi.png') }}"></div>
+              <p class="custom-title">Susi</p>
+            </a>
+          </div>
+          <div class="custom-menu-item">
+            <a href="https://fossasia.org/" target="_blank">
+              <div class="custom-icon"><img src="{{ url_for('static', filename='fossasia.png') }}"></div>
+              <p class="custom-title">FOSSASIA</p>
+            </a>
+          </div>
+          <div class="custom-menu-item">
+            <a href="https://loklak.org/" target="_blank">
+              <div class="custom-icon"><img src="{{ url_for('static', filename='loklak.png') }}"></div>
+              <p class="custom-title">loklak</p>
+            </a>
+          </div>
+          <div class="custom-menu-item">
+            <a href="https://phimp.me/" target="_blank">
+              <div class="custom-icon"><img src="{{ url_for('static', filename='phimp.png') }}"></div>
+              <p class="custom-title">Phimp.me</p>
+            </a>
+          </div>
+          <div class="custom-menu-item">
+            <a href="https://pslab.fossasia.org" target="_blank">
+              <div class="custom-icon"><img src="{{ url_for('static', filename='Pslab.png') }}"></div>
+              <p class="custom-title">PS Lab</p>
+            </a>
+          </div>
+          <hr style="margin: 10px">
+          <div style="display: flex;justify-content: center;align-items: center; margin: 0 0 -20px 0">
+            More on&nbsp;<a href="https://labs.fossasia.org/" target="_blank" style="text-decoration: none;color: #737373">
+              labs.fossasia.org</a>
+          </div>
   </div>
-  <br>
+  
+    </div>
+    <br>
 
     <div class="container">
       <div class="row mt-3">
         <div class="col-md-4 mx-auto">
-          <div  class="form-group">
-            <label  class="heading" id="label" for="email">Email</label>
+          <div class="form-group">
+            <label class="heading" id="label" for="email">Email</label>
             <div class="input-group margin-bottom-sm">
-             <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
-             <input  autofocus="" class="form-control" placeholder="Enter email" name="email" title="Email for sending the ISO" required="" type="email" pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+$" required /></div>
-             <p id="scroll-to">Email is used to mail user the link to the build ISO</p>
-             <br>
+              <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+              <input autofocus="" class="form-control" placeholder="Enter email" name="email" title="Email for sending the ISO"
+                required="" type="email" pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+$"
+                required /></div>
+            <p id="scroll-to">Email is used to mail user the link to the build ISO</p>
+            <br>
           </div>
           <div class="form-group">
             <label class="heading" for="TRAVIS_TAG">Name of your Distribution</label>
             <div class="input-group margin-bottom-sm">
-            <span class="input-group-addon"><i class="fa fa-address-book fa-fw"></i></span>
-            <input pattern="[A-Za-z0-9\s]{1,20}" class="form-control" placeholder="Enter name" name="TRAVIS_TAG" required="" type="text" data-toggle="tooltip" title="Only alphanumeric characters allowed"></div>
+              <span class="input-group-addon"><i class="fa fa-address-book fa-fw"></i></span>
+              <input pattern="[A-Za-z0-9\s]{1,20}" class="form-control" placeholder="Enter name" name="TRAVIS_TAG"
+                required="" type="text" data-toggle="tooltip" title="Only alphanumeric characters allowed"></div>
             <p id="scroll-to">Name of your custom distribution</p>
           </div>
           <br>
           <div class="form-group">
             <label class="heading" for="event_url">Browser Home Page </label>
             <div class="input-group margin-bottom-sm">
-            <span class="input-group-addon"><i class="fa fa-window-maximize fa-fw"></i></span>
-            <input pattern="https?://.+" class="form-control" placeholder="Enter link" name="event_url" title="only url is allowed"
-              required="" type="url"></div>
-              <p id="scroll-to">Default home page of the browser</p>
+              <span class="input-group-addon"><i class="fa fa-window-maximize fa-fw"></i></span>
+              <input pattern="https?://.+" class="form-control" placeholder="Enter link" name="event_url" title="only url is allowed"
+                required="" type="url"></div>
+            <p id="scroll-to">Default home page of the browser</p>
           </div>
           <br>
           <div class="form-group">
             <label class="heading" for="search_engine">Default Search Engine</label>
             <div class="input-group margin-bottom-sm">
-            <span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
-            <input pattern="https?://.+" class="form-control" placeholder="Enter link" name="search_engine" title="only url is allowed"
-              required="" type="url"></div>
-              <p id="scroll-to">Default search engine of the browser</p>
+              <span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
+              <input pattern="https?://.+" class="form-control" placeholder="Enter link" name="search_engine" title="only url is allowed"
+                required="" type="url"></div>
+            <p id="scroll-to">Default search engine of the browser</p>
           </div>
           <br>
           <div class="form-group">
 
             <label class="heading" for="bookmark">Choose Either ON or OFF:<span>
-		    <p id="scroll-to">Packages that will be installed</p></span></label>
-<table class="table table-responsive" style="width: 100%">
-     <tbody>
-        <form>
-      <tr>
-        <td>
-          <label class="switch">
-           <input type="checkbox">
-           <span class="slider round"></span>
-         </label>
-         </td>
-        <td id="long">
-          <div class="radiotext">
-            <label for='express'>Support 64 bit (Default 32 bit)</label>
-          </div>
-       </td>
-      </tr>
-  </form>
-     <form>
-         <tr>
-          <td>
-            <label class="switch">
-             <input type="checkbox">
-             <span class="slider round"></span>
-           </label>
-           </td>
-            <td id="long">
-              <div class="radiotext">
-              <label for='express'>Notifications</label>
-              </div>
-            </td>
-
-         </tr></form>
-         <form>
-                  <tr>
-             <td>
-              <label class="switch">
-               <input type="checkbox">
-               <span class="slider round"></span>
-             </label>
-             </td>
-
-             <td  id="long">
-              <div class="radiotext">
-                 <label for='express'>Screensaver</label>
-             </div>
-         </td>
-         </tr></form>
-         <form>
-                  <tr>
-             <td>
-              <label class="switch">
-               <input type="checkbox">
-               <span class="slider round"></span>
-             </label>
-             </td>
-             <td id="long">
-              <div class="radiotext">
-                 <label for='express'>Sleep Modus</label>
-             </div>
-         </td>
-
-         </tr></form>
+                <p id="scroll-to">Packages that will be installed</p>
+              </span></label>
+            <table class="table table-responsive" style="width: 100%">
+              <tbody>
                 <form>
                   <tr>
-             <td>
-              <label class="switch">
-               <input type="checkbox">
-               <span class="slider round"></span>
-             </label>
-             </td>
-             <td id="long">
-              <div class="radiotext">
-                 <label for='express'>System Sounds</label>
-             </div>
-         </td>
-
-         </tr></form>
-               <form>
+                    <td>
+                      <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                      </label>
+                    </td>
+                    <td id="long">
+                      <div class="radiotext">
+                        <label for='express'>Support 64 bit (Default 32 bit)</label>
+                      </div>
+                    </td>
+                  </tr>
+                </form>
+                <form>
                   <tr>
-             <td>
-              <label class="switch">
-               <input type="checkbox">
-               <span class="slider round"></span>
-             </label>
-             </td>
-             <td id="long">
-              <div class="radiotext">
-                 <label for='express'>Bookmarks</label>
-             </div>
-         </td>
-         </tr></form>
-              <form>
+                    <td>
+                      <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                      </label>
+                    </td>
+                    <td id="long">
+                      <div class="radiotext">
+                        <label for='express'>Notifications</label>
+                      </div>
+                    </td>
+
+                  </tr>
+                </form>
+                <form>
                   <tr>
-             <td>
-              <label class="switch">
-               <input type="checkbox">
-               <span class="slider round"></span>
-             </label>
-             </td>
-             <td id="long">
-              <div class="radiotext">
-                 <label for='express'>Screen Dimming</label>
-             </div>
-         </td>
-         </tr></form>
-              <form>
-               <tr>
-             <td>
-              <label class="switch">
-               <input type="checkbox">
-               <span class="slider round"></span>
-             </label>
-             </td>
-             <td id="long">
-              <div class="radiotext">
-                 <label for='express'>Power Management Saving Feature</label>
-             </div>
-         </td>
-         </tr></form>
-         <form>
-         <tr>
-             <td>
-              <label class="switch">
-               <input type="checkbox">
-               <span class="slider round"></span>
-             </label>
-             </td>
-          <td id="long">
-            <div class="radiotext">
-              <label for='regular'>Taskbar Autohide</label>
-            </div>
-          </td>
-         </tr>
-         </form>
-         </tbody>
-</table>
+                    <td>
+                      <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                      </label>
+                    </td>
 
-      </div>
+                    <td id="long">
+                      <div class="radiotext">
+                        <label for='express'>Screensaver</label>
+                      </div>
+                    </td>
+                  </tr>
+                </form>
+                <form>
+                  <tr>
+                    <td>
+                      <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                      </label>
+                    </td>
+                    <td id="long">
+                      <div class="radiotext">
+                        <label for='express'>Sleep Modus</label>
+                      </div>
+                    </td>
 
-      <br>
-      <div class="form-group" >
-        <label class="heading" for="packages">Check the packages which you want to install: <span><p id="scroll1" class="active">This will install the packages which you have checked</p></span></label>
-<table id="package" class="table responsive-table-input-matrix" style="width:100%">
-  <tbody>
-   <tr>
-     <td>
-       <label class="label-big-check">
-       <input type="checkbox" id="chromium" value="chromium" name="GENERATOR_package_chromium">
-       <label for="chromium" class="check-title"></label>
-       </label>
-     </td>
-     <td>Chromium</td>
-     </tr>
-   <tr>
-    <td>
-     <label class="label-big-check">
-     <input type="checkbox" id="firefox" value="firefox" name="GENERATOR_package_firefox">
-     <label for="firefox" class="check-title"></label>
-     </label>
-    </td>
-    <td>Firefox</td>
-   </tr>
-   <tr>
-     <td>
-       <label class="label-big-check">
-       <input type="checkbox" id="hangout" value="hangout" name="GENERATOR_package_hangout">
-       <label for="hangout" class="check-title"></label>
-       </label>
-     </td>
-     <td>Hangout</td>
-  </tr>
-    <tr>
-     <td>
-       <label class="label-big-check">
-       <input type="checkbox" id="vlc" value="vlc" name="GENERATOR_package_vlc">
-       <label for="vlc" class="check-title"></label>
-       </label>
-     </td>
-     <td>VLC</td>
-    </tr>
-       <tr>
-       <td>
-         <label class="label-big-check">
-         <input type="checkbox" id="gimp" value="gimp" name="GENERATOR_package_gimp">
-         <label for="gimp" class="check-title"></label>
-         </label>
-       </td>
-       <td>GIMP</td>
-       </tr>
-       <tr>
-       <td>
-         <label class="label-big-check">
-         <input type="checkbox" id="inkspace" value="inkspace" name="GENERATOR_package_inkspace">
-         <label for="inkspace" class="check-title"></label>
-         </label>
-       </td>
-       <td>Inkscape</td>
-       </tr>
-       <tr>
-        <td>
-          <label class="label-big-check">
-          <input type="checkbox" id="office" value="office" name="GENERATOR_package_office">
-          <label for="office" class="check-title"></label>
-          </label>
-        </td>
-      <td>LibreOffice</td>
-      </tr>
-      <tr>
-      <td>
-       <label class="label-big-check">
-       <input type="checkbox" id="git" value="git" name="GENERATOR_package_git">
-       <label for="git" class="check-title"></label>
-      </label>
-     </td>
-     <td>Git</td>
-     </tr>
-     <tr>
-     <td>
-       <label class="label-big-check">
-       <input type="checkbox" id="nextcloud" value="nextcloud" name="GENERATOR_package_nextcloud">
-       <label for="nextcloud" class="check-title"></label>
-       </label>
-     </td>
-     <td>NextCloud</td>
-     </tr>
-     <tr>
-     <td>
-       <label class="label-big-check">
-       <input type="checkbox" id="dropbox" value="dropbox" name="GENERATOR_package_dropbox">
-       <label for="dropbox" class="check-title"></label>
-       </label>
-     </td>
-     <td>Dropbox</td>
-     </tr>
-  </tbody>
+                  </tr>
+                </form>
+                <form>
+                  <tr>
+                    <td>
+                      <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                      </label>
+                    </td>
+                    <td id="long">
+                      <div class="radiotext">
+                        <label for='express'>System Sounds</label>
+                      </div>
+                    </td>
 
-</table>
-<br>
-      </div>
+                  </tr>
+                </form>
+                <form>
+                  <tr>
+                    <td>
+                      <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                      </label>
+                    </td>
+                    <td id="long">
+                      <div class="radiotext">
+                        <label for='express'>Bookmarks</label>
+                      </div>
+                    </td>
+                  </tr>
+                </form>
+                <form>
+                  <tr>
+                    <td>
+                      <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                      </label>
+                    </td>
+                    <td id="long">
+                      <div class="radiotext">
+                        <label for='express'>Screen Dimming</label>
+                      </div>
+                    </td>
+                  </tr>
+                </form>
+                <form>
+                  <tr>
+                    <td>
+                      <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                      </label>
+                    </td>
+                    <td id="long">
+                      <div class="radiotext">
+                        <label for='express'>Power Management Saving Feature</label>
+                      </div>
+                    </td>
+                  </tr>
+                </form>
+                <form>
+                  <tr>
+                    <td>
+                      <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                      </label>
+                    </td>
+                    <td id="long">
+                      <div class="radiotext">
+                        <label for='regular'>Taskbar Autohide</label>
+                      </div>
+                    </td>
+                  </tr>
+                </form>
+              </tbody>
+            </table>
+
+          </div>
+
+          <br>
+          <div class="form-group">
+            <label class="heading" for="packages">Check the packages which you want to install: <span>
+                <p id="scroll1" class="active">This will install the packages which you have checked</p>
+              </span></label>
+            <table id="package" class="table responsive-table-input-matrix" style="width:100%">
+              <tbody>
+                <tr>
+                  <td>
+                    <label class="label-big-check">
+                      <input type="checkbox" id="chromium" value="chromium" name="GENERATOR_package_chromium">
+                      <label for="chromium" class="check-title"></label>
+                    </label>
+                  </td>
+                  <td>Chromium</td>
+                </tr>
+                <tr>
+                  <td>
+                    <label class="label-big-check">
+                      <input type="checkbox" id="firefox" value="firefox" name="GENERATOR_package_firefox">
+                      <label for="firefox" class="check-title"></label>
+                    </label>
+                  </td>
+                  <td>Firefox</td>
+                </tr>
+                <tr>
+                  <td>
+                    <label class="label-big-check">
+                      <input type="checkbox" id="hangout" value="hangout" name="GENERATOR_package_hangout">
+                      <label for="hangout" class="check-title"></label>
+                    </label>
+                  </td>
+                  <td>Hangout</td>
+                </tr>
+                <tr>
+                  <td>
+                    <label class="label-big-check">
+                      <input type="checkbox" id="vlc" value="vlc" name="GENERATOR_package_vlc">
+                      <label for="vlc" class="check-title"></label>
+                    </label>
+                  </td>
+                  <td>VLC</td>
+                </tr>
+                <tr>
+                  <td>
+                    <label class="label-big-check">
+                      <input type="checkbox" id="gimp" value="gimp" name="GENERATOR_package_gimp">
+                      <label for="gimp" class="check-title"></label>
+                    </label>
+                  </td>
+                  <td>GIMP</td>
+                </tr>
+                <tr>
+                  <td>
+                    <label class="label-big-check">
+                      <input type="checkbox" id="inkspace" value="inkspace" name="GENERATOR_package_inkspace">
+                      <label for="inkspace" class="check-title"></label>
+                    </label>
+                  </td>
+                  <td>Inkscape</td>
+                </tr>
+                <tr>
+                  <td>
+                    <label class="label-big-check">
+                      <input type="checkbox" id="office" value="office" name="GENERATOR_package_office">
+                      <label for="office" class="check-title"></label>
+                    </label>
+                  </td>
+                  <td>LibreOffice</td>
+                </tr>
+                <tr>
+                  <td>
+                    <label class="label-big-check">
+                      <input type="checkbox" id="git" value="git" name="GENERATOR_package_git">
+                      <label for="git" class="check-title"></label>
+                    </label>
+                  </td>
+                  <td>Git</td>
+                </tr>
+                <tr>
+                  <td>
+                    <label class="label-big-check">
+                      <input type="checkbox" id="nextcloud" value="nextcloud" name="GENERATOR_package_nextcloud">
+                      <label for="nextcloud" class="check-title"></label>
+                    </label>
+                  </td>
+                  <td>NextCloud</td>
+                </tr>
+                <tr>
+                  <td>
+                    <label class="label-big-check">
+                      <input type="checkbox" id="dropbox" value="dropbox" name="GENERATOR_package_dropbox">
+                      <label for="dropbox" class="check-title"></label>
+                    </label>
+                  </td>
+                  <td>Dropbox</td>
+                </tr>
+              </tbody>
+
+            </table>
+            <br>
+          </div>
 
           <div class="col-md-06">
             <div class="form-group">
               <label class="heading" style="text-align:center;">Upload Wallpaper</label>
               <label id="browse" class="btn btn-primary btn-block mx-auto" style="height:35px; width:360px;">
-                <span  style="white-space:pre-wrap;" data-toggle="tooltip" title=" REC size (1920X1080) or (1280X720)">Browse</span>
-                <input name="file" class="file form-control" title="Default Wallpaper Image"
-                style="display: none;" onchange="$(this).prev('span').text($(this).val()!=''?$(this).val():'Browse')"
-                required="" type="file" />
+                <span style="white-space:pre-wrap;" data-toggle="tooltip" title=" REC size (1920X1080) or (1280X720)">Browse</span>
+                <input name="file" id="file" class="file form-control" title="Default Wallpaper Image" style="display: none;"
+                  onchange="$(this).prev('span').text($(this).val()!=''?$(this).val():'Browse')" required="" type="file" />
               </label>
-              <span><p id="scroll2">This will be the default background image of the desktop</p></span>
+              <span>
+                <p id="scroll2">This will be the default background image of the desktop</p>
+              </span>
               <img id="file-upload">
             </div>
           </div>
+          <div class="col-md-06">
+            <img src="" id="preview">
+          </div>
           <div class="form-group">
-          <input class="btn btn-info mx-auto " id="file-upload" value="Build" required="" type="submit" style="height: 45px; width: 360px;"/>
-        </div>
+            <input class="btn btn-info mx-auto " id="file-upload" value="Build" required="" type="submit" style="height: 45px; width: 360px;" />
+          </div>
         </div>
       </div>
     </div>
   </form>
   <br>
   <div id="deployment">
-         <span class="text-muted"> Grab the latest pre-built ISO
-        <a href="https://github.com/fossasia/meilix/zipball/master">here</a> or head to the
-        <a href="https://github.com/fossasia/meilix/releases">Releases</a> page for more options.</span>
+    <span class="text-muted"> Grab the latest pre-built ISO
+      <a href="https://github.com/fossasia/meilix/zipball/master">here</a> or head to the
+      <a href="https://github.com/fossasia/meilix/releases">Releases</a> page for more options.</span>
   </div>
   <script>
-    $(document).ready(function(){
-        $('[data-toggle="tooltip"]').tooltip();
-  function debounce(func, wait = 0, immediate = true) {
-      var timeout;
-      return function() {
-        var context = this, args = arguments;
-        var later = function() {
-          timeout = null;
-          if (!immediate) func.apply(context, args);
+    $(document).ready(function () {
+      $('[data-toggle="tooltip"]').tooltip();
+      function debounce(func, wait = 0, immediate = true) {
+        var timeout;
+        return function () {
+          var context = this, args = arguments;
+          var later = function () {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+          };
+          var callNow = immediate && !timeout;
+          clearTimeout(timeout);
+          timeout = setTimeout(later, wait);
+          if (callNow) func.apply(context, args);
         };
-        var callNow = immediate && !timeout;
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-        if (callNow) func.apply(context, args);
-      };
-    }
-        const messages = document.querySelectorAll('#scroll-to');
-        console.log(messages);
+      }
+      const messages = document.querySelectorAll('#scroll-to');
+      console.log(messages);
 
-      function display(e){
+      function display(e) {
         messages.forEach(message => {
           let hT = message.offsetTop;
           let hH = $(message).outerHeight();
@@ -468,31 +491,40 @@
           let wS = window.scrollY;
 
           let isNotScrolledPast = wS < (hH + hT);
-          if (wS > (hT+hH-wH) && isNotScrolledPast){
-				    message.classList.add('active');
-		      } else {
-			      message.classList.remove('active');
-	      	}
+          if (wS > (hT + hH - wH) && isNotScrolledPast) {
+            message.classList.add('active');
+          } else {
+            message.classList.remove('active');
+          }
         });
       }
       window.addEventListener('scroll', debounce(display));
 
-    var browse = document.getElementById('browse');
-    browse.addEventListener('mouseenter', function(){
-      $('#scroll2').addClass('active');
+      var browse = document.getElementById('browse');
+      browse.addEventListener('mouseenter', function () {
+        $('#scroll2').addClass('active');
+      });
+      browse.addEventListener('mouseout', function () {
+        $('#scroll2').removeClass('active');
+      });
+
+      // var table = document.getElementById('package');
+      // table.addEventListener('mouseenter', () => $('#scroll1').addClass('active'));
+      // table.addEventListener('mouseout', () => $('#scroll1').removeClass('active'));
+      $('#file').change(function (e) {
+       
+
+        var blobUrl = URL.createObjectURL($('#file')[0].files[0]);
+         $("#preview")[0].src = blobUrl;
+         $("#preview")[0].style.display="block";
+      });
+
+
+
     });
-    browse.addEventListener('mouseout', function(){
-      $('#scroll2').removeClass('active');
-    });
-
-   // var table = document.getElementById('package');
-   // table.addEventListener('mouseenter', () => $('#scroll1').addClass('active'));
-   // table.addEventListener('mouseout', () => $('#scroll1').removeClass('active'));
-
-});
 
 
-    </script>
+  </script>
 
 </body>
 

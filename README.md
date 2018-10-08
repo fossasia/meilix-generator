@@ -1,4 +1,4 @@
-![Meilix Generator](/docs/images/logo-meilix.png)
+![Meilix Generator](/docs/images/logo_meilix.png)
 
 # Meilix Generator
 

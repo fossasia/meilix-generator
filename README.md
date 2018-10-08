@@ -1,6 +1,6 @@
-![Meilix Generator](/static/favicon/apple-icon-114x114.png)
+# Meilix Generator 
 
-# Meilix Generator
+![Meilix Generator](/static/favicon/apple-icon-114x114.png) 
 
 A webapp which generates an iso with a custom [meilix](https://github.com/fossasia/meilix) Linux upon request of a user. 
 

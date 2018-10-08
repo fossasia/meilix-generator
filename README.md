@@ -1,4 +1,4 @@
-![Meilix Generator](/docs/images/logo_meilix.png)
+![Meilix Generator](/static/favicon/apple-icon-114x114.png)
 
 # Meilix Generator
 

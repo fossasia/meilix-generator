@@ -62,3 +62,10 @@ a {
   color: #29B6F6;
   /* color of the build button */
 }
+#preview
+{
+height:200px;
+width:100%;
+margin-bottom: 10px;
+display: none;
+}

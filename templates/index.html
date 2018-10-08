@@ -58,7 +58,7 @@
   <!--Loader-->
   <div class="welcome">
     <div class="csd">
-      <div class="a" style="--n: 5;">
+      <div class="a">
         <div class="dot" style="--i: 0;"></div>
         <div class="dot" style="--i: 1;"></div>
         <div class="dot" style="--i: 2;"></div>
@@ -73,11 +73,11 @@
   <form method="POST" enctype="multipart/form-data">
 
     <div class="custom-navbar">
-      <a style="text-decoration: none;" href='.' class="custom-navtitle">
+      <a  href='.' class="custom-navtitle">
         <strong>Meilix Generator</strong>
       </a>
       <div class="custom-menubutton">
-        <i class="glyphicon glyphicon-th" style="font-size:20px;"></i>
+        <i class="glyphicon glyphicon-th"></i>
       </div>
     </div>
     <div class="custom-menu-cont hidden">
@@ -102,7 +102,7 @@
               <p class="custom-title">Blogs</p>
             </a>
           </div>
-          <hr style="margin-bottom: 10px; margin-top: 10px;">
+          <hr>
           <div class="custom-menu-item">
             <a href="https://eventyay.com/" target="_blank">
               <div class="custom-icon"><img src="{{ url_for('static', filename='eventyay.png') }}"></div>
@@ -111,7 +111,7 @@
           </div>
           <div class="custom-menu-item">
             <a href="https://susper.com/" target="_blank">
-              <div class="custom-icon"><img src="{{ url_for('static', filename='susper.png') }}" style="width: 60px;height: 16px;"></div>
+              <div class="custom-icon"><img src="{{ url_for('static', filename='susper.png') }}"></div>
               <p class="custom-title">Susper</p>
             </a>
           </div>
@@ -145,9 +145,9 @@
               <p class="custom-title">PS Lab</p>
             </a>
           </div>
-          <hr style="margin: 10px">
-          <div style="display: flex;justify-content: center;align-items: center; margin: 0 0 -20px 0">
-            More on&nbsp;<a href="https://labs.fossasia.org/" target="_blank" style="text-decoration: none;color: #737373">
+          <hr  id="seperator">
+          <div  id="about">
+            More on&nbsp;<a href="https://labs.fossasia.org/" target="_blank">
               labs.fossasia.org</a>
           </div>
   </div>
@@ -200,7 +200,7 @@
             <label class="heading" for="bookmark">Choose Either ON or OFF:<span>
                 <p id="scroll-to">Packages that will be installed</p>
               </span></label>
-            <table class="table table-responsive" style="width: 100%">
+            <table class="table table-responsive">
               <tbody>
                 <form>
                   <tr>
@@ -351,7 +351,7 @@
             <label class="heading" for="packages">Check the packages which you want to install: <span>
                 <p id="scroll1" class="active">This will install the packages which you have checked</p>
               </span></label>
-            <table id="package" class="table responsive-table-input-matrix" style="width:100%">
+            <table id="package" class="table responsive-table-input-matrix">
               <tbody>
                 <tr>
                   <td>
@@ -451,10 +451,10 @@
 
           <div class="col-md-06">
             <div class="form-group">
-              <label class="heading" style="text-align:center;">Upload Wallpaper</label>
-              <label id="browse" class="btn btn-primary btn-block mx-auto" style="height:35px; width:360px;">
-                <span style="white-space:pre-wrap;" data-toggle="tooltip" title=" REC size (1920X1080) or (1280X720)">Browse</span>
-                <input name="file" id="file" class="file form-control" title="Default Wallpaper Image" style="display: none;"
+              <label class="heading" id="upload">Upload Wallpaper</label>
+              <label id="browse" class="btn btn-primary btn-block mx-auto">
+                <span data-toggle="tooltip" title=" REC size (1920X1080) or (1280X720)">Browse</span>
+                <input name="file" id="file" class="file form-control" title="Default Wallpaper Image" 
                   onchange="$(this).prev('span').text($(this).val()!=''?$(this).val():'Browse')" required="" type="file" />
               </label>
               <span>
@@ -467,7 +467,7 @@
             <img src="" id="preview">
           </div>
           <div class="form-group">
-            <input class="btn btn-info mx-auto " id="file-upload" value="Build" required="" type="submit" style="height: 45px; width: 360px;" />
+            <input class="btn btn-info mx-auto file-upload" id="file-upload" value="Build" required="" type="submit" />
           </div>
         </div>
       </div>
@@ -497,7 +497,6 @@
         };
       }
       const messages = document.querySelectorAll('#scroll-to');
-      console.log(messages);
 
       function display(e) {
         messages.forEach(message => {
@@ -523,14 +522,10 @@
       browse.addEventListener('mouseout', function () {
         $('#scroll2').removeClass('active');
       });
-
-      // var table = document.getElementById('package');
-      // table.addEventListener('mouseenter', () => $('#scroll1').addClass('active'));
-      // table.addEventListener('mouseout', () => $('#scroll1').removeClass('active'));
+      
       $('#file').change(function (e) {
        
-
-        var blobUrl = URL.createObjectURL($('#file')[0].files[0]);
+         var blobUrl = URL.createObjectURL($('#file')[0].files[0]);
          $("#preview")[0].src = blobUrl;
          $("#preview")[0].style.display="block";
       });

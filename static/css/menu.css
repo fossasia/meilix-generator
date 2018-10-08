@@ -3,6 +3,11 @@ body {
   /* Margin bottom for footer height */
 }
 
+hr {
+  margin-bottom: 10px; 
+  margin-top: 10px;
+}
+ 
 html {
   position: relative;
   min-height: 100%;
@@ -33,9 +38,26 @@ p {
   font-family: Helvetica,Verdana;
 }
 
+#about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 -20px 0;
+}
+
+#about > a {
+  text-decoration: none;
+  color: #737373;
+}
+
+#seperator {
+  margin: 10px;
+}
+
 #toggler {
   margin-top: 1.3em;
 }
+
 
 .dropdown-menu {
   left: -50px;
@@ -61,4 +83,11 @@ p {
 a {
   color: #29B6F6;
   /* color of the build button */
+}
+#preview
+{
+height:200px;
+width:100%;
+margin-bottom: 10px;
+display: none;
 }

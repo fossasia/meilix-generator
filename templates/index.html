@@ -472,8 +472,8 @@
               <label class="heading" id="upload">Upload Wallpaper</label>
               <label id="browse" class="btn btn-primary btn-block mx-auto">
                 <span data-toggle="tooltip" title=" REC size (1920X1080) or (1280X720)">Browse</span>
-                <input name="file" id="file" class="file form-control" title="Default Wallpaper Image"
-                  onchange="$(this).prev('span').text($(this).val()!=''?$(this).val():'Browse')" required="" type="file" />
+                <input type="file" name="myImage" id="file" class="file form-control" title="Default Wallpaper Image" required=""
+                 onchange="$(this).prev('span').text($(this).val()!=''?$(this).val():'Browse')" accept="image/*" />
               </label>
               <span>
                 <p id="scroll2">This will be the default background image of the desktop</p>

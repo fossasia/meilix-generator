@@ -480,6 +480,13 @@
               </span>
               <img id="file-upload">
             </div>
+            <div class="form-group">
+                <label class="heading" id="upload">Files For Desktop</label>
+                <label id="browse" class="btn btn-primary btn-block mx-auto">
+                  <span data-toggle="tooltip" title="Size less than 4 Mb">Browse</span>
+                  <input type="file" name="myFiles" id="zip" accept=".zip, .gzip" class="file form-control" title="Custom Files For Desktop" required=""/>
+                </label>
+                </div>
           </div>
           <div class="col-md-06">
             <img src="" id="preview">
@@ -540,6 +547,17 @@
       browse.addEventListener('mouseout', function () {
         $('#scroll2').removeClass('active');
       });
+      
+      var zip = document.getElementById('zip');
+      
+      zip.onchange = function() {
+        if(this.files[0].size > 4194304){
+          alert("File size too big");
+          this.value = " ";
+        } else {
+          $(this).prev('span').text($(this).val()!=''?$(this).val():'Browse');
+        }
+      }
 
       $('#file').change(function (e) {
 

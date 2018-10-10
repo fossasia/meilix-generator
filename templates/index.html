@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta content="IE=edge" http-equiv="X-UA-Compatible" />
-  <meta name="keywords" content="Meilix-Generator, Meilix, ISO, custom meilix, linux, personalised linux distribution, FOSSASIA" />
+  <meta name="keywords" content="Meilix-Generator, Meilix, ISO, live cd, custom meilix, linux, personalised linux distribution, FOSSASIA" />
   <meta name="description" content="Meilix-Generator is a webapp which generates an iso with
   a custom meilix. The app helps a user to generate its personalised linux distribution." />
   <meta name="author" content="FOSSASIA" />
@@ -367,7 +367,7 @@
           <br>
           <div class="form-group">
             <label class="heading" for="packages">Check the packages which you want to install: <span>
-                <p id="scroll1" class="active">This will install the packages which you have checked</p>
+                <p id="scroll1" class="active">This will install the software which you have checked</p>
               </span></label>
             <table id="package" class="table responsive-table-input-matrix">
               <tbody>
@@ -469,7 +469,7 @@
 
           <div class="col-md-06">
             <div class="form-group">
-              <label class="heading" id="upload">Upload Wallpaper</label>
+              <label class="heading" id="upload">Upload Desktop Wallpaper</label>
               <label id="browse" class="btn btn-primary btn-block mx-auto">
                 <span data-toggle="tooltip" title=" REC size (1920X1080) or (1280X720)">Browse</span>
                 <input type="file" name="myImage" id="file" class="file form-control" title="Default Wallpaper Image" required=""
@@ -480,6 +480,13 @@
               </span>
               <img id="file-upload">
             </div>
+            <div class="form-group">
+                <label class="heading" id="upload">Upload Desktop files (archive) </label>
+                <label id="browse" class="btn btn-primary btn-block mx-auto">
+                  <span data-toggle="tooltip" title="Size less than 4 Mb">Browse</span>
+                  <input type="file" name="myFiles" id="zip" accept=".zip, .gz" class="file form-control" title="Custom Files For Desktop" required=""/>
+                </label>
+                </div>
           </div>
           <div class="col-md-06">
             <img src="" id="preview">
@@ -540,6 +547,17 @@
       browse.addEventListener('mouseout', function () {
         $('#scroll2').removeClass('active');
       });
+      
+      var zip = document.getElementById('zip');
+      
+      zip.onchange = function() {
+        if(this.files[0].size > 4194304){
+          alert("File size too big");
+          this.value = " ";
+        } else {
+          $(this).prev('span').text($(this).val()!=''?$(this).val():'Browse');
+        }
+      }
 
       $('#file').change(function (e) {
 

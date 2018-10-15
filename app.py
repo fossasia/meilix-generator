@@ -6,7 +6,7 @@ from flask import Flask, render_template, request, redirect, url_for, send_from_
 from werkzeug import secure_filename
 
 # These are the extension that we are accepting to be uploaded
-ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'svg'])
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 UPLOAD_FOLDER = 'uploads/'
 # Initialize the Flask application
 app = Flask(__name__)
@@ -40,13 +40,12 @@ def index():
         for name, value in request.form.items():
           if name.startswith("GENERATOR_"):
             variables[name] = value
-            uploaded_files = request.files.getlist("file[]")
-            filenames = []
-            for file in uploaded_files:
-                if file and allowed_file(file.filename):
-                    filename = secure_filename(file.filename)
-                    file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-                    filenames.append(filename)   
+        file = request.files['file']
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            os.rename(UPLOAD_FOLDER + filename, UPLOAD_FOLDER + 'wallpaper')
+            filename = 'wallpaper'
             if email != '' and TRAVIS_TAG != '':
                 os.environ["email"] = email
                 TRAVIS_TAG = urlify(TRAVIS_TAG)  # this will fix url issue

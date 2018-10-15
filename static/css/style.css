@@ -187,6 +187,10 @@ h3.custom-navtitle {
   display: none;
 }
 
+#logo {
+  display: none
+}
+
 @media(max-width: 768px){
   .custom-navtitle, .custom-menubutton {
       font-size: 15px;
@@ -337,10 +341,10 @@ border-radius: 50%;
 #long {
   width: 100%;
 }
-#scroll-to.active , #scroll1.active  , #scroll2.active{
+#scroll-to.active , #scroll1.active  , #scroll2.active, #scroll3.active{
   display: inline;
 }
-#scroll-to, #scroll1, #scroll2{
+#scroll-to, #scroll1, #scroll2, #scroll3{
   display: none;
 
 }

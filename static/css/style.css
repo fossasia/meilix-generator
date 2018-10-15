@@ -131,7 +131,7 @@ h3.custom-navtitle {
   margin: 0 auto 5px auto;
   height: auto;
   width: auto;
-  max-height: 50px;
+  max-height: 90px;
   max-width: 60px;
 }
 
@@ -149,7 +149,7 @@ h3.custom-navtitle {
 }
 
 .custom-icon {
-  height:50px;
+  height:90px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -157,7 +157,7 @@ h3.custom-navtitle {
 
 .custom-icon > img {
   width: 60px;
-  height: 16px;
+  height:40px;
 }
 
 #browse {

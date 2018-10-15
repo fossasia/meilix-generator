@@ -78,7 +78,7 @@ The meilix-generator can be easily deployed on a variety of platform. Detailed p
 
  - Add your **email id**, **event-name**, **upload an wallpaper** (this picture will be set as the default wallpaper) etc.
 
- - Then click on build button to start the building of the iso with the given configuraiton.
+ - Then click on build button to start the building of the iso with the given configuration.
 
  - You will be welcomed by a screen which has a message that your ISO will be mailed to you on the provided email.
 
@@ -101,7 +101,7 @@ We have the following branches
 * Do read the [Open Source Developer Guide and Best Practices at FOSSASIA](https://blog.fossasia.org/open-source-developer-guide-and-best-practices-at-fossasia).
 
 **Write-up containing project buildup**
-* These documents will help you to know more about the backbone of the project: [Flask](https://docs.google.com/document/d/1TWsz0aP0vLwXwcTX1VC58lEYy5dM6xvxnAABEtzyUZY/edit?usp=sharing) and [Heroku Travis Intergration](https://docs.google.com/document/d/19xBAbjH04e_KlWwzGiDCDVAs4bLv-d-lcjKyr6bTRWE/edit?usp=sharing) and [Token Generation](https://docs.google.com/document/d/1agoZ3pSKjUfwSAJ3Yu0m-P08M4ERPIjiwSOSU3bubG0/edit?usp=sharing)
+* These documents will help you to know more about the backbone of the project: [Flask](https://docs.google.com/document/d/1TWsz0aP0vLwXwcTX1VC58lEYy5dM6xvxnAABEtzyUZY/edit?usp=sharing) and [Heroku Travis Integration](https://docs.google.com/document/d/19xBAbjH04e_KlWwzGiDCDVAs4bLv-d-lcjKyr6bTRWE/edit?usp=sharing) and [Token Generation](https://docs.google.com/document/d/1agoZ3pSKjUfwSAJ3Yu0m-P08M4ERPIjiwSOSU3bubG0/edit?usp=sharing)
 
 
 ## License

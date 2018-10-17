@@ -308,6 +308,19 @@
                 <p id="scroll2">This will be the default background image of the desktop</p>
               </span>
               <img id="file-upload">
+              <img src="" id="preview">
+            </div>
+            <div class="form-group reducespace1">
+              <label class="heading" id="upload">Upload Default Logo</label>
+              <label id="browse" class="btn btn-primary btn-block mx-auto browse">
+                <span data-toggle="tooltip" title="Only svg files are allowed">Browse</span>
+                <input type="file" name="myImage" id="file" class="file form-control" title="Default Desktop Logo" required=""
+                 onchange="$(this).prev('span').text($(this).val()!=''?$(this).val():'Browse')" accept=".svg" />
+              </label>
+              <span>
+                <p id="logo-info">This will be the default logo of your ISO image</p>
+              </span>
+              <img id="file-upload">
             </div>
             <div class="form-group reducespace1">
                 <label class="heading" id="upload">Upload Desktop files (archive) </label>
@@ -319,7 +332,7 @@
                 <span>
                   <p id="scroll3">These custom files will be kept in your Desktop</p>
                 </span>
-                <img src="" id="preview">
+                
             </div>
           </div>
 

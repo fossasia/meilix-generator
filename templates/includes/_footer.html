@@ -55,6 +55,14 @@
       $('#scroll3').removeClass('active');
     });
 
+  $('.browse').on('mouseenter', () => {
+    $('#logo-info').addClass('active');
+  })
+  $('.browse').on('mouseout', () => {
+    $('#logo-info').removeClass('active');
+  })
+  
+
 
     var zip = document.getElementById('zip');
 

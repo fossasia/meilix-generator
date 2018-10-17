@@ -169,6 +169,15 @@ h3.custom-navtitle {
   white-space: pre-wrap;
 }
 
+#browse1 {
+  height:35px;
+  width:360px;
+}
+
+#browse1 > span {
+  white-space: pre-wrap;
+}
+
 #deployment {
   position: absolute;
   text-align: center;
@@ -337,10 +346,10 @@ border-radius: 50%;
 #long {
   width: 100%;
 }
-#scroll-to.active , #scroll1.active  , #scroll2.active{
+#scroll-to.active , #scroll1.active  , #scroll2.active, #scroll3.active{
   display: inline;
 }
-#scroll-to, #scroll1, #scroll2{
+#scroll-to, #scroll1, #scroll2, #scroll3{
   display: none;
 
 }
@@ -387,4 +396,14 @@ font-family: FontAwesome;
 .label-big-check input[type="checkbox"]:checked + .check-title:before {
   content: "\f14a";
   color: #333;
+}
+
+
+.reducespace1{
+   margin-top:-17px;
+}
+
+
+.reducespace2{
+   margin-top:-30px;
 }

@@ -468,7 +468,7 @@
           </div>
 
           <div class="col-md-06">
-            <div class="form-group">
+            <div class="form-group reducespace2">
               <label class="heading" id="upload">Upload Desktop Wallpaper</label>
               <label id="browse" class="btn btn-primary btn-block mx-auto browse"></label>
               <label id="browse" class="btn btn-primary btn-block mx-auto">
@@ -481,17 +481,20 @@
               </span>
               <img id="file-upload">
             </div>
-            <div class="form-group">
+            <div class="form-group reducespace1">
                 <label class="heading" id="upload">Upload Desktop files (archive) </label>
-                <label id="browse" class="btn btn-primary btn-block mx-auto">
+                <label id="browse1" class="btn btn-primary btn-block mx-auto">
                   <span data-toggle="tooltip" title="Size less than 4 Mb">Browse</span>
-                  <input type="file" name="myFiles" id="zip" accept=".zip, .gz" class="file form-control" title="Custom Files For Desktop" required=""/>
+                  <input type="file" name="myFiles" id="zip" accept=".zip, .gz" class="file form-control" title="Custom Files For Desktop"
+                  required=""/>
                 </label>
-                </div>
+                <span>
+                  <p id="scroll3">These custom files will be kept in your Desktop</p>
+                </span>
+                <img src="" id="preview">
+            </div>
           </div>
-          <div class="col-md-06">
-            <img src="" id="preview">
-          </div>
+
           <div class="form-group">
             <label class="heading" id="upload">Upload Logo for your Desktop</label>
             <label id="browse" class="btn btn-primary btn-block mx-auto svg">
@@ -565,12 +568,22 @@
       $(".browse").on('mouseout', function() {
         $('#scroll2').removeClass('active');
       });
+      
       $(".svg").on('mouseenter', function() {
         $('#scroll3').addClass('active');
       });
       $(".svg").on('mouseout', function() {
         $('#scroll3').removeClass('active');
       });
+
+      var browse1 = document.getElementById('browse1');
+      browse1.addEventListener('mouseenter', function () {
+        $('#scroll3').addClass('active');
+      });
+      browse1.addEventListener('mouseout', function () {
+        $('#scroll3').removeClass('active');
+      });
+
       var zip = document.getElementById('zip');
       zip.onchange = function() {
         if(this.files[0].size > 4194304){

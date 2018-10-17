@@ -169,6 +169,15 @@ h3.custom-navtitle {
   white-space: pre-wrap;
 }
 
+#browse1 {
+  height:35px;
+  width:360px;
+}
+
+#browse1 > span {
+  white-space: pre-wrap;
+}
+
 #deployment {
   position: absolute;
   text-align: center;
@@ -391,4 +400,14 @@ font-family: FontAwesome;
 .label-big-check input[type="checkbox"]:checked + .check-title:before {
   content: "\f14a";
   color: #333;
+}
+
+
+.reducespace1{
+   margin-top:-17px;
+}
+
+
+.reducespace2{
+   margin-top:-30px;
 }

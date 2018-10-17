@@ -196,6 +196,10 @@ h3.custom-navtitle {
   display: none;
 }
 
+#logo {
+  display: none
+}
+
 @media(max-width: 768px){
   .custom-navtitle, .custom-menubutton {
       font-size: 15px;

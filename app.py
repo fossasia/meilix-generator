@@ -43,18 +43,18 @@ def index():
         uploaded_files = request.files.getlist("file[]")
         filenames = []
         for file in uploaded_files:
-           if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            filenames.append(filename)   
-            if email != '' and TRAVIS_TAG != '':
-                os.environ["email"] = email
-                TRAVIS_TAG = urlify(TRAVIS_TAG)  # this will fix url issue
-                os.environ["TRAVIS_TAG"] = TRAVIS_TAG
-                os.environ["event_url"] = event_url
-                with open('travis_script_1.sh', 'rb') as f:
-                    os.environ["TRAVIS_SCRIPT"] = str(base64.b64encode(f.read()))[1:]
-                return redirect(url_for('output'))
+            if file and allowed_file(file.filename):
+                filename = secure_filename(file.filename)
+                file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+                filenames.append(filename)   
+        if email != '' and TRAVIS_TAG != '':
+        os.environ["email"] = email
+        TRAVIS_TAG = urlify(TRAVIS_TAG)  # this will fix url issue
+        os.environ["TRAVIS_TAG"] = TRAVIS_TAG
+        os.environ["event_url"] = event_url
+        with open('travis_script_1.sh', 'rb') as f:
+            os.environ["TRAVIS_SCRIPT"] = str(base64.b64encode(f.read()))[1:]
+        return redirect(url_for('output'))
     return render_template('index.html')
 
 

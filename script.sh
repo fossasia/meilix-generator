@@ -1,4 +1,5 @@
 #!/bin/bash
+# please mind the alternative approach suggested in https://github.com/fossasia/meilix-generator/issues/124
 cat travis_tokens | while read line;
 do
     array=(${line})

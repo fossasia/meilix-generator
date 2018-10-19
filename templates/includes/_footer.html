@@ -1,0 +1,90 @@
+<div id="deployment">
+  <span class="text-muted"> Grab the latest pre-built ISO
+    <a href="https://github.com/fossasia/meilix/zipball/master">here</a> or head to the
+    <a href="https://github.com/fossasia/meilix/releases">Releases</a> page for more options.</span>
+</div>
+<script>
+  $(document).ready(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+    function debounce(func, wait = 0, immediate = true) {
+      var timeout;
+      return function () {
+        var context = this, args = arguments;
+        var later = function () {
+          timeout = null;
+          if (!immediate) func.apply(context, args);
+        };
+        var callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) func.apply(context, args);
+      };
+    }
+    const messages = document.querySelectorAll('#scroll-to');
+
+    function display(e) {
+      messages.forEach(message => {
+        let hT = message.offsetTop;
+        let hH = $(message).outerHeight();
+        let wH = window.innerHeight;
+        let wS = window.scrollY;
+
+        let isNotScrolledPast = wS < (hH + hT);
+        if (wS > (hT + hH - wH) && isNotScrolledPast) {
+          message.classList.add('active');
+        } else {
+          message.classList.remove('active');
+        }
+      });
+    }
+    window.addEventListener('scroll', debounce(display));
+
+    var browse = document.getElementById('browse');
+    browse.addEventListener('mouseenter', function () {
+      $('#scroll2').addClass('active');
+    });
+    browse.addEventListener('mouseout', function () {
+      $('#scroll2').removeClass('active');
+    });
+
+    var browse1 = document.getElementById('browse1');
+    browse1.addEventListener('mouseenter', function () {
+      $('#scroll3').addClass('active');
+    });
+    browse1.addEventListener('mouseout', function () {
+      $('#scroll3').removeClass('active');
+    });
+
+  $('.browse').on('mouseenter', () => {
+    $('#logo-info').addClass('active');
+  })
+  $('.browse').on('mouseout', () => {
+    $('#logo-info').removeClass('active');
+  })
+  
+
+
+    var zip = document.getElementById('zip');
+
+    zip.onchange = function() {
+      if(this.files[0].size > 4194304){
+        alert("File size too big");
+        this.value = " ";
+      } else {
+        $(this).prev('span').text($(this).val()!=''?$(this).val():'Browse');
+      }
+    }
+
+    $('#file').change(function (e) {
+
+       var blobUrl = URL.createObjectURL($('#file')[0].files[0]);
+       $("#preview")[0].src = blobUrl;
+       $("#preview")[0].style.display="block";
+    });
+
+
+
+  });
+
+
+</script>

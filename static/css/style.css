@@ -15,6 +15,14 @@ html {
   height: 100%;
 }
 
+#upload {
+  text-align: center;
+}
+
+.a {
+  --n: 5;
+}
+
 body {
   position: relative;
   min-height: 100%;
@@ -32,6 +40,8 @@ body {
   margin: 0px;
   font-size: 20px;
   color: black;
+  text-decoration: none;
+  outline: 0;
 }
 
 h3.custom-navtitle {
@@ -65,6 +75,10 @@ h3.custom-navtitle {
 
 .custom-menu-cont-shown {
   display: inline-block;
+}
+
+.custom-menubutton > i {
+  font-size:20px;
 }
 
 .custom-menu {
@@ -117,7 +131,7 @@ h3.custom-navtitle {
   margin: 0 auto 5px auto;
   height: auto;
   width: auto;
-  max-height: 50px;
+  max-height: 90px;
   max-width: 60px;
 }
 
@@ -135,10 +149,33 @@ h3.custom-navtitle {
 }
 
 .custom-icon {
-  height:50px;
+  height:90px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.custom-icon > img {
+  width: 60px;
+  height:40px;
+}
+
+#browse {
+  height:35px;
+  width:360px;
+}
+
+#browse > span {
+  white-space: pre-wrap;
+}
+
+#browse1 {
+  height:35px;
+  width:360px;
+}
+
+#browse1 > span {
+  white-space: pre-wrap;
 }
 
 #deployment {
@@ -149,6 +186,18 @@ h3.custom-navtitle {
   bottom: 0px;
   border-top: 1px solid #bfbfbf;
   background-color: #f9f9f9;
+}
+
+#file {
+  display: none;
+}
+
+#logo {
+  display: none;
+}
+
+#zip {
+  display: none;
 }
 
 @media(max-width: 768px){
@@ -176,6 +225,10 @@ h3.custom-navtitle {
   background-color: #f9f9f9;
 }
 
+.file-upload {
+  height: 45px;
+  width: 360px;
+}
 
 @media(max-width: 400px){
   .custom-menu {
@@ -297,10 +350,10 @@ border-radius: 50%;
 #long {
   width: 100%;
 }
-#scroll-to.active , #scroll1.active  , #scroll2.active{
+#scroll-to.active , #scroll1.active  , #scroll2.active, #scroll3.active, #logo-info.active{
   display: inline;
 }
-#scroll-to, #scroll1, #scroll2{
+#scroll-to, #scroll1, #scroll2, #scroll3, #logo-info{
   display: none;
 
 }
@@ -347,4 +400,14 @@ font-family: FontAwesome;
 .label-big-check input[type="checkbox"]:checked + .check-title:before {
   content: "\f14a";
   color: #333;
+}
+
+
+.reducespace1{
+   margin-top:-17px;
+}
+
+
+.reducespace2{
+   margin-top:-30px;
 }

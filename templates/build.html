@@ -1,21 +1,47 @@
-<!DOCTYPE html>
-<html >
-<head>
-  <meta charset="UTF-8">
-  <title>Meilix Generator Email Notification</title>
-      <link rel="stylesheet" href="{{ url_for('static',filename='css/email.css') }}">
-</head>
-
-<body>
-  	<h2>Email will be sent with the downloadable ISO link once it is ready</h2>
+{% extends 'layout.html' %}
+{% block body %}
+<div class="alert alert-danger" >
+  <strong>Success!</strong> Email will be sent with the downloadable ISO link once it is ready
+</div>
 <main>
-	<div class="msg">1</div>
-	<section class="envelope-top"></section>
-	<section class="envelope-left"></section>
-	<section class="envelope-right"></section>
+  <div class="msg">1</div>
+  <section class="envelope-top"></section>
+  <section class="envelope-left"></section>
+  <section class="envelope-right"></section>
 </main>
-	<a class="tooltip" href="javascript:window.close();">Check your email in 10 minutes!</a>
+<div class="container">
 
 
-</body>
-</html>
+  <div class="alert alert-info" >
+    <strong>Check your Email Now</strong>
+    <div class="container-fluid">
+      <div class="row">
+
+        <a class="col-3" target="_blank" href="https://www.gmail.com">
+          <img id='mail'  src="{{ url_for('static',filename='gmail.png') }}">
+
+        </a>
+        <a class="col-3" target="_blank" href="https://outlook.com">
+          <img id='mail'  src="{{ url_for('static',filename='outlook.png') }}">
+
+        </a>
+        <a class="col-3" target="_blank" href="https://overview.mail.yahoo.com/">
+          <img id='mail'  src="{{ url_for('static',filename='yahoo.jpeg') }}">
+        </a>
+        <a class="col-3" target="_blank" href="https://mail.protonmail.com/">
+          <img id='mail'  src="{{ url_for('static',filename='proton.jpeg') }}">
+        </a>
+
+
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+</div>
+
+{% endblock %}

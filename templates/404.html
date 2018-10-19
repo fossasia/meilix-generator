@@ -1,42 +1,15 @@
-{% extends "layout.html" %}
+{% extends 'layout.html' %}
+{% block body %}
 
-{% block title %}
-    Page not found
-{% endblock %}
+<div class="container-fluid">
 
-{% block main %}
-<div class="container">
+<h1>404 Not Found </h1>
+<h3>	Oops, the page you're
+  looking for does not
+  exist.
+  </h3>
+  <a class="button" href="/" >Go Back Home</a>
 
-	<div class="row">
-		<div class="col s12" style="padding-top: 150px;">
-			<h1 class="center-align" id="head"><a href="{{ url_for('index') }}"> meilix-generator</a></h1>
-		</div>
-	</div>
-
-  
-	<div class="row">
-		<div class="col s2"></div>
-	    <div class="col s8">
-		    <div class="row">
-		        <div class="col s12">
-		          <div class="card hoverable">
-		            
-		            <div class="card-content">
-		              <h3 class="center-align"> Error 404! </h3>
-		              <p class="center-align"> Page not found</p>
-		            </div>
-		            <div class="card-action center-align">
-		              Go to &nbsp;<a class="btn btn-floating cyan pulse" href="{{ url_for('index') }}"><i class="material-icons">home</i></a>
-		            </div>
-		          </div>
-		        </div>
-	      	</div>
-	    </div>
-	    <div class="col s2"></div>
-	</div>		
 </div>
+
 {% endblock %}
-
-
-
-

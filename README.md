@@ -4,11 +4,10 @@
 
 A webapp which generates an iso live image with a custom [Meilix](https://github.com/fossasia/meilix) Linux upon request of a user. 
 
-  - [fossasia/meilix](https://github.com/fossasia/meilix) consists the script of a Linux Operating System based on Lubuntu. The bootscreen is build as a deb package in [fossasia/meilix-artwork](https://github.com/fossasia/meilix-artwork). The app uses Travis to trigger that script to result in a release of an iso file.
-  - Now we thought an idea of building an autonomous system to start this build and in the meanwhile also make some required changes to the script to get it into the OS. A user is able to config its distro release according to its needs via the app user interface without a single line to code. You can get the iso within 25 minutes of starting of the build.
+  - [fossasia/meilix](https://github.com/fossasia/meilix) consists the backend script of a Linux Operating System based on Lubuntu. The bootscreen is build as a deb package in [fossasia/meilix-artwork](https://github.com/fossasia/meilix-artwork). Meilix uses Travis to trigger that script to result in a release of an iso file.
   - Through the webapp, a build button is taken as an input to go to a build page which triggers Travis with the same user configuration to build the iso and deploy it as a Github release. The user receives a link to the build.
-  - We use [Travis API](https://blog.travis-ci.com/2017-04-06-api-v3-is-here) with a [shell script](/docs/installation/my_token.md) to outframe our concept. The script takes the input of the users, repository, and branch to decide to where the trigger to take place.
-  - The webapp follows the standard frontend of other FOSSASIA projects like [Open Event Webapp](https://github.com/fossasia/open-event-webapp)
+  - We use [Travis API](https://blog.travis-ci.com/2017-04-06-api-v3-is-here) with a [shell script](/docs/installation/my_token.md). The script takes the input of the users, repository, and branch to decide to where the trigger to take place.
+  - The Meilix Generator webapp follows the standard frontend of other FOSSASIA projects like [Open Event Webapp](https://github.com/fossasia/open-event-webapp)
 
 ![GSoC 2017](https://img.shields.io/badge/GSoC-2017-blue.svg) [![Travis branch](https://img.shields.io/travis/fossasia/meilix-generator/master.svg?style=flat-square)](https://travis-ci.org/fossasia/meilix-generator) [![Gemnasium](https://img.shields.io/gemnasium/fossasia/meilix-generator.svg?style=flat-square)](https://gemnasium.com/github.com/fossasia/meilix-generator) [![Heroku](https://heroku-badge.herokuapp.com/?app=meilix-generator)](https://meilix-generator.herokuapp.com/) [![Code Climate](https://codeclimate.com/github/fossasia/meilix-generator/badges/gpa.svg?branch=master)](https://codeclimate.com/github/fossasia/meilix-generator) [![codecov](https://codecov.io/gh/fossasia/meilix-generator/branch/master/graph/badge.svg)](https://codecov.io/gh/fossasia/meilix-generator) [![Codacy branch grade](https://img.shields.io/codacy/grade/2040e9769e0c446dbb400fc5a77d2dc2/master.svg?style=flat-square)](https://www.codacy.com/app/fossasia/meilix-generator) [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/fossasia/meilix?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
@@ -42,8 +41,7 @@ The source of the webapp frontend can be found [here](/templates). It consists o
 The generator runs on flask framework, using the main [app script](/app.py)
 
 3. [Scripts](/docs/installation/my_token.md)
-
-- [script.sh](/script.sh) - Use the Travis API to trigger the build
+- [script.sh](/script.sh) - Use the Travis API to trigger a build
 - [travis_tokens](/travis_tokens) - Sends the user, repo and branch required for triggering to [script.sh](/script.sh).
 
 4. [Requirement File](/requirements.in)

@@ -2,7 +2,7 @@
 
 ![Meilix Generator](/static/favicon/apple-icon-114x114.png) 
 
-A webapp which generates an iso live image with a custom [Meilix](https://github.com/fossasia/meilix) Linux upon request of a user. 
+A webapp which generates an iso live image with a custom [Meilix](https://github.com/fossasia/meilix) Linux upon the request of a user. 
 
   - [fossasia/meilix](https://github.com/fossasia/meilix) consists the backend script of a Linux Operating System based on Lubuntu. The bootscreen is build as a deb package in [fossasia/meilix-artwork](https://github.com/fossasia/meilix-artwork). Meilix uses Travis to trigger that script to result in a release of an iso file.
   - Through the webapp, a build button is taken as an input to go to a build page which triggers Travis with the same user configuration to build the iso and deploy it as a Github release. The user receives a link to the build.

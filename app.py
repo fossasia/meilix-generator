@@ -6,7 +6,7 @@ from flask import Flask, render_template, request, redirect, url_for, send_from_
 from werkzeug import secure_filename
 
 # These are the extension that we are accepting to be uploaded
-ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg','svg'])
 ALLOWED_EXTENSIONS_DESKTOP = set(['.gz','.zip'])
 UPLOAD_FOLDER = 'uploads/'
 # Initialize the Flask application
@@ -20,7 +20,7 @@ app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 def allowed_file(filename):
     # Check for allowed file extension
     return '.' in filename and \
-           filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
+           filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS or ALLOWED_EXTENSIONS_DESKTOP
 
 
 def urlify(s):
@@ -42,13 +42,12 @@ def index():
           if name.startswith("GENERATOR_"):
             variables[name] = value
         uploaded_files = request.files.getlist("file")
-        filenames = []
         for file in uploaded_files:
             if file and allowed_file(file.filename):
                 filename = secure_filename(file.filename)
-                print filename
                 file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-                filenames.append(filename)
+                os.rename(UPLOAD_FOLDER + filename, UPLOAD_FOLDER + 'files')
+                filename = 'files'
         if email != '' and TRAVIS_TAG != '':
             os.environ["email"] = email
             TRAVIS_TAG = urlify(TRAVIS_TAG)  # this will fix url issue

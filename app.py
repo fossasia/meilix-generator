@@ -41,11 +41,12 @@ def index():
         for name, value in request.form.items():
           if name.startswith("GENERATOR_"):
             variables[name] = value
-        uploaded_files = request.files.getlist("file[]")
+        uploaded_files = request.files.getlist("file")
         filenames = []
         for file in uploaded_files:
             if file and allowed_file(file.filename):
                 filename = secure_filename(file.filename)
+                print filename
                 file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
                 filenames.append(filename)
         if email != '' and TRAVIS_TAG != '':

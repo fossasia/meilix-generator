@@ -6,7 +6,8 @@ from flask import Flask, render_template, request, redirect, url_for, send_from_
 from werkzeug import secure_filename
 
 # These are the extension that we are accepting to be uploaded
-ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg','svg'])
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
+ALLOWED_EXTENSIONS_LOGO = set([' svg'])
 ALLOWED_EXTENSIONS_DESKTOP = set(['.gz','.zip'])
 UPLOAD_FOLDER = 'uploads/'
 # Initialize the Flask application
@@ -20,7 +21,7 @@ app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 def allowed_file(filename):
     # Check for allowed file extension
     return '.' in filename and \
-           filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS or ALLOWED_EXTENSIONS_DESKTOP
+           filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS or ALLOWED_EXTENSIONS_DESKTOP or ALLOWED_EXTENSIONS_LOGO
 
 
 def urlify(s):

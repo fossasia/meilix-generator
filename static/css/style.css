@@ -160,6 +160,12 @@ h3.custom-navtitle {
   height:40px;
 }
 
+.custom-logo {
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+}
+
 #browse {
   height:35px;
   width:360px;

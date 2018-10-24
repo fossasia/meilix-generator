@@ -7,8 +7,8 @@ from werkzeug import secure_filename
 
 # These are the extension that we are accepting to be uploaded
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
-ALLOWED_EXTENSIONS_LOGO = set([' svg'])
-ALLOWED_EXTENSIONS_DESKTOP = set(['.gz','.zip'])
+ALLOWED_EXTENSIONS_LOGO = set(['svg'])
+ALLOWED_EXTENSIONS_DESKTOP = set(['gz','zip'])
 UPLOAD_FOLDER = 'uploads/'
 # Initialize the Flask application
 app = Flask(__name__)
@@ -42,13 +42,18 @@ def index():
         for name, value in request.form.items():
           if name.startswith("GENERATOR_"):
             variables[name] = value
-        uploaded_files = request.files.getlist("file")
-        for file in uploaded_files:
-            if file and allowed_file(file.filename):
-                filename = secure_filename(file.filename)
-                file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-                os.rename(UPLOAD_FOLDER + filename, UPLOAD_FOLDER + 'files')
-                filename = 'files'
+        wallpaper = request.files["myImage"]
+        if wallpaper and allowed_file(wallpaper.filename):
+            filename = secure_filename(wallpaper.filename)
+            wallpaper.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        logo = request.files["myLogo"]
+        if logo and allowed_file(logo.filename):
+            filename = secure_filename(logo.filename)
+            logo.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        zipFiles = request.files["myFile"]
+        if zipFiles and allowed_file(zipFiles.filename):
+            filename = secure_filename(zipFiles.filename)
+            zipFiles.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         if email != '' and TRAVIS_TAG != '':
             os.environ["email"] = email
             TRAVIS_TAG = urlify(TRAVIS_TAG)  # this will fix url issue

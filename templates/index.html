@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 
 {% block body %}
-  <form  method="POST" enctype="multipart/form-data">
+  <form  method="POST" >
     <div class="container">
       <div class="row mt-3">
         <div class="col-md-4 mx-auto">
@@ -303,7 +303,7 @@
               <label class="heading" id="upload">Upload Desktop Wallpaper</label>
               <label id="browse" class="btn btn-primary btn-block mx-auto">
                 <span data-toggle="tooltip" title=" REC size (1920X1080) or (1280X720)">Browse</span>
-                <input type="file" name="file" id="file" class="file form-control" title="Default Wallpaper Image" 
+                <input type="file" name="myImage" id="file" class="file form-control" title="Default Wallpaper Image" 
                  onchange="$(this).prev('span').text($(this).val()!=''?$(this).val():'Browse')" accept="image/*" />
               </label>
               <span>
@@ -316,7 +316,7 @@
               <label class="heading" id="upload">Upload Default Logo</label>
               <label id="browse" class="btn btn-primary btn-block mx-auto browse">
                 <span data-toggle="tooltip" title="Only svg files are allowed">Browse</span>
-                <input type="file" name="file" id="file" class="file form-control" title="Default Desktop Logo" 
+                <input type="file" name="myLogo" id="file" class="file form-control" title="Default Desktop Logo" 
                  onchange="$(this).prev('span').text($(this).val()!=''?$(this).val():'Browse')" accept=".svg" />
               </label>
               <span>
@@ -328,7 +328,7 @@
                 <label class="heading" id="upload">Upload Desktop files (archive) </label>
                 <label id="browse1" class="btn btn-primary btn-block mx-auto">
                   <span data-toggle="tooltip" title="Size less than 4 Mb">Browse</span>
-                  <input type="file" name="file" id="zip" accept=".zip, .gz" class="file form-control" title="Custom Files For Desktop"
+                  <input type="file" name="myFile" id="zip" accept=".zip, .gz" class="file form-control" title="Custom Files For Desktop"
                   />
                 </label>
                 <span>

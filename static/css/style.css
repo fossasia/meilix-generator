@@ -37,8 +37,9 @@ body {
 
 .custom-navtitle {
   display: inline-block;
-  margin: 0px;
-  font-size: 20px;
+  vertical-align: middle;
+  margin: 10px;
+  font-size: 30px;
   color: black;
   text-decoration: none;
   outline: 0;
@@ -53,9 +54,10 @@ h3.custom-navtitle {
   top:0px;
   right: 40px;
   cursor: pointer;
-  padding: 10px;
-  height:50px;
-  width: 50px;
+  padding: 5px;
+  height: 60px;
+  width: 60px;
+  margin-top: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -78,7 +80,7 @@ h3.custom-navtitle {
 }
 
 .custom-menubutton > i {
-  font-size:20px;
+  font-size:30px;
 }
 
 .custom-menu {
@@ -162,6 +164,7 @@ h3.custom-navtitle {
 
 .custom-logo {
   display: inline-block;
+  vertical-align: middle;
   width: 48px;
   height: 48px;
 }

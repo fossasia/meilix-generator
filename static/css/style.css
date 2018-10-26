@@ -33,6 +33,7 @@ body {
   padding: 10px 15px;
   border-bottom: 1px solid #bfbfbf;
   z-index: -1;
+  background-color: #a60041;
 }
 
 .custom-navtitle {
@@ -40,7 +41,7 @@ body {
   vertical-align: middle;
   margin: 10px;
   font-size: 30px;
-  color: black;
+  color: white;
   text-decoration: none;
   outline: 0;
 }
@@ -65,6 +66,10 @@ h3.custom-navtitle {
 
 .custom-menubutton:hover {
   background-color:#F0EEEE;
+}
+
+.custom-menubutton i{
+  color: white;
 }
 
 .custom-menu-cont {
@@ -167,6 +172,14 @@ h3.custom-navtitle {
   vertical-align: middle;
   width: 48px;
   height: 48px;
+  -webkit-transition: 1s;
+  -moz-transition: 1s;
+  transition: 1s;
+}
+
+.custom-logo:hover {
+  width: 100px;
+  height: 100px;
 }
 
 #browse {

@@ -33,13 +33,15 @@ body {
   padding: 10px 15px;
   border-bottom: 1px solid #bfbfbf;
   z-index: -1;
+  background-color: #a60041;
 }
 
 .custom-navtitle {
   display: inline-block;
-  margin: 0px;
-  font-size: 20px;
-  color: black;
+  vertical-align: middle;
+  margin: 10px;
+  font-size: 30px;
+  color: white;
   text-decoration: none;
   outline: 0;
 }
@@ -53,9 +55,10 @@ h3.custom-navtitle {
   top:0px;
   right: 40px;
   cursor: pointer;
-  padding: 10px;
-  height:50px;
-  width: 50px;
+  padding: 5px;
+  height: 60px;
+  width: 60px;
+  margin-top: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -63,6 +66,10 @@ h3.custom-navtitle {
 
 .custom-menubutton:hover {
   background-color:#F0EEEE;
+}
+
+.custom-menubutton i{
+  color: white;
 }
 
 .custom-menu-cont {
@@ -78,7 +85,7 @@ h3.custom-navtitle {
 }
 
 .custom-menubutton > i {
-  font-size:20px;
+  font-size:30px;
 }
 
 .custom-menu {
@@ -158,6 +165,21 @@ h3.custom-navtitle {
 .custom-icon > img {
   width: 60px;
   height:40px;
+}
+
+.custom-logo {
+  display: inline-block;
+  vertical-align: middle;
+  width: 48px;
+  height: 48px;
+  -webkit-transition: 1s;
+  -moz-transition: 1s;
+  transition: 1s;
+}
+
+.custom-logo:hover {
+  width: 100px;
+  height: 100px;
 }
 
 #browse {

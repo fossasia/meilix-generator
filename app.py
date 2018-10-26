@@ -10,11 +10,18 @@ ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 ALLOWED_EXTENSIONS_LOGO = set(['svg'])
 ALLOWED_EXTENSIONS_DESKTOP = set(['gz','zip'])
 UPLOAD_FOLDER = 'uploads/'
+WALLPAPER_FOLDER  = 'wallpapers/'
+LOGO_FOLDER = 'logos/'
+ZIP_FOLDER = 'zip-files/'
+
 # Initialize the Flask application
 app = Flask(__name__)
 
 # This is the path to the upload directory
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['LOGO_FOLDER'] = LOGO_FOLDER
+app.config['ZIP_FOLDER'] = ZIP_FOLDER
+app.config['WALLPAPER_FOLDER'] = WALLPAPER_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
 
@@ -45,15 +52,15 @@ def index():
         wallpaper = request.files["myImage"]
         if wallpaper and allowed_file(wallpaper.filename):
             filename = secure_filename(wallpaper.filename)
-            wallpaper.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            wallpaper.save(os.path.join(app.config['UPLOAD_FOLDER'] + app.config['WALLPAPER_FOLDER'], filename))
         logo = request.files["myLogo"]
         if logo and allowed_file(logo.filename):
             filename = secure_filename(logo.filename)
-            logo.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            logo.save(os.path.join(app.config['UPLOAD_FOLDER'] + app.config['LOGO_FOLDER'], filename))
         zipFiles = request.files["myFile"]
         if zipFiles and allowed_file(zipFiles.filename):
             filename = secure_filename(zipFiles.filename)
-            zipFiles.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            zipFiles.save(os.path.join(app.config['UPLOAD_FOLDER'] + app.config["ZIP_FOLDER"], filename))
         if email != '' and TRAVIS_TAG != '':
             os.environ["email"] = email
             TRAVIS_TAG = urlify(TRAVIS_TAG)  # this will fix url issue

@@ -124,6 +124,10 @@
 				opacity: 1;
 			}
 		}
+
+		#mail-box {
+			margin-bottom:30px;
+		}
 		#mail
 		{
 			height: 100px;

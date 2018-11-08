@@ -6,21 +6,21 @@
       <div class="row mt-3">
         <div class="col-md-4 mx-auto">
           <div class="form-group">
-            <label class="heading" id="label" for="email">Email *</label>
+            <label class="heading" id="label" for="email">Email *Required</label>
             <div class="input-group margin-bottom-sm">
               <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
-              <input autofocus="" class="form-control" placeholder="Enter email" name="email" title="Email for sending the ISO"
+              <input autofocus="" class="form-control" placeholder="Enter email" name="email" title="Email for the ISO"
                 required="" type="email" pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+$"
                 required /></div>
-            <p id="scroll-to">We send you the link to the ready ISO per email.</p>
+            <p id="scroll-to">We will send the ready ISO file to the e-mail you provide</p>
             <br>
           </div>
           <div class="form-group">
-            <label class="heading" for="TRAVIS_TAG">Name of your Distribution *</label>
+            <label class="heading" for="TRAVIS_TAG">Name of your Distribution *Required</label>
             <div class="input-group margin-bottom-sm">
               <span class="input-group-addon"><i class="fa fa-address-book fa-fw"></i></span>
               <input pattern="[A-Za-z0-9\s]{1,20}" class="form-control" placeholder="Enter name" name="TRAVIS_TAG"
-                required="" type="text" data-toggle="tooltip" title="Only alphanumeric characters allowed"></div>
+                required="" type="text" data-toggle="tooltip" title="Only Alphanumeric Characters Allowed"></div>
             <p id="scroll-to">Name of your custom distribution</p>
           </div>
           <br>
@@ -28,7 +28,7 @@
             <label class="heading" for="event_url">Browser Home Page </label>
             <div class="input-group margin-bottom-sm">
               <span class="input-group-addon"><i class="fa fa-window-maximize fa-fw"></i></span>
-              <input pattern="https?://.+" class="form-control" placeholder="Enter link" name="event_url" title="only url is allowed"
+              <input pattern="" class="form-control" placeholder="Enter link" name="event_url" title="Only URL is allowed"
                  type="url"></div>
             <p id="scroll-to">Default home page of the browser</p>
           </div>
@@ -37,15 +37,14 @@
             <label class="heading" for="search_engine">Default Search Engine</label>
             <div class="input-group margin-bottom-sm">
               <span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
-              <input pattern="https?://.+" class="form-control" placeholder="Enter link" name="search_engine" title="only url is allowed"
+              <input pattern="" class="form-control" placeholder="Enter link" name="search_engine" title="only url is allowed"
                  type="url"></div>
             <p id="scroll-to">Default search engine of the browser</p>
           </div>
           <br>
           <div class="form-group">
-
-            <label class="heading" for="bookmark">Choose Either ON or OFF:<span>
-                <p id="scroll-to">Packages that will be installed</p>
+<!-- You don't really need to tell them to choose from on or off since you can only choose from on or off -->
+            <label class="heading" for="bookmark">Packages that will be installed<span>
               </span></label>
             <table class="table table-responsive">
               <tbody>
@@ -59,7 +58,7 @@
                     </td>
                     <td id="long">
                       <div class="radiotext">
-                        <label for='express'>Support 64 bit (Default 32 bit)</label>
+                        <label for='express'>Support 32 bit (Default 64 bit)</label>
                       </div>
                     </td>
                   </tr>

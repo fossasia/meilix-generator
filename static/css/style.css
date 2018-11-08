@@ -64,12 +64,16 @@ h3.custom-navtitle {
   align-items: center;
 }
 
+.custom-menubutton i{
+  color: white;
+}
+
 .custom-menubutton:hover {
   background-color:#F0EEEE;
 }
 
-.custom-menubutton i{
-  color: white;
+.custom-menubutton:hover i{
+  color:black;
 }
 
 .custom-menu-cont {
@@ -143,7 +147,7 @@ h3.custom-navtitle {
 }
 
 .custom-menu-item p {
-  height:28px;
+  height:56px;
   margin:0px;
 }
 

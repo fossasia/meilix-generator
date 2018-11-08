@@ -7,7 +7,7 @@ from werkzeug import secure_filename
 
 # These are the extension that we are accepting to be uploaded
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
-ALLOWED_EXTENSIONS_DESKTOP = set(['.gz','.zip'])
+ALLOWED_EXTENSIONS_DESKTOP = set(['gz','zip'])
 UPLOAD_FOLDER = 'uploads/'
 # Initialize the Flask application
 app = Flask(__name__)

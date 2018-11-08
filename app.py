@@ -6,21 +6,33 @@ from flask import Flask, render_template, request, redirect, url_for, send_from_
 from werkzeug import secure_filename
 
 # These are the extension that we are accepting to be uploaded
-ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
+ALLOWED_EXTENSIONS_WALLPAPER = set(['png', 'jpg', 'jpeg'])
+ALLOWED_EXTENSIONS_LOGO = set(['svg'])
 ALLOWED_EXTENSIONS_DESKTOP = set(['gz','zip'])
+
+#The name of the upload directories
 UPLOAD_FOLDER = 'uploads/'
+WALLPAPER_FOLDER  = 'wallpapers/'
+LOGO_FOLDER = 'logos/'
+ZIP_FOLDER = 'zip-archives/'
+
 # Initialize the Flask application
 app = Flask(__name__)
 
 # This is the path to the upload directory
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['LOGO_FOLDER'] = LOGO_FOLDER
+app.config['ZIP_FOLDER'] = ZIP_FOLDER
+app.config['WALLPAPER_FOLDER'] = WALLPAPER_FOLDER
+
+# The maximum file size
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
 
 def allowed_file(filename):
     # Check for allowed file extension
     return '.' in filename and \
-           filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
+           filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS_WALLPAPER or ALLOWED_EXTENSIONS_LOGO or ALLOWED_EXTENSIONS_DESKTOP
 
 
 def urlify(s):

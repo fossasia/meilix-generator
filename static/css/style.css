@@ -67,7 +67,10 @@ h3.custom-navtitle {
 .custom-menubutton i{
   color: white;
 }
-
+.custom-menu-row{
+  width: 267px;
+  background-color: white;
+}
 .custom-menubutton:hover {
   background-color:#F0EEEE;
 }
@@ -93,7 +96,7 @@ h3.custom-navtitle {
 }
 
 .custom-menu {
-  min-height: 350px;
+  height: auto;
   width: 327px;
   position: absolute;
   border: 1px solid #bfbfbf;
@@ -121,14 +124,13 @@ h3.custom-navtitle {
 }
 
 .custom-menu-item {
-  border: 1px solid white;
-  display: inline-block;
+  border: 1px solid #fff;
+  float: left;
+  margin-bottom: 10px;
+  display: block;
   width: 87px;
   padding: 10px 0;
   text-align: center;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
 }
 
 .custom-menu-item a {
@@ -141,8 +143,8 @@ h3.custom-navtitle {
   display: block;
   margin: 0 auto 5px auto;
   height: auto;
-  width: auto;
-  max-height: 90px;
+  width: 87px;
+  max-height: 50px;
   max-width: 60px;
 }
 
@@ -159,16 +161,13 @@ h3.custom-navtitle {
   background-color: #e7e7e7;
 }
 
-.custom-icon {
-  height:90px;
+.custom-menu-row #about {
+  position: absolute;
   display: flex;
   justify-content: center;
-  align-items: center;
-}
-
-.custom-icon > img {
-  width: 60px;
-  height:40px;
+  text-align: center;
+  bottom: 0px;
+  padding-left: 50px;
 }
 
 .custom-logo {

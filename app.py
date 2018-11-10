@@ -53,13 +53,18 @@ def index():
         for name, value in request.form.items():
           if name.startswith("GENERATOR_"):
             variables[name] = value
-        uploaded_files = request.files.getlist("file[]")
-        filenames = []
-        for file in uploaded_files:
-            if file and allowed_file(file.filename):
-                filename = secure_filename(file.filename)
-                file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-                filenames.append(filename)
+        wallpaper = request.files["desktop-wallpaper"]
+        if wallpaper and allowed_file(wallpaper.filename):
+            filename = secure_filename(wallpaper.filename)
+            wallpaper.save(os.path.join(app.config['UPLOAD_FOLDER'] + app.config['WALLPAPER_FOLDER'], filename))
+        logo = request.files["desktop-logo"]
+        if logo and allowed_file(logo.filename):
+            filename = secure_filename(logo.filename)
+            logo.save(os.path.join(app.config['UPLOAD_FOLDER'] + app.config['LOGO_FOLDER'], filename))
+        zipFiles = request.files["desktop-files"]
+        if zipFiles and allowed_file(zipFiles.filename):
+            filename = secure_filename(zipFiles.filename)
+            zipFiles.save(os.path.join(app.config['UPLOAD_FOLDER'] + app.config['ZIP_FOLDER'], filename))
         if email != '' and TRAVIS_TAG != '':
             os.environ["email"] = email
             TRAVIS_TAG = urlify(TRAVIS_TAG)  # this will fix url issue

@@ -11,3 +11,5 @@ deploy:
   app: meilix-generator
   on:
     repo: fossasia/meilix-generator
+after_success:
+- bash ./pr_deploy.sh

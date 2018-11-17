@@ -1,73 +1,82 @@
-### Development
+# Deploy to Heroku
 
 Want to contribute? Great!
 
 To setup the meilix-generator on Heroku follow the following steps:
 
-# Automatic Deploy
-You can use the one click deployment:
+
+## Automatic Deploy
+
+You can use the one click deployment
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/fossasia/meilix-generator/tree/master)
 
-**The app will get deployed but need to provide [config variables](/docs/installation/my_token.md) in the app to trigger the build**.
+**Note:** Make sure to generate your own tokens and API keys. Refer to [my_token.md](my_token.md) for details.
 
-# Manual Deploy
 
-You can setup your app on heroku manually:
+## Manual Deploy
 
-# Requirements:
-- **heroku toolbelt** installed on your system
-For more info on heroku toolbelt: [here](https://devcenter.heroku.com/articles/heroku-cli)
-- **git** installed on your system
-# Installation with Heroku
+You can setup your app on heroku manually
 
-Open your favorite Terminal and run these commands.
+### Requirements
 
-first **start** the repo, fork and clone it:
-```sh
-$ git clone https://github.com/yourusername/meilix-generator.git
+- [heroku toolbelt](https://devcenter.heroku.com/articles/heroku-cli) installed on your system
+- _git_ installed on your system
+
+### Clone repos and setup
+
+Fork meilix-generator and meilix onto your account.
+
+``` bash
+$ git clone https://github.com/<your_username>/meilix-generator.git meilix-generator
 ```
 
-login into heroku toolbelt:
-```sh
+Login into heroku
+
+``` bash
 $ heroku login
 ```
 
 cd into the repository and create a heroku app
-```sh
+``` bash
+$ cd meilix-generator
+
 $ heroku create
 Creating app... done, ⬢ your-heroku-app-name
 https://your-heroku-app-name.herokuapp.com/ | https://git.heroku.com/your-heroku-app-name.git
 ```
-**Note:** replace 'your-heroku-app-name' with your heroku app name
 
-check if heroku's git url is added into the remote
-```sh
+**Note:** replace `<your-heroku-app-name>` with your heroku app name, and `<username>` with your GitHub username
+
+Check if heroku's git url is added into the remote
+
+``` bash
 $ git remote -v
-heroku	https://git.heroku.com/your-heroku-app-name.git (fetch)
-heroku	https://git.heroku.com/your-heroku-app-name.git (push)
-origin	https://github.com/yourusername/meilix-generator.git (push)
-origin	https://github.com/yourusername/meilix-generaotr.git (push)
-```
-if it is not added automatically add the link to heroku's repository by typing following command in terminal
-```sh
-$ git remote add heroku https://git.heroku.com/your-heroku-app-name.git
+heroku	https://git.heroku.com/<your-heroku-app-name>.git (fetch)
+heroku	https://git.heroku.com/<your-heroku-app-name>.git (push)
+origin	https://github.com/<username>/meilix-generator.git (push)
+origin	https://github.com/<username>/meilix-generaotr.git (push)
 ```
 
-now push the code
+If it is not added automatically add the link to heroku's repository
+
+``` bash
+$ git remote add heroku https://git.heroku.com/<your-heroku-app-name>.git
+```
+
+Now push the onto Heroku
 ```sh
 $ git push heroku master
 ```
 
-sometimes the server may take a while to start, the logs would say `State changed from starting to up` when the server is ready.
+Sometimes the server may take a while to start, the logs would say `State changed from starting to up` when the server is ready.
 
-open the URL of your server in your browser
+Open the URL of your server in your browser
+
 ```sh
 $ heroku open
 ```
 
-> *Congrats you are done now!*
+_Congrats you are done now!_. Your app should be available at https://your-heroku-app-name.herokuapp.com/
 
-Note: see more [here](/docs/installation/my_token.md) about token and script before attempting the above steps.
-
-- Your app should be available at : https://your-heroku-app-name.herokuapp.com/
+**Note:** Again, make sure to generate your own tokens and API keys. Refer to [my_token.md](my_token.md) for details.

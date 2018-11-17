@@ -6,13 +6,14 @@
       <div class="row mt-3">
         <div class="col-md-4 mx-auto">
           <div class="form-group">
+            <label class="heading" for="bookmark">Fields with * after it are required<span>
             <label class="heading" id="label" for="email">Email *</label>
             <div class="input-group margin-bottom-sm">
               <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
-              <input autofocus="" class="form-control" placeholder="Enter email" name="email" title="Email for sending the ISO"
+              <input autofocus=""  class="form-control" placeholder="Enter email" name="email" data-toggle="tooltip" title="Email for the ISO"
                 required="" type="email" pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+$"
                 required /></div>
-            <p id="scroll-to">We send you the link to the ready ISO per email.</p>
+            <p id="scroll-to">We will send the link to the ready ISO file to the e-mail you have provided</p>
             <br>
           </div>
           <div class="form-group">
@@ -28,7 +29,7 @@
             <label class="heading" for="event_url">Browser Home Page </label>
             <div class="input-group margin-bottom-sm">
               <span class="input-group-addon"><i class="fa fa-window-maximize fa-fw"></i></span>
-              <input pattern="https?://.+" class="form-control" placeholder="Enter link" name="event_url" title="only url is allowed"
+              <input pattern="https?://.+" class="form-control" placeholder="Enter link" name="event_url" data-toggle="tooltip" title="only url is allowed"
                  type="url"></div>
             <p id="scroll-to">Default home page of the browser</p>
           </div>
@@ -37,15 +38,13 @@
             <label class="heading" for="search_engine">Default Search Engine</label>
             <div class="input-group margin-bottom-sm">
               <span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
-              <input pattern="https?://.+" class="form-control" placeholder="Enter link" name="search_engine" title="only url is allowed"
+              <input pattern="https?://.+" class="form-control" placeholder="Enter link" name="search_engine" data-toggle="tooltip" title="only url is allowed"
                  type="url"></div>
             <p id="scroll-to">Default search engine of the browser</p>
           </div>
           <br>
           <div class="form-group">
-
-            <label class="heading" for="bookmark">Choose Either ON or OFF:<span>
-                <p id="scroll-to">Packages that will be installed</p>
+            <label class="heading" for="bookmark">Packages that are checked will be installed<span>
               </span></label>
             <table class="table table-responsive">
               <tbody>
@@ -301,7 +300,7 @@
               <label class="heading" id="upload">Upload Desktop Wallpaper</label>
               <label id="browse" class="btn btn-primary btn-block mx-auto">
                 <span data-toggle="tooltip" title=" REC size (1920X1080) or (1280X720)">Browse</span>
-                <input type="file" name="myImage" id="file" class="file form-control" title="Default Wallpaper Image" 
+                <input type="file" name="desktop-wallpaper" id="file" class="file form-control" title="Default Wallpaper Image" 
                  onchange="$(this).prev('span').text($(this).val()!=''?$(this).val():'Browse')" accept="image/*" />
               </label>
               <span>
@@ -314,7 +313,7 @@
               <label class="heading" id="upload">Upload Default Logo</label>
               <label id="browse" class="btn btn-primary btn-block mx-auto browse">
                 <span data-toggle="tooltip" title="Only svg files are allowed">Browse</span>
-                <input type="file" name="myImage" id="file" class="file form-control" title="Default Desktop Logo" 
+                <input type="file" name="desktop-logo" id="file" class="file form-control" title="Default Desktop Logo" 
                  onchange="$(this).prev('span').text($(this).val()!=''?$(this).val():'Browse')" accept=".svg" />
               </label>
               <span>
@@ -326,7 +325,7 @@
                 <label class="heading" id="upload">Upload Desktop files (archive) </label>
                 <label id="browse1" class="btn btn-primary btn-block mx-auto">
                   <span data-toggle="tooltip" title="Size less than 4 Mb">Browse</span>
-                  <input type="file" name="myFiles" id="zip" accept=".zip, .gz" class="file form-control" title="Custom Files For Desktop"
+                  <input type="file" name="desktop-files" id="zip" accept=".zip, .gz" class="file form-control" title="Custom Files For Desktop"
                   />
                 </label>
                 <span>
@@ -334,11 +333,11 @@
                 </span>
                 
             </div>
+          <div class="form-group">
+            <input class="btn btn-info btn-block mx-auto file-upload" id="file-upload" value="Build" required="" type="submit" />
+          </div>
           </div>
 
-          <div class="form-group">
-            <input class="btn btn-info mx-auto file-upload" id="file-upload" value="Build" required="" type="submit" />
-          </div>
         </div>
       </div>
     </div>

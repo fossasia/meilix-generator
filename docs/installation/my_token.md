@@ -20,11 +20,11 @@ This file specifies on which repo to trigger build on and which branch to use. I
 
 Change release link from
 ```
-echo "https://github.com/fossasia/meilix/releases/download/${TRAVIS_TAG}/meilix-zesty-`date +%Y%m%d`-i386.iso"
+echo "https://github.com/fossasia/meilix/releases/download/${TRAVIS_TAG}/meilix-xenial-`date +%Y%m%d`-i386.iso"
 ```
 to
 ```
-echo "https://github.com/<username>/meilix/releases/download/${TRAVIS_TAG}/meilix-zesty-`date +%Y%m%d`-i386.iso"
+echo "https://github.com/<username>/meilix/releases/download/${TRAVIS_TAG}/meilix-xenial-`date +%Y%m%d`-i386.iso"
 ```
 
 **<username** is your user/organization name where you have cloned meilix to.

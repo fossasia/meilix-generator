@@ -1,101 +1,105 @@
-# Meilix Generator 
+# Meilix Generator
 
-![Meilix Generator](/static/favicon/apple-icon-114x114.png) 
+![Meilix Generator](/static/favicon/apple-icon-114x114.png)
 
-A webapp which generates an iso live image with a custom [Meilix](https://github.com/fossasia/meilix) Linux upon the request of a user. 
-
-  - [fossasia/meilix](https://github.com/fossasia/meilix) consists the backend script of a Linux Operating System based on Lubuntu. The bootscreen is build as a deb package in [fossasia/meilix-artwork](https://github.com/fossasia/meilix-artwork). Meilix uses Travis to trigger that script to result in a release of an iso file.
-  - Through the webapp, a build button is taken as an input to go to a build page which triggers Travis with the same user configuration to build the iso and deploy it as a Github release. The user receives a link to the build.
-  - We use [Travis API](https://blog.travis-ci.com/2017-04-06-api-v3-is-here) with a [shell script](/docs/installation/my_token.md). The script takes the input of the users, repository, and branch to decide to where the trigger to take place.
-  - The Meilix Generator webapp follows the standard frontend of other FOSSASIA projects like [Open Event Webapp](https://github.com/fossasia/open-event-webapp)
+Webapp to generate customized iso(live) images of [Meilix](https://github.com/fossasia/meilix) Linux.
 
 ![GSoC 2017](https://img.shields.io/badge/GSoC-2017-blue.svg) [![Travis branch](https://img.shields.io/travis/fossasia/meilix-generator/master.svg?style=flat-square)](https://travis-ci.org/fossasia/meilix-generator) [![Gemnasium](https://img.shields.io/gemnasium/fossasia/meilix-generator.svg?style=flat-square)](https://gemnasium.com/github.com/fossasia/meilix-generator) [![Heroku](https://heroku-badge.herokuapp.com/?app=meilix-generator)](https://meilix-generator.herokuapp.com/) [![Code Climate](https://codeclimate.com/github/fossasia/meilix-generator/badges/gpa.svg?branch=master)](https://codeclimate.com/github/fossasia/meilix-generator) [![codecov](https://codecov.io/gh/fossasia/meilix-generator/branch/master/graph/badge.svg)](https://codecov.io/gh/fossasia/meilix-generator) [![Codacy branch grade](https://img.shields.io/codacy/grade/2040e9769e0c446dbb400fc5a77d2dc2/master.svg?style=flat-square)](https://www.codacy.com/app/fossasia/meilix-generator) [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/fossasia/meilix?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![Reviewed by Hound](https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg)](https://houndci.com)
 
-## Communication
+Gitter channel [https://gitter.im/fossasia/meilix](https://gitter.im/fossasia/meilix)
 
-Please join our chat channel on Gitter [gitter.im/fossasia/meilix](https://gitter.im/fossasia/meilix) and our [mailing list](https://groups.google.com/forum/#!forum/meilix) to discuss questions regarding the project and ongoing development. 
+## Table of Contents
+
+* [Meilix components](#meilix-components)
+* [Under the hood](#under-the-hood)
+* [Working](#working)
+    * [Webapp](#webapp)
+    * [Generator](#generator)
+    * [Scripts](#scripts)
+    * [Work flow](#work-flow)
+* [Installation](#installation)
+* [Contributions](#contributions)
+* [Issues and Branch policy](#issues-and-branch-policy)
+* [Best Practices](#best-practices)
+* [License](#license)
 
 
-### Technologies Used
+## Meilix components
 
-Meilix-Generator uses a number of open source projects to work properly:
+* [fossasia/meilix](https://github.com/fossasia/meilix) hosts the source of Meilix based on Lubuntu.
+* The bootscreen is build as a deb package in [fossasia/meilix-artwork](https://github.com/fossasia/meilix-artwork).
+* The webapp is used to trigger a Meilix build based on the user configuration. Builds are run on Travis and the user is mailed a link download the custom build. Builds are released to [Github releases](https://github.com/fossasia/meilix/releases).
+* Meilix Generator follows the standard frontend of other FOSSASIA projects like [Open Event Webapp](https://github.com/fossasia/open-event-webapp)
 
-* [Flask](http://flask.pocoo.org/) - Microframework powered by python
-* [Bootstrap](http://getbootstrap.com/) - Responsive frontend framework for webapp
-* [Shell](https://en.wikipedia.org/wiki/Unix_shell) - Script used for triggering Travis using their [Travis API](https://docs.travis-ci.com/user/triggering-builds/)
-* [Heroku](https://www.heroku.com/) - Webapp deployed here
-* [Travis](travis-ci.org) - Continuous Integration which build the iso
-* [Github Release](https://help.github.com/articles/creating-releases/) - Deploying the iso here
 
-#### Components and its working
+## Under the hood
 
-1. Webapp
+* [Flask](http://flask.pocoo.org/) used as the backend framework
+* [Bootstrap](http://getbootstrap.com/) the frontend
+* [Heroku](https://www.heroku.com/) is used to host the webapp
+* [Travis](travis-ci.org) is where builds are made, and
+* [Github Release](https://help.github.com/articles/creating-releases/) for the custom releases
 
-The source of the webapp frontend can be found [here](/templates). It consists of:
 
-- [index.html](/templates/index.html) - The webform page
-- [404.html](/templates/404.html) - The non-found page
+## Working
+### Webapp
 
-2. Generator
+The webapp rests in 2 templates, served by Flask:
 
-The generator runs on flask framework, using the main [app script](/app.py)
+- [index.html](templates/index.html)
+- [build.html](templates/build.html)
 
-3. [Scripts](/docs/installation/my_token.md)
-- [script.sh](/script.sh) - Use the Travis API to trigger a build
-- [travis_tokens](/travis_tokens) - Sends the user, repo and branch required for triggering to [script.sh](/script.sh).
+### Generator
 
-4. [Requirement File](/requirements.in)
+The generator runs on Flask, routes contained in main [app script](app.py)
 
-This contains the required packages for running the app.
-- `pip install --upgrade -r requirements.in` will install latest packages
-- Note that if you would like to change the requirements, please edit the requirements.in file and run this command to update the dependencies:
-   `pip-compile --output-file requirements.txt requirements.in` fix the versions that definitely work for an eternity.
+* The route `/` renders the `index.html` which is used to
+* `/output` route triggers the build on [Meilix](https://github.com/fossasia/meilix) and renders the `build.html`
 
-##### Working
-Webapp ask user for their email-id and event name and a wallpaper which will further be the default wallpaper of the distro. The given event name is used as a tag name of the release.
-Heroku sends these data to Travis to trigger the build. After successful build Travis deployed the iso in the Github Release of the repository whose information is provided in [travis_tokens](/travis_tokens).
+### Scripts
 
-![Build](/docs/images/build.png)
-![Customize](/docs/images/customize.png)
+`/output` route runs the [script.sh](script.sh) which in turn sends a `curl` request to Travis to trigger a build a Meilix repo. The request is sent with a JSON payload which contains information like which packages to pre-install, homepage URL, browser choice, build architechture, etc.
 
-### Installation
+[travis_tokens](travis_tokens) has configuration required by Travis, it specifies on which branch to trigger build on.
 
-**Please go through all the docs before starting the development process**
 
-The meilix-generator can be easily deployed on a variety of platform. Detailed platform specific installation instructions have been provided below:
+### Work flow
 
-1. [Local Installation](/docs/installation/local.md)
-2. [Deployment on Heroku](/docs/installation/heroku.md)
-3. [Docker container](/docs/installation/docker.md)
+Webapp is hosted at https://meilix-generator.herokuapp.com. Required configuration is obtained from the form and the user triggers the build. When the build is complete on the Meilix repo, the user is mailed with the link to download the iso image. Look at [build.sh](https://github.com/fossasia/meilix/blob/master/build.sh) and [.travis.yml](https://github.com/fossasia/meilix/blob/master/.travis.yml) on the Meilix repo for insight on the actual build process.
 
-## Accessing the Generator Web App
+![Build](docs/images/build.png)
+![Customize](docs/images/customize.png)
 
- - Once deployed, you'll find the generator running on http://localhost:5000, it should look like this:
 
-![Generator with all new features](docs/screenshots/meilix-1.gif)
+## Installation
 
- - Add your **email id**, **event-name**, **upload an wallpaper** (this picture will be set as the default wallpaper) etc.
+The meilix-generator can be easily deployed onto a variety of platforms. Platform specific installation instructions have been provided below:
 
- - Then click on build button to start the building of the iso with the given configuration.
+1. [Local installation](docs/installation/local.md)
+2. [Deployment to Heroku](docs/installation/heroku.md)
+3. [Docker container](docs/installation/docker.md)
 
- - You will be welcomed by a screen which has a message that your ISO will be mailed to you on the provided email.
 
-## Contributions, Bug Reports, Feature Requests
+## Contributions
 
-This is an Open Source project and we would be happy to see contributors who report bugs and file feature requests submitting pull requests as well. Please report issues here https://github.com/fossasia/meilix-generator/issues
+This is an Open Source project and we would be happy to see contributors who report bugs and file feature requests, submitting pull requests as well. Please report issues here https://github.com/fossasia/meilix-generator/issues
 
-## Issue and Branch Policy
+**Note:** Make sure to fork both `meilix` and `meilix-generator` and to use your own token. Refer to [my_token.md](my_token.md) for details.
 
-Before making a pull request, please file an issue. So, other developers have the chance to give feedback or discuss details. Match every pull request with an issue please and add the issue number in description e.g. like "Fixes #123".
+
+## Issues and Branch policy
+
+Before making a pull request, please file an issue. So other developers will have a chance to give feedback or discuss upon. Match every pull request with an issue please and add the issue number in description e.g. like `Fixes #123`.
+
 **Go for only one issue per pull request**
 
 We have the following branches
 * **master**
     All development goes on in the master branch. If you're making a contribution, you are supposed to make a pull request to master. PRs to the branch must pass a build check and a unit-test check on Travis.
 
-## Contributions Best Practices
+## Best practices
 
-* Go through the [doc](/.github/CONTRIBUTING.md) before making any contribution.
+* Go through [CONTRIBUTING.md](.github/CONTRIBUTING.md) before making any contribution.
 * Do read the [Open Source Developer Guide and Best Practices at FOSSASIA](https://blog.fossasia.org/open-source-developer-guide-and-best-practices-at-fossasia).
 
 **Write-up containing project buildup**

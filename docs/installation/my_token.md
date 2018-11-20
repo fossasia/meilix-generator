@@ -1,43 +1,68 @@
-# Your Token
-Till now if you are here, then you must have gone through the code.
-### [travis_tokens](/travis_tokens)
-It contain 3 words as :
-`username repository branch`
-This is the user whose branch of that repository is going to be trigger.
-We are using [fossasia/meilix](https://github.com/fossasia/meilix) repository to trigger its build.
+# Token configuration
 
-**Before undergoing any development process you must fork [fossasia/meilix](https://github.com/fossasia/meilix) repository and change the username so that the release will be done in your repository**.
-You can fork [this](https://github.com/fossasia/meilix) and start to put **your username** so that the fossasia/meilix repo will not get flooded with unnecessary builds. And your can easily play with configuration without disturbing the original repo.
+Travis builds require special credentials to be triggered over Travis API.
 
-### [script.sh](/script.sh)
-This contains an line as
-`echo "https://github.com/fossasia/meilix/releases/download/${TRAVIS_TAG}/meilix-zesty-`date +%Y%m%d`-i386.iso"`
+**You need to have a clone of meilix-generator and meilix, so that you can control them and deploy your own builds. Enable Travis builds on your meilix repo.**
 
-change it to:
-`echo "https://github.com/user_name/meilix/releases/download/${TRAVIS_TAG}/meilix-zesty-`date +%Y%m%d`-i386.iso"`
 
-Where the *user_name* is your github profile username where you have forked the **meilix** repo.
+## [travis_tokens](/travis_tokens)
 
-Since in the above step you changed the repository which is going to be used for triggering the build, so the iso will also be released in the that repository only.
+This file specifies on which repo to trigger build on and which branch to use. It looks like
 
-### Generate your own token
-To get the access to recognise the Heroku that you are the one who is going to trigger the build of meilix in Travis, we need to provide config variable in Heroku generated through Travis.
+```
+<username> <repo_name> <branch>
+```
 
-Install Travis and run the following to login
+> **Note:** For your own development be sure to change these tokens.
 
-```sh
-travis login --org
+
+## [script.sh](/script.sh)
+
+Change release link from
+```
+echo "https://github.com/fossasia/meilix/releases/download/${TRAVIS_TAG}/meilix-xenial-`date +%Y%m%d`-i386.iso"
+```
+to
+```
+echo "https://github.com/<username>/meilix/releases/download/${TRAVIS_TAG}/meilix-xenial-`date +%Y%m%d`-i386.iso"
+```
+
+**<username** is your user/organization name where you have cloned meilix to.
+
+Your iso will be released to your fork of meilix.
+
+
+## Generate travis keys
+
+To trigger builds on travis you need Travis API key. In `script.sh` we use the API key to trigger the build.
+
+To generate travis token [install it](https://github.com/travis-ci/travis.rb#installation) and run
+
+``` bash
+$ travis login --org
 ```
 
 Now cd into the forked repo of meilix and generate token
 
-```sh
+``` bash
+# change into meilix repo
+$ cd meilix
 
-cd meilix-generator
-travis token --org
+# generate a token for this specific repo
+$ travis token
 ```
 
-###### Paste this token in config variable present in setting of the Heroku app and add KEY as `KEY` and VALUE as the `access token`.
-**Refer [here](https://docs.google.com/document/d/1agoZ3pSKjUfwSAJ3Yu0m-P08M4ERPIjiwSOSU3bubG0/edit?usp=sharing) for more info about the token generation**
+Now use the access token to specify an environment variable `KEY` on your development instance(say Heroku) where meilix-generator is hosted.
+`script.sh` uses this `KEY` to trigger a build on Travis.
 
-> Now you are ready to go. Deploy your app.
+To publish releases on GitHub you need to setup your release key
+
+``` bash
+# in meilix repo
+$ travis encrypt <token> --add
+```
+
+> **Note:** This will replace the existing GH releases key to your own. Remember you will be pushing this encrypted token on to GitHub.
+
+If you have any problems with token generation don't bother to rant on [https://gitter.im/fossasia/meilix](https://gitter.im/fossasia/meilix)
+

@@ -23,8 +23,42 @@ Gitter channel [https://gitter.im/fossasia/meilix](https://gitter.im/fossasia/me
 * [Best Practices](#best-practices)
 * [License](#license)
 
+## Meilix Generator Features
 
-## Meilix components
+ Following are some of the other features that Meilix-Generator offers:
+
+- You can brand your Linux as you want. Your company name and logo can be your:
+    - Linux name
+    - Linux logo
+    - Wallpaper
+    - Screensaver
+
+- Switch on/off various features of your linux. You can switch: 
+    - 64 Bit support (or legacy 32 Bit)
+    - Notifications
+    - Screensaver
+    - Sleep Modes 
+    - System Sounds
+    - Bookmarks
+    - Screen Dimming
+    - Power Management Saving 
+    - Taskbar Autohide
+
+- Following apps can be pre-installed in your linux: 
+    - Chromium
+    - Firefox
+    - Hangout
+    - VLC
+    - GIMP
+    - Inkscape
+    - LibreOffice
+    - Git
+    - NextCloud
+    - Dropbox
+
+- Add all the documents and files you need in your linux.
+- System Lock: it allows you to freeze all the systems you are hosting using Meilix. 
+## Meilix-Generator components
 
 * [fossasia/meilix](https://github.com/fossasia/meilix) hosts the source of Meilix based on Lubuntu.
 * The bootscreen is build as a deb package in [fossasia/meilix-artwork](https://github.com/fossasia/meilix-artwork).

@@ -63,7 +63,7 @@ Gitter channel [https://gitter.im/fossasia/meilix](https://gitter.im/fossasia/me
 * [fossasia/meilix](https://github.com/fossasia/meilix) hosts the source of Meilix based on Lubuntu.
 * The bootscreen is build as a deb package in [fossasia/meilix-artwork](https://github.com/fossasia/meilix-artwork).
 * The webapp is used to trigger a Meilix build based on the user configuration. Builds are run on Travis and the user is mailed a link download the custom build. Builds are released to [Github releases](https://github.com/fossasia/meilix/releases).
-* Meilix Generator follows the standard frontend of other FOSSASIA projects like [Open Event Webapp](https://github.com/fossasia/open-event-webapp)
+* Meilix Generator follows the standard front end of other FOSSASIA projects like [Open Event Webapp](https://github.com/fossasia/open-event-webapp)
 
 
 ## Under the hood

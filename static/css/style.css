@@ -105,7 +105,7 @@ h3.custom-navtitle {
   top: 0px;
   box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.176);
   background-color: white;
-  padding:28px;
+  padding: 0px 28px 28px 28px;
 }
 
 .arrow-up {
@@ -126,11 +126,12 @@ h3.custom-navtitle {
 .custom-menu-item {
   border: 1px solid #fff;
   float: left;
-  margin-bottom: 10px;
   display: block;
   width: 87px;
   padding: 10px 0;
   text-align: center;
+  height: 142px;
+  position: relative;
 }
 
 .custom-menu-item a {
@@ -139,18 +140,31 @@ h3.custom-navtitle {
   outline: none;
 }
 
+.custom-icon {
+  height: 50%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
 .custom-menu-item img {
-  display: block;
-  margin: 0 auto 5px auto;
-  height: auto;
-  width: 87px;
-  max-height: 50px;
-  max-width: 60px;
+  max-height: 90%;  
+  max-width: 70%;
+  position: absolute;  
+  top: 0;  
+  bottom: 0;  
+  left: 0;  
+  right: 0;  
+  margin: auto;
 }
 
 .custom-menu-item p {
-  height:56px;
-  margin:0px;
+  height: 56px;
+  margin: 0px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
 }
 
 .custom-menu-item:hover {
@@ -166,7 +180,7 @@ h3.custom-navtitle {
   display: flex;
   justify-content: center;
   text-align: center;
-  bottom: 0px;
+  bottom: 10px;
   padding-left: 50px;
 }
 

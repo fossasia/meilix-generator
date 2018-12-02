@@ -5,7 +5,7 @@
     <div class="container">
       <div class="row mt-3">
         <div class="col-md-4 mx-auto">
-          <div class="form-group">
+          <div class="form-group mouse-over-text">
             <label class="heading" for="bookmark">Fields with * after it are required<span>
             <label class="heading" id="label" for="email">Email *</label>
             <div class="input-group margin-bottom-sm">
@@ -13,34 +13,34 @@
               <input autofocus=""  class="form-control" placeholder="Enter email" name="email" data-toggle="tooltip" title="Email for the ISO"
                 required="" type="email" pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+$"
                 required /></div>
-            <p id="scroll-to">We will send the link to the ready ISO file to the e-mail you have provided</p>
+            <p class="hidden-text">We will send the link to the ready ISO file to the e-mail you have provided</p>
             <br>
           </div>
-          <div class="form-group">
+          <div class="form-group mouse-over-text">
             <label class="heading" for="TRAVIS_TAG">Name of your Distribution *</label>
             <div class="input-group margin-bottom-sm">
               <span class="input-group-addon"><i class="fa fa-address-book fa-fw"></i></span>
               <input pattern="[A-Za-z0-9\s]{1,20}" class="form-control" placeholder="Enter name" name="TRAVIS_TAG"
                 required="" type="text" data-toggle="tooltip" title="Only alphanumeric characters allowed"></div>
-            <p id="scroll-to">Name of your custom distribution</p>
+            <p class="hidden-text">Name of your custom distribution</p>
           </div>
           <br>
-          <div class="form-group">
+          <div class="form-group mouse-over-text">
             <label class="heading" for="event_url">Browser Home Page </label>
             <div class="input-group margin-bottom-sm">
               <span class="input-group-addon"><i class="fa fa-window-maximize fa-fw"></i></span>
               <input pattern="https?://.+" class="form-control" placeholder="Enter link" name="event_url" data-toggle="tooltip" title="only url is allowed"
                  type="url"></div>
-            <p id="scroll-to">Default home page of the browser</p>
+            <p class="hidden-text">Default home page of the browser</p>
           </div>
           <br>
-          <div class="form-group">
+          <div class="form-group mouse-over-text">
             <label class="heading" for="search_engine">Default Search Engine</label>
             <div class="input-group margin-bottom-sm">
               <span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
               <input pattern="https?://.+" class="form-control" placeholder="Enter link" name="search_engine" data-toggle="tooltip" title="only url is allowed"
                  type="url"></div>
-            <p id="scroll-to">Default search engine of the browser</p>
+            <p class="hidden-text">Default search engine of the browser</p>
           </div>
           <br>
           <div class="form-group">
@@ -193,9 +193,9 @@
           </div>
 
           <br>
-          <div class="form-group">
+          <div class="form-group mouse-over-text">
             <label class="heading" for="packages">Check the packages which you want to install: <span>
-                <p id="scroll1" class="active">This will install the software which you have checked</p>
+                <p class="hidden-text">This will install the software which you have checked</p>
               </span></label>
             <table id="package" class="table responsive-table-input-matrix">
               <tbody>
@@ -296,7 +296,7 @@
           </div>
 
           <div class="col-md-06">
-            <div class="form-group reducespace2">
+            <div class="form-group reducespace2 mouse-over-text">
               <label class="heading" id="upload">Upload Desktop Wallpaper</label>
               <label id="browse" class="btn btn-primary btn-block mx-auto">
                 <span data-toggle="tooltip" title=" REC size (1920X1080) or (1280X720)">Browse</span>
@@ -304,12 +304,12 @@
                  onchange="$(this).prev('span').text($(this).val()!=''?$(this).val():'Browse')" accept="image/*" />
               </label>
               <span>
-                <p id="scroll2">This will be the default background image of the desktop</p>
+                <p class="hidden-text">This will be the default background image of the desktop</p>
               </span>
               <img id="file-upload">
               <img src="" id="preview">
             </div>
-            <div class="form-group reducespace1">
+            <div class="form-group reducespace1 mouse-over-text">
               <label class="heading" id="upload">Upload Default Logo</label>
               <label id="browse" class="btn btn-primary btn-block mx-auto browse">
                 <span data-toggle="tooltip" title="Only svg files are allowed">Browse</span>
@@ -317,11 +317,11 @@
                  onchange="$(this).prev('span').text($(this).val()!=''?$(this).val():'Browse')" accept=".svg" />
               </label>
               <span>
-                <p id="logo-info">This will be the default logo of your ISO image</p>
+                <p class="hidden-text">This will be the default logo of your ISO image</p>
               </span>
               <img id="file-upload">
             </div>
-            <div class="form-group reducespace1">
+            <div class="form-group reducespace1 mouse-over-text">
                 <label class="heading" id="upload">Upload Desktop files (archive) </label>
                 <label id="browse1" class="btn btn-primary btn-block mx-auto">
                   <span data-toggle="tooltip" title="Size less than 4 Mb">Browse</span>
@@ -329,7 +329,7 @@
                   />
                 </label>
                 <span>
-                  <p id="scroll3">These custom files will be kept in your Desktop</p>
+                  <p class="hidden-text">These custom files will be kept in your Desktop</p>
                 </span>
                 
             </div>

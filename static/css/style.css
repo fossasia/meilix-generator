@@ -389,14 +389,16 @@ border-radius: 50%;
 #long {
   width: 100%;
 }
-#scroll-to.active , #scroll1.active  , #scroll2.active, #scroll3.active, #logo-info.active{
+
+.hidden-text {
   display: inline;
-}
-#scroll-to, #scroll1, #scroll2, #scroll3, #logo-info{
-  display: none;
-
+  visibility: hidden;
 }
 
+.hidden-text.active {
+  display: inline;
+  visibility: visible;
+}
 
 @keyframes a {
   0%, 50% {

@@ -20,49 +20,15 @@
         if (callNow) func.apply(context, args);
       };
     }
-    const messages = document.querySelectorAll('#scroll-to');
-
-    function display(e) {
-      messages.forEach(message => {
-        let hT = message.offsetTop;
-        let hH = $(message).outerHeight();
-        let wH = window.innerHeight;
-        let wS = window.scrollY;
-
-        let isNotScrolledPast = wS < (hH + hT);
-        if (wS > (hT + hH - wH) && isNotScrolledPast) {
-          message.classList.add('active');
-        } else {
-          message.classList.remove('active');
-        }
+    const messages = document.querySelectorAll('.mouse-over-text');
+    messages.forEach(message => {
+      message.addEventListener('mouseenter', function() {
+        $(message).find('.hidden-text').addClass('active');
       });
-    }
-    window.addEventListener('scroll', debounce(display));
-
-    var browse = document.getElementById('browse');
-    browse.addEventListener('mouseenter', function () {
-      $('#scroll2').addClass('active');
+      message.addEventListener('mouseleave', function () {
+        $(message).find('.hidden-text').removeClass('active');
+      });
     });
-    browse.addEventListener('mouseout', function () {
-      $('#scroll2').removeClass('active');
-    });
-
-    var browse1 = document.getElementById('browse1');
-    browse1.addEventListener('mouseenter', function () {
-      $('#scroll3').addClass('active');
-    });
-    browse1.addEventListener('mouseout', function () {
-      $('#scroll3').removeClass('active');
-    });
-
-  $('.browse').on('mouseenter', () => {
-    $('#logo-info').addClass('active');
-  })
-  $('.browse').on('mouseout', () => {
-    $('#logo-info').removeClass('active');
-  })
-  
-
 
     var zip = document.getElementById('zip');
 

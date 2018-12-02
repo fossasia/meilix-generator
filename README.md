@@ -1,8 +1,8 @@
 # Meilix Generator
-
-![Meilix Generator](/static/favicon/apple-icon-114x114.png)
-
-Webapp to generate customized iso(live) images of [Meilix](https://github.com/fossasia/meilix) Linux.
+<p>
+    <img align= "left" src="/static/favicon/apple-icon-114x114.png" width="114">
+   A Webapp to generate customized iso live images of <a href="https://github.com/fossasia/meilix">Meilix Linux</a>. You can use the Meilix Generator (Web app) to make a Linux for your own brand/event, also add apps and features you need pre-installed, it will create an ISO Image of your Linux, which you can use as a live boot or install on PCs. 
+</p><br>
 
 ![GSoC 2017](https://img.shields.io/badge/GSoC-2017-blue.svg) [![Travis branch](https://img.shields.io/travis/fossasia/meilix-generator/master.svg?style=flat-square)](https://travis-ci.org/fossasia/meilix-generator) [![Gemnasium](https://img.shields.io/gemnasium/fossasia/meilix-generator.svg?style=flat-square)](https://gemnasium.com/github.com/fossasia/meilix-generator) [![Heroku](https://heroku-badge.herokuapp.com/?app=meilix-generator)](https://meilix-generator.herokuapp.com/) [![Code Climate](https://codeclimate.com/github/fossasia/meilix-generator/badges/gpa.svg?branch=master)](https://codeclimate.com/github/fossasia/meilix-generator) [![codecov](https://codecov.io/gh/fossasia/meilix-generator/branch/master/graph/badge.svg)](https://codecov.io/gh/fossasia/meilix-generator) [![Codacy branch grade](https://img.shields.io/codacy/grade/2040e9769e0c446dbb400fc5a77d2dc2/master.svg?style=flat-square)](https://www.codacy.com/app/fossasia/meilix-generator) [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/fossasia/meilix?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![Reviewed by Hound](https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg)](https://houndci.com)
 
@@ -57,12 +57,13 @@ Gitter channel [https://gitter.im/fossasia/meilix](https://gitter.im/fossasia/me
     - Dropbox
 
 - Add all the documents and files you need in your linux.
-- System Lock: it allows you to freeze all the systems you are hosting using Meilix. 
+- System Lock: it allows you to freeze all the systems you are hosting using Meilix.
+
 ## Meilix-Generator components
 
-* [fossasia/meilix](https://github.com/fossasia/meilix) hosts the source of Meilix based on Lubuntu.
+* [fossasia/meilix](https://github.com/fossasia/meilix) hosts and builds the source files of Meilix Linux.
 * The bootscreen is build as a deb package in [fossasia/meilix-artwork](https://github.com/fossasia/meilix-artwork).
-* The webapp is used to trigger a Meilix build based on the user configuration. Builds are run on Travis and the user is mailed a link download the custom build. Builds are released to [Github releases](https://github.com/fossasia/meilix/releases).
+* This webapp is used to trigger a Meilix build based on the user configuration. Builds are run on Travis and the user is mailed a link download the custom build. Builds are released to [Github releases](https://github.com/fossasia/meilix/releases).
 * Meilix Generator follows the standard front end of other FOSSASIA projects like [Open Event Webapp](https://github.com/fossasia/open-event-webapp)
 
 
@@ -129,7 +130,7 @@ Before making a pull request, please file an issue. So other developers will hav
 
 We have the following branches
 * **master**
-    All development goes on in the master branch. If you're making a contribution, you are supposed to make a pull request to master. PRs to the branch must pass a build check and a unit-test check on Travis.
+    All development goes on in the master branch. If you're making a contribution, you are supposed to make a pull request to master. PRs to the branch must pass a build check and a unit-test check on Travis. They are usually reviewed by at least two team members.
 
 ## Best practices
 
@@ -137,7 +138,7 @@ We have the following branches
 * Do read the [Open Source Developer Guide and Best Practices at FOSSASIA](https://blog.fossasia.org/open-source-developer-guide-and-best-practices-at-fossasia).
 
 **Write-up containing project buildup**
-* These documents will help you to know more about the backbone of the project: [Flask](https://docs.google.com/document/d/1TWsz0aP0vLwXwcTX1VC58lEYy5dM6xvxnAABEtzyUZY/edit?usp=sharing) and [Heroku Travis Integration](https://docs.google.com/document/d/19xBAbjH04e_KlWwzGiDCDVAs4bLv-d-lcjKyr6bTRWE/edit?usp=sharing) and [Token Generation](https://docs.google.com/document/d/1agoZ3pSKjUfwSAJ3Yu0m-P08M4ERPIjiwSOSU3bubG0/edit?usp=sharing)
+* These documents will help you to know more about the flexible framework of the web app: [Flask](https://docs.google.com/document/d/1TWsz0aP0vLwXwcTX1VC58lEYy5dM6xvxnAABEtzyUZY/edit?usp=sharing) and [Heroku Travis Integration](https://docs.google.com/document/d/19xBAbjH04e_KlWwzGiDCDVAs4bLv-d-lcjKyr6bTRWE/edit?usp=sharing) and [Token Generation](https://docs.google.com/document/d/1agoZ3pSKjUfwSAJ3Yu0m-P08M4ERPIjiwSOSU3bubG0/edit?usp=sharing)
 
 
 ## License

@@ -97,7 +97,8 @@ h3.custom-navtitle {
 
 .custom-menu {
   height: auto;
-  width: 327px;
+  display: flex;
+  flex-direction: column;
   position: absolute;
   border: 1px solid #bfbfbf;
   border-top: none;
@@ -105,7 +106,7 @@ h3.custom-navtitle {
   top: 0px;
   box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.176);
   background-color: white;
-  padding: 0px 28px 28px 28px;
+  
 }
 
 .arrow-up {

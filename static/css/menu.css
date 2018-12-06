@@ -40,7 +40,12 @@ p {
 
 #about > a {
   text-decoration: none;
-  color: #737373;
+  color: #a59d9d;
+  transition: 2s;
+}
+
+#about > a:hover{
+  background-color: black;
 }
 
 #seperator {

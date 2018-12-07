@@ -1,3 +1,8 @@
-label {
-	display: block;
+.sp:after {
+  content: '\A';
+  white-space: pre;
+}
+.sq:before {
+  content: '\A';
+  white-space: pre;
 }

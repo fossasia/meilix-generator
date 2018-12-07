@@ -96,9 +96,10 @@ h3.custom-navtitle {
 }
 
 .custom-menu {
-  height: auto;
-  width: 327px;
+  height: 500px;
+  width: 320px;
   position: absolute;
+  overflow-y: scroll;
   border: 1px solid #bfbfbf;
   border-top: none;
   right: 40px;
@@ -178,10 +179,10 @@ h3.custom-navtitle {
 .custom-menu-row #about {
   position: absolute;
   display: flex;
-  justify-content: center;
   text-align: center;
-  bottom: 10px;
+  bottom: -230px;
   padding-left: 50px;
+  padding: 0 50px;
 }
 
 .custom-logo {

@@ -29,7 +29,7 @@
             <label class="heading" for="event_url">Browser Home Page </label>
             <div class="input-group margin-bottom-sm">
               <span class="input-group-addon"><i class="fa fa-window-maximize fa-fw"></i></span>
-              <input pattern="https?://.+" class="form-control" placeholder="Enter link" name="event_url" data-toggle="tooltip" title="only url is allowed"
+              <input pattern="^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$" class="form-control" placeholder="Enter link" name="event_url" data-toggle="tooltip" title="only url is allowed"
                  type="url"></div>
             <p class="hidden-text">Default home page of the browser</p>
           </div>

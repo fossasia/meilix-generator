@@ -1,3 +1,11 @@
-{% include 'includes/_navbar.html' %}
-{% block body %}{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include 'includes/_head.html' %}
+</head>
+<body>
+{% include 'includes/_header.html' %}
+  {% block body %}{% endblock %}
 {% include 'includes/_footer.html' %}
+</body>
+</html>

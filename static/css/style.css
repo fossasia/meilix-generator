@@ -5,7 +5,50 @@
   padding: 0;
   box-sizing: border-box;
   font-family: -apple-system, Roboto, 'Helvetica Neue', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-smoothing: antialiased;
+}
+
+/* Styles */
+
+.container {
+  max-width: 1200px;
+  padding: 0 4.5%;
+  margin: 0 auto;
+}
+
+img {
+  max-width: 100%;
+}
+
+
+/* Layout */
+
+header {
+  padding: 25px 0;
+  box-shadow: 0 1px 1px rgba(66, 89, 237, 0.11);
+}
+
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1600px;
+}
+
+header .logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #454545;
+  font-size: 18px;
+}
+
+header .logo img {
+  height: 25px;
+  margin-right: 12px;
+}
+
+header .drop-btn {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
 }

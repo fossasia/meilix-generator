@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: -apple-system, Roboto, 'Helvetica Neue', sans-serif;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
 
 /* Styles */
@@ -19,6 +19,188 @@ img {
   max-width: 100%;
 }
 
+h4 {
+  color: #404d67;
+  font-weight: 500;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+p {
+  color: #6f7f9f;
+  line-height: 1.45;
+}
+
+label {
+  display: block;
+  font-weight: 500;
+  color: #6f7f9f;
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+input[type="text"],
+input[type="url"],
+input[type="email"] {
+  padding: 12px;
+  font-size: 16px;
+  background-color: #f6f9ff;
+  border: 1.5px solid #dee7f9;
+  border-radius: 2px;
+  outline: none;
+  transition: all .3s ease-in-out;
+}
+
+input[type="text"]:focus,
+input[type="url"]:focus,
+input[type="email"]:focus {
+  background: white;
+  border-color: #4259ED;
+}
+
+/* Toggle */
+
+.input.toggle input[type=checkbox]{
+	height: 0;
+	width: 0;
+	visibility: hidden;
+}
+
+.input.toggle label {
+	cursor: pointer;
+	text-indent: -9999px;
+  width: 60px;
+  height: 34px;
+	background: #A2AECD;
+	display: inline-block;
+	border-radius: 100px;
+  position: relative;
+  margin: 0 8px;
+}
+
+.input.toggle label:after {
+	content: '';
+	position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 30px;
+  height: 30px;
+	background: #fff;
+	border-radius: 90px;
+	transition: 0.3s;
+}
+
+.input.toggle input:checked + label {
+	background: #4259ED;
+}
+
+.input.toggle input:checked + label:after {
+	left: calc(100% - 2px);
+	transform: translateX(-100%);
+}
+
+
+.input.toggle span {
+  line-height: 34px;
+  font-weight: 500;
+  color: #6f7f9f;
+}
+
+/* Checkbox */
+.checkbox {
+  z-index: 0;
+  position: relative;
+  display: inline-block;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Input */
+.checkbox > input {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  z-index: -1;
+  position: absolute;
+  left: -10px;
+  top: -8px;
+  display: block;
+  margin: 0;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  box-shadow: none;
+  outline: none;
+  opacity: 0;
+  transform: scale(1);
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.2s;
+}
+
+.checkbox > span {
+  display: inline-block;
+  width: 100%;
+  cursor: pointer;
+  font-weight: 500;
+  color: #6f7f9f;
+}
+
+/* Box */
+.checkbox > span::before {
+  content: "";
+  display: inline-block;
+  box-sizing: border-box;
+  margin: 3px 11px 3px 1px;
+  border: solid 2px; /* Safari */
+  border-color: #6f7f9f;
+  border-radius: 2px;
+  width: 18px;
+  height: 18px;
+  vertical-align: top;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+/* Checkmark */
+.checkbox > span::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 3px;
+  left: 1px;
+  width: 10px;
+  height: 5px;
+  border: solid 2px transparent;
+  border-right: none;
+  border-top: none;
+  transform: translate(3px, 4px) rotate(-45deg);
+}
+
+
+.checkbox > input:checked + span::before,
+.checkbox > input:indeterminate + span::before {
+  border-color: #4259ED;
+  background-color: #4259ED;
+}
+
+.checkbox > input:checked + span::after,
+.checkbox > input:indeterminate + span::after {
+  border-color: white;
+}
+
+.checkbox > input:active {
+  opacity: 1;
+  transform: scale(0);
+  transition: transform 0s, opacity 0s;
+}
+
+.checkbox > input:active + span::before {
+  border-color: 4259ED;
+}
+
+.checkbox > input:checked:active + span::before {
+  border-color: transparent;
+  background-color: rgba(0, 0, 0, 0.6);
+}
 
 /* Layout */
 
@@ -51,4 +233,53 @@ header .drop-btn {
   cursor: pointer;
   width: 20px;
   height: 20px;
+}
+
+main {
+  margin-top: 45px;
+}
+
+.input {
+  margin-bottom: 20px;
+}
+
+.input__less {
+  margin-bottom: 5px;
+}
+
+
+.main-form .row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 45px;
+}
+
+.main-form .row.single {
+  align-items: center;
+}
+
+.main-form .row .left {
+  max-width: 400px;
+}
+
+.main-form .row .right {
+  width: 100%;
+  max-width: 420px;
+}
+
+.main-form input[type="text"],
+.main-form input[type="url"],
+.main-form input[type="email"] {
+  width: 100%;
+}
+
+.main-form .table .line {
+  display: flex;
+  line-height: 34px;
+}
+
+.main-form .table .line span {
+  width: 300px;
+  font-weight: 500;
+  color: #6f7f9f;
 }

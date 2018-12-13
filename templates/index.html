@@ -1,3 +1,198 @@
 {% extends 'layout.html' %}
 {% block body %}
+
+<main>
+  <div class="container">
+    <form action="" class="main-form">
+      <!-- General Information -->
+      <div class="row">
+        <div class="left">
+          <h4>General Information</h4>
+          <p>Your email to send the ISO file and you custom distribution name.</p>
+        </div>
+        <div class="right">
+          <div class="input">
+            <label>Email address *</label>
+            <input type="email">
+          </div>
+          <div class="input">
+            <label>Name of your Distribution *</label>
+            <input type="text">
+          </div>
+        </div>
+      </div>
+      <!-- Browser Configuration -->
+      <div class="row">
+        <div class="left">
+          <h4>Browser Configuration</h4>
+          <p>Your distro's browser default homepage and search engine.</p>
+        </div>
+        <div class="right">
+          <div class="input">
+            <label>Browser HomePage</label>
+            <input type="url">
+          </div>
+          <div class="input">
+            <label>Browser Search Engine</label>
+            <input type="url">
+          </div>
+        </div>
+      </div>
+      <!-- 64bit Support -->
+      <div class="row single">
+        <div class="left">
+          <h4>64-bit Support</h4>
+          <p>Does your distribution needs 64bit support. <br> Default is 32bit.</p>
+        </div>
+        <div class="right">
+          <div class="input toggle">
+            <span>No</span>
+            <span>
+              <input type="checkbox" id="switch" class="toggle">
+              <label for="switch">Toggle</label>
+            </span>
+            <span>Yes</span>
+          </div>
+        </div>
+      </div>
+      <!-- Packages -->
+      <div class="row">
+        <div class="left">
+          <h4>Packages</h4>
+          <p>Enable or disable system features in your system.</p>
+        </div>
+        <div class="right">
+          <div class="table">
+            <div class="line">
+              <span>Notification</span>
+              <div class="input toggle">
+                <input type="checkbox" id="notification" class="toggle">
+                <label for="notification">Toggle</label>
+              </div>
+            </div>
+            <div class="line">
+              <span>Screensaver</span>
+              <div class="input toggle">
+                <input type="checkbox" id="screensaver" class="toggle">
+                <label for="screensaver">Toggle</label>
+              </div>
+            </div>
+            <div class="line">
+              <span>Sleep Modus</span>
+              <div class="input toggle">
+                <input type="checkbox" id="sleep" class="toggle">
+                <label for="sleep">Toggle</label>
+              </div>
+            </div>
+            <div class="line">
+              <span>System Sounds</span>
+              <div class="input toggle">
+                <input type="checkbox" id="sound" class="toggle">
+                <label for="sound">Toggle</label>
+              </div>
+            </div>
+            <div class="line">
+              <span>Bookmarks</span>
+              <div class="input toggle">
+                <input type="checkbox" id="bookmarks" class="toggle">
+                <label for="bookmarks">Toggle</label>
+              </div>
+            </div>
+            <div class="line">
+              <span>Screen Dimming</span>
+              <div class="input toggle">
+                <input type="checkbox" id="screen_dimming" class="toggle">
+                <label for="screen_dimming">Toggle</label>
+              </div>
+            </div>
+            <div class="line">
+              <span>Power Management Saving Feature</span>
+              <div class="input toggle">
+                <input type="checkbox" id="power_management" class="toggle">
+                <label for="power_management">Toggle</label>
+              </div>
+            </div>
+            <div class="line">
+              <span>Taskbar Autohide</span>
+              <div class="input toggle">
+                <input type="checkbox" id="taskbar_autohide" class="toggle">
+                <label for="taskbar_autohide">Toggle</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 3rd Party Softwares -->
+      <div class="row">
+        <div class="left">
+          <h4>3rd Party Software</h4>
+          <p>Select 3rd party softwares to be installed on your system.</p>
+        </div>
+        <div class="right">
+          <div class="input__less">
+            <label class="checkbox">
+              <input type="checkbox">
+              <span>Chromium</span>
+            </label>
+          </div>
+          <div class="input__less">
+            <label class="checkbox">
+              <input type="checkbox">
+              <span>Firefox</span>
+            </label>
+          </div>
+          <div class="input__less">
+            <label class="checkbox">
+              <input type="checkbox">
+              <span>Hangout</span>
+            </label>
+          </div>
+          <div class="input__less">
+            <label class="checkbox">
+              <input type="checkbox">
+              <span>VLC</span>
+            </label>
+          </div>
+          <div class="input__less">
+            <label class="checkbox">
+              <input type="checkbox">
+              <span>GIMP</span>
+            </label>
+          </div>
+          <div class="input__less">
+            <label class="checkbox">
+              <input type="checkbox">
+              <span>Inkscape</span>
+            </label>
+          </div>
+          <div class="input__less">
+            <label class="checkbox">
+              <input type="checkbox">
+              <span>LibreOffice</span>
+            </label>
+          </div>
+          <div class="input__less">
+            <label class="checkbox">
+              <input type="checkbox">
+              <span>Git</span>
+            </label>
+          </div>
+          <div class="input__less">
+            <label class="checkbox">
+              <input type="checkbox">
+              <span>NextCloud</span>
+            </label>
+          </div>
+          <div class="input__less">
+            <label class="checkbox">
+              <input type="checkbox">
+              <span>Dropbox</span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</main>
+
 {% endblock %}

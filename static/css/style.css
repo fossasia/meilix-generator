@@ -236,7 +236,7 @@ header .drop-btn {
 }
 
 main {
-  margin-top: 45px;
+  margin: 45px 0;
 }
 
 .input {
@@ -282,4 +282,83 @@ main {
   width: 300px;
   font-weight: 500;
   color: #6f7f9f;
+}
+
+.custom__file__input {
+  display: flex;
+}
+
+.custom__file__input button {
+  cursor: pointer;
+  padding: 12px;
+  min-width: 100px;
+  font-size: 15px;
+  background-color: #f6f9ff;
+  border: 1.5px solid #dee7f9;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  outline: none;
+  color: #6f7f9f;
+  user-select: none;
+}
+
+.custom__file__input span.filename {
+  padding: 12px;
+  width: 100%;
+  display: inline-block;
+  font-size: 15px;
+  background-color: #fff;
+  border: 1.5px solid #dee7f9;
+  border-right: none;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+
+.submit_button {
+  text-align: center;
+}
+
+button {
+  font-size: 16px;
+  width: 185px;
+  cursor: pointer;
+}
+
+.btn-dark {
+  background: #4259ED;
+  border: none;
+  color: white;
+  border-radius: 50px;
+  padding: 20px 20px;
+  outline: none;
+  transition: all .3s ease-in-out;
+}
+
+.btn-dark:hover, .btn-dark:active {
+  background: #3046d2;
+}
+
+
+footer {
+  background: #F3F8FF;
+  text-align: center;
+  padding: 15px 4%;
+}
+
+@media screen and (max-width: 768px) {
+  .row {
+    flex-direction: column;
+  }
+
+  .main-form .row.single {
+    align-items: flex-start;
+  }
+
+  .row .right {
+    margin-top: 15px;
+  }
+
+  .container {
+    max-width: 600px;
+  }
 }

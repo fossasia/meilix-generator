@@ -3,7 +3,7 @@
 
 <main>
   <div class="container">
-    <form action="" class="main-form">
+    <form method="POST" enctype="multipart/form-data" class="main-form">
       <!-- General Information -->
       <div class="row">
         <div class="left">
@@ -13,11 +13,11 @@
         <div class="right">
           <div class="input">
             <label>Email address *</label>
-            <input type="email">
+            <input type="email" name="email" pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+$" name="TRAVIS_TAG" required>
           </div>
           <div class="input">
             <label>Name of your Distribution *</label>
-            <input type="text">
+            <input type="text" pattern="[A-Za-z0-9\s]{1,20}" required>
           </div>
         </div>
       </div>
@@ -30,11 +30,11 @@
         <div class="right">
           <div class="input">
             <label>Browser HomePage</label>
-            <input type="url">
+            <input type="url" pattern="^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$" name="event_url">
           </div>
           <div class="input">
             <label>Browser Search Engine</label>
-            <input type="url">
+            <input type="url" pattern="^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$" name="search_engine">
           </div>
         </div>
       </div>
@@ -131,61 +131,61 @@
         <div class="right">
           <div class="input__less">
             <label class="checkbox">
-              <input type="checkbox">
+              <input type="checkbox" value="chromium" name="GENERATOR_package_chromium">
               <span>Chromium</span>
             </label>
           </div>
           <div class="input__less">
             <label class="checkbox">
-              <input type="checkbox">
+              <input type="checkbox" value="firefox" name="GENERATOR_package_firefox">
               <span>Firefox</span>
             </label>
           </div>
           <div class="input__less">
             <label class="checkbox">
-              <input type="checkbox">
+              <input type="checkbox" value="hangout" name="GENERATOR_package_hangout">
               <span>Hangout</span>
             </label>
           </div>
           <div class="input__less">
             <label class="checkbox">
-              <input type="checkbox">
+              <input type="checkbox" value="vlc" name="GENERATOR_package_vlc">
               <span>VLC</span>
             </label>
           </div>
           <div class="input__less">
             <label class="checkbox">
-              <input type="checkbox">
+              <input type="checkbox" value="gimp" name="GENERATOR_package_gimp">
               <span>GIMP</span>
             </label>
           </div>
           <div class="input__less">
             <label class="checkbox">
-              <input type="checkbox">
+              <input type="checkbox" value="inkspace" name="GENERATOR_package_inkspace">
               <span>Inkscape</span>
             </label>
           </div>
           <div class="input__less">
             <label class="checkbox">
-              <input type="checkbox">
+              <input type="checkbox" value="office" name="GENERATOR_package_office">
               <span>LibreOffice</span>
             </label>
           </div>
           <div class="input__less">
             <label class="checkbox">
-              <input type="checkbox">
+              <input type="checkbox" value="git" name="GENERATOR_package_git">
               <span>Git</span>
             </label>
           </div>
           <div class="input__less">
             <label class="checkbox">
-              <input type="checkbox">
+              <input type="checkbox" value="nextcloud" name="GENERATOR_package_nextcloud">
               <span>NextCloud</span>
             </label>
           </div>
           <div class="input__less">
             <label class="checkbox">
-              <input type="checkbox">
+              <input type="checkbox" value="dropbox" name="GENERATOR_package_dropbox">
               <span>Dropbox</span>
             </label>
           </div>
@@ -199,7 +199,7 @@
         </div>
         <div class="right">
           <div class="input custom__file__input">
-            <input type="file" hidden="hidden">
+            <input type="file" hidden="hidden" name="desktop-logo" accept=".svg">
             <span class="filename"></span>
             <button type="button">Browse</button>
           </div>
@@ -213,7 +213,7 @@
         </div>
         <div class="right">
           <div class="input custom__file__input">
-            <input type="file" hidden="hidden">
+            <input type="file" hidden="hidden" name="desktop-wallpaper" accept="image/*">
             <span class="filename"></span>
             <button type="button">Browse</button>
           </div>
@@ -227,7 +227,7 @@
         </div>
         <div class="right">
           <div class="input custom__file__input">
-            <input type="file" hidden="hidden">
+            <input type="file" hidden="hidden" name="desktop-files" accept=".zip, .gz">
             <span class="filename"></span>
             <button type="button">Browse</button>
           </div>

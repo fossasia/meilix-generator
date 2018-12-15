@@ -16,6 +16,18 @@
   margin: 0 auto;
 }
 
+.notfound {
+  text-align: center;
+  padding: 40px 0;
+  min-height: calc(100vh - 130px);
+  line-height: 1.5;
+}
+
+.notfound h1{
+  font-weight: 500;
+  color: #404d67;
+}
+
 img {
   max-width: 100%;
 }

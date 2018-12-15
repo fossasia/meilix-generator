@@ -46,7 +46,6 @@ def urlify(s):
 @app.route("/", methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
-        print(request.form)
         email = request.form['email']
         TRAVIS_TAG = request.form['TRAVIS_TAG']
         event_url = request.form['event_url']

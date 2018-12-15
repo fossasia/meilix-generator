@@ -207,7 +207,7 @@ input[type="email"]:focus {
 }
 
 .checkbox > input:active + span::before {
-  border-color: 4259ED;
+  border-color: #4259ED;
 }
 
 .checkbox > input:checked:active + span::before {
@@ -243,9 +243,96 @@ header .logo img {
 }
 
 header .drop-btn {
-  cursor: pointer;
   width: 20px;
   height: 20px;
+  position: relative;
+}
+
+header .drop-btn .img_btn {
+  cursor: pointer;
+}
+
+header .drop-btn .dropdown {
+  display: none;
+  position: absolute;
+  top: 32px;
+  right: -54px;
+  left: -275px;
+  background: white;
+  box-shadow: 0 0 1px 1px rgba(66, 89, 237, 0.11);
+  z-index: 999999;
+}
+
+header .drop-btn .dropdown.visible {
+  display: block;
+}
+
+header .drop-btn .dropdown:after {
+  content: "";
+  display: block;
+  height: 10px;
+  width: 10px;
+  border-style: solid;
+  border-color: rgba(66, 89, 237, 0.11);
+  border-width: 0px 1px 1px 0px;
+  transform: rotate(-135deg);
+  position: absolute;
+  top: -7px;
+  right: 58px;
+}
+
+header .drop-btn .dropdown .more {
+  text-align: center;
+  padding: 10px 0;
+  background: #fbfdff;
+  color: #6f7f9f;
+}
+
+header .drop-btn .dropdown .more a {
+  text-decoration: none;
+}
+
+header .drop-btn .dropdown ul {
+  list-style-type: none;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+header .drop-btn .dropdown li {
+  width: 33.3%;
+  border-radius: 2px;
+}
+
+header .drop-btn .dropdown li:hover {
+  box-shadow: 0 0 0 1px rgba(66, 89, 237, 0.11);
+}
+
+header .drop-btn .dropdown li a {
+  padding: 10px;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  color: #6f7f9f;
+  width: 100%;
+}
+
+header .drop-btn .dropdown li a .img {
+  width: 95%;
+  margin: 0 auto;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header .drop-btn .dropdown li a span {
+  display: block;
+  margin-top: 5px;
+}
+
+header .drop-btn .dropdown li a img {
+  max-height: 100%;
 }
 
 main {

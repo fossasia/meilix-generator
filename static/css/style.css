@@ -227,6 +227,7 @@ header .container {
   align-items: center;
   justify-content: space-between;
   max-width: 1600px;
+  position: relative;
 }
 
 header .logo {
@@ -245,7 +246,6 @@ header .logo img {
 header .drop-btn {
   width: 20px;
   height: 20px;
-  position: relative;
 }
 
 header .drop-btn .img_btn {
@@ -256,8 +256,9 @@ header .drop-btn .dropdown {
   display: none;
   position: absolute;
   top: 32px;
-  right: -54px;
-  left: -275px;
+  right: calc(4% - 10px);
+  max-width: 350px;
+  width: 100%;
   background: white;
   box-shadow: 0 0 1px 1px rgba(66, 89, 237, 0.11);
   z-index: 999999;
@@ -265,20 +266,6 @@ header .drop-btn .dropdown {
 
 header .drop-btn .dropdown.visible {
   display: block;
-}
-
-header .drop-btn .dropdown:after {
-  content: "";
-  display: block;
-  height: 10px;
-  width: 10px;
-  border-style: solid;
-  border-color: rgba(66, 89, 237, 0.11);
-  border-width: 0px 1px 1px 0px;
-  transform: rotate(-135deg);
-  position: absolute;
-  top: -7px;
-  right: 58px;
 }
 
 header .drop-btn .dropdown .more {

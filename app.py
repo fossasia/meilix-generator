@@ -57,14 +57,17 @@ def index():
         if wallpaper and allowed_file(wallpaper.filename):
             filename = secure_filename(wallpaper.filename)
             wallpaper.save(os.path.join(app.config['UPLOAD_FOLDER'] + app.config['WALLPAPER_FOLDER'], filename))
+            os.rename(UPLOAD_FOLDER + WALLPAPER_FOLDER + filename, UPLOAD_FOLDER + WALLPAPER_FOLDER + 'wallpaper')
         logo = request.files["desktop-logo"]
         if logo and allowed_file(logo.filename):
             filename = secure_filename(logo.filename)
             logo.save(os.path.join(app.config['UPLOAD_FOLDER'] + app.config['LOGO_FOLDER'], filename))
+            os.rename(UPLOAD_FOLDER + LOGO_FOLDER + filename, UPLOAD_FOLDER + LOGO_FOLDER + 'logo')
         zipFiles = request.files["desktop-files"]
         if zipFiles and allowed_file(zipFiles.filename):
             filename = secure_filename(zipFiles.filename)
             zipFiles.save(os.path.join(app.config['UPLOAD_FOLDER'] + app.config['ZIP_FOLDER'], filename))
+            os.rename(UPLOAD_FOLDER + ZIP_FOLDER + filename, UPLOAD_FOLDER + ZIP_FOLDER + 'zip-file')
         if email != '' and TRAVIS_TAG != '':
             os.environ["email"] = email
             TRAVIS_TAG = urlify(TRAVIS_TAG)  # this will fix url issue
@@ -88,10 +91,17 @@ def output():
 
 # Function to call meilix script on clicking the build button
 
-@app.route('/uploads/<filename>')
-def uploaded_file(filename):
-    return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
+@app.route('/uploads/wallpapers/<filename>')
+def uploaded_wallpaper(filename):
+    return send_from_directory(app.config['UPLOAD_FOLDER'] + app.config['WALLPAPER_FOLDER'], filename)
 
+@app.route('/uploads/logos/<filename>')
+def uploaded_logo(filename):
+    return send_from_directory(app.config['UPLOAD_FOLDER'] + app.config['LOGO_FOLDER'], filename)
+
+@app.route('/uploads/zip-archives/<filename>')
+def uploaded_zip(filename):
+    return send_from_directory(app.config['UPLOAD_FOLDER'] + app.config['ZIP_FOLDER'], filename)
 
 # Return a custom 404 error.
 @app.errorhandler(404)

@@ -15,23 +15,6 @@ This file specifies on which repo to trigger build on and which branch to use. I
 
 > **Note:** For your own development be sure to change these tokens.
 
-
-## [script.sh](/script.sh)
-
-Change release link from
-```
-echo "https://github.com/fossasia/meilix/releases/download/${TRAVIS_TAG}/meilix-xenial-`date +%Y%m%d`-i386.iso"
-```
-to
-```
-echo "https://github.com/<username>/meilix/releases/download/${TRAVIS_TAG}/meilix-xenial-`date +%Y%m%d`-i386.iso"
-```
-
-**<username** is your user/organization name where you have cloned meilix to.
-
-Your iso will be released to your fork of meilix.
-
-
 ## Generate travis keys
 
 To trigger builds on travis you need Travis API key. In `script.sh` we use the API key to trigger the build.

@@ -119,7 +119,7 @@ The meilix-generator can be easily deployed onto a variety of platforms. Platfor
 
 This is an Open Source project and we would be happy to see contributors who report bugs and file feature requests, submitting pull requests as well. Please report issues here https://github.com/fossasia/meilix-generator/issues
 
-**Note:** Make sure to fork both `meilix` and `meilix-generator` and to use your own token. Refer to [my_token.md](my_token.md) for details.
+**Note:** Make sure to fork both `meilix` and `meilix-generator` and to use your own token. Refer to [my_token.md](docs/installation/my_token.md) for details.
 
 
 ## Issues and Branch policy

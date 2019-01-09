@@ -42,6 +42,23 @@ def urlify(s):
     s = re.sub(r"\s+", '-', s)
     return s
 
+def upload_wallpaper(wallpaper):
+    if wallpaper and allowed_file(wallpaper.filename):
+            filename = secure_filename(wallpaper.filename)
+            wallpaper.save(os.path.join(app.config['UPLOAD_FOLDER'] + app.config['WALLPAPER_FOLDER'], filename))
+            os.rename(UPLOAD_FOLDER + WALLPAPER_FOLDER + filename, UPLOAD_FOLDER + WALLPAPER_FOLDER + 'wallpaper')
+
+def upload_logo(logo):
+    if logo and allowed_file(logo.filename):
+            filename = secure_filename(logo.filename)
+            logo.save(os.path.join(app.config['UPLOAD_FOLDER'] + app.config['LOGO_FOLDER'], filename))
+            os.rename(UPLOAD_FOLDER + LOGO_FOLDER + filename, UPLOAD_FOLDER + LOGO_FOLDER + 'logo')
+
+def upload_zip(zipFiles):
+    if zipFiles and allowed_file(zipFiles.filename):
+            filename = secure_filename(zipFiles.filename)
+            zipFiles.save(os.path.join(app.config['UPLOAD_FOLDER'] + app.config['ZIP_FOLDER'], filename))
+            os.rename(UPLOAD_FOLDER + ZIP_FOLDER + filename, UPLOAD_FOLDER + ZIP_FOLDER + 'zip-file')
 
 @app.route("/", methods=['GET', 'POST'])
 def index():
@@ -54,20 +71,11 @@ def index():
           if name.startswith("GENERATOR_"):
             variables[name] = value
         wallpaper = request.files["desktop-wallpaper"]
-        if wallpaper and allowed_file(wallpaper.filename):
-            filename = secure_filename(wallpaper.filename)
-            wallpaper.save(os.path.join(app.config['UPLOAD_FOLDER'] + app.config['WALLPAPER_FOLDER'], filename))
-            os.rename(UPLOAD_FOLDER + WALLPAPER_FOLDER + filename, UPLOAD_FOLDER + WALLPAPER_FOLDER + 'wallpaper')
+        upload_wallpaper(wallpaper)
         logo = request.files["desktop-logo"]
-        if logo and allowed_file(logo.filename):
-            filename = secure_filename(logo.filename)
-            logo.save(os.path.join(app.config['UPLOAD_FOLDER'] + app.config['LOGO_FOLDER'], filename))
-            os.rename(UPLOAD_FOLDER + LOGO_FOLDER + filename, UPLOAD_FOLDER + LOGO_FOLDER + 'logo')
+        upload_logo(logo)
         zipFiles = request.files["desktop-files"]
-        if zipFiles and allowed_file(zipFiles.filename):
-            filename = secure_filename(zipFiles.filename)
-            zipFiles.save(os.path.join(app.config['UPLOAD_FOLDER'] + app.config['ZIP_FOLDER'], filename))
-            os.rename(UPLOAD_FOLDER + ZIP_FOLDER + filename, UPLOAD_FOLDER + ZIP_FOLDER + 'zip-file')
+        upload_zip(zipFiles)
         if email != '' and TRAVIS_TAG != '':
             os.environ["email"] = email
             TRAVIS_TAG = urlify(TRAVIS_TAG)  # this will fix url issue

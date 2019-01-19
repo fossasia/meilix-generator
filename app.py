@@ -6,9 +6,7 @@ from flask import Flask, render_template, request, redirect, url_for, send_from_
 from werkzeug import secure_filename
 
 # These are the extension that we are accepting to be uploaded
-ALLOWED_EXTENSIONS_WALLPAPER = set(['png', 'jpg', 'jpeg'])
-ALLOWED_EXTENSIONS_LOGO = set(['svg'])
-ALLOWED_EXTENSIONS_DESKTOP = set(['gz','zip'])
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'svg', 'gz','zip'])
 
 #The name of the upload directories
 UPLOAD_FOLDER = 'uploads/'
@@ -32,7 +30,7 @@ app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 def allowed_file(filename):
     # Check for allowed file extension
     return '.' in filename and \
-           filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS_WALLPAPER or ALLOWED_EXTENSIONS_LOGO or ALLOWED_EXTENSIONS_DESKTOP
+           filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
 
 def urlify(s):
@@ -43,10 +41,13 @@ def urlify(s):
     return s
 
 def upload_wallpaper(wallpaper):
-    if wallpaper and allowed_file(wallpaper.filename):
+    if wallpaper:
+        if allowed_file(wallpaper.filename):
             filename = secure_filename(wallpaper.filename)
             wallpaper.save(os.path.join(app.config['UPLOAD_FOLDER'] + app.config['WALLPAPER_FOLDER'], filename))
             os.rename(UPLOAD_FOLDER + WALLPAPER_FOLDER + filename, UPLOAD_FOLDER + WALLPAPER_FOLDER + 'wallpaper')
+        else: 
+                 
 
 def upload_logo(logo):
     if logo and allowed_file(logo.filename):

@@ -1,47 +1,6 @@
 {% extends 'layout.html' %}
 {% block body %}
-<div class="alert alert-danger" >
-  <strong>Success!</strong> Email will be sent with the downloadable ISO link once it is ready
+<div class="container notfound">
+  <p><strong>Success!</strong> Email will be sent with the downloadable ISO link once it is ready</p>
 </div>
-<main>
-  <div class="msg">1</div>
-  <section class="envelope-top"></section>
-  <section class="envelope-left"></section>
-  <section class="envelope-right"></section>
-</main>
-<div class="container" id="mail-box">
-
-
-  <div class="alert alert-info" >
-    <strong>Check your Email Now</strong>
-    <div class="container-fluid">
-      <div class="row">
-
-        <a class="col-sm-3" target="_blank" href="https://www.gmail.com">
-          <img id='mail' width="130" src="{{ url_for('static',filename='images/gmail.png') }}">
-
-        </a>
-        <a class="col-sm-3" target="_blank" href="https://outlook.com">
-          <img id='mail' width="130" src="{{ url_for('static',filename='images/outlook.png') }}">
-
-        </a>
-        <a class="col-sm-3" target="_blank" href="https://overview.mail.yahoo.com/">
-          <img id='mail' width="130" src="{{ url_for('static',filename='images/yahoo.jpeg') }}">
-        </a>
-        <a class="col-sm-3" target="_blank" href="https://mail.protonmail.com/">
-          <img id='mail' width="130"  src="{{ url_for('static',filename='images/proton.jpeg') }}">
-        </a>
-
-
-
-
-      </div>
-
-    </div>
-
-  </div>
-
-
-</div>
-
 {% endblock %}

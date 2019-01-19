@@ -1,348 +1,243 @@
 {% extends 'layout.html' %}
-
 {% block body %}
 
-    <div class="container">
-      <div class="row mt-3">
-        <div class="col-md-4 mx-auto">
-          <div class="form-group mouse-over-text">
-            <label class="heading" for="bookmark">Fields with * marked after them are required</label>
-            <div class="s">
-            <label class="heading" id="label" for="email">Email *</label>
-            </div>
-            <div class="input-group margin-bottom-sm">
-              <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
-              <input autofocus=""  class="form-control" placeholder="Enter email" name="email" data-toggle="tooltip" title="Email for the ISO"
-                required="" type="email" pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+$"
-                required /></div>
-            <p class="hidden-text">We will send the link to the ready ISO file to the e-mail you have provided</p>
-            <br>
+<main>
+  <div class="container">
+    <form method="POST" enctype="multipart/form-data" class="main-form">
+      <!-- General Information -->
+      <div class="row">
+        <div class="left">
+          <h4>General Information</h4>
+          <p>Your email to send the ISO file and you custom distribution name.</p>
+        </div>
+        <div class="right">
+          <div class="input">
+            <label>Email address *</label>
+            <input type="email" name="email" pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+$" required>
           </div>
-          <div class="form-group mouse-over-text">
-            <label class="heading" for="TRAVIS_TAG">Name of your Distribution *</label>
-            <div class="input-group margin-bottom-sm">
-              <span class="input-group-addon"><i class="fa fa-address-book fa-fw"></i></span>
-              <input pattern="[A-Za-z0-9\s]{1,20}" class="form-control" placeholder="Enter name" name="TRAVIS_TAG"
-                required="" type="text" data-toggle="tooltip" title="Only alphanumeric characters allowed"></div>
-            <p class="hidden-text">Name of your custom distribution</p>
+          <div class="input">
+            <label>Name of your Distribution *</label>
+            <input type="text" pattern="[A-Za-z0-9\s]{1,20}" name="TRAVIS_TAG" required>
           </div>
-          <br>
-          <div class="form-group mouse-over-text">
-            <label class="heading" for="event_url">Browser Home Page </label>
-            <div class="input-group margin-bottom-sm">
-              <span class="input-group-addon"><i class="fa fa-window-maximize fa-fw"></i></span>
-              <input pattern="^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$" class="form-control" placeholder="Enter link" name="event_url" data-toggle="tooltip" title="only url is allowed"
-                 type="text"></div>
-            <p class="hidden-text">Default home page of the browser</p>
-          </div>
-          <br>
-          <div class="form-group mouse-over-text">
-            <label class="heading" for="search_engine">Default Search Engine</label>
-            <div class="input-group margin-bottom-sm">
-              <span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
-              <input pattern="^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$" class="form-control" placeholder="Enter link" name="search_engine" data-toggle="tooltip" title="only url is allowed"
-                 type="text"></div>
-            <p class="hidden-text">Default search engine of the browser</p>
-          </div>
-          <br>
-          <div class="form-group">
-            <label class="heading" for="bookmark">Packages that are checked will be installed<span>
-              </span></label>
-            <table class="table table-responsive">
-              <tbody>
-                <form>
-                  <tr>
-                    <td>
-                      <label class="switch">
-                        <input type="checkbox">
-                        <span class="slider round"></span>
-                      </label>
-                    </td>
-                    <td id="long">
-                      <div class="radiotext">
-                        <label for='express'>Supports 64 bit (Default 32 bit)</label>
-                      </div>
-                    </td>
-                  </tr>
-                </form>
-                <form>
-                  <tr>
-                    <td>
-                      <label class="switch">
-                        <input type="checkbox">
-                        <span class="slider round"></span>
-                      </label>
-                    </td>
-                    <td id="long">
-                      <div class="radiotext">
-                        <label for='express'>Notifications</label>
-                      </div>
-                    </td>
-
-                  </tr>
-                </form>
-                <form>
-                  <tr>
-                    <td>
-                      <label class="switch">
-                        <input type="checkbox">
-                        <span class="slider round"></span>
-                      </label>
-                    </td>
-
-                    <td id="long">
-                      <div class="radiotext">
-                        <label for='express'>Screensaver</label>
-                      </div>
-                    </td>
-                  </tr>
-                </form>
-                <form>
-                  <tr>
-                    <td>
-                      <label class="switch">
-                        <input type="checkbox">
-                        <span class="slider round"></span>
-                      </label>
-                    </td>
-                    <td id="long">
-                      <div class="radiotext">
-                        <label for='express'>Sleep Modus</label>
-                      </div>
-                    </td>
-
-                  </tr>
-                </form>
-                <form>
-                  <tr>
-                    <td>
-                      <label class="switch">
-                        <input type="checkbox">
-                        <span class="slider round"></span>
-                      </label>
-                    </td>
-                    <td id="long">
-                      <div class="radiotext">
-                        <label for='express'>System Sounds</label>
-                      </div>
-                    </td>
-
-                  </tr>
-                </form>
-                <form>
-                  <tr>
-                    <td>
-                      <label class="switch">
-                        <input type="checkbox">
-                        <span class="slider round"></span>
-                      </label>
-                    </td>
-                    <td id="long">
-                      <div class="radiotext">
-                        <label for='express'>Bookmarks</label>
-                      </div>
-                    </td>
-                  </tr>
-                </form>
-                <form>
-                  <tr>
-                    <td>
-                      <label class="switch">
-                        <input type="checkbox">
-                        <span class="slider round"></span>
-                      </label>
-                    </td>
-                    <td id="long">
-                      <div class="radiotext">
-                        <label for='express'>Screen Dimming</label>
-                      </div>
-                    </td>
-                  </tr>
-                </form>
-                <form>
-                  <tr>
-                    <td>
-                      <label class="switch">
-                        <input type="checkbox">
-                        <span class="slider round"></span>
-                      </label>
-                    </td>
-                    <td id="long">
-                      <div class="radiotext">
-                        <label for='express'>Power Management Saving Feature</label>
-                      </div>
-                    </td>
-                  </tr>
-                </form>
-                <form>
-                  <tr>
-                    <td>
-                      <label class="switch">
-                        <input type="checkbox">
-                        <span class="slider round"></span>
-                      </label>
-                    </td>
-                    <td id="long">
-                      <div class="radiotext">
-                        <label for='regular'>Taskbar Autohide</label>
-                      </div>
-                    </td>
-                  </tr>
-                </form>
-              </tbody>
-            </table>
-
-          </div>
-
-          <br>
-          <div class="form-group mouse-over-text">
-            <label class="heading" for="packages">Check the packages which you want to install: <span>
-                <p class="hidden-text">This will install the software which you have checked</p>
-              </span></label>
-            <table id="package" class="table responsive-table-input-matrix">
-              <tbody>
-                <tr>
-                  <td>
-                    <label class="label-big-check">
-                      <input type="checkbox" id="chromium" value="chromium" name="GENERATOR_package_chromium">
-                      <label for="chromium" class="check-title"></label>
-                    </label>
-                  </td>
-                  <td>Chromium</td>
-                </tr>
-                <tr>
-                  <td>
-                    <label class="label-big-check">
-                      <input type="checkbox" id="firefox" value="firefox" name="GENERATOR_package_firefox">
-                      <label for="firefox" class="check-title"></label>
-                    </label>
-                  </td>
-                  <td>Firefox</td>
-                </tr>
-                <tr>
-                  <td>
-                    <label class="label-big-check">
-                      <input type="checkbox" id="hangout" value="hangout" name="GENERATOR_package_hangout">
-                      <label for="hangout" class="check-title"></label>
-                    </label>
-                  </td>
-                  <td>Hangout</td>
-                </tr>
-                <tr>
-                  <td>
-                    <label class="label-big-check">
-                      <input type="checkbox" id="vlc" value="vlc" name="GENERATOR_package_vlc">
-                      <label for="vlc" class="check-title"></label>
-                    </label>
-                  </td>
-                  <td>VLC</td>
-                </tr>
-                <tr>
-                  <td>
-                    <label class="label-big-check">
-                      <input type="checkbox" id="gimp" value="gimp" name="GENERATOR_package_gimp">
-                      <label for="gimp" class="check-title"></label>
-                    </label>
-                  </td>
-                  <td>GIMP</td>
-                </tr>
-                <tr>
-                  <td>
-                    <label class="label-big-check">
-                      <input type="checkbox" id="inkspace" value="inkspace" name="GENERATOR_package_inkspace">
-                      <label for="inkspace" class="check-title"></label>
-                    </label>
-                  </td>
-                  <td>Inkscape</td>
-                </tr>
-                <tr>
-                  <td>
-                    <label class="label-big-check">
-                      <input type="checkbox" id="office" value="office" name="GENERATOR_package_office">
-                      <label for="office" class="check-title"></label>
-                    </label>
-                  </td>
-                  <td>LibreOffice</td>
-                </tr>
-                <tr>
-                  <td>
-                    <label class="label-big-check">
-                      <input type="checkbox" id="git" value="git" name="GENERATOR_package_git">
-                      <label for="git" class="check-title"></label>
-                    </label>
-                  </td>
-                  <td>Git</td>
-                </tr>
-                <tr>
-                  <td>
-                    <label class="label-big-check">
-                      <input type="checkbox" id="nextcloud" value="nextcloud" name="GENERATOR_package_nextcloud">
-                      <label for="nextcloud" class="check-title"></label>
-                    </label>
-                  </td>
-                  <td>NextCloud</td>
-                </tr>
-                <tr>
-                  <td>
-                    <label class="label-big-check">
-                      <input type="checkbox" id="dropbox" value="dropbox" name="GENERATOR_package_dropbox">
-                      <label for="dropbox" class="check-title"></label>
-                    </label>
-                  </td>
-                  <td>Dropbox</td>
-                </tr>
-              </tbody>
-
-            </table>
-            <br>
-          </div>
-
-          <div class="col-md-06">
-            <div class="form-group reducespace2 mouse-over-text">
-              <label class="heading" id="upload">Upload Desktop Wallpaper</label>
-              <label id="browse" class="btn btn-primary btn-block mx-auto">
-                <span data-toggle="tooltip" title=" REC size (1920X1080) or (1280X720)">Browse</span>
-                <input type="file" name="desktop-wallpaper" id="file" class="file form-control" title="Default Wallpaper Image" 
-                 onchange="$(this).prev('span').text($(this).val()!=''?$(this).val():'Browse')" accept="image/*" />
-              </label>
-              <span>
-                <p class="hidden-text">This will be the default background image of the desktop</p>
-              </span>
-              <img id="file-upload">
-              <img src="" id="preview">
-            </div>
-            <div class="form-group reducespace1 mouse-over-text">
-              <label class="heading" id="upload">Upload Default Logo</label>
-              <label id="browse" class="btn btn-primary btn-block mx-auto browse">
-                <span data-toggle="tooltip" title="Only svg files are allowed">Browse</span>
-                <input type="file" name="desktop-logo" id="file" class="file form-control" title="Default Desktop Logo" 
-                 onchange="$(this).prev('span').text($(this).val()!=''?$(this).val():'Browse')" accept=".svg" />
-              </label>
-              <span>
-                <p class="hidden-text">This will be the default logo of your ISO image</p>
-              </span>
-              <img id="file-upload">
-            </div>
-            <div class="form-group reducespace1 mouse-over-text">
-                <label class="heading" id="upload">Upload Desktop files (archive) </label>
-                <label id="browse1" class="btn btn-primary btn-block mx-auto">
-                  <span data-toggle="tooltip" title="Size less than 4 Mb">Browse</span>
-                  <input type="file" name="desktop-files" id="zip" accept=".zip, .gz" class="file form-control" title="Custom Files For Desktop"
-                  />
-                </label>
-                <span>
-                  <p class="hidden-text">These custom files will be kept in your Desktop</p>
-                </span>
-                
-            </div>
-          <div class="form-group">
-            <input class="btn btn-info btn-block mx-auto file-upload" id="file-upload" value="Build" required="" type="submit" />
-          </div>
-          </div>
-
         </div>
       </div>
-    </div>
-  </form>
-  <br>
+      <!-- Browser Configuration -->
+      <div class="row">
+        <div class="left">
+          <h4>Browser Configuration</h4>
+          <p>Your distro's browser default homepage and search engine.</p>
+        </div>
+        <div class="right">
+          <div class="input">
+            <label>Browser HomePage</label>
+            <input type="url" pattern="^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$" name="event_url">
+          </div>
+          <div class="input">
+            <label>Browser Search Engine</label>
+            <input type="url" pattern="^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$" name="search_engine">
+          </div>
+        </div>
+      </div>
+      <!-- 64bit Support -->
+      <div class="row single">
+        <div class="left">
+          <h4>64-bit Support</h4>
+          <p>Does your distribution needs 64bit support. <br> Default is 32bit.</p>
+        </div>
+        <div class="right">
+          <div class="input toggle">
+            <span>No</span>
+            <span>
+              <input type="checkbox" id="switch" class="toggle">
+              <label for="switch">Toggle</label>
+            </span>
+            <span>Yes</span>
+          </div>
+        </div>
+      </div>
+      <!-- Packages -->
+      <div class="row">
+        <div class="left">
+          <h4>Packages</h4>
+          <p>Enable or disable system features in your system.</p>
+        </div>
+        <div class="right">
+          <div class="table">
+            <div class="line">
+              <span>Notification</span>
+              <div class="input toggle">
+                <input type="checkbox" id="notification" class="toggle">
+                <label for="notification">Toggle</label>
+              </div>
+            </div>
+            <div class="line">
+              <span>Screensaver</span>
+              <div class="input toggle">
+                <input type="checkbox" id="screensaver" class="toggle">
+                <label for="screensaver">Toggle</label>
+              </div>
+            </div>
+            <div class="line">
+              <span>Sleep Modus</span>
+              <div class="input toggle">
+                <input type="checkbox" id="sleep" class="toggle">
+                <label for="sleep">Toggle</label>
+              </div>
+            </div>
+            <div class="line">
+              <span>System Sounds</span>
+              <div class="input toggle">
+                <input type="checkbox" id="sound" class="toggle">
+                <label for="sound">Toggle</label>
+              </div>
+            </div>
+            <div class="line">
+              <span>Bookmarks</span>
+              <div class="input toggle">
+                <input type="checkbox" id="bookmarks" class="toggle">
+                <label for="bookmarks">Toggle</label>
+              </div>
+            </div>
+            <div class="line">
+              <span>Screen Dimming</span>
+              <div class="input toggle">
+                <input type="checkbox" id="screen_dimming" class="toggle">
+                <label for="screen_dimming">Toggle</label>
+              </div>
+            </div>
+            <div class="line">
+              <span>Power Management Saving Feature</span>
+              <div class="input toggle">
+                <input type="checkbox" id="power_management" class="toggle">
+                <label for="power_management">Toggle</label>
+              </div>
+            </div>
+            <div class="line">
+              <span>Taskbar Autohide</span>
+              <div class="input toggle">
+                <input type="checkbox" id="taskbar_autohide" class="toggle">
+                <label for="taskbar_autohide">Toggle</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 3rd Party Softwares -->
+      <div class="row">
+        <div class="left">
+          <h4>3rd Party Software</h4>
+          <p>Select 3rd party softwares to be installed on your system.</p>
+        </div>
+        <div class="right">
+          <div class="input__less">
+            <label class="checkbox">
+              <input type="checkbox" value="chromium" name="GENERATOR_package_chromium">
+              <span>Chromium</span>
+            </label>
+          </div>
+          <div class="input__less">
+            <label class="checkbox">
+              <input type="checkbox" value="firefox" name="GENERATOR_package_firefox">
+              <span>Firefox</span>
+            </label>
+          </div>
+          <div class="input__less">
+            <label class="checkbox">
+              <input type="checkbox" value="hangout" name="GENERATOR_package_hangout">
+              <span>Hangout</span>
+            </label>
+          </div>
+          <div class="input__less">
+            <label class="checkbox">
+              <input type="checkbox" value="vlc" name="GENERATOR_package_vlc">
+              <span>VLC</span>
+            </label>
+          </div>
+          <div class="input__less">
+            <label class="checkbox">
+              <input type="checkbox" value="gimp" name="GENERATOR_package_gimp">
+              <span>GIMP</span>
+            </label>
+          </div>
+          <div class="input__less">
+            <label class="checkbox">
+              <input type="checkbox" value="inkspace" name="GENERATOR_package_inkspace">
+              <span>Inkscape</span>
+            </label>
+          </div>
+          <div class="input__less">
+            <label class="checkbox">
+              <input type="checkbox" value="office" name="GENERATOR_package_office">
+              <span>LibreOffice</span>
+            </label>
+          </div>
+          <div class="input__less">
+            <label class="checkbox">
+              <input type="checkbox" value="git" name="GENERATOR_package_git">
+              <span>Git</span>
+            </label>
+          </div>
+          <div class="input__less">
+            <label class="checkbox">
+              <input type="checkbox" value="nextcloud" name="GENERATOR_package_nextcloud">
+              <span>NextCloud</span>
+            </label>
+          </div>
+          <div class="input__less">
+            <label class="checkbox">
+              <input type="checkbox" value="dropbox" name="GENERATOR_package_dropbox">
+              <span>Dropbox</span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <!-- Logo -->
+      <div class="row single">
+        <div class="left">
+          <h4>Logo</h4>
+          <p>Upload a Logo for your distribution</p>
+        </div>
+        <div class="right">
+          <div class="input custom__file__input">
+            <input type="file" hidden="hidden" name="desktop-logo" accept=".svg">
+            <span class="filename"></span>
+            <button type="button">Browse</button>
+          </div>
+        </div>
+      </div>
+      <!-- Wallpaper -->
+      <div class="row single">
+        <div class="left">
+          <h4>Wallpaper</h4>
+          <p>Upload a Wallpaper for your distribution</p>
+        </div>
+        <div class="right">
+          <div class="input custom__file__input">
+            <input type="file" hidden="hidden" name="desktop-wallpaper" accept="image/*">
+            <span class="filename"></span>
+            <button type="button">Browse</button>
+          </div>
+        </div>
+      </div>
+      <!-- Desktop files -->
+      <div class="row single">
+        <div class="left">
+          <h4>Desktop files</h4>
+          <p>Custom files to be kept on your desktop (archive).</p>
+        </div>
+        <div class="right">
+          <div class="input custom__file__input">
+            <input type="file" hidden="hidden" name="desktop-files" accept=".zip, .gz">
+            <span class="filename"></span>
+            <button type="button">Browse</button>
+          </div>
+        </div>
+      </div>
+      <div class="submit_button">
+        <button type="Submit" class="btn-dark">Build</button>
+      </div>
+    </form>
+  </div>
+</main>
+
 {% endblock %}

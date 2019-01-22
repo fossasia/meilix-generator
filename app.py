@@ -2,11 +2,13 @@ import base64  # for encoding the script for variable
 
 import os
 import re
-from flask import Flask, render_template, request, redirect, url_for, send_from_directory
+from flask import Flask, flash, render_template, request, redirect, url_for, send_from_directory
 from werkzeug import secure_filename
 
 # These are the extension that we are accepting to be uploaded
-ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'svg', 'gz','zip'])
+ALLOWED_EXTENSIONS_WALLPAPERS = set(['png', 'jpg', 'jpeg'])
+ALLOWED_EXTENSIONS_LOGO = set(['svg'])
+ALLOWED_EXTENSIONS_ZIP = set(['gz','zip'])
 
 #The name of the upload directories
 UPLOAD_FOLDER = 'uploads/'
@@ -16,6 +18,7 @@ ZIP_FOLDER = 'zip-archives/'
 
 # Initialize the Flask application
 app = Flask(__name__)
+app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
 # This is the path to the upload directory
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -25,13 +28,20 @@ app.config['WALLPAPER_FOLDER'] = WALLPAPER_FOLDER
 
 # The maximum file size
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
+flag = None
 
-
-def allowed_file(filename):
-    # Check for allowed file extension
+def allowed_wallpapers(filename):
+    # Check for allowed file extension for wallpapers
     return '.' in filename and \
-           filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
+           filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS_WALLPAPERS
 
+def allowed_logos(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS_LOGO
+
+def allowed_zip_files(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS_ZIP
 
 def urlify(s):
     """Remove all non-word characters (everything except numbers and letters)"""
@@ -42,24 +52,36 @@ def urlify(s):
 
 def upload_wallpaper(wallpaper):
     if wallpaper:
-        if allowed_file(wallpaper.filename):
+        if allowed_wallpapers(wallpaper.filename):
             filename = secure_filename(wallpaper.filename)
             wallpaper.save(os.path.join(app.config['UPLOAD_FOLDER'] + app.config['WALLPAPER_FOLDER'], filename))
             os.rename(UPLOAD_FOLDER + WALLPAPER_FOLDER + filename, UPLOAD_FOLDER + WALLPAPER_FOLDER + 'wallpaper')
         else: 
-                 
+              flash('Wallpaper not saved, extension not allowed')
+              global flag
+              flag = False
 
 def upload_logo(logo):
-    if logo and allowed_file(logo.filename):
+    if logo:
+        if allowed_logos(logo.filename):
             filename = secure_filename(logo.filename)
             logo.save(os.path.join(app.config['UPLOAD_FOLDER'] + app.config['LOGO_FOLDER'], filename))
             os.rename(UPLOAD_FOLDER + LOGO_FOLDER + filename, UPLOAD_FOLDER + LOGO_FOLDER + 'logo')
+        else:
+            flash('Logo not saved, extension not allowed')
+            global flag
+            flag = False
 
 def upload_zip(zipFiles):
-    if zipFiles and allowed_file(zipFiles.filename):
+    if zipFiles:
+        if allowed_zip_files(zipFiles.filename):
             filename = secure_filename(zipFiles.filename)
             zipFiles.save(os.path.join(app.config['UPLOAD_FOLDER'] + app.config['ZIP_FOLDER'], filename))
             os.rename(UPLOAD_FOLDER + ZIP_FOLDER + filename, UPLOAD_FOLDER + ZIP_FOLDER + 'zip-file')
+        else:
+            flash('Zip File not saved, extension not allowed')
+            global flag
+            flag = False
 
 @app.route("/", methods=['GET', 'POST'])
 def index():
@@ -90,13 +112,16 @@ def index():
 
 @app.route('/output')
 def output():
-    if os.environ['TRAVIS_TAG']:  # if TRAVIS_TAG have value it will proceed
-        os.system('./script.sh')
-        print ('/build called')
-        return render_template('build.html')
+    if flag:
+        print 'hello'
+        if os.environ['TRAVIS_TAG']:  # if TRAVIS_TAG have value it will proceed
+            os.system('./script.sh')
+            print ('/build called')
+            return render_template('build.html')
+        else:
+            return redirect(url_for('index'))
     else:
-        return redirect(url_for('index'))
-
+        return render_template('build.html')
 
 # Function to call meilix script on clicking the build button
 

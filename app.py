@@ -28,7 +28,7 @@ app.config['WALLPAPER_FOLDER'] = WALLPAPER_FOLDER
 
 # The maximum file size
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
-flag = None
+flag = True
 
 def allowed_wallpapers(filename):
     # Check for allowed file extension for wallpapers
@@ -113,7 +113,6 @@ def index():
 @app.route('/output')
 def output():
     if flag:
-        print 'hello'
         if os.environ['TRAVIS_TAG']:  # if TRAVIS_TAG have value it will proceed
             os.system('./script.sh')
             print ('/build called')

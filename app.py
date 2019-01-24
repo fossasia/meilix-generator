@@ -57,9 +57,9 @@ def upload_wallpaper(wallpaper):
             wallpaper.save(os.path.join(app.config['UPLOAD_FOLDER'] + app.config['WALLPAPER_FOLDER'], filename))
             os.rename(UPLOAD_FOLDER + WALLPAPER_FOLDER + filename, UPLOAD_FOLDER + WALLPAPER_FOLDER + 'wallpaper')
         else: 
-              flash('Wallpaper not saved, extension not allowed')
-              global flag
-              flag = False
+            flash('Wallpaper not saved, extension not allowed')
+            global flag
+            flag = False
 
 def upload_logo(logo):
     if logo:

@@ -1,6 +1,18 @@
 {% extends 'layout.html' %}
 {% block body %}
 <div class="container notfound">
-  <p><strong>Success!</strong> Email will be sent with the downloadable ISO link once it is ready</p>
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <div class=flashes>
+    {% for message in messages %}
+      <p>{{ message }}</p>
+    {% endfor %}
+      <p><strong>Failure!</strong> Not able to make the ISO with given selections </p>
+    </div>
+  {% else %}
+    <p><strong>Success!</strong> Email will be sent with the downloadable ISO link once it is ready</p>  
+  {% endif %}
+{% endwith %}
+
 </div>
 {% endblock %}

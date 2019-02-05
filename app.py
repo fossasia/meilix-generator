@@ -2,8 +2,10 @@ import base64  # for encoding the script for variable
 
 import os
 import re
+import json
 from flask import Flask, flash, render_template, request, redirect, url_for, send_from_directory
 from werkzeug import secure_filename
+from decimal import Decimal
 
 # These are the extension that we are accepting to be uploaded
 ALLOWED_EXTENSIONS_WALLPAPERS = set(['png', 'jpg', 'jpeg'])
@@ -93,6 +95,7 @@ def index():
         for name, value in request.form.items():
           if name.startswith("GENERATOR_"):
             variables[name] = value
+        features = json.dumps(variables, ensure_ascii=False)
         wallpaper = request.files["desktop-wallpaper"]
         upload_wallpaper(wallpaper)
         logo = request.files["desktop-logo"]
@@ -104,6 +107,7 @@ def index():
             TRAVIS_TAG = urlify(TRAVIS_TAG)  # this will fix url issue
             os.environ["TRAVIS_TAG"] = TRAVIS_TAG
             os.environ["event_url"] = event_url
+            os.environ["features"] = features
             with open('travis_script_1.sh', 'rb') as f:
                 os.environ["TRAVIS_SCRIPT"] = str(base64.b64encode(f.read()))[1:]
             return redirect(url_for('output'))

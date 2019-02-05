@@ -5,7 +5,7 @@ import re
 import json
 from flask import Flask, flash, render_template, request, redirect, url_for, send_from_directory
 from werkzeug import secure_filename
-from decimal import Decimal
+
 
 # These are the extension that we are accepting to be uploaded
 ALLOWED_EXTENSIONS_WALLPAPERS = set(['png', 'jpg', 'jpeg'])

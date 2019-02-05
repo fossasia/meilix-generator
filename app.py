@@ -2,6 +2,7 @@ import base64  # for encoding the script for variable
 
 import os
 import re
+import build
 from flask import Flask, flash, render_template, request, redirect, url_for, send_from_directory
 from werkzeug import secure_filename
 

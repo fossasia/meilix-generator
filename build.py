@@ -20,7 +20,7 @@ def send_trigger_request(email, TRAVIS_TAG, event_url, TRAVIS_SCRIPT):
     request_body['request'] = request
     request_body = json.dumps(request_body)
     headers = { "Content-Type": "application/json", "Accept": "application/json", "Travis-API-Version": "3", "Authorization": "token {}".format(os.environ.get('KEY', None))}
-    
+
     response = requests.post(travis_api_url, headers=headers, data=request_body)
 
     if response.status_code == 202:

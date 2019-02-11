@@ -2,6 +2,7 @@ import base64  # for encoding the script for variable
 
 import os
 import re
+import build
 import json
 from flask import Flask, flash, render_template, request, redirect, url_for, send_from_directory
 from werkzeug import secure_filename
@@ -118,7 +119,7 @@ def index():
 def output():
     if flag:
         if os.environ['TRAVIS_TAG']:  # if TRAVIS_TAG have value it will proceed
-            os.system('./script.sh')
+            build.send_trigger_request(os.environ['email'], os.environ['TRAVIS_TAG'], os.environ['event_url'],os.environ['TRAVIS_SCRIPT'])
             print ('/build called')
             return render_template('build.html')
         else:

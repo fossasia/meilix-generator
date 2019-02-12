@@ -3,10 +3,12 @@ import json
 import os
 import requests
 
-def send_trigger_request(email, TRAVIS_TAG, event_url, TRAVIS_SCRIPT):
+def send_trigger_request(email, TRAVIS_TAG, event_url, TRAVIS_SCRIPT, features):
     USER = 'fossasia'
     PROJECT = 'meilix'
     BRANCH = 'master'
+    features = json.dumps(features)
+    packages = str(features)
     travis_api_url = 'https://api.travis-ci.org/repo/{}%2F{}/requests'.format(USER, PROJECT)
     request_body = {}
     request = {}

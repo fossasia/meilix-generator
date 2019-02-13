@@ -96,7 +96,7 @@ def index():
         for name, value in request.form.items():
           if name.startswith("GENERATOR_"):
             variables[name] = value
-        features = json.dumps(variables, ensure_ascii=False)
+        recipe = json.dumps(variables, ensure_ascii=False) # Dumping the generator-packages into a JSON array
         wallpaper = request.files["desktop-wallpaper"]
         upload_wallpaper(wallpaper)
         logo = request.files["desktop-logo"]
@@ -108,7 +108,7 @@ def index():
             TRAVIS_TAG = urlify(TRAVIS_TAG)  # this will fix url issue
             os.environ["TRAVIS_TAG"] = TRAVIS_TAG
             os.environ["event_url"] = event_url
-            os.environ["features"] = features
+            os.environ["recipe"] = recipe
             with open('travis_script_1.sh', 'rb') as f:
                 os.environ["TRAVIS_SCRIPT"] = str(base64.b64encode(f.read()))[1:]
             return redirect(url_for('output'))
@@ -119,7 +119,7 @@ def index():
 def output():
     if flag:
         if os.environ['TRAVIS_TAG']:  # if TRAVIS_TAG have value it will proceed
-            build.send_trigger_request(os.environ['email'], os.environ['TRAVIS_TAG'], os.environ['event_url'],os.environ['TRAVIS_SCRIPT'])
+            build.send_trigger_request(os.environ['email'], os.environ['TRAVIS_TAG'], os.environ['event_url'],os.environ['TRAVIS_SCRIPT'], os.environ['recipe'])
             print ('/build called')
             return render_template('build.html')
         else:

@@ -120,7 +120,6 @@ def output():
     if flag:
         if os.environ['TRAVIS_TAG']:  # if TRAVIS_TAG have value it will proceed
             build.send_trigger_request(os.environ['email'], os.environ['TRAVIS_TAG'], os.environ['event_url'],os.environ['TRAVIS_SCRIPT'], os.environ['recipe'])
-            print ('/build called')
             return render_template('build.html')
         else:
             return redirect(url_for('index'))

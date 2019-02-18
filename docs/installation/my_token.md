@@ -4,20 +4,11 @@ Travis builds require special credentials to be triggered over Travis API.
 
 **You need to have a clone of meilix-generator and meilix, so that you can control them and deploy your own builds. Enable Travis builds on your meilix repo.**
 
-
-## [travis_tokens](/travis_tokens)
-
-This file specifies on which repo to trigger build on and which branch to use. It looks like
-
-```
-<username> <repo_name> <branch>
-```
-
-> **Note:** For your own development be sure to change these tokens.
+**Note:** For local development be sure to change the `USER`, `PROJECT`, `BRANCH` variables to `<username>`, `<repo_name>`,`<branch>` respectively in [build.py](../../build.py).
 
 ## Generate travis keys
 
-To trigger builds on travis you need Travis API key. In `script.sh` we use the API key to trigger the build.
+To trigger builds on travis you need Travis API key. In , [build.py](../../build.py) we use the API key to trigger the build.
 
 To generate travis token [install it](https://github.com/travis-ci/travis.rb#installation) and run
 
@@ -35,8 +26,18 @@ $ cd meilix
 $ travis token
 ```
 
-Now use the access token to specify an environment variable `KEY` on your development instance(say Heroku) where meilix-generator is hosted.
-`script.sh` uses this `KEY` to trigger a build on Travis.
+## Managing heroku config vars using heroku cli
+
+We will use the heroku cli to set an environment variable `KEY` for your development instance (Heroku) where your webapp is hosted.  
+[build.py](../../build.py) uses this `KEY` to trigger a build on Travis.
+
+``` bash
+# Setting a config var KEY
+$ heroku config:set KEY=<travis_token>
+
+# Viewing current config values
+$ heroku config
+```
 
 To publish releases on GitHub you need to setup your release key
 

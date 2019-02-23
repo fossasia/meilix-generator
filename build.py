@@ -3,7 +3,7 @@ import json
 import os
 import requests
 
-def send_trigger_request(email, TRAVIS_TAG, event_url, TRAVIS_SCRIPT, recipe):
+def send_trigger_request(email, TRAVIS_TAG, event_url, TRAVIS_SCRIPT, recipe, processor):
     USER = 'fossasia'
     PROJECT = 'meilix'
     BRANCH = 'master'
@@ -19,6 +19,7 @@ def send_trigger_request(email, TRAVIS_TAG, event_url, TRAVIS_SCRIPT, recipe):
     request['config']['env']['event_url'] = event_url
     request['config']['env']['TRAVIS_SCRIPT'] = TRAVIS_SCRIPT
     request['config']['env']['recipe'] = softwares
+    request['config']['env']['processor'] = processor
     request_body['request'] = request
     request_body = json.dumps(request_body)
     headers = { "Content-Type": "application/json", "Accept": "application/json", "Travis-API-Version": "3", "Authorization": "token {}".format(os.environ.get('KEY', None))}

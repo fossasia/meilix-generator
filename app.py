@@ -95,10 +95,10 @@ def index():
         variables = {}
         processor = ""
         for name, value in request.form.items():
-          if name == "processor":
-            processor = value   
-          if name.startswith("GENERATOR_"):
-            variables[name] = value
+            if name == "processor":
+                processor = value   
+            if name.startswith("GENERATOR_"):
+                variables[name] = value
         recipe = json.dumps(variables, ensure_ascii=False) # Dumping the generator-packages into a JSON array
         wallpaper = request.files["desktop-wallpaper"]
         upload_wallpaper(wallpaper)

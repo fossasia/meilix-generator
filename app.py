@@ -93,9 +93,12 @@ def index():
         TRAVIS_TAG = request.form['TRAVIS_TAG']
         event_url = request.form['event_url']
         variables = {}
+        features = {}
         for name, value in request.form.items():
-          if name.startswith("GENERATOR_"):
-            variables[name] = value
+            if name.startswith("GENERATOR_package_"):
+                variables[name] = value
+            if name.startswith("GENERATOR_feature_"):
+                features[name] = value
         recipe = json.dumps(variables, ensure_ascii=False) # Dumping the generator-packages into a JSON array
         wallpaper = request.files["desktop-wallpaper"]
         upload_wallpaper(wallpaper)

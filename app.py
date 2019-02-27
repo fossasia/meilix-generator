@@ -95,9 +95,9 @@ def index():
         variables = {}
         features = {}
         for name, value in request.form.items():
-            if name.startswith("GENERATOR_package_"):
+            if name.startswith("INSTALL_"):
                 variables[name] = value
-            if name.startswith("GENERATOR_feature_"):
+            if name.startswith("SWITCH_ON_"):
                 features[name] = value
         recipe = json.dumps(variables, ensure_ascii=False) # Dumping the generator-packages into a JSON array
         wallpaper = request.files["desktop-wallpaper"]

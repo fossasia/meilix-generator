@@ -102,7 +102,6 @@ def index():
                 variables[name] = value
             if name.startswith("SWITCH_ON_"):
                 features[name] = value
-        print processor
         recipe = json.dumps(variables, ensure_ascii=False) # Dumping the generator-packages into a JSON array
         wallpaper = request.files["desktop-wallpaper"]
         upload_wallpaper(wallpaper)

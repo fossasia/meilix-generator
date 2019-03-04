@@ -94,7 +94,10 @@ def index():
         event_url = request.form['event_url']
         variables = {}
         features = {}
+        processor = ""
         for name, value in request.form.items():
+            if name == "processor":
+                processor = value
             if name.startswith("INSTALL_"):
                 variables[name] = value
             if name.startswith("SWITCH_ON_"):
@@ -112,6 +115,7 @@ def index():
             os.environ["TRAVIS_TAG"] = TRAVIS_TAG
             os.environ["event_url"] = event_url
             os.environ["recipe"] = recipe
+            os.environ["processor"] = processor
             with open('travis_script_1.sh', 'rb') as f:
                 os.environ["TRAVIS_SCRIPT"] = str(base64.b64encode(f.read()))[1:]
             return redirect(url_for('output'))
@@ -122,7 +126,7 @@ def index():
 def output():
     if flag:
         if os.environ['TRAVIS_TAG']:  # if TRAVIS_TAG have value it will proceed
-            build.send_trigger_request(os.environ['email'], os.environ['TRAVIS_TAG'], os.environ['event_url'],os.environ['TRAVIS_SCRIPT'], os.environ['recipe'])
+            build.send_trigger_request(os.environ['email'], os.environ['TRAVIS_TAG'], os.environ['event_url'],os.environ['TRAVIS_SCRIPT'], os.environ['recipe'], os.environ['processor'])
             return render_template('build.html')
         else:
             return redirect(url_for('index'))

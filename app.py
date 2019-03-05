@@ -103,6 +103,7 @@ def index():
             if name.startswith("SWITCH_ON_"):
                 features[name] = value
         recipe = json.dumps(variables, ensure_ascii=False) # Dumping the generator-packages into a JSON array
+        feature = json.dumps(features, ensure_ascii=False) # Dumping the chosen features into a JSON objects
         wallpaper = request.files["desktop-wallpaper"]
         upload_wallpaper(wallpaper)
         logo = request.files["desktop-logo"]
@@ -116,6 +117,7 @@ def index():
             os.environ["event_url"] = event_url
             os.environ["recipe"] = recipe
             os.environ["processor"] = processor
+            os.environ["feature"] = feature
             with open('travis_script_1.sh', 'rb') as f:
                 os.environ["TRAVIS_SCRIPT"] = str(base64.b64encode(f.read()))[1:]
             return redirect(url_for('output'))
@@ -126,7 +128,7 @@ def index():
 def output():
     if flag:
         if os.environ['TRAVIS_TAG']:  # if TRAVIS_TAG have value it will proceed
-            build.send_trigger_request(os.environ['email'], os.environ['TRAVIS_TAG'], os.environ['event_url'],os.environ['TRAVIS_SCRIPT'], os.environ['recipe'], os.environ['processor'])
+            build.send_trigger_request(os.environ['email'], os.environ['TRAVIS_TAG'], os.environ['event_url'],os.environ['TRAVIS_SCRIPT'], os.environ['recipe'], os.environ['processor'], os.environ['feature'])
             return render_template('build.html')
         else:
             return redirect(url_for('index'))

@@ -94,7 +94,7 @@ def index():
         event_url = request.form['event_url']
         variables = {}
         features = {}
-        processor = ""
+        processor = "amd64" # This will fixe build failure when 32bit is not chosen
         for name, value in request.form.items():
             if name == "processor":
                 processor = value

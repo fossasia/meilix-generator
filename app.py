@@ -21,7 +21,9 @@ ZIP_FOLDER = 'zip-archives/'
 
 # Initialize the Flask application
 app = Flask(__name__)
-app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
+
+# Initializing flask secret key using the environment variable "secret_key"
+app.secret_key = os.environ.get('secret_key', 'z528&^FJjhd_t2bxc#$2').encode()
 
 # This is the path to the upload directory
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER

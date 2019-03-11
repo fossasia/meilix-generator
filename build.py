@@ -32,5 +32,5 @@ def send_trigger_request(email, TRAVIS_TAG, event_url, TRAVIS_SCRIPT, recipe, pr
         print('Trigger successful')
     else:
         print('Trigger failed, response code {}'.format(response.status_code))
-
+    return(response.status_code)
 

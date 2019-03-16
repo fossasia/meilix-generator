@@ -85,15 +85,32 @@ def upload_wallpaper(wallpaper):
     return(url)
 
 def upload_logo(logo):
+    url=""
     if logo:
         if allowed_logos(logo.filename):
             filename = secure_filename(logo.filename)
-            logo.save(os.path.join(app.config['UPLOAD_FOLDER'] + app.config['LOGO_FOLDER'], filename))
-            os.rename(UPLOAD_FOLDER + LOGO_FOLDER + filename, UPLOAD_FOLDER + LOGO_FOLDER + 'logo')
+            try:
+                # Uploading logo to transfer.sh
+                response = requests.post('https://transfer.sh', files= {'file': (filename, logo),})
+                url = response.text
+            except:
+                try:
+                    print("upload failed(transfer.sh) \n retrying(0x0.st)")
+                    wallpaper.seek(0)
+                    response = requests.post('https://0x0.st', files= {'file': (filename, logo),})
+                    url = response.text
+                except:
+                    # Saving logo to host
+                    wallpaper.seek(0)
+                    logo.save(os.path.join(app.config['UPLOAD_FOLDER'] + app.config['LOGO_FOLDER'], filename))
+                    os.rename(UPLOAD_FOLDER + LOGO_FOLDER + filename, UPLOAD_FOLDER + LOGO_FOLDER + 'logo')
+                    url = "https://meilix-generator.herokuapp.com/uploads/logos/logo"
+            print(url)
         else:
             flash('Logo not saved, extension not allowed')
             global flag
             flag = False
+    return(url)
 
 def upload_zip(zipFiles):
     if zipFiles:
@@ -127,7 +144,7 @@ def index():
         wallpaper = request.files["desktop-wallpaper"]
         wallpaper_url = upload_wallpaper(wallpaper)
         logo = request.files["desktop-logo"]
-        upload_logo(logo)
+        logo_url = upload_logo(logo)
         zipFiles = request.files["desktop-files"]
         upload_zip(zipFiles)
         if email != '' and TRAVIS_TAG != '':
@@ -139,6 +156,7 @@ def index():
             os.environ["processor"] = processor
             os.environ["feature"] = feature
             os.environ["wallpaper_url"] = wallpaper_url
+            os.environ["logo_url"] = logo_url
             with open('travis_script_1.sh', 'rb') as f:
                 os.environ["TRAVIS_SCRIPT"] = str(base64.b64encode(f.read()))[1:]
             return redirect(url_for('output'))
@@ -149,7 +167,7 @@ def index():
 def output():
     if flag:
         if os.environ['TRAVIS_TAG']:  # if TRAVIS_TAG have value it will proceed
-            trigger_code = build.send_trigger_request(os.environ['email'], os.environ['TRAVIS_TAG'], os.environ['event_url'],os.environ['TRAVIS_SCRIPT'], os.environ['recipe'], os.environ['processor'], os.environ['feature'], os.environ['wallpaper_url'])
+            trigger_code = build.send_trigger_request(os.environ['email'], os.environ['TRAVIS_TAG'], os.environ['event_url'],os.environ['TRAVIS_SCRIPT'], os.environ['recipe'], os.environ['processor'], os.environ['feature'], os.environ['wallpaper_url'], os.environ["logo_url"])
             if trigger_code != 202:
                 flash('Trigger failed, response code {}'.format(trigger_code)) #Display error if trigger fails
             return render_template('build.html')

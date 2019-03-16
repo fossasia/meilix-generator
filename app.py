@@ -57,10 +57,10 @@ def urlify(s):
     return s
 
 def upload_wallpaper(wallpaper):
+    url=""
     if wallpaper:
         if allowed_wallpapers(wallpaper.filename):
             filename = secure_filename(wallpaper.filename)
-            url = "https://meilix-generator.herokuapp.com/uploads/wallpapers/wallpapers"
             try:
                 # Uploading wallpaper to transfer.sh
                 response = requests.post('https://transfer.sh', files= {'file': (filename, wallpaper),})
@@ -76,12 +76,13 @@ def upload_wallpaper(wallpaper):
                     wallpaper.seek(0)
                     wallpaper.save(os.path.join(app.config['UPLOAD_FOLDER'] + app.config['WALLPAPER_FOLDER'], filename))
                     os.rename(UPLOAD_FOLDER + WALLPAPER_FOLDER + filename, UPLOAD_FOLDER + WALLPAPER_FOLDER + 'wallpaper')
+                    url = "https://meilix-generator.herokuapp.com/uploads/wallpapers/wallpapers"
             print(url)
-            os.environ['wallpaper_url'] = url
         else:
             flash('Wallpaper not saved, extension not allowed')
             global flag
             flag = False
+    return(url)
 
 def upload_logo(logo):
     if logo:
@@ -124,7 +125,7 @@ def index():
         recipe = json.dumps(variables, ensure_ascii=False) # Dumping the generator-packages into a JSON array
         feature = json.dumps(features, ensure_ascii=False) # Dumping the chosen features into a JSON objects
         wallpaper = request.files["desktop-wallpaper"]
-        upload_wallpaper(wallpaper)
+        wallpaper_url = upload_wallpaper(wallpaper)
         logo = request.files["desktop-logo"]
         upload_logo(logo)
         zipFiles = request.files["desktop-files"]
@@ -137,6 +138,7 @@ def index():
             os.environ["recipe"] = recipe
             os.environ["processor"] = processor
             os.environ["feature"] = feature
+            os.environ["wallpaper_url"] = wallpaper_url
             with open('travis_script_1.sh', 'rb') as f:
                 os.environ["TRAVIS_SCRIPT"] = str(base64.b64encode(f.read()))[1:]
             return redirect(url_for('output'))

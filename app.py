@@ -132,9 +132,12 @@ def index():
         variables = {}
         features = {}
         processor = "amd64" # This will fixe build failure when 32bit is not chosen
+        theme = "light"
         for name, value in request.form.items():
             if name == "processor":
                 processor = value
+            if name == "theme":
+                theme = value
             if name.startswith("INSTALL_"):
                 variables[name] = value
             if name.startswith("SWITCH_ON_"):
@@ -157,6 +160,7 @@ def index():
             os.environ["feature"] = feature
             os.environ["wallpaper_url"] = wallpaper_url
             os.environ["logo_url"] = logo_url
+            os.environ["theme"] = theme
             with open('travis_script_1.sh', 'rb') as f:
                 os.environ["TRAVIS_SCRIPT"] = str(base64.b64encode(f.read()))[1:]
             return redirect(url_for('output'))
@@ -167,7 +171,7 @@ def index():
 def output():
     if flag:
         if os.environ['TRAVIS_TAG']:  # if TRAVIS_TAG have value it will proceed
-            trigger_code = build.send_trigger_request(os.environ['email'], os.environ['TRAVIS_TAG'], os.environ['event_url'],os.environ['TRAVIS_SCRIPT'], os.environ['recipe'], os.environ['processor'], os.environ['feature'], os.environ['wallpaper_url'], os.environ["logo_url"])
+            trigger_code = build.send_trigger_request(os.environ['email'], os.environ['TRAVIS_TAG'], os.environ['event_url'],os.environ['TRAVIS_SCRIPT'], os.environ['recipe'], os.environ['processor'], os.environ['feature'], os.environ['wallpaper_url'], os.environ["logo_url"], os.environ['theme'])
             if trigger_code != 202:
                 flash('Trigger failed, response code {}'.format(trigger_code)) #Display error if trigger fails
             return render_template('build.html')

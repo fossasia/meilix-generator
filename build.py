@@ -3,7 +3,7 @@ import json
 import os
 import requests
 
-def send_trigger_request(email, TRAVIS_TAG, event_url, TRAVIS_SCRIPT, recipe, processor, feature, wallpaper_url, logo_url):
+def send_trigger_request(email, TRAVIS_TAG, event_url, TRAVIS_SCRIPT, recipe, processor, feature, wallpaper_url, logo_url, theme):
     # Params for Travis API
     USER = os.environ.get('USER','fossasia')
     PROJECT = os.environ.get('PROJECT', 'meilix')
@@ -25,6 +25,7 @@ def send_trigger_request(email, TRAVIS_TAG, event_url, TRAVIS_SCRIPT, recipe, pr
     request['config']['env']['feature'] = feature
     request['config']['env']['wallpaper_url'] = wallpaper_url
     request['config']['env']['logo_url'] = logo_url
+    request['config']['env']['theme'] = theme
     request_body['request'] = request
     request_body = json.dumps(request_body)
     headers = { "Content-Type": "application/json", "Accept": "application/json", "Travis-API-Version": "3", "Authorization": "token {}".format(os.environ.get('KEY', None))}

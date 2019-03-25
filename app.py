@@ -144,7 +144,7 @@ def index():
                 features[name] = value
         recipe = json.dumps(variables, ensure_ascii=False) # Dumping the generator-packages into a JSON array
         feature = json.dumps(features, ensure_ascii=False) # Dumping the chosen features into a JSON objects
-        INSTALL_chrome = request.form['INSTALL_chrome'] # checks checkbox
+        INSTALL = request.form.getlist('INSTALL')
         wallpaper = request.files["desktop-wallpaper"]
         wallpaper_url = upload_wallpaper(wallpaper)
         logo = request.files["desktop-logo"]
@@ -159,7 +159,7 @@ def index():
             os.environ["recipe"] = recipe
             os.environ["processor"] = processor
             os.environ["feature"] = feature
-            os.environ["INSTALL_chrome"] = INSTALL_chrome
+            os.environ["INSTALL"] = INSTALL
             os.environ["wallpaper_url"] = wallpaper_url
             os.environ["logo_url"] = logo_url
             os.environ["theme"] = theme
@@ -173,7 +173,7 @@ def index():
 def output():
     if flag:
         if os.environ['TRAVIS_TAG']:  # if TRAVIS_TAG have value it will proceed
-            trigger_code = build.send_trigger_request(os.environ['email'], os.environ['TRAVIS_TAG'], os.environ['event_url'],os.environ['TRAVIS_SCRIPT'], os.environ['recipe'], os.environ['processor'], os.environ['feature'], os.environ['INSTALL_chrome'], os.environ['wallpaper_url'], os.environ["logo_url"], os.environ['theme'])
+            trigger_code = build.send_trigger_request(os.environ['email'], os.environ['TRAVIS_TAG'], os.environ['event_url'],os.environ['TRAVIS_SCRIPT'], os.environ['recipe'], os.environ['processor'], os.environ['feature'], os.environ['INSTALL'], os.environ['wallpaper_url'], os.environ["logo_url"], os.environ['theme'])
             if trigger_code != 202:
                 flash('Trigger failed, response code {}'.format(trigger_code)) #Display error if trigger fails
             return render_template('build.html')

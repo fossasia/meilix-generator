@@ -11,5 +11,5 @@ gunicorn==19.7.1
 itsdangerous==0.24        # via flask
 Jinja2>=2.10.1            # via flask
 MarkupSafe>=1.0           # via jinja2
-Werkzeug==0.12.2          # via flask
+Werkzeug>=0.15.3          # via flask
 requests==2.21.0

@@ -36,18 +36,9 @@ app.config['WALLPAPER_FOLDER'] = WALLPAPER_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 flag = True
 
-def allowed_wallpapers(filename):
-    # Check for allowed file extension for wallpapers
+def allowed_file(filename,allowed_extension):
     return '.' in filename and \
-           filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS_WALLPAPERS
-
-def allowed_logos(filename):
-    return '.' in filename and \
-           filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS_LOGO
-
-def allowed_zip_files(filename):
-    return '.' in filename and \
-           filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS_ZIP
+           filename.rsplit('.', 1)[1] in allowed_extension
 
 def urlify(s):
     """Remove all non-word characters (everything except numbers and letters)"""
@@ -59,7 +50,7 @@ def urlify(s):
 def upload_wallpaper(wallpaper):
     url=""
     if wallpaper:
-        if allowed_wallpapers(wallpaper.filename):
+        if allowed_file(wallpaper.filename, ALLOWED_EXTENSIONS_WALLPAPERS):
             filename = secure_filename(wallpaper.filename)
             try:
                 # Uploading wallpaper to transfer.sh
@@ -87,7 +78,7 @@ def upload_wallpaper(wallpaper):
 def upload_logo(logo):
     url=""
     if logo:
-        if allowed_logos(logo.filename):
+        if allowed_file(logo.filename, ALLOWED_EXTENSIONS_LOGO):
             filename = secure_filename(logo.filename)
             try:
                 # Uploading logo to transfer.sh
@@ -114,7 +105,7 @@ def upload_logo(logo):
 
 def upload_zip(zipFiles):
     if zipFiles:
-        if allowed_zip_files(zipFiles.filename):
+        if allowed_file(zipFiles.filename, ALLOWED_EXTENSIONS_ZIP):
             filename = secure_filename(zipFiles.filename)
             zipFiles.save(os.path.join(app.config['UPLOAD_FOLDER'] + app.config['ZIP_FOLDER'], filename))
             os.rename(UPLOAD_FOLDER + ZIP_FOLDER + filename, UPLOAD_FOLDER + ZIP_FOLDER + 'zip-file')

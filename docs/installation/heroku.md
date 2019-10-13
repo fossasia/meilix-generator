@@ -48,7 +48,7 @@ https://your-heroku-app-name.herokuapp.com/ | https://git.heroku.com/your-heroku
 
 **Note:** replace `<your-heroku-app-name>` with your heroku app name, and `<username>` with your GitHub username
 
-Check if heroku's git url is added into the remote
+Check if Heroku's git URL is added into the remote
 
 ``` bash
 $ git remote -v
